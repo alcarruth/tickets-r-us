@@ -1,0 +1,88 @@
+
+
+Tables
+-------
+ - User
+ - Ticket
+ - Game
+ - Team
+ - Conference
+ - Keyword
+
+Relationships
+--------------
+ - Ticket *-1 User 
+ - Ticket *-1 Game
+ - Ticket *-* Keyword
+ - Game *-1 Team (visiting team)
+ - Game *-1 Team (home team)
+ - Team *-1 Conference
+
+View Components
+----------------
+ - site name (header, footer)
+ - user (settings panel, admin panel)
+ - user_list (admin panel)
+ - user_login_link (header)
+ - user_login_prompt (login_panel)
+ - user_login_status (header)
+ - ticket (main_panel)
+ - ticket list (main_panel)
+ - game
+ - game list
+ - team
+ - team list
+ - conference
+ - conference list
+ - add ticket
+ - delete ticket
+
+Web Pages
+----------
+ - main page
+ - admin page
+ - user page
+ - category page
+ - item page
+
+Web Page Layout (panels)
+-------------------------
+ - header
+ - nav
+ - main panel
+ - footer
+
+Templates
+----------
+ - layout
+ - header
+ - footer
+ - nav
+ - main
+
+Object Superclass
+------------------
+ - object "know how" to render themselves
+ - txt, json, html, xml ...
+ - name, summary, detailed
+
+ [mixins, decorators, ...]
+
+Use Cases
+----------
+ - admin (authorized)
+   - login/logout
+   - user CRUD
+   - item CRUD
+   - category CRUD (or are they pre-defined / fixed)
+ - user (authorized)
+   - login/logout
+   - item CRUD
+   - list items owned by user
+ - visitor (unauthorized)
+   - view main page
+   - select category
+   - view items by category
+   - view items by keyword
+   - select item
+   

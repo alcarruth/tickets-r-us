@@ -1,0 +1,126 @@
+/*
+ * fullstack-p4-tickets/static/style/sizes.css
+ */
+
+/*
+  box-sizing simplifies box arithmetic by including border and
+  padding in the box dimensions
+*/
+
+body, div, ul, li, p, h1, h2, h3, h4, h5, h6 {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+
+body, div, ul, li, p, h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 40px;
+    line-height: 48px;
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 29px;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 22px;
+}
+
+h4 {
+    font-size: 14px;
+    line-height: 17px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 21px;
+}
+
+body,
+.ticket,
+
+.team,
+.team_logo,
+.team_name,
+.conference {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ticket,
+.team,
+.team_logo,
+.team_name {
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+h1 {
+    font-size: 18px;
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+}
+
+hr {
+    color: #000;
+    width: 100%;
+}
+
+.conference {
+    justify-content: left;
+    flex-direction: row;
+    margin-top: 20px;
+    border-color: #000;
+    background: #fff;
+}
+
+body {
+    justify-content: space-around;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+.ticket {
+    width: 120px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid darkgrey;
+    background: #fff;
+}
+
+.team {
+    width: 90%;
+}
+
+.team_logo {
+    width: 80%;
+    height: 80%;
+}
+
+.team_name {
+    width: 80%;
+    font-size: 10pt;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}

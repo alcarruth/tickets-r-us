@@ -1,0 +1,6002 @@
+{
+   "Savage": {
+      "Percent": "0.01793",
+      "Name": "Savage",
+      "Rank": "640",
+      "Number": "48367"
+   },
+   "Hendrix": {
+      "Percent": "0.01262",
+      "Name": "Hendrix",
+      "Rank": "941",
+      "Number": "34032"
+   },
+   "Harper": {
+      "Percent": "0.04443",
+      "Name": "Harper",
+      "Rank": "226",
+      "Number": "119868"
+   },
+   "Maddox": {
+      "Percent": "0.01296",
+      "Name": "Maddox",
+      "Rank": "906",
+      "Number": "34970"
+   },
+   "Moon": {
+      "Percent": "0.01559",
+      "Name": "Moon",
+      "Rank": "748",
+      "Number": "42062"
+   },
+   "Lara": {
+      "Percent": "0.02214",
+      "Name": "Lara",
+      "Rank": "501",
+      "Number": "59731"
+   },
+   "Larsen": {
+      "Percent": "0.01963",
+      "Name": "Larsen",
+      "Rank": "572",
+      "Number": "52963"
+   },
+   "Rocha": {
+      "Percent": "0.01562",
+      "Name": "Rocha",
+      "Rank": "744",
+      "Number": "42139"
+   },
+   "Burgess": {
+      "Percent": "0.02654",
+      "Name": "Burgess",
+      "Rank": "407",
+      "Number": "71604"
+   },
+   "Richardson": {
+      "Percent": "0.0925",
+      "Name": "Richardson",
+      "Rank": "74",
+      "Number": "249533"
+   },
+   "Bailey": {
+      "Percent": "0.09857",
+      "Name": "Bailey",
+      "Rank": "66",
+      "Number": "265916"
+   },
+   "Farley": {
+      "Percent": "0.01376",
+      "Name": "Farley",
+      "Rank": "849",
+      "Number": "37116"
+   },
+   "Moses": {
+      "Percent": "0.01365",
+      "Name": "Moses",
+      "Rank": "858",
+      "Number": "36814"
+   },
+   "Schmidt": {
+      "Percent": "0.05396",
+      "Name": "Schmidt",
+      "Rank": "171",
+      "Number": "145565"
+   },
+   "Boyle": {
+      "Percent": "0.01451",
+      "Name": "Boyle",
+      "Rank": "802",
+      "Number": "39141"
+   },
+   "Brown": {
+      "Percent": "0.51162",
+      "Name": "Brown",
+      "Rank": "4",
+      "Number": "1380145"
+   },
+   "Hoover": {
+      "Percent": "0.02078",
+      "Name": "Hoover",
+      "Rank": "532",
+      "Number": "56068"
+   },
+   "Nicholson": {
+      "Percent": "0.02075",
+      "Name": "Nicholson",
+      "Rank": "534",
+      "Number": "55986"
+   },
+   "Klein": {
+      "Percent": "0.02954",
+      "Name": "Klein",
+      "Rank": "359",
+      "Number": "79685"
+   },
+   "Jennings": {
+      "Percent": "0.03226",
+      "Name": "Jennings",
+      "Rank": "321",
+      "Number": "87038"
+   },
+   "Braun": {
+      "Percent": "0.01211",
+      "Name": "Braun",
+      "Rank": "973",
+      "Number": "32676"
+   },
+   "Rangel": {
+      "Percent": "0.01552",
+      "Name": "Rangel",
+      "Rank": "750",
+      "Number": "41868"
+   },
+   "Payne": {
+      "Percent": "0.05117",
+      "Name": "Payne",
+      "Rank": "183",
+      "Number": "138028"
+   },
+   "Glass": {
+      "Percent": "0.0151",
+      "Name": "Glass",
+      "Rank": "770",
+      "Number": "40724"
+   },
+   "Swanson": {
+      "Percent": "0.02837",
+      "Name": "Swanson",
+      "Rank": "375",
+      "Number": "76539"
+   },
+   "Yoder": {
+      "Percent": "0.0164",
+      "Name": "Yoder",
+      "Rank": "707",
+      "Number": "44245"
+   },
+   "Dougherty": {
+      "Percent": "0.01405",
+      "Name": "Dougherty",
+      "Rank": "829",
+      "Number": "37903"
+   },
+   "Day": {
+      "Percent": "0.03769",
+      "Name": "Day",
+      "Rank": "271",
+      "Number": "101676"
+   },
+   "Arroyo": {
+      "Percent": "0.01397",
+      "Name": "Arroyo",
+      "Rank": "833",
+      "Number": "37678"
+   },
+   "Dickerson": {
+      "Percent": "0.01891",
+      "Name": "Dickerson",
+      "Rank": "602",
+      "Number": "51017"
+   },
+   "Holland": {
+      "Percent": "0.03703",
+      "Name": "Holland",
+      "Rank": "276",
+      "Number": "99885"
+   },
+   "Higgins": {
+      "Percent": "0.02895",
+      "Name": "Higgins",
+      "Rank": "365",
+      "Number": "78107"
+   },
+   "Rhodes": {
+      "Percent": "0.03296",
+      "Name": "Rhodes",
+      "Rank": "310",
+      "Number": "88917"
+   },
+   "Robles": {
+      "Percent": "0.02284",
+      "Name": "Robles",
+      "Rank": "489",
+      "Number": "61619"
+   },
+   "Wolf": {
+      "Percent": "0.02554",
+      "Name": "Wolf",
+      "Rank": "427",
+      "Number": "68905"
+   },
+   "Henry": {
+      "Percent": "0.05983",
+      "Name": "Henry",
+      "Rank": "142",
+      "Number": "161392"
+   },
+   "Levy": {
+      "Percent": "0.01315",
+      "Name": "Levy",
+      "Rank": "892",
+      "Number": "35464"
+   },
+   "Sims": {
+      "Percent": "0.03976",
+      "Name": "Sims",
+      "Rank": "254",
+      "Number": "107244"
+   },
+   "Thomas": {
+      "Percent": "0.26345",
+      "Name": "Thomas",
+      "Rank": "14",
+      "Number": "710696"
+   },
+   "Parker": {
+      "Percent": "0.1202",
+      "Name": "Parker",
+      "Rank": "51",
+      "Number": "324246"
+   },
+   "Bentley": {
+      "Percent": "0.01435",
+      "Name": "Bentley",
+      "Rank": "814",
+      "Number": "38714"
+   },
+   "Holder": {
+      "Percent": "0.01204",
+      "Name": "Holder",
+      "Rank": "978",
+      "Number": "32466"
+   },
+   "Barnett": {
+      "Percent": "0.03421",
+      "Name": "Barnett",
+      "Rank": "300",
+      "Number": "92287"
+   },
+   "Kline": {
+      "Percent": "0.01664",
+      "Name": "Kline",
+      "Rank": "694",
+      "Number": "44900"
+   },
+   "Pitts": {
+      "Percent": "0.01796",
+      "Name": "Pitts",
+      "Rank": "639",
+      "Number": "48462"
+   },
+   "Rojas": {
+      "Percent": "0.02709",
+      "Name": "Rojas",
+      "Rank": "393",
+      "Number": "73071"
+   },
+   "Manning": {
+      "Percent": "0.02672",
+      "Name": "Manning",
+      "Rank": "402",
+      "Number": "72069"
+   },
+   "Sweeney": {
+      "Percent": "0.01909",
+      "Name": "Sweeney",
+      "Rank": "591",
+      "Number": "51500"
+   },
+   "Sosa": {
+      "Percent": "0.01365",
+      "Name": "Sosa",
+      "Rank": "859",
+      "Number": "36813"
+   },
+   "Jimenez": {
+      "Percent": "0.05838",
+      "Name": "Jimenez",
+      "Rank": "147",
+      "Number": "157475"
+   },
+   "Collier": {
+      "Percent": "0.02017",
+      "Name": "Collier",
+      "Rank": "556",
+      "Number": "54414"
+   },
+   "Paul": {
+      "Percent": "0.02678",
+      "Name": "Paul",
+      "Rank": "401",
+      "Number": "72248"
+   },
+   "Hess": {
+      "Percent": "0.02143",
+      "Name": "Hess",
+      "Rank": "518",
+      "Number": "57822"
+   },
+   "George": {
+      "Percent": "0.0444",
+      "Name": "George",
+      "Rank": "227",
+      "Number": "119778"
+   },
+   "Chase": {
+      "Percent": "0.01882",
+      "Name": "Chase",
+      "Rank": "606",
+      "Number": "50777"
+   },
+   "Mckay": {
+      "Percent": "0.0137",
+      "Name": "Mckay",
+      "Rank": "853",
+      "Number": "36948"
+   },
+   "Guerrero": {
+      "Percent": "0.0349",
+      "Name": "Guerrero",
+      "Rank": "291",
+      "Number": "94152"
+   },
+   "Howard": {
+      "Percent": "0.09445",
+      "Name": "Howard",
+      "Rank": "70",
+      "Number": "254779"
+   },
+   "Mata": {
+      "Percent": "0.01293",
+      "Name": "Mata",
+      "Rank": "907",
+      "Number": "34888"
+   },
+   "Long": {
+      "Percent": "0.08285",
+      "Name": "Long",
+      "Rank": "86",
+      "Number": "223494"
+   },
+   "Rich": {
+      "Percent": "0.0176",
+      "Name": "Rich",
+      "Rank": "654",
+      "Number": "47477"
+   },
+   "Farmer": {
+      "Percent": "0.02532",
+      "Name": "Farmer",
+      "Rank": "431",
+      "Number": "68309"
+   },
+   "Odom": {
+      "Percent": "0.0125",
+      "Name": "Odom",
+      "Rank": "953",
+      "Number": "33717"
+   },
+   "Collins": {
+      "Percent": "0.11783",
+      "Name": "Collins",
+      "Rank": "52",
+      "Number": "317848"
+   },
+   "Rice": {
+      "Percent": "0.05428",
+      "Name": "Rice",
+      "Rank": "169",
+      "Number": "146440"
+   },
+   "Montoya": {
+      "Percent": "0.02116",
+      "Name": "Montoya",
+      "Rank": "526",
+      "Number": "57075"
+   },
+   "Oconnell": {
+      "Percent": "0.0132",
+      "Name": "Oconnell",
+      "Rank": "886",
+      "Number": "35610"
+   },
+   "Townsend": {
+      "Percent": "0.02478",
+      "Name": "Townsend",
+      "Rank": "444",
+      "Number": "66853"
+   },
+   "Kaufman": {
+      "Percent": "0.0129",
+      "Name": "Kaufman",
+      "Rank": "911",
+      "Number": "34786"
+   },
+   "Lowe": {
+      "Percent": "0.03306",
+      "Name": "Lowe",
+      "Rank": "309",
+      "Number": "89178"
+   },
+   "Mcclain": {
+      "Percent": "0.01689",
+      "Name": "Mcclain",
+      "Rank": "688",
+      "Number": "45560"
+   },
+   "Boyd": {
+      "Percent": "0.05541",
+      "Name": "Boyd",
+      "Rank": "164",
+      "Number": "149476"
+   },
+   "Ayala": {
+      "Percent": "0.02466",
+      "Name": "Ayala",
+      "Rank": "449",
+      "Number": "66515"
+   },
+   "Bruce": {
+      "Percent": "0.01928",
+      "Name": "Bruce",
+      "Rank": "583",
+      "Number": "52004"
+   },
+   "Sherman": {
+      "Percent": "0.02589",
+      "Name": "Sherman",
+      "Rank": "422",
+      "Number": "69840"
+   },
+   "Orr": {
+      "Percent": "0.01619",
+      "Name": "Orr",
+      "Rank": "714",
+      "Number": "43666"
+   },
+   "Ford": {
+      "Percent": "0.06613",
+      "Name": "Ford",
+      "Rank": "124",
+      "Number": "178397"
+   },
+   "Tucker": {
+      "Percent": "0.0604",
+      "Name": "Tucker",
+      "Rank": "139",
+      "Number": "162933"
+   },
+   "Cruz": {
+      "Percent": "0.08566",
+      "Name": "Cruz",
+      "Rank": "82",
+      "Number": "231065"
+   },
+   "Coffey": {
+      "Percent": "0.01314",
+      "Name": "Coffey",
+      "Rank": "894",
+      "Number": "35442"
+   },
+   "Reed": {
+      "Percent": "0.09914",
+      "Name": "Reed",
+      "Rank": "65",
+      "Number": "267443"
+   },
+   "Ferguson": {
+      "Percent": "0.05273",
+      "Name": "Ferguson",
+      "Rank": "173",
+      "Number": "142256"
+   },
+   "Huang": {
+      "Percent": "0.01658",
+      "Name": "Huang",
+      "Rank": "697",
+      "Number": "44715"
+   },
+   "Randall": {
+      "Percent": "0.01946",
+      "Name": "Randall",
+      "Rank": "574",
+      "Number": "52495"
+   },
+   "Zamora": {
+      "Percent": "0.01698",
+      "Name": "Zamora",
+      "Rank": "684",
+      "Number": "45806"
+   },
+   "Francis": {
+      "Percent": "0.02659",
+      "Name": "Francis",
+      "Rank": "406",
+      "Number": "71723"
+   },
+   "Reeves": {
+      "Percent": "0.02959",
+      "Name": "Reeves",
+      "Rank": "358",
+      "Number": "79817"
+   },
+   "Lopez": {
+      "Percent": "0.2304",
+      "Name": "Lopez",
+      "Rank": "21",
+      "Number": "621536"
+   },
+   "Cooke": {
+      "Percent": "0.01181",
+      "Name": "Cooke",
+      "Rank": "1000",
+      "Number": "31860"
+   },
+   "Mclaughlin": {
+      "Percent": "0.02711",
+      "Name": "Mclaughlin",
+      "Rank": "392",
+      "Number": "73128"
+   },
+   "Short": {
+      "Percent": "0.02072",
+      "Name": "Short",
+      "Rank": "536",
+      "Number": "55903"
+   },
+   "Cunningham": {
+      "Percent": "0.04889",
+      "Name": "Cunningham",
+      "Rank": "198",
+      "Number": "131896"
+   },
+   "Michael": {
+      "Percent": "0.01459",
+      "Name": "Michael",
+      "Rank": "798",
+      "Number": "39369"
+   },
+   "Hopkins": {
+      "Percent": "0.03507",
+      "Name": "Hopkins",
+      "Rank": "289",
+      "Number": "94603"
+   },
+   "Greer": {
+      "Percent": "0.02024",
+      "Name": "Greer",
+      "Rank": "552",
+      "Number": "54611"
+   },
+   "Barton": {
+      "Percent": "0.0247",
+      "Name": "Barton",
+      "Rank": "447",
+      "Number": "66622"
+   },
+   "Munoz": {
+      "Percent": "0.04366",
+      "Name": "Munoz",
+      "Rank": "232",
+      "Number": "117774"
+   },
+   "Irwin": {
+      "Percent": "0.01274",
+      "Name": "Irwin",
+      "Rank": "930",
+      "Number": "34374"
+   },
+   "Greene": {
+      "Percent": "0.04434",
+      "Name": "Greene",
+      "Rank": "228",
+      "Number": "119604"
+   },
+   "Mccall": {
+      "Percent": "0.01528",
+      "Name": "Mccall",
+      "Rank": "761",
+      "Number": "41231"
+   },
+   "Schaefer": {
+      "Percent": "0.01507",
+      "Name": "Schaefer",
+      "Rank": "773",
+      "Number": "40663"
+   },
+   "Green": {
+      "Percent": "0.15327",
+      "Name": "Green",
+      "Rank": "37",
+      "Number": "413477"
+   },
+   "Berry": {
+      "Percent": "0.04797",
+      "Name": "Berry",
+      "Rank": "205",
+      "Number": "129405"
+   },
+   "Clay": {
+      "Percent": "0.01715",
+      "Name": "Clay",
+      "Rank": "677",
+      "Number": "46264"
+   },
+   "Macias": {
+      "Percent": "0.01733",
+      "Name": "Macias",
+      "Rank": "664",
+      "Number": "46739"
+   },
+   "Gibson": {
+      "Percent": "0.06836",
+      "Name": "Gibson",
+      "Rank": "119",
+      "Number": "184420"
+   },
+   "Spencer": {
+      "Percent": "0.04984",
+      "Name": "Spencer",
+      "Rank": "189",
+      "Number": "134443"
+   },
+   "Boyer": {
+      "Percent": "0.01839",
+      "Name": "Boyer",
+      "Rank": "622",
+      "Number": "49601"
+   },
+   "Warner": {
+      "Percent": "0.03033",
+      "Name": "Warner",
+      "Rank": "344",
+      "Number": "81824"
+   },
+   "Webb": {
+      "Percent": "0.0606",
+      "Name": "Webb",
+      "Rank": "137",
+      "Number": "163481"
+   },
+   "Melton": {
+      "Percent": "0.01801",
+      "Name": "Melton",
+      "Rank": "634",
+      "Number": "48594"
+   },
+   "Lyons": {
+      "Percent": "0.03049",
+      "Name": "Lyons",
+      "Rank": "339",
+      "Number": "82258"
+   },
+   "Fischer": {
+      "Percent": "0.02598",
+      "Name": "Fischer",
+      "Rank": "419",
+      "Number": "70095"
+   },
+   "Clark": {
+      "Percent": "0.20328",
+      "Name": "Clark",
+      "Rank": "25",
+      "Number": "548369"
+   },
+   "Shea": {
+      "Percent": "0.01189",
+      "Name": "Shea",
+      "Rank": "990",
+      "Number": "32069"
+   },
+   "Blanchard": {
+      "Percent": "0.01363",
+      "Name": "Blanchard",
+      "Rank": "860",
+      "Number": "36764"
+   },
+   "Hatfield": {
+      "Percent": "0.01241",
+      "Name": "Hatfield",
+      "Rank": "956",
+      "Number": "33464"
+   },
+   "Rivers": {
+      "Percent": "0.01334",
+      "Name": "Rivers",
+      "Rank": "879",
+      "Number": "35980"
+   },
+   "Hardy": {
+      "Percent": "0.0284",
+      "Name": "Hardy",
+      "Rank": "374",
+      "Number": "76608"
+   },
+   "Shannon": {
+      "Percent": "0.01665",
+      "Name": "Shannon",
+      "Rank": "693",
+      "Number": "44902"
+   },
+   "Zuniga": {
+      "Percent": "0.01448",
+      "Name": "Zuniga",
+      "Rank": "804",
+      "Number": "39057"
+   },
+   "Baldwin": {
+      "Percent": "0.02934",
+      "Name": "Baldwin",
+      "Rank": "361",
+      "Number": "79151"
+   },
+   "Rivera": {
+      "Percent": "0.11101",
+      "Name": "Rivera",
+      "Rank": "59",
+      "Number": "299463"
+   },
+   "Shaffer": {
+      "Percent": "0.02196",
+      "Name": "Shaffer",
+      "Rank": "505",
+      "Number": "59227"
+   },
+   "Blake": {
+      "Percent": "0.02568",
+      "Name": "Blake",
+      "Rank": "425",
+      "Number": "69279"
+   },
+   "Petty": {
+      "Percent": "0.01271",
+      "Name": "Petty",
+      "Rank": "933",
+      "Number": "34278"
+   },
+   "Castaneda": {
+      "Percent": "0.01894",
+      "Name": "Castaneda",
+      "Rank": "600",
+      "Number": "51089"
+   },
+   "Harvey": {
+      "Percent": "0.04157",
+      "Name": "Harvey",
+      "Rank": "247",
+      "Number": "112136"
+   },
+   "Thornton": {
+      "Percent": "0.0301",
+      "Name": "Thornton",
+      "Rank": "347",
+      "Number": "81191"
+   },
+   "Daniels": {
+      "Percent": "0.05144",
+      "Name": "Daniels",
+      "Rank": "180",
+      "Number": "138776"
+   },
+   "Mcconnell": {
+      "Percent": "0.01453",
+      "Name": "Mcconnell",
+      "Rank": "800",
+      "Number": "39203"
+   },
+   "Macdonald": {
+      "Percent": "0.01697",
+      "Name": "Macdonald",
+      "Rank": "685",
+      "Number": "45782"
+   },
+   "Kirk": {
+      "Percent": "0.0193",
+      "Name": "Kirk",
+      "Rank": "582",
+      "Number": "52056"
+   },
+   "Alvarez": {
+      "Percent": "0.06258",
+      "Name": "Alvarez",
+      "Rank": "132",
+      "Number": "168817"
+   },
+   "Krueger": {
+      "Percent": "0.0136",
+      "Name": "Krueger",
+      "Rank": "863",
+      "Number": "36694"
+   },
+   "Mathews": {
+      "Percent": "0.01876",
+      "Name": "Mathews",
+      "Rank": "609",
+      "Number": "50608"
+   },
+   "Khan": {
+      "Percent": "0.01732",
+      "Name": "Khan",
+      "Rank": "665",
+      "Number": "46713"
+   },
+   "Weber": {
+      "Percent": "0.03999",
+      "Name": "Weber",
+      "Rank": "252",
+      "Number": "107866"
+   },
+   "Sanders": {
+      "Percent": "0.08189",
+      "Name": "Sanders",
+      "Rank": "88",
+      "Number": "220902"
+   },
+   "Downs": {
+      "Percent": "0.01242",
+      "Name": "Downs",
+      "Rank": "955",
+      "Number": "33494"
+   },
+   "Wu": {
+      "Percent": "0.01698",
+      "Name": "Wu",
+      "Rank": "683",
+      "Number": "45815"
+   },
+   "Wilkins": {
+      "Percent": "0.02078",
+      "Name": "Wilkins",
+      "Rank": "532",
+      "Number": "56068"
+   },
+   "Walls": {
+      "Percent": "0.01452",
+      "Name": "Walls",
+      "Rank": "801",
+      "Number": "39166"
+   },
+   "Zavala": {
+      "Percent": "0.01263",
+      "Name": "Zavala",
+      "Rank": "938",
+      "Number": "34068"
+   },
+   "Gentry": {
+      "Percent": "0.0157",
+      "Name": "Gentry",
+      "Rank": "741",
+      "Number": "42357"
+   },
+   "Nixon": {
+      "Percent": "0.01336",
+      "Name": "Nixon",
+      "Rank": "877",
+      "Number": "36037"
+   },
+   "Levine": {
+      "Percent": "0.01278",
+      "Name": "Levine",
+      "Rank": "926",
+      "Number": "34472"
+   },
+   "Villa": {
+      "Percent": "0.01461",
+      "Name": "Villa",
+      "Rank": "797",
+      "Number": "39402"
+   },
+   "Lang": {
+      "Percent": "0.02218",
+      "Name": "Lang",
+      "Rank": "499",
+      "Number": "59843"
+   },
+   "Lane": {
+      "Percent": "0.04772",
+      "Name": "Lane",
+      "Rank": "209",
+      "Number": "128727"
+   },
+   "Mcmillan": {
+      "Percent": "0.01442",
+      "Name": "Mcmillan",
+      "Rank": "810",
+      "Number": "38896"
+   },
+   "Sampson": {
+      "Percent": "0.0138",
+      "Name": "Sampson",
+      "Rank": "844",
+      "Number": "37234"
+   },
+   "Kennedy": {
+      "Percent": "0.06362",
+      "Name": "Kennedy",
+      "Rank": "130",
+      "Number": "171636"
+   },
+   "Choi": {
+      "Percent": "0.01349",
+      "Name": "Choi",
+      "Rank": "872",
+      "Number": "36390"
+   },
+   "Tanner": {
+      "Percent": "0.0172",
+      "Name": "Tanner",
+      "Rank": "675",
+      "Number": "46412"
+   },
+   "Hayes": {
+      "Percent": "0.0695",
+      "Name": "Hayes",
+      "Rank": "117",
+      "Number": "187473"
+   },
+   "Morrow": {
+      "Percent": "0.02063",
+      "Name": "Morrow",
+      "Rank": "538",
+      "Number": "55664"
+   },
+   "Barr": {
+      "Percent": "0.01573",
+      "Name": "Barr",
+      "Rank": "738",
+      "Number": "42432"
+   },
+   "Velez": {
+      "Percent": "0.01587",
+      "Name": "Velez",
+      "Rank": "727",
+      "Number": "42820"
+   },
+   "Gould": {
+      "Percent": "0.01396",
+      "Name": "Gould",
+      "Rank": "836",
+      "Number": "37660"
+   },
+   "Dyer": {
+      "Percent": "0.01726",
+      "Name": "Dyer",
+      "Rank": "671",
+      "Number": "46574"
+   },
+   "Nash": {
+      "Percent": "0.01891",
+      "Name": "Nash",
+      "Rank": "601",
+      "Number": "51021"
+   },
+   "Fernandez": {
+      "Percent": "0.05164",
+      "Name": "Fernandez",
+      "Rank": "178",
+      "Number": "139302"
+   },
+   "Mcintyre": {
+      "Percent": "0.01569",
+      "Name": "Mcintyre",
+      "Rank": "742",
+      "Number": "42335"
+   },
+   "Blackwell": {
+      "Percent": "0.01724",
+      "Name": "Blackwell",
+      "Rank": "673",
+      "Number": "46495"
+   },
+   "Duke": {
+      "Percent": "0.01251",
+      "Name": "Duke",
+      "Rank": "952",
+      "Number": "33745"
+   },
+   "Pope": {
+      "Percent": "0.02289",
+      "Name": "Pope",
+      "Rank": "486",
+      "Number": "61750"
+   },
+   "Dodson": {
+      "Percent": "0.01383",
+      "Name": "Dodson",
+      "Rank": "842",
+      "Number": "37298"
+   },
+   "Daugherty": {
+      "Percent": "0.01284",
+      "Name": "Daugherty",
+      "Rank": "921",
+      "Number": "34650"
+   },
+   "Steele": {
+      "Percent": "0.03127",
+      "Name": "Steele",
+      "Rank": "331",
+      "Number": "84353"
+   },
+   "Rubio": {
+      "Percent": "0.01354",
+      "Name": "Rubio",
+      "Rank": "866",
+      "Number": "36531"
+   },
+   "Henson": {
+      "Percent": "0.01728",
+      "Name": "Henson",
+      "Rank": "669",
+      "Number": "46609"
+   },
+   "Luna": {
+      "Percent": "0.02822",
+      "Name": "Luna",
+      "Rank": "378",
+      "Number": "76127"
+   },
+   "Wood": {
+      "Percent": "0.09167",
+      "Name": "Wood",
+      "Rank": "75",
+      "Number": "247299"
+   },
+   "Walsh": {
+      "Percent": "0.03826",
+      "Name": "Walsh",
+      "Rank": "265",
+      "Number": "103216"
+   },
+   "Wade": {
+      "Percent": "0.03441",
+      "Name": "Wade",
+      "Rank": "297",
+      "Number": "92834"
+   },
+   "Andrade": {
+      "Percent": "0.01731",
+      "Name": "Andrade",
+      "Rank": "666",
+      "Number": "46702"
+   },
+   "Maynard": {
+      "Percent": "0.01321",
+      "Name": "Maynard",
+      "Rank": "884",
+      "Number": "35648"
+   },
+   "Le": {
+      "Percent": "0.02871",
+      "Name": "Le",
+      "Rank": "368",
+      "Number": "77453"
+   },
+   "Hensley": {
+      "Percent": "0.01848",
+      "Name": "Hensley",
+      "Rank": "618",
+      "Number": "49858"
+   },
+   "Lin": {
+      "Percent": "0.0183",
+      "Name": "Lin",
+      "Rank": "624",
+      "Number": "49360"
+   },
+   "Byrd": {
+      "Percent": "0.03292",
+      "Name": "Byrd",
+      "Rank": "311",
+      "Number": "88811"
+   },
+   "Li": {
+      "Percent": "0.02142",
+      "Name": "Li",
+      "Rank": "519",
+      "Number": "57786"
+   },
+   "Adkins": {
+      "Percent": "0.02652",
+      "Name": "Adkins",
+      "Rank": "408",
+      "Number": "71528"
+   },
+   "Liu": {
+      "Percent": "0.01767",
+      "Name": "Liu",
+      "Rank": "650",
+      "Number": "47665"
+   },
+   "Forbes": {
+      "Percent": "0.01195",
+      "Name": "Forbes",
+      "Rank": "986",
+      "Number": "32228"
+   },
+   "Thompson": {
+      "Percent": "0.23887",
+      "Name": "Thompson",
+      "Rank": "19",
+      "Number": "644368"
+   },
+   "Coleman": {
+      "Percent": "0.07734",
+      "Name": "Coleman",
+      "Rank": "102",
+      "Number": "208624"
+   },
+   "Horn": {
+      "Percent": "0.01905",
+      "Name": "Horn",
+      "Rank": "593",
+      "Number": "51380"
+   },
+   "Mccoy": {
+      "Percent": "0.03947",
+      "Name": "Mccoy",
+      "Rank": "258",
+      "Number": "106481"
+   },
+   "Hogan": {
+      "Percent": "0.02285",
+      "Name": "Hogan",
+      "Rank": "488",
+      "Number": "61651"
+   },
+   "Walter": {
+      "Percent": "0.01765",
+      "Name": "Walter",
+      "Rank": "651",
+      "Number": "47615"
+   },
+   "Noble": {
+      "Percent": "0.01491",
+      "Name": "Noble",
+      "Rank": "784",
+      "Number": "40217"
+   },
+   "Williamson": {
+      "Percent": "0.0416",
+      "Name": "Williamson",
+      "Rank": "245",
+      "Number": "112216"
+   },
+   "Raymond": {
+      "Percent": "0.01415",
+      "Name": "Raymond",
+      "Rank": "825",
+      "Number": "38158"
+   },
+   "Phelps": {
+      "Percent": "0.01896",
+      "Name": "Phelps",
+      "Rank": "598",
+      "Number": "51154"
+   },
+   "Casey": {
+      "Percent": "0.02403",
+      "Name": "Casey",
+      "Rank": "463",
+      "Number": "64815"
+   },
+   "Chaney": {
+      "Percent": "0.01202",
+      "Name": "Chaney",
+      "Rank": "979",
+      "Number": "32433"
+   },
+   "Cannon": {
+      "Percent": "0.02518",
+      "Name": "Cannon",
+      "Rank": "436",
+      "Number": "67923"
+   },
+   "Tapia": {
+      "Percent": "0.01379",
+      "Name": "Tapia",
+      "Rank": "845",
+      "Number": "37201"
+   },
+   "Underwood": {
+      "Percent": "0.02075",
+      "Name": "Underwood",
+      "Rank": "535",
+      "Number": "55973"
+   },
+   "Carpenter": {
+      "Percent": "0.04711",
+      "Name": "Carpenter",
+      "Rank": "211",
+      "Number": "127073"
+   },
+   "Gardner": {
+      "Percent": "0.0514",
+      "Name": "Gardner",
+      "Rank": "182",
+      "Number": "138660"
+   },
+   "Shields": {
+      "Percent": "0.01837",
+      "Name": "Shields",
+      "Rank": "623",
+      "Number": "49556"
+   },
+   "Clayton": {
+      "Percent": "0.02034",
+      "Name": "Clayton",
+      "Rank": "548",
+      "Number": "54875"
+   },
+   "Mooney": {
+      "Percent": "0.01222",
+      "Name": "Mooney",
+      "Rank": "968",
+      "Number": "32953"
+   },
+   "Jordan": {
+      "Percent": "0.07311",
+      "Name": "Jordan",
+      "Rank": "105",
+      "Number": "197212"
+   },
+   "Skinner": {
+      "Percent": "0.01946",
+      "Name": "Skinner",
+      "Rank": "575",
+      "Number": "52490"
+   },
+   "Miranda": {
+      "Percent": "0.02508",
+      "Name": "Miranda",
+      "Rank": "437",
+      "Number": "67646"
+   },
+   "Mcpherson": {
+      "Percent": "0.01289",
+      "Name": "Mcpherson",
+      "Rank": "913",
+      "Number": "34763"
+   },
+   "Yu": {
+      "Percent": "0.01345",
+      "Name": "Yu",
+      "Rank": "874",
+      "Number": "36285"
+   },
+   "Mullins": {
+      "Percent": "0.02605",
+      "Name": "Mullins",
+      "Rank": "416",
+      "Number": "70286"
+   },
+   "Barrett": {
+      "Percent": "0.03555",
+      "Name": "Barrett",
+      "Rank": "288",
+      "Number": "95896"
+   },
+   "Foley": {
+      "Percent": "0.01885",
+      "Name": "Foley",
+      "Rank": "605",
+      "Number": "50852"
+   },
+   "Schmitt": {
+      "Percent": "0.0131",
+      "Name": "Schmitt",
+      "Rank": "898",
+      "Number": "35326"
+   },
+   "Bates": {
+      "Percent": "0.03475",
+      "Name": "Bates",
+      "Rank": "293",
+      "Number": "93743"
+   },
+   "Lucas": {
+      "Percent": "0.03722",
+      "Name": "Lucas",
+      "Rank": "275",
+      "Number": "100417"
+   },
+   "Schneider": {
+      "Percent": "0.03727",
+      "Name": "Schneider",
+      "Rank": "272",
+      "Number": "100553"
+   },
+   "Compton": {
+      "Percent": "0.0129",
+      "Name": "Compton",
+      "Rank": "910",
+      "Number": "34788"
+   },
+   "Chapman": {
+      "Percent": "0.04619",
+      "Name": "Chapman",
+      "Rank": "218",
+      "Number": "124614"
+   },
+   "Castro": {
+      "Percent": "0.0494",
+      "Name": "Castro",
+      "Rank": "194",
+      "Number": "133254"
+   },
+   "Ramirez": {
+      "Percent": "0.1442",
+      "Name": "Ramirez",
+      "Rank": "42",
+      "Number": "388987"
+   },
+   "Garcia": {
+      "Percent": "0.31817",
+      "Name": "Garcia",
+      "Rank": "8",
+      "Number": "858289"
+   },
+   "Lawson": {
+      "Percent": "0.0427",
+      "Name": "Lawson",
+      "Rank": "235",
+      "Number": "115186"
+   },
+   "Howell": {
+      "Percent": "0.04064",
+      "Name": "Howell",
+      "Rank": "249",
+      "Number": "109634"
+   },
+   "Martin": {
+      "Percent": "0.24937",
+      "Name": "Martin",
+      "Rank": "17",
+      "Number": "672711"
+   },
+   "Kelly": {
+      "Percent": "0.09652",
+      "Name": "Kelly",
+      "Rank": "69",
+      "Number": "260385"
+   },
+   "Powers": {
+      "Percent": "0.03351",
+      "Name": "Powers",
+      "Rank": "304",
+      "Number": "90401"
+   },
+   "Moyer": {
+      "Percent": "0.0135",
+      "Name": "Moyer",
+      "Rank": "871",
+      "Number": "36421"
+   },
+   "Horne": {
+      "Percent": "0.01345",
+      "Name": "Horne",
+      "Rank": "873",
+      "Number": "36288"
+   },
+   "Farrell": {
+      "Percent": "0.01894",
+      "Name": "Farrell",
+      "Rank": "599",
+      "Number": "51095"
+   },
+   "Stevens": {
+      "Percent": "0.06725",
+      "Name": "Stevens",
+      "Rank": "122",
+      "Number": "181417"
+   },
+   "Dillon": {
+      "Percent": "0.0181",
+      "Name": "Dillon",
+      "Rank": "631",
+      "Number": "48833"
+   },
+   "Maxwell": {
+      "Percent": "0.02438",
+      "Name": "Maxwell",
+      "Rank": "458",
+      "Number": "65779"
+   },
+   "Frye": {
+      "Percent": "0.01361",
+      "Name": "Frye",
+      "Rank": "862",
+      "Number": "36716"
+   },
+   "Herring": {
+      "Percent": "0.01385",
+      "Name": "Herring",
+      "Rank": "841",
+      "Number": "37353"
+   },
+   "Brennan": {
+      "Percent": "0.0179",
+      "Name": "Brennan",
+      "Rank": "642",
+      "Number": "48296"
+   },
+   "Logan": {
+      "Percent": "0.02394",
+      "Name": "Logan",
+      "Rank": "465",
+      "Number": "64576"
+   },
+   "Ferrell": {
+      "Percent": "0.01193",
+      "Name": "Ferrell",
+      "Rank": "987",
+      "Number": "32174"
+   },
+   "Small": {
+      "Percent": "0.017",
+      "Name": "Small",
+      "Rank": "681",
+      "Number": "45850"
+   },
+   "Lloyd": {
+      "Percent": "0.02267",
+      "Name": "Lloyd",
+      "Rank": "493",
+      "Number": "61154"
+   },
+   "Quinn": {
+      "Percent": "0.02763",
+      "Name": "Quinn",
+      "Rank": "386",
+      "Number": "74531"
+   },
+   "Leblanc": {
+      "Percent": "0.01517",
+      "Name": "Leblanc",
+      "Rank": "767",
+      "Number": "40923"
+   },
+   "Morton": {
+      "Percent": "0.02179",
+      "Name": "Morton",
+      "Rank": "509",
+      "Number": "58788"
+   },
+   "Huffman": {
+      "Percent": "0.01844",
+      "Name": "Huffman",
+      "Rank": "620",
+      "Number": "49737"
+   },
+   "Monroe": {
+      "Percent": "0.01982",
+      "Name": "Monroe",
+      "Rank": "567",
+      "Number": "53475"
+   },
+   "Gonzalez": {
+      "Percent": "0.22157",
+      "Name": "Gonzalez",
+      "Rank": "23",
+      "Number": "597718"
+   },
+   "Lamb": {
+      "Percent": "0.02171",
+      "Name": "Lamb",
+      "Rank": "511",
+      "Number": "58555"
+   },
+   "Wilson": {
+      "Percent": "0.29027",
+      "Name": "Wilson",
+      "Rank": "10",
+      "Number": "783051"
+   },
+   "Kaiser": {
+      "Percent": "0.01207",
+      "Name": "Kaiser",
+      "Rank": "977",
+      "Number": "32567"
+   },
+   "Ibarra": {
+      "Percent": "0.01738",
+      "Name": "Ibarra",
+      "Rank": "662",
+      "Number": "46895"
+   },
+   "Barnes": {
+      "Percent": "0.078",
+      "Name": "Barnes",
+      "Rank": "99",
+      "Number": "210426"
+   },
+   "Fowler": {
+      "Percent": "0.03804",
+      "Name": "Fowler",
+      "Rank": "267",
+      "Number": "102620"
+   },
+   "Smith": {
+      "Percent": "0.88085",
+      "Name": "Smith",
+      "Rank": "1",
+      "Number": "2376206"
+   },
+   "Dudley": {
+      "Percent": "0.01289",
+      "Name": "Dudley",
+      "Rank": "912",
+      "Number": "34770"
+   },
+   "Weiss": {
+      "Percent": "0.02082",
+      "Name": "Weiss",
+      "Rank": "531",
+      "Number": "56153"
+   },
+   "Montgomery": {
+      "Percent": "0.04157",
+      "Name": "Montgomery",
+      "Rank": "246",
+      "Number": "112144"
+   },
+   "Phillips": {
+      "Percent": "0.13043",
+      "Name": "Phillips",
+      "Rank": "47",
+      "Number": "351848"
+   },
+   "Hester": {
+      "Percent": "0.01285",
+      "Name": "Hester",
+      "Rank": "919",
+      "Number": "34675"
+   },
+   "Diaz": {
+      "Percent": "0.09333",
+      "Name": "Diaz",
+      "Rank": "73",
+      "Number": "251772"
+   },
+   "Dixon": {
+      "Percent": "0.05635",
+      "Name": "Dixon",
+      "Rank": "156",
+      "Number": "152015"
+   },
+   "Olson": {
+      "Percent": "0.06061",
+      "Name": "Olson",
+      "Rank": "136",
+      "Number": "163502"
+   },
+   "Robertson": {
+      "Percent": "0.05572",
+      "Name": "Robertson",
+      "Rank": "159",
+      "Number": "150299"
+   },
+   "White": {
+      "Percent": "0.23707",
+      "Name": "White",
+      "Rank": "20",
+      "Number": "639515"
+   },
+   "Mccullough": {
+      "Percent": "0.01636",
+      "Name": "Mccullough",
+      "Rank": "708",
+      "Number": "44123"
+   },
+   "Bird": {
+      "Percent": "0.01259",
+      "Name": "Bird",
+      "Rank": "944",
+      "Number": "33962"
+   },
+   "Pruitt": {
+      "Percent": "0.01574",
+      "Name": "Pruitt",
+      "Rank": "736",
+      "Number": "42463"
+   },
+   "Deleon": {
+      "Percent": "0.02432",
+      "Name": "Deleon",
+      "Rank": "460",
+      "Number": "65598"
+   },
+   "Benjamin": {
+      "Percent": "0.01351",
+      "Name": "Benjamin",
+      "Rank": "868",
+      "Number": "36439"
+   },
+   "Abbott": {
+      "Percent": "0.01914",
+      "Name": "Abbott",
+      "Rank": "588",
+      "Number": "51620"
+   },
+   "Stanton": {
+      "Percent": "0.0129",
+      "Name": "Stanton",
+      "Rank": "909",
+      "Number": "34812"
+   },
+   "Stein": {
+      "Percent": "0.01606",
+      "Name": "Stein",
+      "Rank": "720",
+      "Number": "43331"
+   },
+   "Schroeder": {
+      "Percent": "0.02462",
+      "Name": "Schroeder",
+      "Rank": "450",
+      "Number": "66412"
+   },
+   "Friedman": {
+      "Percent": "0.01365",
+      "Name": "Friedman",
+      "Rank": "857",
+      "Number": "36833"
+   },
+   "Bean": {
+      "Percent": "0.01377",
+      "Name": "Bean",
+      "Rank": "846",
+      "Number": "37145"
+   },
+   "Brooks": {
+      "Percent": "0.08925",
+      "Name": "Brooks",
+      "Rank": "77",
+      "Number": "240751"
+   },
+   "Beck": {
+      "Percent": "0.03453",
+      "Name": "Beck",
+      "Rank": "295",
+      "Number": "93161"
+   },
+   "Harris": {
+      "Percent": "0.22002",
+      "Name": "Harris",
+      "Rank": "24",
+      "Number": "593542"
+   },
+   "Barber": {
+      "Percent": "0.02836",
+      "Name": "Barber",
+      "Rank": "376",
+      "Number": "76504"
+   },
+   "Nichols": {
+      "Percent": "0.05262",
+      "Name": "Nichols",
+      "Rank": "174",
+      "Number": "141936"
+   },
+   "Ortiz": {
+      "Percent": "0.07958",
+      "Name": "Ortiz",
+      "Rank": "94",
+      "Number": "214683"
+   },
+   "Gallagher": {
+      "Percent": "0.02524",
+      "Name": "Gallagher",
+      "Rank": "433",
+      "Number": "68075"
+   },
+   "Burns": {
+      "Percent": "0.06011",
+      "Name": "Burns",
+      "Rank": "141",
+      "Number": "162153"
+   },
+   "Moody": {
+      "Percent": "0.02311",
+      "Name": "Moody",
+      "Rank": "479",
+      "Number": "62344"
+   },
+   "Atkins": {
+      "Percent": "0.01844",
+      "Name": "Atkins",
+      "Rank": "619",
+      "Number": "49754"
+   },
+   "Mcdaniel": {
+      "Percent": "0.032",
+      "Name": "Mcdaniel",
+      "Rank": "323",
+      "Number": "86317"
+   },
+   "Wilcox": {
+      "Percent": "0.02038",
+      "Name": "Wilcox",
+      "Rank": "546",
+      "Number": "54987"
+   },
+   "Rogers": {
+      "Percent": "0.10913",
+      "Name": "Rogers",
+      "Rank": "61",
+      "Number": "294403"
+   },
+   "Rush": {
+      "Percent": "0.01389",
+      "Name": "Rush",
+      "Rank": "839",
+      "Number": "37470"
+   },
+   "Vasquez": {
+      "Percent": "0.05931",
+      "Name": "Vasquez",
+      "Rank": "143",
+      "Number": "159989"
+   },
+   "Roberson": {
+      "Percent": "0.01972",
+      "Name": "Roberson",
+      "Rank": "569",
+      "Number": "53198"
+   },
+   "Kidd": {
+      "Percent": "0.01182",
+      "Name": "Kidd",
+      "Rank": "998",
+      "Number": "31886"
+   },
+   "Gordon": {
+      "Percent": "0.05743",
+      "Name": "Gordon",
+      "Rank": "151",
+      "Number": "154934"
+   },
+   "Kemp": {
+      "Percent": "0.01657",
+      "Name": "Kemp",
+      "Rank": "698",
+      "Number": "44701"
+   },
+   "Harrington": {
+      "Percent": "0.02414",
+      "Name": "Harrington",
+      "Rank": "462",
+      "Number": "65131"
+   },
+   "Webster": {
+      "Percent": "0.02599",
+      "Name": "Webster",
+      "Rank": "418",
+      "Number": "70123"
+   },
+   "Rowland": {
+      "Percent": "0.01279",
+      "Name": "Rowland",
+      "Rank": "925",
+      "Number": "34498"
+   },
+   "Solis": {
+      "Percent": "0.02226",
+      "Name": "Solis",
+      "Rank": "497",
+      "Number": "60045"
+   },
+   "Mclean": {
+      "Percent": "0.01515",
+      "Name": "Mclean",
+      "Rank": "768",
+      "Number": "40871"
+   },
+   "Werner": {
+      "Percent": "0.01273",
+      "Name": "Werner",
+      "Rank": "931",
+      "Number": "34352"
+   },
+   "Saunders": {
+      "Percent": "0.02491",
+      "Name": "Saunders",
+      "Rank": "439",
+      "Number": "67210"
+   },
+   "Stephens": {
+      "Percent": "0.05143",
+      "Name": "Stephens",
+      "Rank": "181",
+      "Number": "138742"
+   },
+   "Mccarty": {
+      "Percent": "0.01324",
+      "Name": "Mccarty",
+      "Rank": "881",
+      "Number": "35718"
+   },
+   "Newton": {
+      "Percent": "0.02681",
+      "Name": "Newton",
+      "Rank": "400",
+      "Number": "72328"
+   },
+   "Wagner": {
+      "Percent": "0.05728",
+      "Name": "Wagner",
+      "Rank": "152",
+      "Number": "154516"
+   },
+   "Gaines": {
+      "Percent": "0.01571",
+      "Name": "Gaines",
+      "Rank": "739",
+      "Number": "42369"
+   },
+   "Calderon": {
+      "Percent": "0.02027",
+      "Name": "Calderon",
+      "Rank": "550",
+      "Number": "54691"
+   },
+   "Stanley": {
+      "Percent": "0.03478",
+      "Name": "Stanley",
+      "Rank": "292",
+      "Number": "93817"
+   },
+   "Stafford": {
+      "Percent": "0.01681",
+      "Name": "Stafford",
+      "Rank": "689",
+      "Number": "45349"
+   },
+   "Morse": {
+      "Percent": "0.01524",
+      "Name": "Morse",
+      "Rank": "762",
+      "Number": "41112"
+   },
+   "Ray": {
+      "Percent": "0.04774",
+      "Name": "Ray",
+      "Rank": "208",
+      "Number": "128794"
+   },
+   "Larson": {
+      "Percent": "0.04488",
+      "Name": "Larson",
+      "Rank": "224",
+      "Number": "121064"
+   },
+   "Figueroa": {
+      "Percent": "0.02689",
+      "Name": "Figueroa",
+      "Rank": "398",
+      "Number": "72533"
+   },
+   "Baird": {
+      "Percent": "0.01269",
+      "Name": "Baird",
+      "Rank": "935",
+      "Number": "34233"
+   },
+   "Duncan": {
+      "Percent": "0.04835",
+      "Name": "Duncan",
+      "Rank": "203",
+      "Number": "130419"
+   },
+   "Sparks": {
+      "Percent": "0.02307",
+      "Name": "Sparks",
+      "Rank": "481",
+      "Number": "62234"
+   },
+   "Rose": {
+      "Percent": "0.05446",
+      "Name": "Rose",
+      "Rank": "168",
+      "Number": "146924"
+   },
+   "Snyder": {
+      "Percent": "0.05908",
+      "Name": "Snyder",
+      "Rank": "144",
+      "Number": "159363"
+   },
+   "Mills": {
+      "Percent": "0.05483",
+      "Name": "Mills",
+      "Rank": "165",
+      "Number": "147909"
+   },
+   "Sheppard": {
+      "Percent": "0.01318",
+      "Name": "Sheppard",
+      "Rank": "889",
+      "Number": "35554"
+   },
+   "Huynh": {
+      "Percent": "0.01483",
+      "Name": "Huynh",
+      "Rank": "790",
+      "Number": "40011"
+   },
+   "Benitez": {
+      "Percent": "0.0124",
+      "Name": "Benitez",
+      "Rank": "957",
+      "Number": "33441"
+   },
+   "Joseph": {
+      "Percent": "0.02967",
+      "Name": "Joseph",
+      "Rank": "356",
+      "Number": "80030"
+   },
+   "Morales": {
+      "Percent": "0.08068",
+      "Name": "Morales",
+      "Rank": "90",
+      "Number": "217642"
+   },
+   "Beasley": {
+      "Percent": "0.01712",
+      "Name": "Beasley",
+      "Rank": "679",
+      "Number": "46179"
+   },
+   "Mora": {
+      "Percent": "0.01533",
+      "Name": "Mora",
+      "Rank": "759",
+      "Number": "41348"
+   },
+   "Frazier": {
+      "Percent": "0.03274",
+      "Name": "Frazier",
+      "Rank": "314",
+      "Number": "88325"
+   },
+   "Fry": {
+      "Percent": "0.01392",
+      "Name": "Fry",
+      "Rank": "838",
+      "Number": "37542"
+   },
+   "Ross": {
+      "Percent": "0.08154",
+      "Name": "Ross",
+      "Rank": "89",
+      "Number": "219961"
+   },
+   "Shepherd": {
+      "Percent": "0.02148",
+      "Name": "Shepherd",
+      "Rank": "515",
+      "Number": "57935"
+   },
+   "Hahn": {
+      "Percent": "0.01422",
+      "Name": "Hahn",
+      "Rank": "822",
+      "Number": "38354"
+   },
+   "Goodwin": {
+      "Percent": "0.02607",
+      "Name": "Goodwin",
+      "Rank": "415",
+      "Number": "70333"
+   },
+   "Villarreal": {
+      "Percent": "0.01866",
+      "Name": "Villarreal",
+      "Rank": "613",
+      "Number": "50351"
+   },
+   "Huber": {
+      "Percent": "0.01362",
+      "Name": "Huber",
+      "Rank": "861",
+      "Number": "36729"
+   },
+   "Everett": {
+      "Percent": "0.01435",
+      "Name": "Everett",
+      "Rank": "816",
+      "Number": "38702"
+   },
+   "Holt": {
+      "Percent": "0.0314",
+      "Name": "Holt",
+      "Rank": "329",
+      "Number": "84710"
+   },
+   "Riggs": {
+      "Percent": "0.01255",
+      "Name": "Riggs",
+      "Rank": "947",
+      "Number": "33868"
+   },
+   "Finley": {
+      "Percent": "0.01367",
+      "Name": "Finley",
+      "Rank": "854",
+      "Number": "36874"
+   },
+   "Hamilton": {
+      "Percent": "0.07204",
+      "Name": "Hamilton",
+      "Rank": "107",
+      "Number": "194331"
+   },
+   "Sandoval": {
+      "Percent": "0.0357",
+      "Name": "Sandoval",
+      "Rank": "287",
+      "Number": "96303"
+   },
+   "Campos": {
+      "Percent": "0.02593",
+      "Name": "Campos",
+      "Rank": "420",
+      "Number": "69950"
+   },
+   "Key": {
+      "Percent": "0.01182",
+      "Name": "Key",
+      "Rank": "999",
+      "Number": "31882"
+   },
+   "Cook": {
+      "Percent": "0.10928",
+      "Name": "Cook",
+      "Rank": "60",
+      "Number": "294795"
+   },
+   "Ward": {
+      "Percent": "0.0942",
+      "Name": "Ward",
+      "Rank": "71",
+      "Number": "254121"
+   },
+   "Ware": {
+      "Percent": "0.0173",
+      "Name": "Ware",
+      "Rank": "667",
+      "Number": "46682"
+   },
+   "Holloway": {
+      "Percent": "0.02056",
+      "Name": "Holloway",
+      "Rank": "540",
+      "Number": "55466"
+   },
+   "Meyer": {
+      "Percent": "0.05548",
+      "Name": "Meyer",
+      "Rank": "163",
+      "Number": "149664"
+   },
+   "Stone": {
+      "Percent": "0.05553",
+      "Name": "Stone",
+      "Rank": "162",
+      "Number": "149802"
+   },
+   "Cooley": {
+      "Percent": "0.01197",
+      "Name": "Cooley",
+      "Rank": "983",
+      "Number": "32287"
+   },
+   "Erickson": {
+      "Percent": "0.03",
+      "Name": "Erickson",
+      "Rank": "351",
+      "Number": "80936"
+   },
+   "Galloway": {
+      "Percent": "0.01252",
+      "Name": "Galloway",
+      "Rank": "951",
+      "Number": "33773"
+   },
+   "Parsons": {
+      "Percent": "0.02454",
+      "Name": "Parsons",
+      "Rank": "453",
+      "Number": "66203"
+   },
+   "Vaughan": {
+      "Percent": "0.01393",
+      "Name": "Vaughan",
+      "Rank": "837",
+      "Number": "37591"
+   },
+   "Roth": {
+      "Percent": "0.02114",
+      "Name": "Roth",
+      "Rank": "527",
+      "Number": "57030"
+   },
+   "Ryan": {
+      "Percent": "0.05165",
+      "Name": "Ryan",
+      "Rank": "177",
+      "Number": "139335"
+   },
+   "Perez": {
+      "Percent": "0.18109",
+      "Name": "Perez",
+      "Rank": "29",
+      "Number": "488521"
+   },
+   "Chang": {
+      "Percent": "0.02586",
+      "Name": "Chang",
+      "Rank": "424",
+      "Number": "69756"
+   },
+   "Meyers": {
+      "Percent": "0.02103",
+      "Name": "Meyers",
+      "Rank": "528",
+      "Number": "56744"
+   },
+   "Orozco": {
+      "Percent": "0.01679",
+      "Name": "Orozco",
+      "Rank": "690",
+      "Number": "45289"
+   },
+   "Rodgers": {
+      "Percent": "0.02707",
+      "Name": "Rodgers",
+      "Rank": "394",
+      "Number": "73021"
+   },
+   "Nielsen": {
+      "Percent": "0.0152",
+      "Name": "Nielsen",
+      "Rank": "765",
+      "Number": "41007"
+   },
+   "Carrillo": {
+      "Percent": "0.02486",
+      "Name": "Carrillo",
+      "Rank": "443",
+      "Number": "67054"
+   },
+   "Malone": {
+      "Percent": "0.02567",
+      "Name": "Malone",
+      "Rank": "426",
+      "Number": "69257"
+   },
+   "Cowan": {
+      "Percent": "0.01195",
+      "Name": "Cowan",
+      "Rank": "985",
+      "Number": "32242"
+   },
+   "Evans": {
+      "Percent": "0.12687",
+      "Name": "Evans",
+      "Rank": "48",
+      "Number": "342237"
+   },
+   "Galvan": {
+      "Percent": "0.01484",
+      "Name": "Galvan",
+      "Rank": "788",
+      "Number": "40046"
+   },
+   "Guerra": {
+      "Percent": "0.02023",
+      "Name": "Guerra",
+      "Rank": "554",
+      "Number": "54575"
+   },
+   "Haas": {
+      "Percent": "0.01262",
+      "Name": "Haas",
+      "Rank": "941",
+      "Number": "34032"
+   },
+   "Owen": {
+      "Percent": "0.02241",
+      "Name": "Owen",
+      "Rank": "496",
+      "Number": "60461"
+   },
+   "Chan": {
+      "Percent": "0.02436",
+      "Name": "Chan",
+      "Rank": "459",
+      "Number": "65719"
+   },
+   "Roman": {
+      "Percent": "0.02188",
+      "Name": "Roman",
+      "Rank": "507",
+      "Number": "59020"
+   },
+   "Griffith": {
+      "Percent": "0.0287",
+      "Name": "Griffith",
+      "Rank": "369",
+      "Number": "77429"
+   },
+   "Maldonado": {
+      "Percent": "0.03263",
+      "Name": "Maldonado",
+      "Rank": "316",
+      "Number": "88016"
+   },
+   "Middleton": {
+      "Percent": "0.01509",
+      "Name": "Middleton",
+      "Rank": "771",
+      "Number": "40708"
+   },
+   "Patel": {
+      "Percent": "0.05378",
+      "Name": "Patel",
+      "Rank": "172",
+      "Number": "145066"
+   },
+   "Owens": {
+      "Percent": "0.06537",
+      "Name": "Owens",
+      "Rank": "126",
+      "Number": "176334"
+   },
+   "Blackburn": {
+      "Percent": "0.01414",
+      "Name": "Blackburn",
+      "Rank": "826",
+      "Number": "38137"
+   },
+   "Reese": {
+      "Percent": "0.0266",
+      "Name": "Reese",
+      "Rank": "405",
+      "Number": "71754"
+   },
+   "Brock": {
+      "Percent": "0.02212",
+      "Name": "Brock",
+      "Rank": "502",
+      "Number": "59682"
+   },
+   "Bridges": {
+      "Percent": "0.01937",
+      "Name": "Bridges",
+      "Rank": "579",
+      "Number": "52260"
+   },
+   "Sanford": {
+      "Percent": "0.01318",
+      "Name": "Sanford",
+      "Rank": "888",
+      "Number": "35565"
+   },
+   "Frost": {
+      "Percent": "0.01504",
+      "Name": "Frost",
+      "Rank": "774",
+      "Number": "40582"
+   },
+   "Cooper": {
+      "Percent": "0.10012",
+      "Name": "Cooper",
+      "Rank": "64",
+      "Number": "270097"
+   },
+   "Mendoza": {
+      "Percent": "0.06249",
+      "Name": "Mendoza",
+      "Rank": "134",
+      "Number": "168567"
+   },
+   "Aguirre": {
+      "Percent": "0.02184",
+      "Name": "Aguirre",
+      "Rank": "508",
+      "Number": "58918"
+   },
+   "Soto": {
+      "Percent": "0.03953",
+      "Name": "Soto",
+      "Rank": "257",
+      "Number": "106631"
+   },
+   "Landry": {
+      "Percent": "0.01407",
+      "Name": "Landry",
+      "Rank": "828",
+      "Number": "37961"
+   },
+   "Combs": {
+      "Percent": "0.01971",
+      "Name": "Combs",
+      "Rank": "570",
+      "Number": "53180"
+   },
+   "Stark": {
+      "Percent": "0.01552",
+      "Name": "Stark",
+      "Rank": "751",
+      "Number": "41863"
+   },
+   "Mccarthy": {
+      "Percent": "0.03004",
+      "Name": "Mccarthy",
+      "Rank": "348",
+      "Number": "81035"
+   },
+   "Velasquez": {
+      "Percent": "0.02119",
+      "Name": "Velasquez",
+      "Rank": "525",
+      "Number": "57163"
+   },
+   "Black": {
+      "Percent": "0.05567",
+      "Name": "Black",
+      "Rank": "160",
+      "Number": "150186"
+   },
+   "Graves": {
+      "Percent": "0.03046",
+      "Name": "Graves",
+      "Rank": "340",
+      "Number": "82179"
+   },
+   "Gilbert": {
+      "Percent": "0.04167",
+      "Name": "Gilbert",
+      "Rank": "243",
+      "Number": "112406"
+   },
+   "Odonnell": {
+      "Percent": "0.01587",
+      "Name": "Odonnell",
+      "Rank": "728",
+      "Number": "42802"
+   },
+   "Leach": {
+      "Percent": "0.01619",
+      "Name": "Leach",
+      "Rank": "714",
+      "Number": "43666"
+   },
+   "Garrison": {
+      "Percent": "0.01871",
+      "Name": "Garrison",
+      "Rank": "611",
+      "Number": "50482"
+   },
+   "Proctor": {
+      "Percent": "0.01286",
+      "Name": "Proctor",
+      "Rank": "918",
+      "Number": "34682"
+   },
+   "Estrada": {
+      "Percent": "0.03441",
+      "Name": "Estrada",
+      "Rank": "298",
+      "Number": "92831"
+   },
+   "Petersen": {
+      "Percent": "0.02046",
+      "Name": "Petersen",
+      "Rank": "543",
+      "Number": "55185"
+   },
+   "Hoffman": {
+      "Percent": "0.04917",
+      "Name": "Hoffman",
+      "Rank": "195",
+      "Number": "132645"
+   },
+   "Palmer": {
+      "Percent": "0.05576",
+      "Name": "Palmer",
+      "Rank": "158",
+      "Number": "150407"
+   },
+   "Medina": {
+      "Percent": "0.05166",
+      "Name": "Medina",
+      "Rank": "176",
+      "Number": "139353"
+   },
+   "Barrera": {
+      "Percent": "0.01621",
+      "Name": "Barrera",
+      "Rank": "713",
+      "Number": "43720"
+   },
+   "Simmons": {
+      "Percent": "0.07475",
+      "Name": "Simmons",
+      "Rank": "103",
+      "Number": "201650"
+   },
+   "Garza": {
+      "Percent": "0.04601",
+      "Name": "Garza",
+      "Rank": "220",
+      "Number": "124130"
+   },
+   "Cummings": {
+      "Percent": "0.02844",
+      "Name": "Cummings",
+      "Rank": "372",
+      "Number": "76707"
+   },
+   "Matthews": {
+      "Percent": "0.04628",
+      "Name": "Matthews",
+      "Rank": "217",
+      "Number": "124839"
+   },
+   "Roach": {
+      "Percent": "0.01648",
+      "Name": "Roach",
+      "Rank": "704",
+      "Number": "44454"
+   },
+   "Villegas": {
+      "Percent": "0.01286",
+      "Name": "Villegas",
+      "Rank": "917",
+      "Number": "34684"
+   },
+   "Vargas": {
+      "Percent": "0.04595",
+      "Name": "Vargas",
+      "Rank": "221",
+      "Number": "123952"
+   },
+   "Alexander": {
+      "Percent": "0.07171",
+      "Name": "Alexander",
+      "Rank": "111",
+      "Number": "193443"
+   },
+   "Fitzpatrick": {
+      "Percent": "0.01464",
+      "Name": "Fitzpatrick",
+      "Rank": "794",
+      "Number": "39501"
+   },
+   "Murillo": {
+      "Percent": "0.01185",
+      "Name": "Murillo",
+      "Rank": "995",
+      "Number": "31964"
+   },
+   "Archer": {
+      "Percent": "0.01239",
+      "Name": "Archer",
+      "Rank": "958",
+      "Number": "33411"
+   },
+   "Houston": {
+      "Percent": "0.02003",
+      "Name": "Houston",
+      "Rank": "563",
+      "Number": "54026"
+   },
+   "Patrick": {
+      "Percent": "0.0216",
+      "Name": "Patrick",
+      "Rank": "513",
+      "Number": "58257"
+   },
+   "Stevenson": {
+      "Percent": "0.02702",
+      "Name": "Stevenson",
+      "Rank": "395",
+      "Number": "72892"
+   },
+   "Mercado": {
+      "Percent": "0.01721",
+      "Name": "Mercado",
+      "Rank": "674",
+      "Number": "46437"
+   },
+   "Miles": {
+      "Percent": "0.03037",
+      "Name": "Miles",
+      "Rank": "342",
+      "Number": "81933"
+   },
+   "Rivas": {
+      "Percent": "0.02024",
+      "Name": "Rivas",
+      "Rank": "553",
+      "Number": "54588"
+   },
+   "Hanson": {
+      "Percent": "0.04044",
+      "Name": "Hanson",
+      "Rank": "251",
+      "Number": "109079"
+   },
+   "Marquez": {
+      "Percent": "0.02964",
+      "Name": "Marquez",
+      "Rank": "357",
+      "Number": "79951"
+   },
+   "Humphrey": {
+      "Percent": "0.0176",
+      "Name": "Humphrey",
+      "Rank": "655",
+      "Number": "47470"
+   },
+   "Bolton": {
+      "Percent": "0.01186",
+      "Name": "Bolton",
+      "Rank": "994",
+      "Number": "31995"
+   },
+   "Carney": {
+      "Percent": "0.01197",
+      "Name": "Carney",
+      "Rank": "984",
+      "Number": "32282"
+   },
+   "Berger": {
+      "Percent": "0.01615",
+      "Name": "Berger",
+      "Rank": "716",
+      "Number": "43556"
+   },
+   "Love": {
+      "Percent": "0.02903",
+      "Name": "Love",
+      "Rank": "363",
+      "Number": "78323"
+   },
+   "Shepard": {
+      "Percent": "0.01435",
+      "Name": "Shepard",
+      "Rank": "815",
+      "Number": "38705"
+   },
+   "Craig": {
+      "Percent": "0.03321",
+      "Name": "Craig",
+      "Rank": "307",
+      "Number": "89591"
+   },
+   "Kramer": {
+      "Percent": "0.02336",
+      "Name": "Kramer",
+      "Rank": "474",
+      "Number": "63023"
+   },
+   "Ali": {
+      "Percent": "0.01337",
+      "Name": "Ali",
+      "Rank": "876",
+      "Number": "36079"
+   },
+   "Carroll": {
+      "Percent": "0.04857",
+      "Name": "Carroll",
+      "Rank": "201",
+      "Number": "131020"
+   },
+   "Ellison": {
+      "Percent": "0.01537",
+      "Name": "Ellison",
+      "Rank": "756",
+      "Number": "41459"
+   },
+   "Lester": {
+      "Percent": "0.01628",
+      "Name": "Lester",
+      "Rank": "709",
+      "Number": "43919"
+   },
+   "Guzman": {
+      "Percent": "0.04389",
+      "Name": "Guzman",
+      "Rank": "230",
+      "Number": "118390"
+   },
+   "Jarvis": {
+      "Percent": "0.01262",
+      "Name": "Jarvis",
+      "Rank": "939",
+      "Number": "34050"
+   },
+   "Espinoza": {
+      "Percent": "0.0294",
+      "Name": "Espinoza",
+      "Rank": "360",
+      "Number": "79322"
+   },
+   "Fletcher": {
+      "Percent": "0.03",
+      "Name": "Fletcher",
+      "Rank": "352",
+      "Number": "80932"
+   },
+   "Burton": {
+      "Percent": "0.03972",
+      "Name": "Burton",
+      "Rank": "255",
+      "Number": "107158"
+   },
+   "Woodard": {
+      "Percent": "0.01662",
+      "Name": "Woodard",
+      "Rank": "696",
+      "Number": "44830"
+   },
+   "Peterson": {
+      "Percent": "0.10196",
+      "Name": "Peterson",
+      "Rank": "63",
+      "Number": "275041"
+   },
+   "Barajas": {
+      "Percent": "0.01192",
+      "Name": "Barajas",
+      "Rank": "989",
+      "Number": "32147"
+   },
+   "Bradford": {
+      "Percent": "0.01917",
+      "Name": "Bradford",
+      "Rank": "586",
+      "Number": "51726"
+   },
+   "Haney": {
+      "Percent": "0.0121",
+      "Name": "Haney",
+      "Rank": "976",
+      "Number": "32644"
+   },
+   "Oliver": {
+      "Percent": "0.04138",
+      "Name": "Oliver",
+      "Rank": "248",
+      "Number": "111641"
+   },
+   "Bender": {
+      "Percent": "0.01426",
+      "Name": "Bender",
+      "Rank": "821",
+      "Number": "38464"
+   },
+   "Richard": {
+      "Percent": "0.01933",
+      "Name": "Richard",
+      "Rank": "581",
+      "Number": "52138"
+   },
+   "Bryan": {
+      "Percent": "0.02049",
+      "Name": "Bryan",
+      "Rank": "542",
+      "Number": "55269"
+   },
+   "Cherry": {
+      "Percent": "0.01283",
+      "Name": "Cherry",
+      "Rank": "922",
+      "Number": "34615"
+   },
+   "Reilly": {
+      "Percent": "0.01494",
+      "Name": "Reilly",
+      "Rank": "780",
+      "Number": "40310"
+   },
+   "Romero": {
+      "Percent": "0.057",
+      "Name": "Romero",
+      "Rank": "154",
+      "Number": "153772"
+   },
+   "Douglas": {
+      "Percent": "0.03574",
+      "Name": "Douglas",
+      "Rank": "286",
+      "Number": "96425"
+   },
+   "Hendricks": {
+      "Percent": "0.01552",
+      "Name": "Hendricks",
+      "Rank": "749",
+      "Number": "41879"
+   },
+   "Goodman": {
+      "Percent": "0.0265",
+      "Name": "Goodman",
+      "Rank": "409",
+      "Number": "71482"
+   },
+   "Cline": {
+      "Percent": "0.01823",
+      "Name": "Cline",
+      "Rank": "628",
+      "Number": "49167"
+   },
+   "Rowe": {
+      "Percent": "0.02454",
+      "Name": "Rowe",
+      "Rank": "452",
+      "Number": "66205"
+   },
+   "Pena": {
+      "Percent": "0.03646",
+      "Name": "Pena",
+      "Rank": "284",
+      "Number": "98345"
+   },
+   "Reyes": {
+      "Percent": "0.08619",
+      "Name": "Reyes",
+      "Rank": "81",
+      "Number": "232511"
+   },
+   "Faulkner": {
+      "Percent": "0.01312",
+      "Name": "Faulkner",
+      "Rank": "896",
+      "Number": "35389"
+   },
+   "Crawford": {
+      "Percent": "0.05861",
+      "Name": "Crawford",
+      "Rank": "146",
+      "Number": "158121"
+   },
+   "Hinton": {
+      "Percent": "0.01231",
+      "Name": "Hinton",
+      "Rank": "962",
+      "Number": "33209"
+   },
+   "Williams": {
+      "Percent": "0.56866",
+      "Name": "Williams",
+      "Rank": "3",
+      "Number": "1534042"
+   },
+   "Mueller": {
+      "Percent": "0.02384",
+      "Name": "Mueller",
+      "Rank": "467",
+      "Number": "64305"
+   },
+   "Christian": {
+      "Percent": "0.01897",
+      "Name": "Christian",
+      "Rank": "597",
+      "Number": "51177"
+   },
+   "Patterson": {
+      "Percent": "0.0736",
+      "Name": "Patterson",
+      "Rank": "104",
+      "Number": "198557"
+   },
+   "Ingram": {
+      "Percent": "0.02471",
+      "Name": "Ingram",
+      "Rank": "446",
+      "Number": "66665"
+   },
+   "Price": {
+      "Percent": "0.0848",
+      "Name": "Price",
+      "Rank": "84",
+      "Number": "228756"
+   },
+   "Murphy": {
+      "Percent": "0.11139",
+      "Name": "Murphy",
+      "Rank": "58",
+      "Number": "300501"
+   },
+   "Rollins": {
+      "Percent": "0.01253",
+      "Name": "Rollins",
+      "Rank": "949",
+      "Number": "33797"
+   },
+   "Salinas": {
+      "Percent": "0.02283",
+      "Name": "Salinas",
+      "Rank": "490",
+      "Number": "61582"
+   },
+   "Hodges": {
+      "Percent": "0.02553",
+      "Name": "Hodges",
+      "Rank": "428",
+      "Number": "68868"
+   },
+   "Cochran": {
+      "Percent": "0.02159",
+      "Name": "Cochran",
+      "Rank": "514",
+      "Number": "58233"
+   },
+   "Hale": {
+      "Percent": "0.03075",
+      "Name": "Hale",
+      "Rank": "338",
+      "Number": "82955"
+   },
+   "Kim": {
+      "Percent": "0.07194",
+      "Name": "Kim",
+      "Rank": "109",
+      "Number": "194067"
+   },
+   "Knapp": {
+      "Percent": "0.0153",
+      "Name": "Knapp",
+      "Rank": "760",
+      "Number": "41267"
+   },
+   "Ochoa": {
+      "Percent": "0.02121",
+      "Name": "Ochoa",
+      "Rank": "523",
+      "Number": "57210"
+   },
+   "Mahoney": {
+      "Percent": "0.01462",
+      "Name": "Mahoney",
+      "Rank": "795",
+      "Number": "39440"
+   },
+   "Hall": {
+      "Percent": "0.17555",
+      "Name": "Hall",
+      "Rank": "30",
+      "Number": "473568"
+   },
+   "Jones": {
+      "Percent": "0.50517",
+      "Name": "Jones",
+      "Rank": "5",
+      "Number": "1362755"
+   },
+   "Lynn": {
+      "Percent": "0.01376",
+      "Name": "Lynn",
+      "Rank": "847",
+      "Number": "37125"
+   },
+   "Pierce": {
+      "Percent": "0.05061",
+      "Name": "Pierce",
+      "Rank": "186",
+      "Number": "136517"
+   },
+   "Stephenson": {
+      "Percent": "0.0173",
+      "Name": "Stephenson",
+      "Rank": "668",
+      "Number": "46662"
+   },
+   "Wise": {
+      "Percent": "0.02474",
+      "Name": "Wise",
+      "Rank": "445",
+      "Number": "66738"
+   },
+   "Davila": {
+      "Percent": "0.0128",
+      "Name": "Davila",
+      "Rank": "924",
+      "Number": "34541"
+   },
+   "Knight": {
+      "Percent": "0.04888",
+      "Name": "Knight",
+      "Rank": "199",
+      "Number": "131860"
+   },
+   "Tran": {
+      "Percent": "0.05045",
+      "Name": "Tran",
+      "Rank": "188",
+      "Number": "136095"
+   },
+   "Kerr": {
+      "Percent": "0.01585",
+      "Name": "Kerr",
+      "Rank": "729",
+      "Number": "42758"
+   },
+   "Mullen": {
+      "Percent": "0.01351",
+      "Name": "Mullen",
+      "Rank": "867",
+      "Number": "36442"
+   },
+   "Heath": {
+      "Percent": "0.01865",
+      "Name": "Heath",
+      "Rank": "614",
+      "Number": "50307"
+   },
+   "Ashley": {
+      "Percent": "0.01372",
+      "Name": "Ashley",
+      "Rank": "852",
+      "Number": "37021"
+   },
+   "Allison": {
+      "Percent": "0.01909",
+      "Name": "Allison",
+      "Rank": "590",
+      "Number": "51504"
+   },
+   "Vega": {
+      "Percent": "0.03252",
+      "Name": "Vega",
+      "Rank": "318",
+      "Number": "87728"
+   },
+   "Boone": {
+      "Percent": "0.01916",
+      "Name": "Boone",
+      "Rank": "587",
+      "Number": "51679"
+   },
+   "Becker": {
+      "Percent": "0.03266",
+      "Name": "Becker",
+      "Rank": "315",
+      "Number": "88114"
+   },
+   "Conrad": {
+      "Percent": "0.01487",
+      "Name": "Conrad",
+      "Rank": "786",
+      "Number": "40102"
+   },
+   "Cantrell": {
+      "Percent": "0.01285",
+      "Name": "Cantrell",
+      "Rank": "920",
+      "Number": "34674"
+   },
+   "Cabrera": {
+      "Percent": "0.02119",
+      "Name": "Cabrera",
+      "Rank": "524",
+      "Number": "57171"
+   },
+   "Rosario": {
+      "Percent": "0.01354",
+      "Name": "Rosario",
+      "Rank": "865",
+      "Number": "36539"
+   },
+   "Mejia": {
+      "Percent": "0.02466",
+      "Name": "Mejia",
+      "Rank": "448",
+      "Number": "66534"
+   },
+   "Wang": {
+      "Percent": "0.02505",
+      "Name": "Wang",
+      "Rank": "438",
+      "Number": "67570"
+   },
+   "Meza": {
+      "Percent": "0.01396",
+      "Name": "Meza",
+      "Rank": "835",
+      "Number": "37662"
+   },
+   "Lewis": {
+      "Percent": "0.18903",
+      "Name": "Lewis",
+      "Rank": "26",
+      "Number": "509930"
+   },
+   "Johns": {
+      "Percent": "0.01753",
+      "Name": "Johns",
+      "Rank": "656",
+      "Number": "47289"
+   },
+   "Bullock": {
+      "Percent": "0.01595",
+      "Name": "Bullock",
+      "Rank": "722",
+      "Number": "43021"
+   },
+   "Avery": {
+      "Percent": "0.01388",
+      "Name": "Avery",
+      "Rank": "840",
+      "Number": "37440"
+   },
+   "Mcknight": {
+      "Percent": "0.01201",
+      "Name": "Mcknight",
+      "Rank": "980",
+      "Number": "32386"
+   },
+   "Rosales": {
+      "Percent": "0.01903",
+      "Name": "Rosales",
+      "Rank": "595",
+      "Number": "51336"
+   },
+   "Callahan": {
+      "Percent": "0.01851",
+      "Name": "Callahan",
+      "Rank": "617",
+      "Number": "49925"
+   },
+   "Joyce": {
+      "Percent": "0.01255",
+      "Name": "Joyce",
+      "Rank": "948",
+      "Number": "33843"
+   },
+   "Chen": {
+      "Percent": "0.03912",
+      "Name": "Chen",
+      "Rank": "260",
+      "Number": "105544"
+   },
+   "Dominguez": {
+      "Percent": "0.03104",
+      "Name": "Dominguez",
+      "Rank": "334",
+      "Number": "83731"
+   },
+   "Roy": {
+      "Percent": "0.01843",
+      "Name": "Roy",
+      "Rank": "621",
+      "Number": "49725"
+   },
+   "Reynolds": {
+      "Percent": "0.07251",
+      "Name": "Reynolds",
+      "Rank": "106",
+      "Number": "195598"
+   },
+   "Bishop": {
+      "Percent": "0.04227",
+      "Name": "Bishop",
+      "Rank": "238",
+      "Number": "114034"
+   },
+   "Santos": {
+      "Percent": "0.0367",
+      "Name": "Santos",
+      "Rank": "279",
+      "Number": "98993"
+   },
+   "Hammond": {
+      "Percent": "0.02486",
+      "Name": "Hammond",
+      "Rank": "442",
+      "Number": "67063"
+   },
+   "Norris": {
+      "Percent": "0.03159",
+      "Name": "Norris",
+      "Rank": "326",
+      "Number": "85212"
+   },
+   "Barry": {
+      "Percent": "0.0167",
+      "Name": "Barry",
+      "Rank": "691",
+      "Number": "45044"
+   },
+   "Cortez": {
+      "Percent": "0.02873",
+      "Name": "Cortez",
+      "Rank": "367",
+      "Number": "77492"
+   },
+   "Benton": {
+      "Percent": "0.01373",
+      "Name": "Benton",
+      "Rank": "851",
+      "Number": "37032"
+   },
+   "Carey": {
+      "Percent": "0.02036",
+      "Name": "Carey",
+      "Rank": "547",
+      "Number": "54924"
+   },
+   "Jacobson": {
+      "Percent": "0.01663",
+      "Name": "Jacobson",
+      "Rank": "695",
+      "Number": "44874"
+   },
+   "Bauer": {
+      "Percent": "0.02298",
+      "Name": "Bauer",
+      "Rank": "484",
+      "Number": "61979"
+   },
+   "Cantu": {
+      "Percent": "0.01468",
+      "Name": "Cantu",
+      "Rank": "793",
+      "Number": "39601"
+   },
+   "Alvarado": {
+      "Percent": "0.03474",
+      "Name": "Alvarado",
+      "Rank": "294",
+      "Number": "93723"
+   },
+   "Hill": {
+      "Percent": "0.15264",
+      "Name": "Hill",
+      "Rank": "41",
+      "Number": "411770"
+   },
+   "Kent": {
+      "Percent": "0.01579",
+      "Name": "Kent",
+      "Rank": "733",
+      "Number": "42597"
+   },
+   "Marks": {
+      "Percent": "0.0179",
+      "Name": "Marks",
+      "Rank": "644",
+      "Number": "48281"
+   },
+   "Brandt": {
+      "Percent": "0.0132",
+      "Name": "Brandt",
+      "Rank": "885",
+      "Number": "35616"
+   },
+   "Hartman": {
+      "Percent": "0.02366",
+      "Name": "Hartman",
+      "Rank": "470",
+      "Number": "63827"
+   },
+   "Wilkinson": {
+      "Percent": "0.01946",
+      "Name": "Wilkinson",
+      "Rank": "576",
+      "Number": "52483"
+   },
+   "Powell": {
+      "Percent": "0.08028",
+      "Name": "Powell",
+      "Rank": "91",
+      "Number": "216553"
+   },
+   "Henderson": {
+      "Percent": "0.07788",
+      "Name": "Henderson",
+      "Rank": "101",
+      "Number": "210094"
+   },
+   "Freeman": {
+      "Percent": "0.06031",
+      "Name": "Freeman",
+      "Rank": "140",
+      "Number": "162686"
+   },
+   "Santiago": {
+      "Percent": "0.03372",
+      "Name": "Santiago",
+      "Rank": "302",
+      "Number": "90967"
+   },
+   "Pennington": {
+      "Percent": "0.01495",
+      "Name": "Pennington",
+      "Rank": "779",
+      "Number": "40339"
+   },
+   "Dunn": {
+      "Percent": "0.05077",
+      "Name": "Dunn",
+      "Rank": "185",
+      "Number": "136955"
+   },
+   "Esparza": {
+      "Percent": "0.01215",
+      "Name": "Esparza",
+      "Rank": "971",
+      "Number": "32772"
+   },
+   "Hull": {
+      "Percent": "0.01544",
+      "Name": "Hull",
+      "Rank": "754",
+      "Number": "41656"
+   },
+   "Berg": {
+      "Percent": "0.01797",
+      "Name": "Berg",
+      "Rank": "637",
+      "Number": "48480"
+   },
+   "French": {
+      "Percent": "0.02341",
+      "Name": "French",
+      "Rank": "473",
+      "Number": "63149"
+   },
+   "Sellers": {
+      "Percent": "0.01541",
+      "Name": "Sellers",
+      "Rank": "755",
+      "Number": "41561"
+   },
+   "Walton": {
+      "Percent": "0.02632",
+      "Name": "Walton",
+      "Rank": "414",
+      "Number": "70997"
+   },
+   "Mcclure": {
+      "Percent": "0.01724",
+      "Name": "Mcclure",
+      "Rank": "672",
+      "Number": "46505"
+   },
+   "Flores": {
+      "Percent": "0.11589",
+      "Name": "Flores",
+      "Rank": "55",
+      "Number": "312615"
+   },
+   "York": {
+      "Percent": "0.01903",
+      "Name": "York",
+      "Rank": "596",
+      "Number": "51334"
+   },
+   "Dickson": {
+      "Percent": "0.01286",
+      "Name": "Dickson",
+      "Rank": "915",
+      "Number": "34698"
+   },
+   "Gonzales": {
+      "Percent": "0.07189",
+      "Name": "Gonzales",
+      "Rank": "110",
+      "Number": "193934"
+   },
+   "Fisher": {
+      "Percent": "0.07795",
+      "Name": "Fisher",
+      "Rank": "100",
+      "Number": "210279"
+   },
+   "Potter": {
+      "Percent": "0.02636",
+      "Name": "Potter",
+      "Rank": "413",
+      "Number": "71103"
+   },
+   "Strong": {
+      "Percent": "0.0161",
+      "Name": "Strong",
+      "Rank": "718",
+      "Number": "43430"
+   },
+   "Duffy": {
+      "Percent": "0.01407",
+      "Name": "Duffy",
+      "Rank": "827",
+      "Number": "37962"
+   },
+   "Pacheco": {
+      "Percent": "0.0217",
+      "Name": "Pacheco",
+      "Rank": "512",
+      "Number": "58534"
+   },
+   "Juarez": {
+      "Percent": "0.0255",
+      "Name": "Juarez",
+      "Rank": "429",
+      "Number": "68785"
+   },
+   "Fitzgerald": {
+      "Percent": "0.02725",
+      "Name": "Fitzgerald",
+      "Rank": "390",
+      "Number": "73522"
+   },
+   "Dorsey": {
+      "Percent": "0.01524",
+      "Name": "Dorsey",
+      "Rank": "763",
+      "Number": "41104"
+   },
+   "Navarro": {
+      "Percent": "0.02742",
+      "Name": "Navarro",
+      "Rank": "388",
+      "Number": "73970"
+   },
+   "Eaton": {
+      "Percent": "0.0172",
+      "Name": "Eaton",
+      "Rank": "676",
+      "Number": "46403"
+   },
+   "Duran": {
+      "Percent": "0.02522",
+      "Name": "Duran",
+      "Rank": "434",
+      "Number": "68046"
+   },
+   "Hooper": {
+      "Percent": "0.01263",
+      "Name": "Hooper",
+      "Rank": "936",
+      "Number": "34084"
+   },
+   "Blevins": {
+      "Percent": "0.01366",
+      "Name": "Blevins",
+      "Rank": "856",
+      "Number": "36841"
+   },
+   "Riddle": {
+      "Percent": "0.0121",
+      "Name": "Riddle",
+      "Rank": "975",
+      "Number": "32654"
+   },
+   "Moore": {
+      "Percent": "0.259",
+      "Name": "Moore",
+      "Rank": "16",
+      "Number": "698671"
+   },
+   "Armstrong": {
+      "Percent": "0.04818",
+      "Name": "Armstrong",
+      "Rank": "204",
+      "Number": "129982"
+   },
+   "Hayden": {
+      "Percent": "0.01335",
+      "Name": "Hayden",
+      "Rank": "878",
+      "Number": "36024"
+   },
+   "Sullivan": {
+      "Percent": "0.07994",
+      "Name": "Sullivan",
+      "Rank": "92",
+      "Number": "215640"
+   },
+   "Carlson": {
+      "Percent": "0.04453",
+      "Name": "Carlson",
+      "Rank": "225",
+      "Number": "120124"
+   },
+   "Buchanan": {
+      "Percent": "0.02366",
+      "Name": "Buchanan",
+      "Rank": "471",
+      "Number": "63825"
+   },
+   "Washington": {
+      "Percent": "0.06044",
+      "Name": "Washington",
+      "Rank": "138",
+      "Number": "163036"
+   },
+   "Wall": {
+      "Percent": "0.02017",
+      "Name": "Wall",
+      "Rank": "557",
+      "Number": "54401"
+   },
+   "Haynes": {
+      "Percent": "0.03041",
+      "Name": "Haynes",
+      "Rank": "341",
+      "Number": "82037"
+   },
+   "Tyler": {
+      "Percent": "0.02318",
+      "Name": "Tyler",
+      "Rank": "477",
+      "Number": "62534"
+   },
+   "Gilmore": {
+      "Percent": "0.01744",
+      "Name": "Gilmore",
+      "Rank": "661",
+      "Number": "47050"
+   },
+   "Bradshaw": {
+      "Percent": "0.01512",
+      "Name": "Bradshaw",
+      "Rank": "769",
+      "Number": "40794"
+   },
+   "Woodward": {
+      "Percent": "0.01343",
+      "Name": "Woodward",
+      "Rank": "875",
+      "Number": "36242"
+   },
+   "Dalton": {
+      "Percent": "0.0186",
+      "Name": "Dalton",
+      "Rank": "615",
+      "Number": "50166"
+   },
+   "Allen": {
+      "Percent": "0.17177",
+      "Name": "Allen",
+      "Rank": "32",
+      "Number": "463368"
+   },
+   "Cuevas": {
+      "Percent": "0.01187",
+      "Name": "Cuevas",
+      "Rank": "993",
+      "Number": "32015"
+   },
+   "Whitehead": {
+      "Percent": "0.01605",
+      "Name": "Whitehead",
+      "Rank": "721",
+      "Number": "43310"
+   },
+   "Wiggins": {
+      "Percent": "0.01793",
+      "Name": "Wiggins",
+      "Rank": "641",
+      "Number": "48355"
+   },
+   "Santana": {
+      "Percent": "0.01626",
+      "Name": "Santana",
+      "Rank": "710",
+      "Number": "43875"
+   },
+   "Jackson": {
+      "Percent": "0.24693",
+      "Name": "Jackson",
+      "Rank": "18",
+      "Number": "666125"
+   },
+   "Franco": {
+      "Percent": "0.01971",
+      "Name": "Franco",
+      "Rank": "571",
+      "Number": "53161"
+   },
+   "Grant": {
+      "Percent": "0.04969",
+      "Name": "Grant",
+      "Rank": "192",
+      "Number": "134034"
+   },
+   "Acevedo": {
+      "Percent": "0.01417",
+      "Name": "Acevedo",
+      "Rank": "824",
+      "Number": "38232"
+   },
+   "Burch": {
+      "Percent": "0.01317",
+      "Name": "Burch",
+      "Rank": "891",
+      "Number": "35521"
+   },
+   "Fox": {
+      "Percent": "0.05462",
+      "Name": "Fox",
+      "Rank": "167",
+      "Number": "147357"
+   },
+   "Vance": {
+      "Percent": "0.01696",
+      "Name": "Vance",
+      "Rank": "686",
+      "Number": "45763"
+   },
+   "Wolfe": {
+      "Percent": "0.03081",
+      "Name": "Wolfe",
+      "Rank": "337",
+      "Number": "83112"
+   },
+   "Wright": {
+      "Percent": "0.16324",
+      "Name": "Wright",
+      "Rank": "34",
+      "Number": "440367"
+   },
+   "Anderson": {
+      "Percent": "0.28262",
+      "Name": "Anderson",
+      "Rank": "12",
+      "Number": "762394"
+   },
+   "Foster": {
+      "Percent": "0.08194",
+      "Name": "Foster",
+      "Rank": "87",
+      "Number": "221040"
+   },
+   "Leon": {
+      "Percent": "0.023",
+      "Name": "Leon",
+      "Rank": "483",
+      "Number": "62034"
+   },
+   "Gibbs": {
+      "Percent": "0.02317",
+      "Name": "Gibbs",
+      "Rank": "478",
+      "Number": "62514"
+   },
+   "Mosley": {
+      "Percent": "0.01657",
+      "Name": "Mosley",
+      "Rank": "699",
+      "Number": "44698"
+   },
+   "Butler": {
+      "Percent": "0.07817",
+      "Name": "Butler",
+      "Rank": "98",
+      "Number": "210879"
+   },
+   "Jenkins": {
+      "Percent": "0.07923",
+      "Name": "Jenkins",
+      "Rank": "95",
+      "Number": "213737"
+   },
+   "Mcneil": {
+      "Percent": "0.01232",
+      "Name": "Mcneil",
+      "Rank": "961",
+      "Number": "33239"
+   },
+   "Mckinney": {
+      "Percent": "0.02988",
+      "Name": "Mckinney",
+      "Rank": "353",
+      "Number": "80616"
+   },
+   "Morrison": {
+      "Percent": "0.04372",
+      "Name": "Morrison",
+      "Rank": "231",
+      "Number": "117939"
+   },
+   "Arias": {
+      "Percent": "0.01486",
+      "Name": "Arias",
+      "Rank": "787",
+      "Number": "40086"
+   },
+   "Mathis": {
+      "Percent": "0.0192",
+      "Name": "Mathis",
+      "Rank": "585",
+      "Number": "51796"
+   },
+   "Jensen": {
+      "Percent": "0.04164",
+      "Name": "Jensen",
+      "Rank": "244",
+      "Number": "112332"
+   },
+   "Novak": {
+      "Percent": "0.01308",
+      "Name": "Novak",
+      "Rank": "899",
+      "Number": "35282"
+   },
+   "Blair": {
+      "Percent": "0.02785",
+      "Name": "Blair",
+      "Rank": "380",
+      "Number": "75135"
+   },
+   "Park": {
+      "Percent": "0.03036",
+      "Name": "Park",
+      "Rank": "343",
+      "Number": "81890"
+   },
+   "Pollard": {
+      "Percent": "0.01263",
+      "Name": "Pollard",
+      "Rank": "937",
+      "Number": "34079"
+   },
+   "Nguyen": {
+      "Percent": "0.11496",
+      "Name": "Nguyen",
+      "Rank": "57",
+      "Number": "310125"
+   },
+   "Arellano": {
+      "Percent": "0.01297",
+      "Name": "Arellano",
+      "Rank": "905",
+      "Number": "34999"
+   },
+   "Osborne": {
+      "Percent": "0.02439",
+      "Name": "Osborne",
+      "Rank": "457",
+      "Number": "65802"
+   },
+   "Flynn": {
+      "Percent": "0.02289",
+      "Name": "Flynn",
+      "Rank": "487",
+      "Number": "61747"
+   },
+   "Terry": {
+      "Percent": "0.03093",
+      "Name": "Terry",
+      "Rank": "336",
+      "Number": "83437"
+   },
+   "Richards": {
+      "Percent": "0.04658",
+      "Name": "Richards",
+      "Rank": "215",
+      "Number": "125653"
+   },
+   "Trevino": {
+      "Percent": "0.0187",
+      "Name": "Trevino",
+      "Rank": "612",
+      "Number": "50454"
+   },
+   "Peck": {
+      "Percent": "0.01462",
+      "Name": "Peck",
+      "Rank": "796",
+      "Number": "39432"
+   },
+   "Hurst": {
+      "Percent": "0.01653",
+      "Name": "Hurst",
+      "Rank": "702",
+      "Number": "44587"
+   },
+   "King": {
+      "Percent": "0.16273",
+      "Name": "King",
+      "Rank": "35",
+      "Number": "438986"
+   },
+   "Johnson": {
+      "Percent": "0.68844",
+      "Name": "Johnson",
+      "Rank": "2",
+      "Number": "1857160"
+   },
+   "Yates": {
+      "Percent": "0.02276",
+      "Name": "Yates",
+      "Rank": "491",
+      "Number": "61400"
+   },
+   "Browning": {
+      "Percent": "0.01581",
+      "Name": "Browning",
+      "Rank": "732",
+      "Number": "42642"
+   },
+   "Serrano": {
+      "Percent": "0.02041",
+      "Name": "Serrano",
+      "Rank": "545",
+      "Number": "55057"
+   },
+   "Melendez": {
+      "Percent": "0.01562",
+      "Name": "Melendez",
+      "Rank": "744",
+      "Number": "42139"
+   },
+   "Lindsey": {
+      "Percent": "0.02269",
+      "Name": "Lindsey",
+      "Rank": "492",
+      "Number": "61199"
+   },
+   "Moreno": {
+      "Percent": "0.05415",
+      "Name": "Moreno",
+      "Rank": "170",
+      "Number": "146088"
+   },
+   "Calhoun": {
+      "Percent": "0.01537",
+      "Name": "Calhoun",
+      "Rank": "757",
+      "Number": "41452"
+   },
+   "Hansen": {
+      "Percent": "0.04948",
+      "Name": "Hansen",
+      "Rank": "193",
+      "Number": "133474"
+   },
+   "Mccormick": {
+      "Percent": "0.02323",
+      "Name": "Mccormick",
+      "Rank": "475",
+      "Number": "62663"
+   },
+   "Beltran": {
+      "Percent": "0.01288",
+      "Name": "Beltran",
+      "Rank": "914",
+      "Number": "34736"
+   },
+   "Kane": {
+      "Percent": "0.01799",
+      "Name": "Kane",
+      "Rank": "636",
+      "Number": "48527"
+   },
+   "Hobbs": {
+      "Percent": "0.0175",
+      "Name": "Hobbs",
+      "Rank": "659",
+      "Number": "47220"
+   },
+   "Kirby": {
+      "Percent": "0.01945",
+      "Name": "Kirby",
+      "Rank": "577",
+      "Number": "52473"
+   },
+   "Woods": {
+      "Percent": "0.06258",
+      "Name": "Woods",
+      "Rank": "133",
+      "Number": "168814"
+   },
+   "Todd": {
+      "Percent": "0.02588",
+      "Name": "Todd",
+      "Rank": "423",
+      "Number": "69810"
+   },
+   "Harrell": {
+      "Percent": "0.01797",
+      "Name": "Harrell",
+      "Rank": "638",
+      "Number": "48471"
+   },
+   "Dawson": {
+      "Percent": "0.02973",
+      "Name": "Dawson",
+      "Rank": "355",
+      "Number": "80190"
+   },
+   "Hart": {
+      "Percent": "0.0491",
+      "Name": "Hart",
+      "Rank": "196",
+      "Number": "132466"
+   },
+   "Graham": {
+      "Percent": "0.07194",
+      "Name": "Graham",
+      "Rank": "108",
+      "Number": "194074"
+   },
+   "Bass": {
+      "Percent": "0.02013",
+      "Name": "Bass",
+      "Rank": "559",
+      "Number": "54296"
+   },
+   "Bonilla": {
+      "Percent": "0.01291",
+      "Name": "Bonilla",
+      "Rank": "908",
+      "Number": "34824"
+   },
+   "Glover": {
+      "Percent": "0.02379",
+      "Name": "Glover",
+      "Rank": "468",
+      "Number": "64180"
+   },
+   "Silva": {
+      "Percent": "0.04677",
+      "Name": "Silva",
+      "Rank": "214",
+      "Number": "126164"
+   },
+   "Pineda": {
+      "Percent": "0.01446",
+      "Name": "Pineda",
+      "Rank": "806",
+      "Number": "38999"
+   },
+   "Willis": {
+      "Percent": "0.04657",
+      "Name": "Willis",
+      "Rank": "216",
+      "Number": "125627"
+   },
+   "English": {
+      "Percent": "0.01669",
+      "Name": "English",
+      "Rank": "692",
+      "Number": "45032"
+   },
+   "Patton": {
+      "Percent": "0.02401",
+      "Name": "Patton",
+      "Rank": "464",
+      "Number": "64772"
+   },
+   "Snow": {
+      "Percent": "0.01694",
+      "Name": "Snow",
+      "Rank": "687",
+      "Number": "45689"
+   },
+   "Hancock": {
+      "Percent": "0.01829",
+      "Name": "Hancock",
+      "Rank": "625",
+      "Number": "49330"
+   },
+   "Castillo": {
+      "Percent": "0.06134",
+      "Name": "Castillo",
+      "Rank": "135",
+      "Number": "165473"
+   },
+   "Cobb": {
+      "Percent": "0.02363",
+      "Name": "Cobb",
+      "Rank": "472",
+      "Number": "63739"
+   },
+   "Velazquez": {
+      "Percent": "0.01484",
+      "Name": "Velazquez",
+      "Rank": "789",
+      "Number": "40030"
+   },
+   "Horton": {
+      "Percent": "0.03096",
+      "Name": "Horton",
+      "Rank": "335",
+      "Number": "83523"
+   },
+   "Meadows": {
+      "Percent": "0.0159",
+      "Name": "Meadows",
+      "Rank": "725",
+      "Number": "42884"
+   },
+   "Riley": {
+      "Percent": "0.04743",
+      "Name": "Riley",
+      "Rank": "210",
+      "Number": "127960"
+   },
+   "Hernandez": {
+      "Percent": "0.26185",
+      "Name": "Hernandez",
+      "Rank": "15",
+      "Number": "706372"
+   },
+   "Chavez": {
+      "Percent": "0.0689",
+      "Name": "Chavez",
+      "Rank": "118",
+      "Number": "185865"
+   },
+   "Mcintosh": {
+      "Percent": "0.015",
+      "Name": "Mcintosh",
+      "Rank": "777",
+      "Number": "40453"
+   },
+   "Lambert": {
+      "Percent": "0.03359",
+      "Name": "Lambert",
+      "Rank": "303",
+      "Number": "90618"
+   },
+   "Curry": {
+      "Percent": "0.02645",
+      "Name": "Curry",
+      "Rank": "410",
+      "Number": "71344"
+   },
+   "Waters": {
+      "Percent": "0.0244",
+      "Name": "Waters",
+      "Rank": "455",
+      "Number": "65817"
+   },
+   "Robbins": {
+      "Percent": "0.02897",
+      "Name": "Robbins",
+      "Rank": "364",
+      "Number": "78141"
+   },
+   "Mendez": {
+      "Percent": "0.04179",
+      "Name": "Mendez",
+      "Rank": "242",
+      "Number": "112736"
+   },
+   "Potts": {
+      "Percent": "0.01397",
+      "Name": "Potts",
+      "Rank": "832",
+      "Number": "37687"
+   },
+   "Tate": {
+      "Percent": "0.02491",
+      "Name": "Tate",
+      "Rank": "440",
+      "Number": "67208"
+   },
+   "Floyd": {
+      "Percent": "0.02378",
+      "Name": "Floyd",
+      "Rank": "469",
+      "Number": "64141"
+   },
+   "Lynch": {
+      "Percent": "0.04243",
+      "Name": "Lynch",
+      "Rank": "237",
+      "Number": "114448"
+   },
+   "Moss": {
+      "Percent": "0.02734",
+      "Name": "Moss",
+      "Rank": "389",
+      "Number": "73750"
+   },
+   "Doyle": {
+      "Percent": "0.02725",
+      "Name": "Doyle",
+      "Rank": "391",
+      "Number": "73518"
+   },
+   "Flowers": {
+      "Percent": "0.02012",
+      "Name": "Flowers",
+      "Rank": "560",
+      "Number": "54277"
+   },
+   "Mack": {
+      "Percent": "0.02489",
+      "Name": "Mack",
+      "Rank": "441",
+      "Number": "67154"
+   },
+   "Pittman": {
+      "Percent": "0.01953",
+      "Name": "Pittman",
+      "Rank": "573",
+      "Number": "52689"
+   },
+   "Benson": {
+      "Percent": "0.03122",
+      "Name": "Benson",
+      "Rank": "332",
+      "Number": "84233"
+   },
+   "Adams": {
+      "Percent": "0.15313",
+      "Name": "Adams",
+      "Rank": "39",
+      "Number": "413086"
+   },
+   "Oneal": {
+      "Percent": "0.01711",
+      "Name": "Oneal",
+      "Rank": "680",
+      "Number": "46161"
+   },
+   "Zhang": {
+      "Percent": "0.01231",
+      "Name": "Zhang",
+      "Rank": "963",
+      "Number": "33202"
+   },
+   "Ballard": {
+      "Percent": "0.02212",
+      "Name": "Ballard",
+      "Rank": "503",
+      "Number": "59660"
+   },
+   "Donovan": {
+      "Percent": "0.01456",
+      "Name": "Donovan",
+      "Rank": "799",
+      "Number": "39270"
+   },
+   "Yang": {
+      "Percent": "0.02692",
+      "Name": "Yang",
+      "Rank": "397",
+      "Number": "72627"
+   },
+   "Davies": {
+      "Percent": "0.01192",
+      "Name": "Davies",
+      "Rank": "988",
+      "Number": "32165"
+   },
+   "Mccann": {
+      "Percent": "0.01286",
+      "Name": "Mccann",
+      "Rank": "916",
+      "Number": "34692"
+   },
+   "Stuart": {
+      "Percent": "0.01323",
+      "Name": "Stuart",
+      "Rank": "883",
+      "Number": "35701"
+   },
+   "Dean": {
+      "Percent": "0.04049",
+      "Name": "Dean",
+      "Rank": "250",
+      "Number": "109230"
+   },
+   "Vincent": {
+      "Percent": "0.01877",
+      "Name": "Vincent",
+      "Rank": "608",
+      "Number": "50628"
+   },
+   "Davenport": {
+      "Percent": "0.02009",
+      "Name": "Davenport",
+      "Rank": "561",
+      "Number": "54206"
+   },
+   "Osborn": {
+      "Percent": "0.01188",
+      "Name": "Osborn",
+      "Rank": "991",
+      "Number": "32044"
+   },
+   "Holmes": {
+      "Percent": "0.05567",
+      "Name": "Holmes",
+      "Rank": "161",
+      "Number": "150166"
+   },
+   "Mckee": {
+      "Percent": "0.01615",
+      "Name": "Mckee",
+      "Rank": "717",
+      "Number": "43555"
+   },
+   "Lowery": {
+      "Percent": "0.01545",
+      "Name": "Lowery",
+      "Rank": "752",
+      "Number": "41670"
+   },
+   "Whitney": {
+      "Percent": "0.0127",
+      "Name": "Whitney",
+      "Rank": "934",
+      "Number": "34251"
+   },
+   "Conway": {
+      "Percent": "0.01609",
+      "Name": "Conway",
+      "Rank": "719",
+      "Number": "43395"
+   },
+   "Marshall": {
+      "Percent": "0.06569",
+      "Name": "Marshall",
+      "Rank": "125",
+      "Number": "177213"
+   },
+   "Garner": {
+      "Percent": "0.02671",
+      "Name": "Garner",
+      "Rank": "403",
+      "Number": "72052"
+   },
+   "Martinez": {
+      "Percent": "0.28732",
+      "Name": "Martinez",
+      "Rank": "11",
+      "Number": "775072"
+   },
+   "Booth": {
+      "Percent": "0.01801",
+      "Name": "Booth",
+      "Rank": "635",
+      "Number": "48580"
+   },
+   "Harrison": {
+      "Percent": "0.06509",
+      "Name": "Harrison",
+      "Rank": "128",
+      "Number": "175577"
+   },
+   "Church": {
+      "Percent": "0.01317",
+      "Name": "Church",
+      "Rank": "890",
+      "Number": "35539"
+   },
+   "Campbell": {
+      "Percent": "0.13788",
+      "Name": "Campbell",
+      "Rank": "43",
+      "Number": "371953"
+   },
+   "Pugh": {
+      "Percent": "0.01434",
+      "Name": "Pugh",
+      "Rank": "817",
+      "Number": "38691"
+   },
+   "Cole": {
+      "Percent": "0.06961",
+      "Name": "Cole",
+      "Rank": "116",
+      "Number": "187793"
+   },
+   "Mercer": {
+      "Percent": "0.01253",
+      "Name": "Mercer",
+      "Rank": "949",
+      "Number": "33797"
+   },
+   "Hood": {
+      "Percent": "0.01992",
+      "Name": "Hood",
+      "Rank": "566",
+      "Number": "53737"
+   },
+   "Walters": {
+      "Percent": "0.03866",
+      "Name": "Walters",
+      "Rank": "262",
+      "Number": "104281"
+   },
+   "Massey": {
+      "Percent": "0.01982",
+      "Name": "Massey",
+      "Rank": "568",
+      "Number": "53459"
+   },
+   "Gross": {
+      "Percent": "0.02754",
+      "Name": "Gross",
+      "Rank": "387",
+      "Number": "74285"
+   },
+   "Jacobs": {
+      "Percent": "0.04283",
+      "Name": "Jacobs",
+      "Rank": "233",
+      "Number": "115540"
+   },
+   "Ellis": {
+      "Percent": "0.06744",
+      "Name": "Ellis",
+      "Rank": "121",
+      "Number": "181934"
+   },
+   "Stokes": {
+      "Percent": "0.02176",
+      "Name": "Stokes",
+      "Rank": "510",
+      "Number": "58687"
+   },
+   "Lutz": {
+      "Percent": "0.01184",
+      "Name": "Lutz",
+      "Rank": "996",
+      "Number": "31940"
+   },
+   "Edwards": {
+      "Percent": "0.11754",
+      "Name": "Edwards",
+      "Rank": "53",
+      "Number": "317070"
+   },
+   "Peters": {
+      "Percent": "0.04976",
+      "Name": "Peters",
+      "Rank": "190",
+      "Number": "134231"
+   },
+   "Atkinson": {
+      "Percent": "0.01909",
+      "Name": "Atkinson",
+      "Rank": "592",
+      "Number": "51489"
+   },
+   "Bush": {
+      "Percent": "0.03022",
+      "Name": "Bush",
+      "Rank": "346",
+      "Number": "81524"
+   },
+   "Pearson": {
+      "Percent": "0.0366",
+      "Name": "Pearson",
+      "Rank": "281",
+      "Number": "98728"
+   },
+   "Gutierrez": {
+      "Percent": "0.07892",
+      "Name": "Gutierrez",
+      "Rank": "96",
+      "Number": "212905"
+   },
+   "Briggs": {
+      "Percent": "0.02124",
+      "Name": "Briggs",
+      "Rank": "522",
+      "Number": "57297"
+   },
+   "Valencia": {
+      "Percent": "0.01854",
+      "Name": "Valencia",
+      "Rank": "616",
+      "Number": "50026"
+   },
+   "Elliott": {
+      "Percent": "0.0491",
+      "Name": "Elliott",
+      "Rank": "197",
+      "Number": "132457"
+   },
+   "Cordova": {
+      "Percent": "0.013",
+      "Name": "Cordova",
+      "Rank": "903",
+      "Number": "35074"
+   },
+   "Chandler": {
+      "Percent": "0.02822",
+      "Name": "Chandler",
+      "Rank": "379",
+      "Number": "76114"
+   },
+   "Ruiz": {
+      "Percent": "0.06503",
+      "Name": "Ruiz",
+      "Rank": "129",
+      "Number": "175429"
+   },
+   "Schultz": {
+      "Percent": "0.03891",
+      "Name": "Schultz",
+      "Rank": "261",
+      "Number": "104962"
+   },
+   "Rios": {
+      "Percent": "0.0358",
+      "Name": "Rios",
+      "Rank": "285",
+      "Number": "96569"
+   },
+   "Travis": {
+      "Percent": "0.01236",
+      "Name": "Travis",
+      "Rank": "960",
+      "Number": "33339"
+   },
+   "Zimmerman": {
+      "Percent": "0.03001",
+      "Name": "Zimmerman",
+      "Rank": "350",
+      "Number": "80944"
+   },
+   "Hunter": {
+      "Percent": "0.05724",
+      "Name": "Hunter",
+      "Rank": "153",
+      "Number": "154410"
+   },
+   "Newman": {
+      "Percent": "0.03725",
+      "Name": "Newman",
+      "Rank": "273",
+      "Number": "100491"
+   },
+   "Pratt": {
+      "Percent": "0.02217",
+      "Name": "Pratt",
+      "Rank": "500",
+      "Number": "59801"
+   },
+   "Huff": {
+      "Percent": "0.01998",
+      "Name": "Huff",
+      "Rank": "564",
+      "Number": "53892"
+   },
+   "Good": {
+      "Percent": "0.01276",
+      "Name": "Good",
+      "Rank": "929",
+      "Number": "34430"
+   },
+   "Hicks": {
+      "Percent": "0.05695",
+      "Name": "Hicks",
+      "Rank": "155",
+      "Number": "153618"
+   },
+   "Cox": {
+      "Percent": "0.09407",
+      "Name": "Cox",
+      "Rank": "72",
+      "Number": "253771"
+   },
+   "Hays": {
+      "Percent": "0.0123",
+      "Name": "Hays",
+      "Rank": "964",
+      "Number": "33194"
+   },
+   "Lucero": {
+      "Percent": "0.01257",
+      "Name": "Lucero",
+      "Rank": "945",
+      "Number": "33922"
+   },
+   "Reid": {
+      "Percent": "0.03856",
+      "Name": "Reid",
+      "Rank": "263",
+      "Number": "104007"
+   },
+   "Bright": {
+      "Percent": "0.01188",
+      "Name": "Bright",
+      "Rank": "992",
+      "Number": "32042"
+   },
+   "Morris": {
+      "Percent": "0.11557",
+      "Name": "Morris",
+      "Rank": "56",
+      "Number": "311754"
+   },
+   "Drake": {
+      "Percent": "0.02189",
+      "Name": "Drake",
+      "Rank": "506",
+      "Number": "59055"
+   },
+   "Waller": {
+      "Percent": "0.01297",
+      "Name": "Waller",
+      "Rank": "904",
+      "Number": "35001"
+   },
+   "Banks": {
+      "Percent": "0.03681",
+      "Name": "Banks",
+      "Rank": "278",
+      "Number": "99294"
+   },
+   "Myers": {
+      "Percent": "0.08334",
+      "Name": "Myers",
+      "Rank": "85",
+      "Number": "224824"
+   },
+   "Mitchell": {
+      "Percent": "0.13621",
+      "Name": "Mitchell",
+      "Rank": "44",
+      "Number": "367433"
+   },
+   "Grimes": {
+      "Percent": "0.01825",
+      "Name": "Grimes",
+      "Rank": "626",
+      "Number": "49245"
+   },
+   "Ortega": {
+      "Percent": "0.03452",
+      "Name": "Ortega",
+      "Rank": "296",
+      "Number": "93131"
+   },
+   "Hampton": {
+      "Percent": "0.02461",
+      "Name": "Hampton",
+      "Rank": "451",
+      "Number": "66378"
+   },
+   "Trujillo": {
+      "Percent": "0.0221",
+      "Name": "Trujillo",
+      "Rank": "504",
+      "Number": "59609"
+   },
+   "Carter": {
+      "Percent": "0.1344",
+      "Name": "Carter",
+      "Rank": "46",
+      "Number": "362548"
+   },
+   "Miller": {
+      "Percent": "0.41807",
+      "Name": "Miller",
+      "Rank": "6",
+      "Number": "1127803"
+   },
+   "Perkins": {
+      "Percent": "0.04706",
+      "Name": "Perkins",
+      "Rank": "212",
+      "Number": "126951"
+   },
+   "Howe": {
+      "Percent": "0.01503",
+      "Name": "Howe",
+      "Rank": "775",
+      "Number": "40555"
+   },
+   "Moran": {
+      "Percent": "0.02912",
+      "Name": "Moran",
+      "Rank": "362",
+      "Number": "78546"
+   },
+   "Welch": {
+      "Percent": "0.03922",
+      "Name": "Welch",
+      "Rank": "259",
+      "Number": "105804"
+   },
+   "Contreras": {
+      "Percent": "0.03435",
+      "Name": "Contreras",
+      "Rank": "299",
+      "Number": "92660"
+   },
+   "Dennis": {
+      "Percent": "0.02772",
+      "Name": "Dennis",
+      "Rank": "384",
+      "Number": "74784"
+   },
+   "Randolph": {
+      "Percent": "0.01473",
+      "Name": "Randolph",
+      "Rank": "792",
+      "Number": "39742"
+   },
+   "Clements": {
+      "Percent": "0.0138",
+      "Name": "Clements",
+      "Rank": "843",
+      "Number": "37237"
+   },
+   "Montes": {
+      "Percent": "0.01305",
+      "Name": "Montes",
+      "Rank": "901",
+      "Number": "35196"
+   },
+   "Copeland": {
+      "Percent": "0.01993",
+      "Name": "Copeland",
+      "Rank": "565",
+      "Number": "53771"
+   },
+   "Griffin": {
+      "Percent": "0.07067",
+      "Name": "Griffin",
+      "Rank": "114",
+      "Number": "190636"
+   },
+   "Russell": {
+      "Percent": "0.07986",
+      "Name": "Russell",
+      "Rank": "93",
+      "Number": "215432"
+   },
+   "Stout": {
+      "Percent": "0.01582",
+      "Name": "Stout",
+      "Rank": "730",
+      "Number": "42669"
+   },
+   "Ayers": {
+      "Percent": "0.0144",
+      "Name": "Ayers",
+      "Rank": "812",
+      "Number": "38836"
+   },
+   "Bernard": {
+      "Percent": "0.01355",
+      "Name": "Bernard",
+      "Rank": "864",
+      "Number": "36546"
+   },
+   "Daniel": {
+      "Percent": "0.02785",
+      "Name": "Daniel",
+      "Rank": "380",
+      "Number": "75135"
+   },
+   "Marsh": {
+      "Percent": "0.02261",
+      "Name": "Marsh",
+      "Rank": "494",
+      "Number": "60999"
+   },
+   "Dunlap": {
+      "Percent": "0.01428",
+      "Name": "Dunlap",
+      "Rank": "820",
+      "Number": "38516"
+   },
+   "Branch": {
+      "Percent": "0.01225",
+      "Name": "Branch",
+      "Rank": "967",
+      "Number": "33040"
+   },
+   "Weeks": {
+      "Percent": "0.01522",
+      "Name": "Weeks",
+      "Rank": "764",
+      "Number": "41053"
+   },
+   "Whitaker": {
+      "Percent": "0.02014",
+      "Name": "Whitaker",
+      "Rank": "558",
+      "Number": "54343"
+   },
+   "Porter": {
+      "Percent": "0.05814",
+      "Name": "Porter",
+      "Rank": "148",
+      "Number": "156848"
+   },
+   "Gill": {
+      "Percent": "0.02547",
+      "Name": "Gill",
+      "Rank": "430",
+      "Number": "68699"
+   },
+   "Torres": {
+      "Percent": "0.12054",
+      "Name": "Torres",
+      "Rank": "50",
+      "Number": "325169"
+   },
+   "Ewing": {
+      "Percent": "0.01221",
+      "Name": "Ewing",
+      "Rank": "969",
+      "Number": "32925"
+   },
+   "Gay": {
+      "Percent": "0.01211",
+      "Name": "Gay",
+      "Rank": "974",
+      "Number": "32672"
+   },
+   "Villanueva": {
+      "Percent": "0.01652",
+      "Name": "Villanueva",
+      "Rank": "703",
+      "Number": "44570"
+   },
+   "Duarte": {
+      "Percent": "0.01182",
+      "Name": "Duarte",
+      "Rank": "997",
+      "Number": "31896"
+   },
+   "Oneill": {
+      "Percent": "0.01804",
+      "Name": "Oneill",
+      "Rank": "633",
+      "Number": "48656"
+   },
+   "Oconnor": {
+      "Percent": "0.02771",
+      "Name": "Oconnor",
+      "Rank": "385",
+      "Number": "74756"
+   },
+   "Leonard": {
+      "Percent": "0.03307",
+      "Name": "Leonard",
+      "Rank": "308",
+      "Number": "89198"
+   },
+   "Nolan": {
+      "Percent": "0.01647",
+      "Name": "Nolan",
+      "Rank": "705",
+      "Number": "44421"
+   },
+   "Mckenzie": {
+      "Percent": "0.02042",
+      "Name": "Mckenzie",
+      "Rank": "544",
+      "Number": "55084"
+   },
+   "Olsen": {
+      "Percent": "0.02126",
+      "Name": "Olsen",
+      "Rank": "521",
+      "Number": "57357"
+   },
+   "Crane": {
+      "Percent": "0.01376",
+      "Name": "Crane",
+      "Rank": "848",
+      "Number": "37123"
+   },
+   "Delgado": {
+      "Percent": "0.03658",
+      "Name": "Delgado",
+      "Rank": "282",
+      "Number": "98675"
+   },
+   "Clarke": {
+      "Percent": "0.02319",
+      "Name": "Clarke",
+      "Rank": "476",
+      "Number": "62546"
+   },
+   "Spence": {
+      "Percent": "0.01276",
+      "Name": "Spence",
+      "Rank": "928",
+      "Number": "34435"
+   },
+   "Harmon": {
+      "Percent": "0.02684",
+      "Name": "Harmon",
+      "Rank": "399",
+      "Number": "72414"
+   },
+   "Obrien": {
+      "Percent": "0.04277",
+      "Name": "Obrien",
+      "Rank": "234",
+      "Number": "115385"
+   },
+   "Vang": {
+      "Percent": "0.01199",
+      "Name": "Vang",
+      "Rank": "982",
+      "Number": "32333"
+   },
+   "Bowman": {
+      "Percent": "0.0379",
+      "Name": "Bowman",
+      "Rank": "268",
+      "Number": "102239"
+   },
+   "James": {
+      "Percent": "0.08646",
+      "Name": "James",
+      "Rank": "80",
+      "Number": "233224"
+   },
+   "Avila": {
+      "Percent": "0.02589",
+      "Name": "Avila",
+      "Rank": "421",
+      "Number": "69843"
+   },
+   "Sawyer": {
+      "Percent": "0.01779",
+      "Name": "Sawyer",
+      "Rank": "646",
+      "Number": "47979"
+   },
+   "Roberts": {
+      "Percent": "0.13575",
+      "Name": "Roberts",
+      "Rank": "45",
+      "Number": "366215"
+   },
+   "Salas": {
+      "Percent": "0.0179",
+      "Name": "Salas",
+      "Rank": "643",
+      "Number": "48282"
+   },
+   "Solomon": {
+      "Percent": "0.01588",
+      "Name": "Solomon",
+      "Rank": "726",
+      "Number": "42839"
+   },
+   "Booker": {
+      "Percent": "0.01301",
+      "Name": "Booker",
+      "Rank": "902",
+      "Number": "35101"
+   },
+   "Nelson": {
+      "Percent": "0.15281",
+      "Name": "Nelson",
+      "Rank": "40",
+      "Number": "412236"
+   },
+   "Shelton": {
+      "Percent": "0.03274",
+      "Name": "Shelton",
+      "Rank": "313",
+      "Number": "88326"
+   },
+   "Salazar": {
+      "Percent": "0.04206",
+      "Name": "Salazar",
+      "Rank": "240",
+      "Number": "113468"
+   },
+   "Camacho": {
+      "Percent": "0.01816",
+      "Name": "Camacho",
+      "Rank": "630",
+      "Number": "49000"
+   },
+   "Mann": {
+      "Percent": "0.03003",
+      "Name": "Mann",
+      "Rank": "349",
+      "Number": "81022"
+   },
+   "Richmond": {
+      "Percent": "0.01324",
+      "Name": "Richmond",
+      "Rank": "882",
+      "Number": "35715"
+   },
+   "Chung": {
+      "Percent": "0.0135",
+      "Name": "Chung",
+      "Rank": "870",
+      "Number": "36422"
+   },
+   "Schwartz": {
+      "Percent": "0.0314",
+      "Name": "Schwartz",
+      "Rank": "330",
+      "Number": "84699"
+   },
+   "Barker": {
+      "Percent": "0.03159",
+      "Name": "Barker",
+      "Rank": "325",
+      "Number": "85221"
+   },
+   "Cohen": {
+      "Percent": "0.03233",
+      "Name": "Cohen",
+      "Rank": "320",
+      "Number": "87226"
+   },
+   "Fritz": {
+      "Percent": "0.01226",
+      "Name": "Fritz",
+      "Rank": "966",
+      "Number": "33068"
+   },
+   "Russo": {
+      "Percent": "0.01784",
+      "Name": "Russo",
+      "Rank": "645",
+      "Number": "48126"
+   },
+   "Bradley": {
+      "Percent": "0.04867",
+      "Name": "Bradley",
+      "Rank": "200",
+      "Number": "131289"
+   },
+   "Durham": {
+      "Percent": "0.0157",
+      "Name": "Durham",
+      "Rank": "740",
+      "Number": "42365"
+   },
+   "Sharp": {
+      "Percent": "0.02849",
+      "Name": "Sharp",
+      "Rank": "371",
+      "Number": "76868"
+   },
+   "Gamble": {
+      "Percent": "0.012",
+      "Name": "Gamble",
+      "Rank": "981",
+      "Number": "32377"
+   },
+   "Prince": {
+      "Percent": "0.01655",
+      "Name": "Prince",
+      "Rank": "700",
+      "Number": "44640"
+   },
+   "Warren": {
+      "Percent": "0.05483",
+      "Name": "Warren",
+      "Rank": "166",
+      "Number": "147906"
+   },
+   "Summers": {
+      "Percent": "0.02053",
+      "Name": "Summers",
+      "Rank": "541",
+      "Number": "55391"
+   },
+   "Little": {
+      "Percent": "0.03808",
+      "Name": "Little",
+      "Rank": "266",
+      "Number": "102718"
+   },
+   "Perry": {
+      "Percent": "0.07883",
+      "Name": "Perry",
+      "Rank": "97",
+      "Number": "212644"
+   },
+   "Fuller": {
+      "Percent": "0.03955",
+      "Name": "Fuller",
+      "Rank": "256",
+      "Number": "106682"
+   },
+   "Caldwell": {
+      "Percent": "0.03386",
+      "Name": "Caldwell",
+      "Rank": "301",
+      "Number": "91338"
+   },
+   "West": {
+      "Percent": "0.06986",
+      "Name": "West",
+      "Rank": "115",
+      "Number": "188464"
+   },
+   "Garrett": {
+      "Percent": "0.03995",
+      "Name": "Garrett",
+      "Rank": "253",
+      "Number": "107777"
+   },
+   "Hughes": {
+      "Percent": "0.08503",
+      "Name": "Hughes",
+      "Rank": "83",
+      "Number": "229390"
+   },
+   "Mason": {
+      "Percent": "0.05764",
+      "Name": "Mason",
+      "Rank": "149",
+      "Number": "155484"
+   },
+   "Conley": {
+      "Percent": "0.02009",
+      "Name": "Conley",
+      "Rank": "562",
+      "Number": "54194"
+   },
+   "Hardin": {
+      "Percent": "0.01544",
+      "Name": "Hardin",
+      "Rank": "753",
+      "Number": "41664"
+   },
+   "Norton": {
+      "Percent": "0.02291",
+      "Name": "Norton",
+      "Rank": "485",
+      "Number": "61805"
+   },
+   "Burke": {
+      "Percent": "0.04418",
+      "Name": "Burke",
+      "Rank": "229",
+      "Number": "119175"
+   },
+   "Cardenas": {
+      "Percent": "0.02099",
+      "Name": "Cardenas",
+      "Rank": "529",
+      "Number": "56618"
+   },
+   "Holden": {
+      "Percent": "0.01262",
+      "Name": "Holden",
+      "Rank": "940",
+      "Number": "34041"
+   },
+   "Christensen": {
+      "Percent": "0.02637",
+      "Name": "Christensen",
+      "Rank": "412",
+      "Number": "71144"
+   },
+   "Merritt": {
+      "Percent": "0.01654",
+      "Name": "Merritt",
+      "Rank": "701",
+      "Number": "44626"
+   },
+   "Lee": {
+      "Percent": "0.22459",
+      "Name": "Lee",
+      "Rank": "22",
+      "Number": "605860"
+   },
+   "Barron": {
+      "Percent": "0.01712",
+      "Name": "Barron",
+      "Rank": "678",
+      "Number": "46196"
+   },
+   "Frank": {
+      "Percent": "0.02444",
+      "Name": "Frank",
+      "Rank": "454",
+      "Number": "65918"
+   },
+   "Herrera": {
+      "Percent": "0.05219",
+      "Name": "Herrera",
+      "Rank": "175",
+      "Number": "140786"
+   },
+   "Wiley": {
+      "Percent": "0.01761",
+      "Name": "Wiley",
+      "Rank": "653",
+      "Number": "47503"
+   },
+   "Ho": {
+      "Percent": "0.01498",
+      "Name": "Ho",
+      "Rank": "778",
+      "Number": "40413"
+   },
+   "Davidson": {
+      "Percent": "0.03783",
+      "Name": "Davidson",
+      "Rank": "269",
+      "Number": "102044"
+   },
+   "Buckley": {
+      "Percent": "0.01509",
+      "Name": "Buckley",
+      "Rank": "772",
+      "Number": "40706"
+   },
+   "Vaughn": {
+      "Percent": "0.03152",
+      "Name": "Vaughn",
+      "Rank": "327",
+      "Number": "85037"
+   },
+   "Keith": {
+      "Percent": "0.01733",
+      "Name": "Keith",
+      "Rank": "663",
+      "Number": "46747"
+   },
+   "Winters": {
+      "Percent": "0.01622",
+      "Name": "Winters",
+      "Rank": "712",
+      "Number": "43762"
+   },
+   "Bryant": {
+      "Percent": "0.06812",
+      "Name": "Bryant",
+      "Rank": "120",
+      "Number": "183761"
+   },
+   "Gray": {
+      "Percent": "0.08775",
+      "Name": "Gray",
+      "Rank": "79",
+      "Number": "236713"
+   },
+   "Watts": {
+      "Percent": "0.03196",
+      "Name": "Watts",
+      "Rank": "324",
+      "Number": "86228"
+   },
+   "Brady": {
+      "Percent": "0.02638",
+      "Name": "Brady",
+      "Rank": "411",
+      "Number": "71175"
+   },
+   "Aguilar": {
+      "Percent": "0.04686",
+      "Name": "Aguilar",
+      "Rank": "213",
+      "Number": "126399"
+   },
+   "Frederick": {
+      "Percent": "0.01479",
+      "Name": "Frederick",
+      "Rank": "791",
+      "Number": "39909"
+   },
+   "Baker": {
+      "Percent": "0.15323",
+      "Name": "Baker",
+      "Rank": "38",
+      "Number": "413351"
+   },
+   "Neal": {
+      "Percent": "0.03108",
+      "Name": "Neal",
+      "Rank": "333",
+      "Number": "83849"
+   },
+   "David": {
+      "Percent": "0.01433",
+      "Name": "David",
+      "Rank": "818",
+      "Number": "38659"
+   },
+   "Pace": {
+      "Percent": "0.01445",
+      "Name": "Pace",
+      "Rank": "807",
+      "Number": "38975"
+   },
+   "Cervantes": {
+      "Percent": "0.02138",
+      "Name": "Cervantes",
+      "Rank": "520",
+      "Number": "57685"
+   },
+   "Davis": {
+      "Percent": "0.39751",
+      "Name": "Davis",
+      "Rank": "7",
+      "Number": "1072335"
+   },
+   "Padilla": {
+      "Percent": "0.03032",
+      "Name": "Padilla",
+      "Rank": "345",
+      "Number": "81805"
+   },
+   "Vazquez": {
+      "Percent": "0.03148",
+      "Name": "Vazquez",
+      "Rank": "328",
+      "Number": "84926"
+   },
+   "Baxter": {
+      "Percent": "0.01774",
+      "Name": "Baxter",
+      "Rank": "647",
+      "Number": "47857"
+   },
+   "Sanchez": {
+      "Percent": "0.16357",
+      "Name": "Sanchez",
+      "Rank": "33",
+      "Number": "441242"
+   },
+   "Singleton": {
+      "Percent": "0.0192",
+      "Name": "Singleton",
+      "Rank": "584",
+      "Number": "51797"
+   },
+   "Taylor": {
+      "Percent": "0.26704",
+      "Name": "Taylor",
+      "Rank": "13",
+      "Number": "720370"
+   },
+   "Strickland": {
+      "Percent": "0.0244",
+      "Name": "Strickland",
+      "Rank": "456",
+      "Number": "65814"
+   },
+   "Glenn": {
+      "Percent": "0.01825",
+      "Name": "Glenn",
+      "Rank": "627",
+      "Number": "49241"
+   },
+   "Valentine": {
+      "Percent": "0.01396",
+      "Name": "Valentine",
+      "Rank": "834",
+      "Number": "37669"
+   },
+   "Carr": {
+      "Percent": "0.04222",
+      "Name": "Carr",
+      "Rank": "239",
+      "Number": "113892"
+   },
+   "Wong": {
+      "Percent": "0.03684",
+      "Name": "Wong",
+      "Rank": "277",
+      "Number": "99392"
+   },
+   "Molina": {
+      "Percent": "0.02603",
+      "Name": "Molina",
+      "Rank": "417",
+      "Number": "70211"
+   },
+   "Cameron": {
+      "Percent": "0.01944",
+      "Name": "Cameron",
+      "Rank": "578",
+      "Number": "52439"
+   },
+   "Gomez": {
+      "Percent": "0.09771",
+      "Name": "Gomez",
+      "Rank": "68",
+      "Number": "263590"
+   },
+   "Best": {
+      "Percent": "0.01366",
+      "Name": "Best",
+      "Rank": "855",
+      "Number": "36862"
+   },
+   "Gillespie": {
+      "Percent": "0.01534",
+      "Name": "Gillespie",
+      "Rank": "758",
+      "Number": "41393"
+   },
+   "Frey": {
+      "Percent": "0.01213",
+      "Name": "Frey",
+      "Rank": "972",
+      "Number": "32735"
+   },
+   "Donaldson": {
+      "Percent": "0.01312",
+      "Name": "Donaldson",
+      "Rank": "897",
+      "Number": "35387"
+   },
+   "Hawkins": {
+      "Percent": "0.0497",
+      "Name": "Hawkins",
+      "Rank": "191",
+      "Number": "134066"
+   },
+   "Simon": {
+      "Percent": "0.02774",
+      "Name": "Simon",
+      "Rank": "383",
+      "Number": "74839"
+   },
+   "Andersen": {
+      "Percent": "0.01242",
+      "Name": "Andersen",
+      "Rank": "954",
+      "Number": "33508"
+   },
+   "Shaw": {
+      "Percent": "0.05752",
+      "Name": "Shaw",
+      "Rank": "150",
+      "Number": "155172"
+   },
+   "Wallace": {
+      "Percent": "0.07071",
+      "Name": "Wallace",
+      "Rank": "113",
+      "Number": "190760"
+   },
+   "Nunez": {
+      "Percent": "0.03344",
+      "Name": "Nunez",
+      "Rank": "306",
+      "Number": "90208"
+   },
+   "Mcgee": {
+      "Percent": "0.02666",
+      "Name": "Mcgee",
+      "Rank": "404",
+      "Number": "71925"
+   },
+   "Young": {
+      "Percent": "0.17273",
+      "Name": "Young",
+      "Rank": "31",
+      "Number": "465948"
+   },
+   "Rasmussen": {
+      "Percent": "0.01314",
+      "Name": "Rasmussen",
+      "Rank": "893",
+      "Number": "35453"
+   },
+   "Bartlett": {
+      "Percent": "0.01576",
+      "Name": "Bartlett",
+      "Rank": "735",
+      "Number": "42512"
+   },
+   "Valdez": {
+      "Percent": "0.03655",
+      "Name": "Valdez",
+      "Rank": "283",
+      "Number": "98610"
+   },
+   "Burnett": {
+      "Percent": "0.02145",
+      "Name": "Burnett",
+      "Rank": "517",
+      "Number": "57859"
+   },
+   "Mcgrath": {
+      "Percent": "0.01262",
+      "Name": "Mcgrath",
+      "Rank": "943",
+      "Number": "34031"
+   },
+   "Shah": {
+      "Percent": "0.01402",
+      "Name": "Shah",
+      "Rank": "831",
+      "Number": "37833"
+   },
+   "Spears": {
+      "Percent": "0.0149",
+      "Name": "Spears",
+      "Rank": "785",
+      "Number": "40203"
+   },
+   "Gregory": {
+      "Percent": "0.03292",
+      "Name": "Gregory",
+      "Rank": "312",
+      "Number": "88810"
+   },
+   "Beard": {
+      "Percent": "0.01747",
+      "Name": "Beard",
+      "Rank": "660",
+      "Number": "47128"
+   },
+   "Ball": {
+      "Percent": "0.02875",
+      "Name": "Ball",
+      "Rank": "366",
+      "Number": "77561"
+   },
+   "Norman": {
+      "Percent": "0.0242",
+      "Name": "Norman",
+      "Rank": "461",
+      "Number": "65269"
+   },
+   "Lawrence": {
+      "Percent": "0.04609",
+      "Name": "Lawrence",
+      "Rank": "219",
+      "Number": "124321"
+   },
+   "Bowen": {
+      "Percent": "0.02857",
+      "Name": "Bowen",
+      "Rank": "370",
+      "Number": "77078"
+   },
+   "Wheeler": {
+      "Percent": "0.04511",
+      "Name": "Wheeler",
+      "Rank": "223",
+      "Number": "121684"
+   },
+   "Acosta": {
+      "Percent": "0.02835",
+      "Name": "Acosta",
+      "Rank": "377",
+      "Number": "76477"
+   },
+   "Terrell": {
+      "Percent": "0.01257",
+      "Name": "Terrell",
+      "Rank": "946",
+      "Number": "33914"
+   },
+   "Anthony": {
+      "Percent": "0.01933",
+      "Name": "Anthony",
+      "Rank": "580",
+      "Number": "52146"
+   },
+   "Ramsey": {
+      "Percent": "0.0284",
+      "Name": "Ramsey",
+      "Rank": "373",
+      "Number": "76625"
+   },
+   "Koch": {
+      "Percent": "0.01753",
+      "Name": "Koch",
+      "Rank": "657",
+      "Number": "47286"
+   },
+   "Parrish": {
+      "Percent": "0.0181",
+      "Name": "Parrish",
+      "Rank": "632",
+      "Number": "48823"
+   },
+   "Mcbride": {
+      "Percent": "0.02257",
+      "Name": "Mcbride",
+      "Rank": "495",
+      "Number": "60874"
+   },
+   "Bond": {
+      "Percent": "0.0189",
+      "Name": "Bond",
+      "Rank": "603",
+      "Number": "50980"
+   },
+   "Herman": {
+      "Percent": "0.0156",
+      "Name": "Herman",
+      "Rank": "746",
+      "Number": "42091"
+   },
+   "Hines": {
+      "Percent": "0.02526",
+      "Name": "Hines",
+      "Rank": "432",
+      "Number": "68145"
+   },
+   "Sutton": {
+      "Percent": "0.03239",
+      "Name": "Sutton",
+      "Rank": "319",
+      "Number": "87373"
+   },
+   "Gallegos": {
+      "Percent": "0.02027",
+      "Name": "Gallegos",
+      "Rank": "551",
+      "Number": "54672"
+   },
+   "Hodge": {
+      "Percent": "0.01875",
+      "Name": "Hodge",
+      "Rank": "610",
+      "Number": "50577"
+   },
+   "Delacruz": {
+      "Percent": "0.01822",
+      "Name": "Delacruz",
+      "Rank": "629",
+      "Number": "49158"
+   },
+   "Hutchinson": {
+      "Percent": "0.01772",
+      "Name": "Hutchinson",
+      "Rank": "649",
+      "Number": "47809"
+   },
+   "Poole": {
+      "Percent": "0.02028",
+      "Name": "Poole",
+      "Rank": "549",
+      "Number": "54706"
+   },
+   "Madden": {
+      "Percent": "0.01278",
+      "Name": "Madden",
+      "Rank": "926",
+      "Number": "34472"
+   },
+   "Pham": {
+      "Percent": "0.02222",
+      "Name": "Pham",
+      "Rank": "498",
+      "Number": "59949"
+   },
+   "Lozano": {
+      "Percent": "0.01578",
+      "Name": "Lozano",
+      "Rank": "734",
+      "Number": "42567"
+   },
+   "Decker": {
+      "Percent": "0.02018",
+      "Name": "Decker",
+      "Rank": "555",
+      "Number": "54450"
+   },
+   "Franklin": {
+      "Percent": "0.04258",
+      "Name": "Franklin",
+      "Rank": "236",
+      "Number": "114859"
+   },
+   "Bowers": {
+      "Percent": "0.02391",
+      "Name": "Bowers",
+      "Rank": "466",
+      "Number": "64496"
+   },
+   "Walker": {
+      "Percent": "0.18583",
+      "Name": "Walker",
+      "Rank": "28",
+      "Number": "501307"
+   },
+   "Johnston": {
+      "Percent": "0.0478",
+      "Name": "Johnston",
+      "Rank": "207",
+      "Number": "128935"
+   },
+   "Austin": {
+      "Percent": "0.04195",
+      "Name": "Austin",
+      "Rank": "241",
+      "Number": "113160"
+   },
+   "Sexton": {
+      "Percent": "0.0156",
+      "Name": "Sexton",
+      "Rank": "747",
+      "Number": "42080"
+   },
+   "Golden": {
+      "Percent": "0.01773",
+      "Name": "Golden",
+      "Rank": "648",
+      "Number": "47839"
+   },
+   "Ponce": {
+      "Percent": "0.01312",
+      "Name": "Ponce",
+      "Rank": "895",
+      "Number": "35400"
+   },
+   "Mcdowell": {
+      "Percent": "0.01762",
+      "Name": "Mcdowell",
+      "Rank": "652",
+      "Number": "47526"
+   },
+   "Bell": {
+      "Percent": "0.09814",
+      "Name": "Bell",
+      "Rank": "67",
+      "Number": "264752"
+   },
+   "Rodriguez": {
+      "Percent": "0.29813",
+      "Name": "Rodriguez",
+      "Rank": "9",
+      "Number": "804240"
+   },
+   "House": {
+      "Percent": "0.015",
+      "Name": "House",
+      "Rank": "776",
+      "Number": "40477"
+   },
+   "Preston": {
+      "Percent": "0.017",
+      "Name": "Preston",
+      "Rank": "681",
+      "Number": "45850"
+   },
+   "Bennett": {
+      "Percent": "0.08862",
+      "Name": "Bennett",
+      "Rank": "78",
+      "Number": "239055"
+   },
+   "Haley": {
+      "Percent": "0.01351",
+      "Name": "Haley",
+      "Rank": "869",
+      "Number": "36433"
+   },
+   "Hickman": {
+      "Percent": "0.01491",
+      "Name": "Hickman",
+      "Rank": "783",
+      "Number": "40224"
+   },
+   "Murray": {
+      "Percent": "0.06614",
+      "Name": "Murray",
+      "Rank": "123",
+      "Number": "178414"
+   },
+   "Jefferson": {
+      "Percent": "0.01904",
+      "Name": "Jefferson",
+      "Rank": "594",
+      "Number": "51361"
+   },
+   "Crosby": {
+      "Percent": "0.0144",
+      "Name": "Crosby",
+      "Rank": "811",
+      "Number": "38844"
+   },
+   "Bautista": {
+      "Percent": "0.01403",
+      "Name": "Bautista",
+      "Rank": "830",
+      "Number": "37847"
+   },
+   "Fuentes": {
+      "Percent": "0.02092",
+      "Name": "Fuentes",
+      "Rank": "530",
+      "Number": "56441"
+   },
+   "Huerta": {
+      "Percent": "0.01236",
+      "Name": "Huerta",
+      "Rank": "959",
+      "Number": "33348"
+   },
+   "Blankenship": {
+      "Percent": "0.01582",
+      "Name": "Blankenship",
+      "Rank": "731",
+      "Number": "42663"
+   },
+   "Hubbard": {
+      "Percent": "0.02522",
+      "Name": "Hubbard",
+      "Rank": "435",
+      "Number": "68021"
+   },
+   "Buck": {
+      "Percent": "0.01573",
+      "Name": "Buck",
+      "Rank": "737",
+      "Number": "42441"
+   },
+   "Mcmahon": {
+      "Percent": "0.01429",
+      "Name": "Mcmahon",
+      "Rank": "819",
+      "Number": "38557"
+   },
+   "Mcdonald": {
+      "Percent": "0.06528",
+      "Name": "Mcdonald",
+      "Rank": "127",
+      "Number": "176094"
+   },
+   "Hurley": {
+      "Percent": "0.01445",
+      "Name": "Hurley",
+      "Rank": "808",
+      "Number": "38971"
+   },
+   "Hudson": {
+      "Percent": "0.04848",
+      "Name": "Hudson",
+      "Rank": "202",
+      "Number": "130793"
+   },
+   "Cross": {
+      "Percent": "0.02785",
+      "Name": "Cross",
+      "Rank": "382",
+      "Number": "75134"
+   },
+   "Parks": {
+      "Percent": "0.03201",
+      "Name": "Parks",
+      "Rank": "322",
+      "Number": "86346"
+   },
+   "Carson": {
+      "Percent": "0.02069",
+      "Name": "Carson",
+      "Rank": "537",
+      "Number": "55821"
+   },
+   "Sloan": {
+      "Percent": "0.01567",
+      "Name": "Sloan",
+      "Rank": "743",
+      "Number": "42281"
+   },
+   "Gates": {
+      "Percent": "0.01881",
+      "Name": "Gates",
+      "Rank": "607",
+      "Number": "50748"
+   },
+   "Conner": {
+      "Percent": "0.02311",
+      "Name": "Conner",
+      "Rank": "480",
+      "Number": "62335"
+   },
+   "Estes": {
+      "Percent": "0.01329",
+      "Name": "Estes",
+      "Rank": "880",
+      "Number": "35839"
+   },
+   "Singh": {
+      "Percent": "0.02693",
+      "Name": "Singh",
+      "Rank": "396",
+      "Number": "72642"
+   },
+   "Mayer": {
+      "Percent": "0.0145",
+      "Name": "Mayer",
+      "Rank": "803",
+      "Number": "39111"
+   },
+   "Cain": {
+      "Percent": "0.02145",
+      "Name": "Cain",
+      "Rank": "516",
+      "Number": "57873"
+   },
+   "Lam": {
+      "Percent": "0.01645",
+      "Name": "Lam",
+      "Rank": "706",
+      "Number": "44385"
+   },
+   "Wilkerson": {
+      "Percent": "0.01728",
+      "Name": "Wilkerson",
+      "Rank": "670",
+      "Number": "46605"
+   },
+   "Curtis": {
+      "Percent": "0.03668",
+      "Name": "Curtis",
+      "Rank": "280",
+      "Number": "98958"
+   },
+   "Hebert": {
+      "Percent": "0.01493",
+      "Name": "Hebert",
+      "Rank": "781",
+      "Number": "40283"
+   },
+   "Harding": {
+      "Percent": "0.01421",
+      "Name": "Harding",
+      "Rank": "823",
+      "Number": "38340"
+   },
+   "May": {
+      "Percent": "0.03771",
+      "Name": "May",
+      "Rank": "270",
+      "Number": "101726"
+   },
+   "Mayo": {
+      "Percent": "0.01228",
+      "Name": "Mayo",
+      "Rank": "965",
+      "Number": "33126"
+   },
+   "Wells": {
+      "Percent": "0.06325",
+      "Name": "Wells",
+      "Rank": "131",
+      "Number": "170635"
+   },
+   "Cisneros": {
+      "Percent": "0.01373",
+      "Name": "Cisneros",
+      "Rank": "850",
+      "Number": "37050"
+   },
+   "Giles": {
+      "Percent": "0.01446",
+      "Name": "Giles",
+      "Rank": "805",
+      "Number": "39002"
+   },
+   "Watson": {
+      "Percent": "0.08987",
+      "Name": "Watson",
+      "Rank": "76",
+      "Number": "242432"
+   },
+   "Ramos": {
+      "Percent": "0.07158",
+      "Name": "Ramos",
+      "Rank": "112",
+      "Number": "193096"
+   },
+   "Andrews": {
+      "Percent": "0.04794",
+      "Name": "Andrews",
+      "Rank": "206",
+      "Number": "129320"
+   },
+   "Mays": {
+      "Percent": "0.01443",
+      "Name": "Mays",
+      "Rank": "809",
+      "Number": "38914"
+   },
+   "Colon": {
+      "Percent": "0.02058",
+      "Name": "Colon",
+      "Rank": "539",
+      "Number": "55512"
+   },
+   "Knox": {
+      "Percent": "0.01592",
+      "Name": "Knox",
+      "Rank": "724",
+      "Number": "42937"
+   },
+   "Bray": {
+      "Percent": "0.01282",
+      "Name": "Bray",
+      "Rank": "923",
+      "Number": "34575"
+   },
+   "Case": {
+      "Percent": "0.01437",
+      "Name": "Case",
+      "Rank": "813",
+      "Number": "38759"
+   },
+   "Costa": {
+      "Percent": "0.01306",
+      "Name": "Costa",
+      "Rank": "900",
+      "Number": "35227"
+   },
+   "Hanna": {
+      "Percent": "0.0132",
+      "Name": "Hanna",
+      "Rank": "887",
+      "Number": "35599"
+   },
+   "Fields": {
+      "Percent": "0.03827",
+      "Name": "Fields",
+      "Rank": "264",
+      "Number": "103242"
+   },
+   "Suarez": {
+      "Percent": "0.01751",
+      "Name": "Suarez",
+      "Rank": "658",
+      "Number": "47235"
+   },
+   "Hunt": {
+      "Percent": "0.05634",
+      "Name": "Hunt",
+      "Rank": "157",
+      "Number": "151986"
+   },
+   "Arnold": {
+      "Percent": "0.05053",
+      "Name": "Arnold",
+      "Rank": "187",
+      "Number": "136315"
+   },
+   "Morgan": {
+      "Percent": "0.10246",
+      "Name": "Morgan",
+      "Rank": "62",
+      "Number": "276400"
+   },
+   "Krause": {
+      "Percent": "0.01273",
+      "Name": "Krause",
+      "Rank": "932",
+      "Number": "34345"
+   },
+   "Weaver": {
+      "Percent": "0.05146",
+      "Name": "Weaver",
+      "Rank": "179",
+      "Number": "138811"
+   },
+   "Page": {
+      "Percent": "0.02984",
+      "Name": "Page",
+      "Rank": "354",
+      "Number": "80493"
+   },
+   "Simpson": {
+      "Percent": "0.05866",
+      "Name": "Simpson",
+      "Rank": "145",
+      "Number": "158241"
+   },
+   "Stewart": {
+      "Percent": "0.11599",
+      "Name": "Stewart",
+      "Rank": "54",
+      "Number": "312899"
+   },
+   "Wyatt": {
+      "Percent": "0.01886",
+      "Name": "Wyatt",
+      "Rank": "604",
+      "Number": "50874"
+   },
+   "Mcguire": {
+      "Percent": "0.02303",
+      "Name": "Mcguire",
+      "Rank": "482",
+      "Number": "62116"
+   },
+   "Brewer": {
+      "Percent": "0.03724",
+      "Name": "Brewer",
+      "Rank": "274",
+      "Number": "100465"
+   },
+   "Valenzuela": {
+      "Percent": "0.01623",
+      "Name": "Valenzuela",
+      "Rank": "711",
+      "Number": "43770"
+   },
+   "Robinson": {
+      "Percent": "0.18647",
+      "Name": "Robinson",
+      "Rank": "27",
+      "Number": "503028"
+   },
+   "Escobar": {
+      "Percent": "0.01592",
+      "Name": "Escobar",
+      "Rank": "723",
+      "Number": "42955"
+   },
+   "Charles": {
+      "Percent": "0.0191",
+      "Name": "Charles",
+      "Rank": "589",
+      "Number": "51518"
+   },
+   "Ritter": {
+      "Percent": "0.01218",
+      "Name": "Ritter",
+      "Rank": "970",
+      "Number": "32864"
+   },
+   "Fleming": {
+      "Percent": "0.0326",
+      "Name": "Fleming",
+      "Rank": "317",
+      "Number": "87949"
+   },
+   "Livingston": {
+      "Percent": "0.01519",
+      "Name": "Livingston",
+      "Rank": "766",
+      "Number": "40964"
+   },
+   "Scott": {
+      "Percent": "0.15573",
+      "Name": "Scott",
+      "Rank": "36",
+      "Number": "420091"
+   },
+   "Keller": {
+      "Percent": "0.03496",
+      "Name": "Keller",
+      "Rank": "290",
+      "Number": "94300"
+   },
+   "Chambers": {
+      "Percent": "0.03348",
+      "Name": "Chambers",
+      "Rank": "305",
+      "Number": "90325"
+   },
+   "Turner": {
+      "Percent": "0.12443",
+      "Name": "Turner",
+      "Rank": "49",
+      "Number": "335663"
+   },
+   "Kelley": {
+      "Percent": "0.05099",
+      "Name": "Kelley",
+      "Rank": "184",
+      "Number": "137555"
+   },
+   "Watkins": {
+      "Percent": "0.04539",
+      "Name": "Watkins",
+      "Rank": "222",
+      "Number": "122447"
+   },
+   "Mcfarland": {
+      "Percent": "0.01492",
+      "Name": "Mcfarland",
+      "Rank": "782",
+      "Number": "40244"
+   }
+}
