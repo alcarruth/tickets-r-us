@@ -1,0 +1,12 @@
+
+Right now (2016-02-04) the templates are just python templates.
+For the project, since I'm using Flask, they should be Jinja2
+templates, since Jinja2 is already includee in Flask by default.
+
+How do Jinja2 and Mustache compare?  Mustache is advertised as
+logic-less, whereas Jinja2 has {% for ... %} or whatever.  This 
+seems essentially the same as the Mustache {# ... } {/ ...}
+which can apply the same template code to all the elements of
+a list.  It would seem to be rather simple to switch from one 
+to the either.
+

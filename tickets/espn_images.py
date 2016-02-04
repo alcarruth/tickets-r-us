@@ -1,6 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# The team logos were shamelessly purloined from the ESPN website, and 
+# they remain the property of their respective institutions.  They
+# are included here only for the purposes of this academic exercise and
+# should not be used with out the consent of their owners.
+
 import json
 from tickets import Conference, Team, DBSession, startup_info
 import urllib2

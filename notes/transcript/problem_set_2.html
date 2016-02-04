@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <title> Problem Set 2 </title>
+    <link rel="stylesheet"  href="style/transcript.css">
+</head>
+
+<body>
+<div id="main">
+    
+    <h1> Full Stack Foundations </h1>
+    
+    <h2> Problem Set 2 </h2>
+
+    <h3> PAWs - The Puppy Adoption Website </h3>
+
+    <p>
+        Problem Sets are still under development but this beta version has
+        been released for students to view. Please be on the lookout for
+        future updates.
+    </p>
+
+    <p>
+        In the previous Problem Set, you created a puppy shelter database with
+        a lot of cool features. In this problem set, you are going to use
+        Flask to create a web application for viewing, checking in and
+        adopting puppies from these shelters.
+    </p>
+
+    <p>
+        This problem set is designed to point you to some resources that will
+        help you complete the given objectives without explicitly telling you
+        how to solve the challenge at hand. Please do not hesitate to reach
+        out for help on the forums if anything seems unclear or difficult to
+        solve.
+    </p>
+
+    <h3> Exercise 1 - Setting up views </h3>
+
+    <p>
+        Take a moment to plan out the user experience for your website. Use
+        all of the skills you learned in lessons 3 and 4 to iteratively create
+        a functioning Flask web application that works with your database of
+        puppies. Think of all of the navigation use cases for your
+        site. Create page mockups and then design a web application that
+        facilitates this process.
+    </p>
+
+    <p>
+        In your Python code, you should add methods for performing all of the
+        database functionalities described below:
+    </p>
+
+    <ul>
+        <li> All CRUD operations on Puppies, Shelters, and Owners </li> 
+        <li> Switching or Balancing Shelter Population and Protecting against overflows </li> 
+        <li> Viewing a Puppy Profile </li> 
+        <li> Adopting a New Puppy </li> 
+        <li> Creating and Styling Templates (optionally with Bootstrap) </li> 
+        <li> Adding Flash Messages </li> 
+        <li> BONUS: Pagination </li> 
+    </ul>
+    
+    
+    <h3> Exercise 2 - Application Structure for a large Flask Project </h3>
+
+    <p>
+        Up until now, most of our Python code for creating Flask projects has
+        lived in two files. We’ve been calling them database_setup.py and
+        project.py. Using a minimal number of python files is great for
+        learning how Flask works but as an application grows and becomes more
+        complex, reorganizing this code into different files makes navigating
+        code easier and identifying concerns in a more modular fashion more
+        doable. For this exercise you will rearrange your code into a package
+        making your code more manageable.
+    </p>
+
+    <p>
+        <b> Where do I start? </b>
+    </p>
+
+    <p>
+        Read through Flask documentation on packages: <br>
+        <a href="http://flask.pocoo.org/docs/0.10/patterns/packages/">
+            http://flask.pocoo.org/docs/0.10/patterns/packages/ </a>
+    </p>
+
+    <p>
+        Explore Flask also has some good literature on packages: <br>
+        <a href="https://exploreflask.com/organizing.html#organization-patterns">
+            https://exploreflask.com/organizing.html#organization-patterns </a>
+    </p>
+
+    <p>
+        Create a package for your application complete with an init.py file,
+        views.py, models.py, and any other smaller modules you see fit to
+        better organize your application. Discuss your package organization
+        with other students.
+    </p>
+
+    <h3> Exercise 3 - Using Flask Extensions </h3>
+
+    <p>
+        Flask is designed to be a very lightweight and minimalist framework
+        upon installation, giving the programmer much more control over design
+        decisions when creating a web application. Flask extensions are
+        packages created by other developers to allow additional
+        functionalities to be added quickly and easily.
+    </p>
+
+    <p>
+        In this activity you should learn about flask extensions and
+        specifically read about WTForms. What features does WTForms provide
+        compared to collecting form data manually? Add the WTForms package to
+        your application and implement its code when you collect form data and
+        add some validation rules that prevent poorly formatted information
+        from being saved to the database (blank first or last name, email
+        address without “@” or “.”)
+    </p>
+
+    <p>
+        <b> Where do I start? </b>
+    </p>
+
+    <p>
+        Flask documentation on extensions: <br>
+        <a href="http://flask.pocoo.org/docs/0.10/extensiondev/">
+            http://flask.pocoo.org/docs/0.10/extensiondev/ </a>
+    </p>
+
+    <p>
+        A registry of available Flask extensions:  <br>
+        <a href="http://flask.pocoo.org/extensions/">
+            http://flask.pocoo.org/extensions/ </a>
+    </p>
+
+    <p>
+        Documenation for WTForms:  <br>
+        <a href="http://wtforms.readthedocs.org/en/latest/">
+            http://wtforms.readthedocs.org/en/latest/ </a>
+    </p>
+
+    <p>
+        Form Validation with WTForms:  <br>
+        <a href="http://flask.pocoo.org/docs/0.10/patterns/wtforms/">
+            http://flask.pocoo.org/docs/0.10/patterns/wtforms/ </a>
+    </p>
+
+
+    <h3> Exerise 4 - Logging </h3>
+
+    <p>
+        Logging is a great way of tracking app use and behavior for when the
+        unexpected occurs. Logging also helps create a paper trail in case any
+        abnormal activity or behavior happens on your app.
+    </p>
+
+    <p>
+        For this exercise, you will go to the Flask documentation again and
+        figure out how to log information to a text file any time a puppy is
+        added or adopted.
+    </p>
+
+    <p>
+        <b> Where do I start? </b>
+    </p>
+
+    <p>
+        Flask documentation on logging:  <br>
+        <a href="http://flask.pocoo.org/docs/0.10/quickstart/#logging">
+            http://flask.pocoo.org/docs/0.10/quickstart/#logging </a>
+    </p>
+
+    <p>
+        Feeling Extra Udacious?
+    </p>
+
+    <p>
+        Good logging ensures good communication between the developers and
+        those responsible for maintaining an app once it’s up and running. (IT
+        or DevOps). Delve deeper into good logging practices and consider
+        implementing some of the following features into your application.
+    </p>
+
+    <p>
+        log rotation: If you server process keeps appending to the same log
+        file forever, eventually it will fill up the disk ... it should
+        probably close the file and start a new one periodically
+    </p>
+
+    <p>
+        remote logging / log saving : how do you get my logs off of the
+        individual container and into permanent storage?
+    </p>
+
+
+    <h3> Exercise 5 - Email/SMS Support </h3>
+
+    <p>
+        Being able to provide feedback via email is a part of almost every web
+        application experience nowadays. Integrating email support in Flask
+        has been simplified with the Flask-Mail extension. For this exercise
+        send an email or SMS to the owner each time a puppy is adopted.
+    </p>
+
+    <p>
+        <b> Where do I start? </b>
+    </p>
+
+    <p>
+        Check out this page about the Flask-Mail extension: <br>
+        <a href="https://pythonhosted.org/flask-mail/">
+            https://pythonhosted.org/flask-mail/ </a>
+    </p>
+
+    <p>
+        Twilio has an SMS python package that can be easily used with Flask,
+        check out 
+        <a href="https://www.twilio.com/blog/2012/01/making-an-sms-birthday-card-with-python-and-flask.html">
+            this tutorial. </a>
+    </p>
+
+    <p>
+        Spam Alert!
+    </p>
+
+    <p>
+        If your application lets people enter unconfirmed email addresses,
+        your app may be vulnerable to being compromised by a spambot. Account
+        confirmation via email is a good way to circumvent this problem. In
+        later exercises you will have challenges to confirm user accounts via
+        email.
+    </p>
+
+
+    <h3> Exercise 6 - User Authentication </h3>
+
+    <p>
+        If you’ve already taken the course on Authentication and
+        Authorization, you know that implementing secure user authentication
+        on a web application can be a very difficult task to complete.
+    </p>
+
+    <p>
+        Using OAuth providers can simplify the user authentication process for
+        you and your users. But in some cases it may be necessary to implement
+        user authentication on your own.
+    </p>
+
+    <p>
+        For this challenge, you will add user authentication using either an
+        OAuth provider, implementing your own user logins or if you’re feeling
+        extra ambitious, a hybridized approach that allows both login
+        options. You can consider the potential owners as the users of the
+        application.
+    </p>
+
+    <p>
+        This challenge will be tough. You may want to wait until you’ve
+        completed Authentication and Authorization before attempting this
+        challenge. As always, please reach out for help if you get stuck and
+        be sure to give yourself a pat on the back once you’ve completed this
+        exercise.
+    </p>
+
+    <p>
+        If you do chose to implement your own user authentication please be
+        sure all of the following features are implemented in your
+        application:
+    </p>
+
+    <p>
+        Using the right Authentication Extensions for Flask
+    </p>
+
+
+    <h3> Exercise 7 - Testing and Performance </h3>
+
+    <p>
+        Up to this point, you’ve created a pretty complex application. So how
+        can you be sure everything is working correctly? Testing your
+        application is a way to find bugs before your users do. In addition,
+        even if there are no coding bugs, maybe some performance issues might
+        create a less than pleasant user experience for visitors to your
+        page. In this exercise you will read about Coverage, The Flask Test
+        Client, and Selenium in order to create a test suite for your
+        application. You should also find a way to identify and log slow
+        queries to address performance issues that arise with a growing
+        database. Share your testing strategy with other students and view the
+        strategies they implemented as well.
+    </p>
+
+    <p>
+        <b> Where Do I Start? </b>
+    </p>
+
+    <p>
+        Check out this article about testing in Flask: <br>
+        <a href="https://flask-testing.readthedocs.org/en/latest/">
+            https://flask-testing.readthedocs.org/en/latest/ </a>
+    </p>
+
+    <p>
+        Flask Documentation of Testing: <br>
+        <a href="http://flask.pocoo.org/docs/0.10/testing/">
+            http://flask.pocoo.org/docs/0.10/testing/ </a>
+    </p>
+
+    <p>
+        Documentation on Coverage:  <br>
+        <a href="http://nedbatchelder.com/code/coverage/">
+            http://nedbatchelder.com/code/coverage/ </a>
+    </p>
+
+
+    <h3> Exercise 8 - Deployment </h3>
+        
+    <p>
+        Ready to take your application live? It’s time to deploy your
+        application and share it with other Udacians and the whole
+        world. Deploying can be a challenge the first time around but keep at
+        it and use all of your resources to get your app properly functioning
+        on the web.
+    </p>
+
+    <p>
+        <b> Where Do I Start? </b>
+    </p>
+
+    <p>
+        Check out this article on Deployment from Explore Flask:  <br>
+        <a href="https://exploreflask.com/deployment.html">
+            https://exploreflask.com/deployment.html </a>
+    </p>
+
+    <h3> Going Further </h3>
+
+    <p>
+        Here are a few more features you could add to your website, the
+        possibilities are endless so feel free to challenge yourself and and
+        more improvements to your puppy adoption website!
+    </p>
+
+    <p>
+        Full Text Search Feature
+    </p>
+
+    <p>
+        Adding full text search can be a complicated task. If you are up for
+        the challenge take a look at this blog post by Miguel Grinberg and see
+        if you can add search functionality to your web application:
+    </p>
+
+    <p>
+        <a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-x-full-text-search">
+            The flask mega tutoria -part x full text search </a>
+    </p>
+
+    <p>
+        Add a searchable feature to your database, search for a dog by name
+        and return the results of that search with relevant information in the
+        search results. Make a query in SQLAlchemy that returns all of the
+        shelters that have a dog named 'Rudy', sort results by shelter name,
+        and by puppy age.
+    </p>
+
+    <p>
+        AJAX
+    </p>
+
+    <p>
+        AJAX (Asynchronous JavaScript and XML) is a popular way of delivering
+        data to a webpage without prompting a page refresh. When used
+        appropriately, integrating AJAX into a web application can have a
+        great impact on the user experience. For this exercise, you will
+        return search results using AJAX instead of rendering a new web page.
+    </p>
+
+    <p>
+        <b> Where do I start? </b>
+    </p>
+
+    <p>
+        <a href="http://flask.pocoo.org/docs/0.10/patterns/jquery/">
+            http://flask.pocoo.org/docs/0.10/patterns/jquery/ </a>
+    </p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <title> Lesson 4 - Iterative Development </title>
+    <link rel="stylesheet"  href="style/transcript.css">
+</head>
+
+<body>
+<div id="main">
+    
+    <h1> Full Stack Foundations </h1>
+
+    <h2> Lesson 4 - Iterative Development </h2>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 1 - Lesson 4 Introduction </h3>
+
+    <p>  
+        Now that you have practiced using so many new tools and concepts,
+        it's time to embark on your final project.  You will create a menu
+        app with Flask that lists out all the restaurants in your database
+        and allows you to view the menu for each of those restaurants.
+    </p>
+
+    <p>  
+        Users should also be able to create, read, update and delete
+        restaurants and their menu items.
+    </p>
+
+    <p>
+        You will be the technical lead on this project and I will not be
+        telling you line by line how to write your code.
+    </p>
+    
+    <p>
+        Note that the code presented in these next challenges will help you
+        make a basic final project, but I strongly encourage you to go above
+        and beyond by making a unique creation that you can call your own
+        and share with others.
+    </p>
+    
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 2 - Iterative Development </h3>
+
+    <p>  
+        But before we get started, how do we go about building our web
+        application?
+    </p>
+
+    <p>
+        For many people, the most natural way of going about a project is to
+        just dive into it head first, writing as much code as possible
+        before falling asleep.  While this method feels fast, many times we
+        end up spending more time fixing bugs and examining code than
+        actually developing our application.
+    </p>
+    
+    <p>
+        Another option is to code in pieces, working on one page here,
+        another feature there, and putting everything together at the end.
+        While this approach is a little more organized, we may stumble
+        across several bugs when it's time to integrate all of our code
+        together.  Also, we won't have a working prototype until we're
+        finished with the entire project.
+    </p>
+    
+    <p>
+        <span class="highlight">
+        But what if we took another approach, starting out really simple and
+        layering on complexity as we go?  Not adding a new feature until we
+        finish the one before.  With each feature, we stop, test, debug, and
+        share to make sure we always have a working application even if it's
+        very basic in the initial stages.
+        </span>
+    </p>
+    
+    <p>
+        This way, anyone involved in the creation of our product, such as
+        clients, managers, and team members, always know what the project
+        status is, and what enhancements are soon to follow.
+    </p>
+    
+    <p>
+        <span class="highlight">
+            This process is called 
+            <em> iterative development. </em> </span>
+    </p>
+    
+    <p>
+        Iterative development allows developers to code in an 
+        <em> agile way. </em> 
+        <span class="highlight">
+        What agile means is that since there is always a working prototype,
+        if a client or teammate asks for changes, as a developer, you can
+        react to that feedback quickly without tripping up the entire
+        process.
+        </span>
+    </p>
+    
+    <p>
+        In this last lesson, you will plan, organize, and execute development
+        iteratively to create a final polished restaurant menu application
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 3 - Tackling a Complex Project </h3>
+
+    <p>
+        The first step to having an awesome web application is having an
+        awesome game plan.  Let's define what our prototype should do after
+        completing each iteration.
+    </p>
+    
+    <p>
+        Let's do some brainstorming to make a 
+        <span class="highlight"> checklist of deliverables </span> that
+        we want to achieve with each iteration of development, by breaking
+        down the project into smaller, easier to manage mini-projects.
+    </p>
+    
+    <ol>
+        <li>
+        In the first pass at this project, we'll 
+        <span class="highlight"> create mock-ups </span> for every
+        page in the restaurant menu app, and design URLs for each page as
+        well.  When I finish this iteration, I can show my designs to my
+        friends or colleagues for feedback, and that's enough work for our
+        first iteration.
+        </li>
+
+        <li>
+        In the second iteration, you'll 
+        <span class="highlight"> set up all of the routings </span> for your
+        application in Flask, making sure you can navigate to all of the
+        URLs you want to create for your application.  At the end of this
+        iteration, you should be able to navigate to all of your URLs, even
+        if the pages are not yet created.
+        </li>
+
+        <li>
+        After that, you will build on top of what you made in the previous
+        iteration by 
+        <span class="highlight"> 
+            creating all of your templates and forms, 
+        </span> 
+        and making sure that they are properly functioning
+        within your application.  Once you have created and filled out
+        all of your HTML templates and see them rendering in your
+        application, we can move on to the next iteration.
+        </li>
+
+        <li>
+        Now that you have a good grasp of how your front-end code should
+        look, you will 
+        <span class="highlight">
+            add the back-end functionality, 
+        </span>
+        making sure all of the actions on the web page are retrieving
+        data from your database.  When all of the CRUD operations work
+        on all of your web pages, you'll be finished with this
+        iteration.
+        </li>
+
+        <li>
+        You will then 
+        <span class="highlight">
+            add some endpoints 
+        </span>
+        that allow the data to be sent if the client requests a menu
+        or specific menu item in JSON form.  You will test these API
+        calls from within your browser to know you have successfully
+        finished this step.
+        </li>
+        
+        <li>
+        Finally, you will 
+        <span class="highlight">
+            add some styling with CSS, JavaScript, and a few static images,
+        </span>
+        to give your application an appealing layout.  In
+        this step, you will also incorporate message flashing into your
+        application.
+        </li>
+    </ol>
+
+    <p>
+        I chose these steps to create our application because I feel 
+        <span class="highlight">
+            they naturally build on top of each other, and have a
+            clear deliverable at the end of each iteration.
+        </span>
+        By keeping this in mind, when you plan future projects,
+        you'll be better prepared for all kinds of new challenges.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 4 - Mockups Exercise </h3>
+
+    <p>
+        So before we start getting coded, let's take a second to draft up
+        our page designs.  There are a ton of good mock-up and wireframing
+        applications, that you can download and use to design webpages, but
+        for me, pencil and paper is perfect for the first draft.
+    </p>
+
+    <p>
+        So the first question that comes to mind is, how many types of pages
+        this app will have.
+    </p>
+
+    <p>
+        So when the user lands on the root of my site, they should see a
+        list of all the restaurants stored in my database.  From here, they
+        can click on a specific restaurant that will show the menu for that
+        restaurant.
+    </p>
+
+    <p>
+        I also want them to be able to add new restaurants, and edit or
+        delete existing restaurants from the list.  On a specific menu page,
+        the user can view the menu for each restaurant.
+    </p>
+
+    <p>
+        Similarly, they will have the option to add, edit, and delete menu
+        items from a specific menu.  So it looks like we need to create
+        eight different webpages for our web app.  I will go ahead and
+        specify what I want the URL for each webpage to look like as well.
+    </p>
+
+    <p>
+        Draw markup pages for these eight URLs using pencil and paper or
+        your own favorite markup application.  It doesn't have to be
+        anything fancy, just a sketch to communicate how you want your
+        webpages to look.  Share you markups, get feedback from a friend or
+        colleague, and then continue on to the next step of our project.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 5 - Adding Routes </h3>
+  
+    <p>
+        Now it's time to set up the routing for the application.  In the
+        mock-ups, we specify routes for the following pages.  Note that
+        landing on the root page of our site will now route us to the page
+        that shows all of the restaurants.  And, visiting /restaurant/menu
+        ID will automatically take us to the menu page.
+    </p>
+
+    <p>
+        Create a new Python file called, finalproject.py in the same
+        directory as all of our other files.  Import the Flask module and
+        the app.run code, like in the previous lesson.  Add the routing for
+        all pages into finalproject.py and create the following methods that
+        return the appropriate messages in the browser.
+    </p>
+
+    <p>
+        When you save and fire up your browser, you should be able to visit
+        all of the URLs like so.  At the end of this iteration, you have
+        shown that you can get a Flask application up and running,
+        accounting for all the necessary pages your app will have.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 6 - Adding Templates and Forms </h3>
+    
+    <p>
+        In this section, you're going to go ahead and replace those strings
+        in your return statements with templates.  In your templates
+        directory, make eight new files with the following names.
+    </p>
+
+    <ul>
+        <code>
+        <li> restaurants.html </li>
+        <li> newrestaurant.html </li>
+        <li> editrestaurant.html </li>
+        <li> deleterestaurant.html </li>
+        <li> menu.html </li>
+        <li> newmenuitem.html </li>
+        <li> editmenuitem.html </li>
+        <li> deletemenuitem.html </li>
+        </code>
+    </ul>
+
+    <p>
+        Replace the previous return statements such that they now return
+        render templates for each of your methods in final project.py.
+    </p>
+
+    <p>
+        <code>
+            #Show all restaurants <br>
+            @app.route('/') <br>
+            @app.route('/restaurant/') <br>
+            def showRestaurants(): <br>
+            #return "This page will show all my restaurants" <br>
+            return render_template('restaurants.html', restaurants=restaurants)
+        </code>
+    </p>
+
+    <p>
+        But wait a second, if we design our templates before connecting to a
+        database, Python will throw an error message when we try to refer to
+        restaurants and menu items that don't yet exist in our application.
+    </p>
+
+    <p>
+        <code>
+        NameError: global name 'restaurants' is not defined
+        </code>
+    </p>
+
+    <p>
+        To get around this problem, we can temporarily make a fake database
+        out of dictionaries inside of our final-project.py file.
+    </p>
+
+    <p>
+        I have made some dictionaries which will serve as dummy variables
+        for one restaurant, a collection of restaurants, one menu item, and
+        a collection of menu items.  The source code for these dictionaries
+        is available in the instructor notes.
+    </p>
+
+    <p>
+        Go ahead and leave hashtags in the form action and href path, since we
+        are focusing more on the structure of our pages in this step, and not
+        so much their functionality.
+    </p>
+
+    <p>
+        <code>
+        &lt;form action="#" method='post'&gt; <br>
+            &lt;a href='#'&gt;
+        </code>
+    </p>
+
+    <p>
+        Now, when a user revisits these links in a browser, they should see
+        something like this.  The functionality isn't going to be in place
+        just yet, but we've just created another prototype that we can use
+        to present our progress thus far.
+    </p>
+
+    <p>
+        Your template should also return a different message to the user if
+        there's an empty menu, or empty list of restaurants, maybe something
+        like this.  Try and see if you can accommodate for this corner case
+        in your templates as well.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 7 - CRUD Functionality </h3>
+    
+    <p>
+        With our routes and database in place, we can now add the actual
+        CRUD Functionality to our page.  Write in the appropriate SQLAlchemy
+        statements for the following methods.
+    </p>
+
+    <ul>
+        <li> showRestaurants() </li>
+        <li> newRestaurant() </li>
+        <li> editRestaurant() </li>
+        <li> deleteRestaurant() </li>
+    </ul>
+
+    <ul>
+        <li> showMenu() </li>
+        <li> newMenuItem() </li>
+        <li> editMenuItem() </li>
+        <li> deleteMenuItem() </li>
+    </ul>
+
+    <p>
+        We also need to add url_for and redirects to our application, when
+        necessary.  Some of our routes need to be able to respond to get,
+        and post requests.  Be sure to add this functionality, as well.
+    </p>
+
+    <p>
+        When you are done with this step, you should have a prototype, where
+        all the CRUD operations are fully functional.
+    </p>
+
+    <p>
+        This might be a time consuming iteration to get everything working,
+        but I encourage you to stick with it, and not give up.  Use the
+        documentation on the Python Flask in SQLAlchemy websites if needed,
+        as well.  Also do not hesitate to reach out to your fellow students.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 8 - API Endpoints </h3>
+    
+    <p>
+        Now that we have a functioning application, let's add some API
+        endpoints to it.
+    </p>
+
+    <p>
+        The API request should return a JSON object for a list of all
+        restaurants, the menu of a specific restaurant, and a specific menu
+        item, when a client sends a GET request to one of these three URLs.
+
+        <ul>
+            - /restaurants/JSON
+            - /restaurants/restaurant_id/menu/JSON
+            - /restaurants/restaurant_id/menu/menu_id/JSON
+        </ul>
+
+        Remember to import (flask.)jsonify into your project and add a
+        'serializable' property to your database set up file where needed.
+    </p>
+
+    <p>
+        Your JSON request should return pages like these when you're finished.
+    </p>
+
+  
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 09 Stying Your App </h3>
+    
+    <p>
+        In this last section let's put our focus on styling and improving the
+        user experience.
+    </p>
+
+    <p>
+        Make a static folder and add some CSS files, JavaScript, or images to
+        your application to make it more aesthetically pleasing.
+    </p>
+
+    <p>
+        Also, add message flashing to your app with the following six
+        messages.
+    </p>
+
+    <ol>
+        <li> New Restaurant Created </li>
+        <li> Restaurant Successfully Edited </li>
+        <li> Restaurant Successfully Deleted </li>
+        <li> New Menu Item Created </li>
+        <li> Menu Item Successfully Edited </li>
+        <li> Menu Item Successfully Deleted </li>
+    </ol>
+    
+    <p>
+        In the instructor notes, I've provided a CSS file for reference but I
+        strongly encourage you to establish project on your own and give it a
+        more personal touch.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 10 Wrap-Up </h3>
+    
+    <p>
+        Congratulations!  You've finished the final project, and reached the
+        end of this course.  You've created a data-driven web application,
+        and have a beautiful restaurant menu app to show for it.
+    </p>
+
+    <p>
+        However, we've only scratched the surface of web development, so keep
+        going from here.
+    </p>
+
+    <p>
+        If you're interested in learning more about the Flask framework, the
+        Flask documentation is a great place to start.
+    </p>
+
+    <p>
+        Add more features to the restaurant menu application, or create a new
+        application of your own, using some of the more advanced features of
+        Flask.
+    </p>
+
+    <p>
+        I will also provide some links in the instruction notes, on deploying
+        a Flask application, to be shared with the outside world.
+    </p>
+
+    <p>
+        If you're interested in adding more HTML, CSS, and JavaScript features
+        to your website, take some time to check out some of Udacity's awesome
+        frontend classes.
+    </p>
+
+    <p>
+        Wherever you decide to go next from here, I strongly encourage you to
+        immerse yourself in the web development community.
+    </p>
+
+    <p>
+        Read blogs, experiment, and share your work with other web developers
+        and enthusiasts like yourself.
+    </p>
+
+    <p>
+        [SOUND]. Well, sounds like it's dinner time for me over here.
+        Thanks for helping me show what's on the menu.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> [Instructor Notes] </h3>
+
+    <p>
+        You can view 
+        <a href="http://flask.pocoo.org/docs/0.10/deploying/"> this article  </a>
+        on deploying Flask applications, but I highly recommend adding some security
+        <a href="https://pythonhosted.org/Flask-Security/"> security </a>
+        to your application before publishing it on the internet.
+    </p>
+    
+    <p>
+        A basic version of the final project can be found
+        <a href="https://github.com/lobrown/Full-Stack-Foundations/tree/master/Lesson-4/Final-Project">
+            here. </a>
+    </p>
+
+</div>
+</body>
+</html>

@@ -1,5 +1,4 @@
 
-
 Tables
 -------
  - Users
@@ -72,4 +71,25 @@ Use Cases
    - view items by category
    - view items by keyword
    - select item
-   
+
+Web Pages
+----------
+ - main page
+ - admin page
+ - user page
+ - category page
+ - item page
+
+Web Page Components (panels)
+-----------------------------
+ - header
+   - site name
+   - login
+   - login status
+ - nav
+   - categories list
+ - main panel
+ - footer
+   - site name
+
+

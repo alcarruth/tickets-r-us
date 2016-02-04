@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <title> Lesson 1 - Working with the CRUD  </title>
+    <link rel="stylesheet"  href="style/transcript.css">
+</head>
+
+<body>
+<div id="main">
+    
+    <h1> Full Stack Foundations </h1>
+
+    <h2> Lesson 1 - Working with the CRUD </h2>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 1 - Course Intro </h3>
+
+    <p>
+        
+        Hi, my name is Lorenzo, and I'll be your instructor as we explore the
+        foundations of full stack web development.  In this course you will
+        learn to build your own data-driven web application, but what does
+        that actually mean?
+    </p>
+
+    <p>
+        Well, when I say web application I'm referring to a web page or
+        collection of pages that allows your browser to respond to user input,
+        similar to an offline software application.
+    </p>
+
+    <p>
+        And by data-driven, I mean an application that can store and retrieve
+        information from a database to deliver customized content to the user.
+        Almost all of the popular websites you interact with on a daily basis
+        are data-driven web applications.  Soon you will create a similar
+        website of your own.
+    </p>
+
+    <p>
+        In addition to creating web pages, you will also learn to send data
+        from your server in other forms, like JSON requests.  So that the data
+        from your application can be shared with other machines that process
+        JSON, like a data aggregator or a mobile device.
+    </p>
+
+    <p>
+        Your mission in this course is to help me create a menu app.  You'll
+        be building an interactive web application that presents a user a
+        variety of menu items they can view, create, modify, and delete.
+    </p>
+
+    <p>
+        In the first lesson of this course you will extract data from a
+        database using Python.  We'll also be using a tool called an
+        object-relational mapping, or ORM to manipulate queries as objects in
+        Python.  If you've never heard of an ORM, don't worry.  You'll be very
+        familiar with it in just a few minutes.
+    </p>
+
+    <p>
+        In the second lesson you will build your first data-driven web
+        application using only the libraries that come installed with Python.
+    </p>
+
+    <p>
+        In the third lesson we will talk about frameworks and create an
+        application using the lightweight web framework, Flask.  You will
+        understand how frameworks help developers write code more efficiently.
+        Once you complete this course you will easily be able to compare and
+        contrast frameworks, and choose one of your own for future projects.
+    </p>
+
+    <p>
+        Finally, you'll use what you learned from lessons one, two, and three
+        to iteratively write code until you have a polished menu application,
+        complete with API endpoints for JSON requests.
+    </p>
+
+    <p>
+        Let's get started.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 2 - Prerequisites and Preparation </h3>
+
+    <p>
+        Before we get started, let's discuss some of the necessary
+        technologies you should be familiar with in order to get the most out
+        of this course.
+    </p>
+
+    <p>
+        Most importantly, you should have a basic understanding of Python
+        coding.  If you're comfortable creating classes, writing methods, and
+        understand inheritance, you are in good shape for this course.
+    </p>
+
+    <p>
+        Knowledge of SQL statements such as insert into, select, update, and
+        delete will also be a useful skill in this course.
+    </p>
+
+    <p>
+        I will also assume you're very comfortable reading and writing HTML
+        code.  CSS and JavaScript won't be necessary to complete the
+        activities, but are helpful for creating a polished, presentable final
+        project.
+    </p>
+
+    <p>
+        Knowing your way around the Unix command line and being able to
+        navigate through the file system is also going to come in handy.
+    </p>
+
+    <p>
+        If you are unfamiliar or would like to brush up on any of these
+        topics, please refer to the instructor notes for some helpful links to
+        classes and other references.
+    </p>
+
+    <p>
+        For ease of configuration, and installation, I strongly recommend
+        using a Vagrant machine for this course.  Vagrant allows you to create
+        a virtual machine on your computer so that you can program without
+        worrying about affecting your computer's current configuration.
+    </p>
+
+    <p>
+        I have provided you a Vagrant file with all of the necessary software
+        already installed.  A link to installing this Vagrant file is provided
+        in the instructor notes.  Once you successfully run vagrant up and
+        vagrant ssh, you're ready to keep going.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 3 - Project Introduction CRUD </h3>
+
+    <p>
+        Let's create a web application that allows us to create multiple
+        restaurant menus without having to change the source code.  We want to
+        be able to create menu items, read the items we've created, update our
+        menu items, and delete items from time to time.  Hm, sounds like we
+        need to make some CRUD.
+    </p>
+
+    <p>
+        What's so special about CRUD, you ask?  Well, this four letter acronym
+        encapsulates all of the actions a user does on a data-driven website.
+    </p>
+
+    <p>
+        Each time we make a new profile, post a new status, write a new blog
+        entry, upload a new pic, or add a new item to a menu, we are creating
+        new data to be stored in our database.
+    </p>
+
+    <p>
+        Whenever we look through a friend's latest tweets and pics, or skim
+        through our news feed, we are reading data that was already stored in
+        an application's database.
+    </p>
+
+    <p>
+        When we correct the typo on a blog post we already made, modify the
+        item quantity in our shopping cart, or change our profile information,
+        we are performing an update on existing information in the database.
+    </p>
+
+    <p>
+        And when it's time to erase that embarrassing baby pic from our
+        profile or get rid of those items in our shopping cart, we're deleting
+        information in the database.
+    </p>
+
+    <p>
+        Virtually everything we do on the web can be summarized with one
+        little acronym, CRUD.  I want you to take a look at a few common
+        website actions and then decide what the CRUD is going on.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 4 - CRUD Review 1 </h3>
+
+    <p>
+        Okay, let's do a few exercises just for fun.  Would the following
+        actions from a user cause a create, read, update or delete on a
+        database?  Select your answer below and continue to the next video to
+        see my solution.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 5 - CRUD Review 1 </h3>
+
+    <p>
+        
+        Browsing articles on an online newspaper.
+    </p>
+
+    <p>
+        Well, since with an online newspaper, we're only viewing things that
+        are already existing on the server, so this is definitely a read.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 6 - CRUD Review 2 </h3>
+
+    <p>
+        Is clearing out your junk mail a create, read, update, or delete on a
+        database?
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 7 - Crud Review 2 Solution </h3>
+
+    <p>
+        Clearing out your junk mail probably involves erasing something off of
+        a server.  So let's just say that's a delete.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 8 - CRUD Review 3 </h3>
+
+    <p>
+        
+        What about making a new profile on a blog?  Is this a create, read,
+        update, or delete?
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 9 - CRUD Review 3 </h3>
+
+    <p>
+        
+        Making a new profile means we're putting new information on to our
+        server.  That means we have to do a create.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 10 - CRUD Review 4 </h3>
+
+    <p>
+        Let's say a user orders a t-shirt online, and later on decided that
+        they actually want to order two more for two of their friends.  Before
+        checking out, they update their shopping cart from one t-shirt to
+        three.  Would this be a create, read, update, or delete?
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 11 - CRUD Review 4 </h3>
+
+    <p>
+        By changing the number of items in the shopping cart, we're creating
+        an update on the database.  The shopping cart already existed, and so
+        did the item that was inside it.  We're only changing the quantity of
+        items that we wanted to order.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 12 - SQL </h3>
+
+    <p>
+        
+        So we know that web application code gets the information that it
+        needs to create websites by performing CRUD operations on the
+        database.  But how do we get an application and a database to
+        communicate with each other?
+    </p>
+
+    <p>
+        You already know that SQL is the popular language for communicating
+        with databases.  From our application code, we can create SQL commands
+        and decipher the results to integrate back into our application.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 13 - SQL Quiz Select </h3>
+
+    <p>
+        With SQL, we're seeing almost one-to-one comparison between CRUD and a
+        few SQL commands.  In these next four challenges, match up the SQL
+        command displayed with the CRUD operation that it executes.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 14 - SQL Quiz Select </h3>
+
+    <p>
+        The SELECT command retrieves rows from our database and presents them
+        to our application.  So this is definitely a read.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 15 - SQL Insert Into </h3>
+
+    <p>
+        Insert Into adds a new row to our table, so this is a create.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 16 - SQL Update </h3>
+
+    <p>
+        The Update command updates an existing row in our table, so these two
+        words actually match up.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 17 - SQL Delete </h3>
+
+    <p>
+        The Delete command in SQL deletes a row from our table, so it also
+        executes a CRUD delete.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 18 - Creating a Database and ORMs </h3>
+
+    <p>
+        So for this menu project, I want to create an application where I can
+        make various restaurant menus with various items, often within one
+        application.
+    </p>
+
+    <p>
+        All restaurant menus in the general sense contain the same thing.
+        Some have a few appetizers, some entrees, a few desserts, and of
+        course some beverages.  To keep things simple, let's call all of these
+        things menu items.  And all of my menu items belong to a specific
+        restaurant menu.
+    </p>
+
+    <p>
+        It also would be helpful to have a price and brief description for
+        each of our menu items.  An important early design decision to make is
+        how to model my database.  There is more than one correct way to
+        structure a database, but there is no need to make things too
+        complicated.
+    </p>
+
+    <p>
+        Let's walk through the process of making a database layout together.
+        We have a restaurant table to represent all of the restaurants in our
+        database, along with a corresponding name and ID number.
+    </p>
+
+    <p>
+        Then we have a table of menu items.  Each menu item will have a name,
+        an ID, a description, a price, and a course to categorize whether it
+        is an appetizer, entree, dessert or beverage.
+    </p>
+
+    <p>
+        We will also provide a restaurant ID to assign a foreign key
+        relationship with our restaurant table.
+    </p>
+
+    <p>
+        Okay. So we've planned out how we will design our database.  Now let's
+        get to coding it up.  If you've used SQL before you might be used to
+        writing something like this.  If you're not an SQL expert it might be
+        a little hard to understand though.  Now there is nothing wrong with
+        this code, but let's take a look at it for a second.
+    </p>
+
+    <p>
+        Using raw SQL we have this inquiries to the database as strings.  This
+        works, but our Python compiler has no way of helping me if I make a
+        typo or reference a table that doesn't exist.  Every other data
+        structure we use in Python is some type of object.  So why not treat
+        our database queries, tables, and rows as objects as well.
+    </p>
+
+    <p>
+        Well this concern isn't a unique one, and developers have created
+        tools for this very problem.  Object-Relational Mappers, or ORM's, can
+        be thought of like a translator, converting our code from one form to
+        another.
+    </p>
+
+    <p>
+        If we send off code written in Python or any other preferred
+        programming language, it is transformed by the ORM into SQL and sent
+        off to our database.  The ORM also gets results from an SQL statement
+        and allows us to use it as an object from within our Python code.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 19 - Introducing SQLAlchemy </h3>
+
+    <p>
+        When I Google search ORM for Python I get over 14 million results
+        with several different ORM options we could use.  The first result
+        that showed up when I searched was for an application called SQL
+        Alchemy.  SQL Alchemy is an open source ORM for Python with a slew
+        of features.  Not to mention this awesome Getting Started tutorial.
+        <a href="http://www.sqlalchemy.org/">
+            Getting Started tutorial. </a>
+    </p>
+
+    <p>
+        There's a lot of information on this page, but let's just focus on
+        setting up our database and tables for now.
+    </p>
+
+    <p>
+        If you're using the Vagrantfile, SQLAlchemy is already installed on
+        your virtual machine.  If you are not using Vagrant, you can install
+        SQLAlchemy from the link below to follow along.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 20 - Creating a Database Configuration </h3>
+
+    <p>
+        With SQLAlchemy, we can write a single Python file to set up and
+        configure our database.  I will call this file database_setup.py.
+    </p>
+
+    <p>
+        Creating a database with SQLAlchemy has four major coding components:
+    </p>
+
+    <ol>
+        <li> The configuration code, which is what we use to import
+            all the necessary modules. </li>
+        <li> The class code that we use to represent our data in Python. </li>
+        <li> The table that represents the specific table in our database. </li>
+        <li> And the mapper that connects the columns of our table to the
+            class that represents it. </li>
+    </ol>
+
+    <p>
+        Our configuration code sets up all of the dependencies needed for my
+        database and binds my code to the SQLAlchemy engine.  For most
+        cases, this code doesn't change much from project to project.
+    </p>
+
+    <p>
+        We also have to create an instance of a class called
+        declarative_base, in order for our class to inherit all the features
+        of SQLAlchemy.
+    </p>
+
+    <p>
+        In addition, we need to add some configuration code at the end of
+        our Python file to connect to an existing database, or in this case,
+        create a new one.
+    </p>
+
+    <p>
+        This might not make much sense right now, so let's jump into writing
+        the configuration code.  Open a text editor like Sublime and follow
+        along.  You may have seen this import if you've worked on a few
+        Python projects before.
+    </p>
+
+    <p>
+        The sys module provides a number of functions and variables that can
+        be used to manipulate different parts of the Python run-time
+        environment.
+    </p>
+
+    <p>
+        Next, we're going to import the Column, ForeignKey, Integer, and
+        String classes from sqlalchemy.  These will come in handy when we
+        are writing our mapper code.
+    </p>
+
+    <p>
+        From the sqlalchemy.ext.declarative library, we need to import our
+        declarative_base, which we will use in the configuration and class
+        code.
+    </p>
+
+    <p>
+        After that, we import relationship from sqalchemy.orm in order to
+        create our foreign key relationships.  This, too, will be used when
+        we write up our mapper.
+    </p>
+
+    <p>
+        Let's also import the create_engine class, which we will use in our
+        configuration code at the end of the file.
+    </p>
+
+    <p>
+        This last piece of code isn't an import, but will help us get set up
+        when we begin to write our class code.  Let's make an instance of
+        the declarative base class we just imported and call it Base, for
+        short.  The declarative base will let SQLAlchemy know that our
+        classes are special SQLAlchemy classes that correspond to tables in
+        our database.
+    </p>
+
+    <p>
+        At the end of our file, we need to add two more lines of code.  We
+        create an instance of our create engine class and point to the
+        database we will use.  Since we are using SQLite 3 for this lesson,
+        the create engine will create a new file that we can use similarly
+        to a more robust database like MySQL or PostgreSQL.
+    </p>
+
+    <p>
+        The last piece we need is Base.metadata.create all(engine), which
+        goes into the database and adds the classes we will soon create as
+        new tables in our database.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 21 Creating a Database Class and Table </h3>
+
+    <p>
+        Our class code is the object-oriented representation of a table in
+        our database.  The only thing we need to do is create a class name,
+        and make it extend from the Base class we just created.  For
+        conventional purposes, let's make all of our classes start with a
+        capital letter with no spaces in between, also called camel-casing.
+    </p>
+
+    <p>
+        Inside of this class declaration, we will add all of the code for
+        our table and mapper code.
+    </p>
+
+    <p>
+        For this project, we will need to create two classes to correspond
+        with the two tables we want to create in our database, restaurant
+        and menu item.
+    </p>
+
+    <p>
+        Be sure to write this class code between your beginning and ending
+        configuration code.
+    </p>
+
+    <p>
+        Inside each of our classes, we must create a table representation,
+        we use the special variable, __tablename__ to let SQLAlchemy know
+        the variable that we will use to refer to our table.  For
+        conventional purposes, let's make our table names lowercase, with
+        underscores for spaces.
+    </p>
+
+    <p>
+        Inside our restaurant class, we will set double underscore tablename
+        double underscore equal to restaurant, and inside the MenuItem class
+        we will set it equal to menu underscore item, as seen here.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 22 - Creating a Database Mapper </h3>
+
+    <p>
+        Our mapper code creates variables that we will use to create columns
+        within our database.  When we create a column, we must also pass an
+        attribute to that column.  Here are some column attributes that we
+        will be using in the activities in lesson one.
+    </p>
+
+    <p>
+        maps python objects to columns in our db
+        columnName = Column(attributes,...)
+    </p>
+
+    <p>
+        example attributes:
+        - String(250)
+        - Integer
+        - relationship(Class)
+        - nullable = False
+        - primary_key = True
+        - ForeignKey('some_table.id')
+    </p>
+
+    <p>
+        We can specify a string, with a specified maximum string length and
+        we can specify integers which are handy for storing whole number
+        values.  Relationships tell SQLAlchemy the type of relationship one
+        table has to another.
+    </p>
+
+    <p>
+        Nullable is an attribute that if set to false indicates that a
+        column entry must have a value in order for the row to be created.
+    </p>
+
+    <p>
+        Setting primary key to true indicates a value that we can use to
+        uniquely identify each row of our database table.
+    </p>
+
+    <p>
+        And ForeignKey we can use to reference a row in a different table
+        provided that a relation exists between the two of them.
+    </p>
+
+    <p>
+        Inside each restaurant class, for now we're just going to specify a
+        name and an ID number to reference each restaurant.
+    </p>
+
+    <p>
+        We create a variable and name it name, specify it as a column, say
+        that this column has a string with a maximum length of 80
+        characters, and set nullable equal to false, indicating that if name
+        is not filled out we can not create a new restaurant row in this
+        database.
+    </p>
+
+    <p>
+        Similarly, we'll create a variable called id, which we'll also
+        specify as a column.  But this time we'll say it's an integer
+        instead of a string, and set primary key to true.
+    </p>
+
+    <p>
+        Our menu items are going to have a little bit more information.
+        Just like each restaurant, each menu item needs to have a name.
+        We'll set nullable equal to false again, to make sure that no one
+        can create a menu item without a name.  We'll create an id for each
+        menu item which is set to the primary key.  We'll create course,
+        description and price variables and specify them all as strings.
+    </p>
+
+    <p>
+        I'm now going to create a variable called restaurant_id and specify
+        this as a ForeignKey(Integer).  This will create the foreign key
+        relationship between my menu item class and my restaurant class.
+    </p>
+
+    <p>
+        Inside the ForeignKey I specify restaurant_id.  This will say look
+        inside the restaurant table and retrieve the id number whenever I
+        ask for restaurant_id.
+    </p>
+
+    <p>
+        In this last line I'm creating a variable called 'restaurant' which
+        I'm saying is the relationship between my class restaurant.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 23 - Putting it all together </h3>
+
+    <p>
+        So we've gone through a fair amount of code.  Let's go ahead, and
+        put it all together in our database setup.py file.  Let me start
+        with this configuration code that goes at the beginning of our file,
+        and put it where it belongs.  I can also take this code at the end,
+        and put it at the end of the file.
+    </p>
+
+    <p>
+        Next, let's put our two class definitions, right where they belong.
+        Next, we need to add our table information.  And finally, our
+        mappers.  Putting all this code together, should give us a Python
+        file that looks something like this.
+    </p>
+
+    <pre class="inset">
+        <code>
+
+        import os
+        import sys
+        #import psycopg2
+        from sqlalchemy import Column, ForeignKey, Integer, String
+        from sqlalchemy.ext.declarative import declarative_base
+        from sqlalchemy.orm import relationship
+        from sqlalchemy import create_engine
+        
+        Base = declarative_base()
+        
+        class Restaurant(Base):
+        __tablename__ = 'restaurant'
+        
+        id = Column(Integer, primary_key=True)
+        name = Column(String(250), nullable=False)
+        
+        class MenuItem(Base):
+        __tablename__ = 'menu_item'
+        
+        name =Column(String(80), nullable = False)
+        id = Column(Integer, primary_key = True)
+        description = Column(String(250))
+        price = Column(String(8))
+        course = Column(String(250))
+        restaurant_id = Column(Integer,ForeignKey('restaurant.id'))
+        restaurant = relationship(Restaurant) 
+        
+        engine = create_engine('postgresql:///restaurant_menu')
+        #engine = create_engine('sqlite:///restaurantmenu.db')
+        Base.metadata.create_all(engine)
+        </code>
+    </pre>
+
+    <p>
+        So, if we navigate to the directory, where our database_setup.py
+        file live, and run it using the python command, we should get
+        something like this.
+    </p>
+
+    <p class="inset">
+        <code>
+        $ python database_setup.py <br>
+        $
+        </code>
+    </p>
+
+    <p>
+        Looking in the same folder, where we have our code, we see a new
+        'restaurantmenu.db' file.  This is our empty database.  Now that we
+        have an empty database, let's figure out how to populate it with
+        some information.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 24 - Database Setup Quiz Part 1 </h3>
+
+    <p>
+        In the quiz portions of this lesson, we're going to create another
+        database that stores employees and their addresses.  Using the
+        provided code, and this diagram, fill in the blank with the class
+        that will make an object with this base variable.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 25 - Database Setup Quiz Part 1 </h3>
+
+    <p>
+        So we write declarative base here, in order to create a base class
+        that our class code will inherit.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 26 - Database Setup Quiz Part 2 </h3>
+
+    <p>
+        Now fill in the blanks in our mapper code.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 27 - Database Setup Quiz Part 2 </h3>
+
+    <p>
+        We specified id as an integer, so, in our mapper we should also
+        specify the same thing.  And we have this ForeignKey relationship
+        between our address and our employee.  So here, in this lower case
+        'employee' variable, we set its relationship to the actual
+        'Employee' class we created.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 28 - CRUD Create </h3>
+
+    <p>
+        
+        Now that we have an empty database, let's populate it with some
+        information.  With SQL, we would need to execute an insert command
+        with all of the information we want it to populate into our
+        database, but, using SQLAlchemy, creating a new database is as easy
+        as creating a new object in Python.
+    </p>
+
+    <p>
+        I will be executing these operations from the Python shell, but they
+        could also be done from within a Python script.  We must first
+        import the following dependencies from SQLAlchemy, and the empty
+        database we created, into our environment.
+    </p>
+
+    <p class="inset">
+        <code>
+            &gt;&gt;&gt; from sqlalchemy import create_engine <br>
+            &gt;&gt;&gt; from sqlalchemy.orm import sessionmaker
+        </code>
+    </p>
+
+    <p>
+        We will see what they do in just a second.  From our database
+        setup.py file that we created, let's import our base restaurant, and
+        menu classes.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; from database_setup import Base, Restaurant, MenuItem
+        </code>
+    </p>
+
+    <p>
+        The create engine function lets our program know which database engine
+        we want to communicate with.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; engine = create_engine('sqlite:///restaurantmenu.db')
+        </code>
+    </p>
+
+    <p>
+        Then let's bind the engine to the base class with the following
+        command.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; Base.metadata.bind = engine
+        </code>
+    </p>
+
+    <p>
+        This command just makes the connections between our class
+        definitions and the corresponding tables within our database.  The
+        next thing I'm going to do is create a sessionmaker object.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; DBSession = sessionmaker(bind = engine)
+        </code>
+    </p>
+
+    <p>
+        This establishes a link of communication between our code executions
+        and the engine we just created.  In order to create, read, update or
+        delete information on our database, SQLAlchemy executes database
+        operations via an interface.  It's called a session.
+    </p>
+
+    <p>
+        A session allows us to write down all the commands we want to execute,
+        but not send them to the database until we call a commit.  Here, I'll
+        show you what I mean.  I'm going to create an instance of a DBSession
+        and call it session for short.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; session = DBSession()
+        </code>
+    </p>
+
+    <p>
+        From now on, when I want to make a change to my database, I can do it
+        just by calling a method from within 'session'.
+    </p>
+
+    <p>
+        The DBSession object gives me a staging zone for all of the objects
+        loaded into a database session object.  Any change made to the objects
+        in the session won't be persisted into the database until I call
+        session.commit.
+    </p>
+
+    <p>
+        Now as I promised, making a new entry in our database is as easy as
+        making a new object in Python.
+    </p>
+
+    <p>
+        Take a look at these three lines of example code and watch as I
+        implement them to create a new restaurant in my database.
+    </p>
+
+    <p>
+        Following this example, I'll make my first restaurant like so.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; myFirstRestaurant = Restaurant(name = "Pizza Palace")
+        </code>
+    </p>
+
+    <p>
+        As you can see, it's just an instance of my restaurant class with a
+        name attribute that I decided to give it, Pizza Palace.
+        To persist my new restaurant into the database, I must do two more
+        session operations.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; session.add(myFirstRestaurant) <br>
+        &gt;&gt;&gt; session.commit()
+        </code>
+    </p>
+
+    <p>
+        First by calling session.add my first restaurant, my restaurant object
+        is in the staging zone to be added to the database.  Then with
+        session.commit() it's now stored to my database.
+    </p>
+
+    <p>
+        But how do I know it worked?  Well, I can also use the session to
+        interact with my database and see what's inside of it.
+    </p>
+
+    <p>
+        If I execute session.query(Restaurant).all(), I'm asking my session to
+        go into the database, find the table that corresponds to the
+        restaurant class and find all the entires in that table and return
+        them in a list.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; session.query(Restaurant).all()
+        </code>
+    </p>
+
+    <p>
+        When I run this, I get a response with something like:
+    </p>
+        
+    <p class="inset">
+        <code>
+        [&lt;database_setup.Restaurant object at and 0x8fd740c&gt;]
+        </code>
+    </p>
+
+    <p>
+        This just lets us know that Python found a restaurant in our database
+        and represents it as an object at this location in memory.  I'm sure
+        you're thinking, well that's great but how's it useful to me?  We'll
+        go into more detail about the query method when we focus on reading
+        data out of our database.
+    </p>
+
+    <p>
+        So now, let's add a MenuItem to our Pizza Palace menu.  Since our
+        MenuItems all belong to a Restaurant, and have a few more attributes,
+        we have to provide a bit more information in our declaration.
+    </p>
+
+    <p>
+        I can create a Cheese Pizza by executing the following command.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; cheesepizza = MenuItem(name = "Cheese Pizza", <br>
+        ...    description = "Made with all natural ingredients", <br>
+        ...    course = "Entree", price = "$8.99", <br>
+        ...    restaurant= myFirstRestaurant) <br>
+        ... <br>
+        &gt;&gt;&gt; session.add(cheesepizza) <br>
+        &gt;&gt;&gt; session.commit() 
+        </code>
+    </p>
+
+    <p>
+        Notice that I provided all of the fields of information for a MenuItem
+        here and specify the foreign key relationship to the object name of my
+        restaurant.
+    </p>
+
+    <p>
+        In order for this operation to work, I didn't have to fill out every
+        entry unless I specified it as nullable equal to false in our database
+        setup.py file.
+    </p>
+
+    <p>
+        Now let's run session.query MenuItem .all to see that an object now
+        exists for our cheese pizza item, as well.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; session.query(MenuItem).all()
+        </code>
+    </p>
+
+    <p class="inset">
+        <code>
+        [&lt;database_setup.MenuItem object at and 0xf8d470c&gt;]
+        </code>
+    </p>
+
+    <p>
+        Now that you know how to add data to a database, it's your turn to get
+        some practice at it.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 29 - CRUD Create Quiz </h3>
+
+    <p>
+        In the last quiz, you created an empty database.  Let's add our
+        first employee to it.  Fill in the blanks below to add a new
+        employee named Rebecca Allen to the database.  Then fill in the
+        blank here to add Rebecca's address as well.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 30 - CRUD Create Quiz </h3>
+
+    <p>
+        So in order to create the new entry in our database, we have to
+        specify the name variable as Rebecca Allen.  We also need to create
+        the ForeignKey relationship between Rebecca's address and the new
+        employee variable that we created in the previous line.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 31 - CRUD Read </h3>
+
+    <p>
+        Now that we have a database that's not empty, let's start reading from
+        it.  In the last video, you saw me call session.query(Restaurant).all.
+        If I create a variable called firstResult and set it equal to
+        session.query(Restaurant) and use .first this time, I now have a
+        variable that corresponds to a single row in my database.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; firstResult = session.query(Restaurant).first()
+        </code>
+    </p>
+
+    <p>
+        These single row references allow me to extract column entries as
+        method names.  So if I were to write
+    </p>
+
+    <p class="inset">
+        <code> 
+        &gt;&gt;&gt; firstResult.name <br>
+        u'Pizza Palace' <br>
+        &gt;&gt;&gt;
+        </code>
+    </p>
+
+    <p>
+        I'm given the name of my restaurant object as it is stored in the
+        database.  Currently, I only have one restaurant and one menu item
+        stored in my database.  Well that's kind of boring, but with the
+        help from some fellow Udations I've created a Python script that
+        will populate my database with several different restaurants and
+        menu items popular amongst the Udacity team.
+    </p>
+
+    <p>
+        [Instructor Notes]
+    </p>
+
+    <p>
+        lotsofmenus.py can be downloaded here:
+        https://github.com/lobrown/Full-Stack-Foundations/blob/master/Lesson_1/lotsofmenus.py
+    </p>
+
+    <p>
+        Check out the query documentation for SQLAlchemy here:
+        http://docs.sqlalchemy.org/en/rel_0_9/orm/query.html
+    </p>
+
+    <p>
+        Download the lotsofmenus.py script into your working directory and
+        execute it from the command line as so.
+    </p>
+
+    <p>
+        $ python lotsofmenus.py
+        u'added menu items!'
+    </p>
+
+    <p>
+        Now when we perform executions like session.query(Restaurant).all, we
+        get back a whole list of results.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; session.query(Restaurant).all()
+        </code>
+    </p>
+
+    <p>
+        So what happens when I have a query that returns a collection of
+        results and we want to display column information for each item?
+        For this, we can use a python for loop to return the data that we
+        want to see.
+    </p>
+
+    <p>
+        Here, let's do an example.  I will make a variable called items and
+        set it equal to a query that retrieves all of my menu items.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; items = session.query(Restaurant).all()
+        </code>
+    </p>
+
+    <p>
+        Now, I can say
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; for item in items: <br>
+        ...    print(item.name) <br>
+        ... <br>
+        &lt; .... &gt; <br>
+        &lt; .... &gt;
+        </code>
+    </p>
+
+    <p>
+        Now I get back a printed line of each item name in our database.
+    </p>
+
+    <p>
+        SQL Alchemy has an extensive collection of queries we can perform on
+        our database.  Take some time to explore the query documentation here
+        and play around with the database for a while.
+    </p>
+
+    <p>
+        When you're ready, move on to some of the challenge problems in the
+        next section.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 32 - CRUD Read Quiz </h3>
+
+    <p>
+        Going back to our employee example, fill in the blanks to make a
+        variable called employees, which stores all the employees in our
+        database.  And then, iterate over this collection to print the name of
+        every employee.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 33 - CRUD Read Solution </h3>
+
+    <p>
+        Whenever we want to find some information in our database using
+        SQLAlchemy, we use the query command followed by the name of the table
+        that we want to search through.
+    </p>
+
+    <p>
+        Using this enhanced for loop, we declared employee as the variable
+        that we're going to iterate through.
+    </p>
+
+    <p>
+        So, printing employee.name will print out the name of every employee
+        in our database.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 34 - CRUD Update </h3>
+
+    <p>
+        So, we know how to create and read from our database entries, but how
+        do we update existing data within our database?
+    </p>
+
+    <p>
+        It seems we have a situation on our hands that calls for this: Veggie
+        burgers across town have been all the rage, causing rapid price
+        competition amongst our restaurants.  Urban Burger wants to cut the
+        price of their veggie burger to $2.99.
+    </p>
+
+    <p>
+        With SQLAlchemy, performing an update like this is a pretty simple,
+        four-step process.
+    </p>
+
+    <ol>
+        <li> execute a query to find the veggie burger we want and store
+            it in a variable. </li>
+        <li> declare the new price of the variable. </li>
+        <li> add the variable to our session. </li>
+        <li> commit the session to the database. </li>
+    </ol>
+
+    <p>
+        Follow along as I do this from the Python shell.
+    </p>
+
+    <p>
+        So, the first step in our update process is to find the exact item we
+        want to update.  Looking at the SQLAlchemy documentation for queries,
+        I see we have a filter by feature that lets us filter queries based on
+        attribute entries, like name.
+    </p>
+
+    <p>
+        Let's go to our Python shell and give it a try.
+    </p>
+
+    <p>
+        So, let's use the filter_by function to find all the veggie burgers in
+        our restaurant menu database.  Following the syntax from the
+        documentation, I append .filter by to my query on MenuItems and set
+        the Veggie Burger as the name of the menu item I want to search for.
+    </p>
+
+    <p class="inset">
+        <code>
+        &gt;&gt;&gt; session.query
+        </code>
+    </p>
+
+    <p>
+        Then, I store it in the variable named veggieBurgers.
+    </p>
+
+    <p>
+        The filter_by function always returns a collection of objects.
+    </p>
+
+    <p>
+        So, let's create a for loop to iterate over each object and retrieve
+        the information about each of these veggie burgers.
+    </p>
+
+    <p>
+        Inside our for loop, let's print out the ID of each veggie burger, its
+        current price, and the restaurant it belongs to.
+    </p>
+
+    <p>
+        I'm also going to print a new line character to make our results a
+        little bit easier to read.
+    </p>
+
+    <p>
+        When I close my for loop in execute, I get back a list of all the
+        veggie burgers in my database.
+    </p>
+
+    <p>
+        The first one here is from Urban Burger and has an ID of eight.
+    </p>
+
+    <p>
+        Now, I will create another query where I only return the menu item
+        with an ID of eight.
+    </p>
+
+    <p>
+        I will store it as UrbanVeggieBurger.
+    </p>
+
+    <p>
+        If I append the .one function to the end of my query,
+    </p>
+
+    <p>
+        I make sure SQLalchemy only gives me the one object I want, instead of
+        a list that I would have it iterate over.
+    </p>
+
+    <p>
+        Just to double check we have the right burger, let me go ahead and
+        check its price.
+    </p>
+
+    <p>
+        Yep, the veggie burger costs $5.99, just like it did in our first
+        query.
+    </p>
+
+    <p>
+        Now, let's reset the price of the Urban Veggie Burger to $2.99.
+    </p>
+
+    <p>
+        We can then add the UrbanVeggieBurger object to our session and commit
+        it to the database.
+    </p>
+
+    <p>
+        So now, if we execute the same original query to see all the veggie
+        burgers in our database, we see that Urban Burger's veggie burger now
+        has a price of $2.99.
+    </p>
+
+    <p>
+        Now, let's assume all the other restaurants have reacted to Urban
+        Burger's audacious price drop and want to set their burger prices to
+        $2.99 as well.
+    </p>
+
+    <p>
+        Let's use our same for loop and modify it a bit to change the price of
+        all the veggie burgers in our database to $2.99.
+    </p>
+
+    <p>
+        I'm going to use this if statement to avoid unnecessary database
+        updates to an entry that already has a price of $2.99, and just update
+        the other veggie burger menu items.
+    </p>
+
+    <p>
+        Now, querying a third time,
+    </p>
+
+    <p>
+        I see all the veggie burgers in our menu have the same price.
+    </p>
+
+    <p>
+        Let's get a little more practice with updates by answering the
+        following quiz questions.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 35 - CRUD Update Quiz </h3>
+
+    <p>
+        Rebecca just moved to a new house so let's update her address in the
+        database.
+    </p>
+
+    <p>
+        Here, we find Rebecca in the employee database, assuming she's the
+        only Rebecca Allen in our employee table.
+    </p>
+
+    <p>
+        Next, we find her address by matching rebecca.id to the employee id in
+        the address database.
+    </p>
+
+    <p>
+        Then, we set the street property of her address to 281 Summer Circle.
+    </p>
+
+    <p>
+        We also update her zipcode to 00189.
+    </p>
+
+    <p>
+        Now, what do we add to our session before we commit so that this
+        update takes place?
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 36 - CRUD Update Quiz </h3>
+
+    <p>
+        The variable we used to refer to Rebecca's address we titled
+        RebeccasAddress with a capital R and capital A.
+    </p>
+
+    <p>
+        So this is the same variable that we used to update the address here
+        and the ZIP code here.
+    </p>
+
+    <p>
+        So that's what we need to add to the session and then commit.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 37 - CRUD Delete </h3>
+
+    <p>
+        Most of the times, having data in our database is a good idea.
+    </p>
+
+    <p>
+        But sometimes, we make a few bad ideas that we may want to delete,
+        later.
+    </p>
+
+    <p>
+        Auntie Anne's Diner just realized, that their spinach ice cream wasn't
+        a hit, and wants to remove it from their menu.
+    </p>
+
+    <p>
+        Deleting an item is a three step process similar to updating.
+    </p>
+
+    <p>
+        First, we want to execute the query to find the spinach ice cream, and
+        store it in a variable.
+    </p>
+
+    <p>
+        Then we want to call session delete on that item.
+    </p>
+
+    <p>
+        And finally, we'll commit the session.
+    </p>
+
+    <p>
+        Let's go back to the Python shell, and walk through this together.
+    </p>
+
+    <p>
+        Let's assume, Auntie Anne's was the only restaurant with spinach ice
+        cream, and use the .dot one function, to grab this entry in the
+        database.
+    </p>
+
+    <p>
+        To double check, I will print out the name of the restaurant, this
+        menu item belongs to.
+    </p>
+
+    <p>
+        And see that it is indeed, Auntie Ann's creation.
+    </p>
+
+    <p>
+        We will call session.delete to stage this item for removal from the
+        database, and then call session.commit to persist this change.
+    </p>
+
+    <p>
+        If we search for spinach now, the sqlalchemy gives us, a no row was
+        found error, letting us know that this data is no longer in our
+        database.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 38 - CRUD Delete Quiz </h3>
+
+    <p>
+        After 35 years with the company, Mark has retired and is to be removed
+        from the employee database.
+    </p>
+
+    <p>
+        Fill in the blank here with the necessary code to remove Mark from our
+        employee database.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 39 - CRUD Delete Quiz </h3>
+
+    <p>
+        In order to remove an item from our database, we must call
+        session.delete on that item.
+    </p>
+
+    <p>
+        Calling session.delete(mark) will remove him from the employee
+        database as soon as we execute session.commit.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 40 - Wrap Up </h3>
+
+    <p>
+        Congratulations, you have reached the end of lesson one.
+    </p>
+
+    <p>
+        You've learned how to use an ORM to create a database, and execute
+        CRUD operations on it, setting the foundation for your interactive
+        menu application.
+    </p>
+
+    <p>
+        Next, in lesson two, you'll build a web server that will be able to
+        perform these cred operations based on requests from the user.
+    </p>
+
+</div>
+</body>
+</html>

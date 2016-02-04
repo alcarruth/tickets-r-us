@@ -125,6 +125,19 @@ class Ticket(Base):
 #---------------------------------------------------------------
 # Seat
 #
+# Question: Do I really need this table?  It would be large.
+# 80,000 seats at 100 different stadiums.  Maybe just
+# a data structure specifying the stadium layout.
+# or a table of seat __rows__.  Or each section is just a
+# dict mapping row number to number of seats in the row, 
+# or (start, end) pair so the seat numbers might be generated
+# by range(start, end).
+#
+# Answer: Yes, I really need this table.  It doesn't have to
+# be any larger than the number of tickets in the database.
+# Some spec as in the paragraph above will serve as a constraint
+# on the data entered into the table.
+#
 # - a seat is a unique physical spot at a stadium
 # - the venue is here a reference to the home team, 
 #   so the only venues we have are team's stadiums.
@@ -141,7 +154,7 @@ class Ticket(Base):
 # TODO: multi-column primary key as foreign key
 # Table Ticket refers to table Seat's primary key.  There is some
 # issue in doing this with a 'multi-column' primary key, which I
-# have decide to use here (since (section, row, number) uniquely
+# have decide to use here since (section, row, number) uniquely
 # identifies a seat.  I think what I can do is just use an Integer 
 # id and then require that (section, row, number) be unique.
 # Checking SQLAlchemy docs ...
