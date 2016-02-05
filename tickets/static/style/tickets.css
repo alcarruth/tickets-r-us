@@ -94,16 +94,56 @@ body {
     text-align: center;
 }
 
-.ticket {
-    width: 120px;
-    margin: 10px;
+div.seat {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
     padding: 10px;
-    border: 1px solid darkgrey;
+    border: 1px solid transparent;
+    border-top-color: 1px dotted #444;
+    color: #444;
     background: #fff;
 }
 
+p.seat {
+    font-family: monospace;
+    font-weight: normal;
+    font-style: normal;
+    font-size: x-small;
+}
+
+div.date {
+    font-family: sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: small;
+}
+
+div.college-football {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: large;
+    color: #222;
+    background: #ddd;
+}
+
+.ticket {
+    width: 180px;
+    margin: 10px;
+    padding: 0;
+    border: 1px solid #446;
+    background: #eee;
+}
+
 .team {
-    width: 90%;
+    width: 80%;
+    margin: 10%;
 }
 
 .team_logo {
@@ -122,5 +162,12 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     font-style: italic;
+    text-align: center;
+}
+
+div.at {
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    font-style: normal;
     text-align: center;
 }
