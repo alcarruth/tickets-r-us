@@ -5,7 +5,7 @@
 /*
   box-sizing simplifies box arithmetic by including border and
   padding in the box dimensions
-  */
+*/
 
 body, div, ul, li, p, h1, h2, h3, h4, h5, h6 {
     -webkit-box-sizing: border-box;
@@ -21,62 +21,76 @@ body, div, ul, li, p, h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    width: 100%;
+    font-size: 40px;
+    line-height: 48px;
 }
 
-#header,
-#footer,
-#main {
+h2 {
+    font-size: 24px;
+    line-height: 29px;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 22px;
+}
+
+h4 {
+    font-size: 14px;
+    line-height: 17px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 21px;
+}
+
+body,
+.ticket,
+.team,
+.team_logo,
+.team_name,
+.main {
     display: -webkit-flex;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 90%;
-    max-width: 1000px;
 }
 
-div.sub-header {
-    width: 100%;
-}
-
-#header,
-#footer {
-    color: #ddd;
-    background: #337;
-}
-
-.box {
-    border: 1px solid #444;
-    padding: 15px;
-    margin: 15px;
-    width: 300px;
-    text-align: left;
-}
-
-.conference-a,
-.ticket-lot-a {
-    text-decoration: none;
-}
-
-.conference-a:hover,
-.ticket-lot-a:hover {
-    text-decoration: none;
-    background: #ffe;
-}
-
-.game-tickets {
-    border: 1px solid #444;
-    padding: 15px;
-    margin: 15px;
- /*   width: 700px; */
-}
-
-.schedule-div {
+div.schedule {
     justify-content: beginning;
     flex-direction: column;
     border: 1px solid #444;
     padding: 10px;
+}
+
+.ticket,
+.team,
+.team_logo,
+.team_name {
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+h1 {
+    font-size: 18px;
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+}
+
+hr {
+    color: #000;
+    width: 100%;
+}
+
+
+p.schedule {
+    text-align: left;
+}
+
+.team-logo {
+    width: 50px;
+    height: 50px;
 }
 
 .team-name {
@@ -85,12 +99,12 @@ div.sub-header {
     margin-bottom: 10px;
 }
 
-.team-name-span {
-    font-weight: normal;
-    color: #444;
+.schedule-team-logo {
+    width: 15px;
+    height: 15px;
 }
 
-.game-a {
+a.game {
     text-decoration: none;
     color: #444;
 }
@@ -100,46 +114,24 @@ div.sub-header {
     color: #444;
 }
 
-.schedule-p {
-    text-align: left;
-}
-
-.schedule-team-logo {
-    width: 15px;
-    height: 15px;
-}
-
-.schedule-home-span {
+span.home_game {
     font-weight: bold;
 }
 
-.schedule-away-span {
+span.away_game {
     font-weight: normal;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 span.nav-conference {
     font-weight: bold;
     color: red;
+}
+
+div.box {
+    border: 1px solid #444;
+    padding: 15px;
+    margin: 15px;
+    width: 280px;
 }
 
 team-name-span {
@@ -150,6 +142,11 @@ team-name-span {
 team-nickname-span {
     font-weight: normal;
     color: #444;
+}
+
+.main {
+    text-align: left;
+    flex-direction: row;
 }
 
 .conference {
@@ -195,9 +192,9 @@ div.seat {
 
 p.seat {
     font-family: monospace;
-    font-weight: bold;
+    font-weight: normal;
     font-style: normal;
-    font-size: normal;
+    font-size: x-small;
 }
 
 div.date {
@@ -233,9 +230,9 @@ div.college-football {
     border: 1px solid transparent;
 }
 
-.team-logo {
-    width: 100px;
-    height: 100px;
+.team_logo {
+    width: 50px;
+    height: 50px;
 }
 
 .team-logo-img {
@@ -244,32 +241,19 @@ div.college-football {
 }
 
 table {
-    border: 1px solid transparent;
+    border: 1px solid #444;
     border-collapse: collapse;
 }
 
 tr {
-    border: 1px solid transparent;
+    border: 1px solid #444;
     border-collapse: collapse;
-}
-
-th {
-    padding-left: 15px;
-    padding-right: 0px;
-    text-align: left;
 }
 
 td {
-    border: 1px solid transparent;
+    border: 1px solid #444;
     border-collapse: collapse;
     padding: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: left;
-}
-
-td.price {
-    text-align: right;
 }
 
 .game-page-logo {
@@ -277,3 +261,23 @@ td.price {
     height: 40px;
 }
 
+.team_name {
+    width: 80%;
+    font-size: 10pt;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+div.at {
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+}

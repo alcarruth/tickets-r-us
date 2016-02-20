@@ -11,4 +11,3 @@ rm -v  "${db_name}.db" 2> /dev/null
 
 # initialize database
 python "init_${db_name}.py"
-

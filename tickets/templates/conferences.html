@@ -1,0 +1,47 @@
+<!DOCTYPE=html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> Conferences </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/tickets.css') }}">
+</head>
+
+<body>
+<!--
+-->
+<div id="header">
+    <h1> Tickets 'R' Us </h1>
+</div>
+
+<div id="main">
+    
+    <h1> Conferences </h1>
+    {% for conference in conferences %}
+    <div class="box">
+    <a class="conference-a" href="/conference/{{conference.abbrev_name}}">
+
+        <h3> {{conference.name}} </h3>
+        <p>
+            {% for team in conference.teams %}
+            <!-- <a class="team-a" href="/team/{{team.name}}"> -->
+                <img class="team-logo-img" src="/{{team.logo}}">
+                <span class="team-name-span"> {{team.name}} {{team.nickname}} </span>
+            <!-- </a> -->
+            <br>
+            {% endfor %}
+        </p>
+    </a>
+    </div>
+    
+    {% endfor %}
+</div>
+
+<!--
+<div id="footer">
+</div>
+-->
+
+</body>
+
+</html>

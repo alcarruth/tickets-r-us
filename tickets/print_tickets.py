@@ -56,9 +56,29 @@ def print_ticket_page():
     f = open('tickets.html', 'w')
     f.write(page)
     f.close()
+        
+def print_schedule_page():
+    body = ''
+    schedule = session.query(Game).all()
+    for conference in conferences:
+        body += '<div class="conference">\n'
+        body += '<h1> %s </h1>\n' % conference.name
+        #body += '<img src="static/conference_logos/%s">' % conference.logo
+        body += print_tickets(conference.teams)
+        body += '</div>\n'
+        #body += '<hr>\n'
+        body += '<!-- ------------------------------------'
+        body += '------------------------------------- -->'
+        body += '\n\n\n'
+    page = main_template.format(
+        title = "Tickets",
+        body = body)
+    f = open('tickets.html', 'w')
+    f.write(page)
+    f.close()
 
 if __name__ == '__main__':
-    print_ticket_page()
+#    print_ticket_page()
 
 
     
