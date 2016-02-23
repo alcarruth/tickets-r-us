@@ -3,10 +3,11 @@
 
 import json
 import datetime
+import random
+
 from tickets import Conference, Team, Game, Ticket, Ticket_Lot, User
 from tickets import DBSession, startup_info
-from random import shuffle
-import random
+from options import year, number_of_games, number_of_users, number_of_ticket_lots
 
 def team_logo(team):
     logo = "static/images/" + team['name'] + '_' + team['nickname'] + '.png'
@@ -18,6 +19,7 @@ def load_teams_from_json():
     f = open('json/teams_new.json')
     teams = json.load(f)
     f.close()
+    print "loading %d teams" % len(teams)
     for team in teams:
         session.add( Team(
             conference = team['conference'].replace(' ','_'),
@@ -35,6 +37,7 @@ def load_conferences_from_json():
     f = open('json/conferences_new.json')
     conferences = json.load(f)
     f.close()
+    print "loading %d conferences" % len(conferences)
     for conference in conferences:
         session.add( Conference(
             abbrev_name = conference['abbrev_name'].replace(' ','_'),
@@ -95,6 +98,7 @@ def round_robin_alt(n):
 def schedule_games(teams, dates):
     teams = teams[:]
     random.shuffle(teams)
+    print "schecduling %d games" % (len(teams) * len(dates) /2)
     for (c,d,r) in round_robin_alt(len(teams)):
         if r < len(dates):
             session.add( Game(
@@ -115,6 +119,7 @@ def create_users(n):
     male_names = load_names_from_json('male_names')
     surnames = load_names_from_json('surnames')
 
+    print "creating %d users" % n
     for i in range(n):
         first_name = random.choice(male_names + female_names)
         last_name = random.choice(surnames)
@@ -128,10 +133,14 @@ def create_users(n):
         ))
     session.commit()
 
+# n is the number of ticket _lots_ to add to the database
+# the actual number of tickets will be more than that. 
 def create_tickets(n):
     users = session.query(User).all()
     games = session.query(Game).all()
 
+    print "creating %d ticket lots" % n
+    num_tickets = 0
     for i in range(n):
         game = random.choice(games)
         seller = random.choice(users)
@@ -140,29 +149,40 @@ def create_tickets(n):
         seat = random.randint(1,30)
         num_seats = random.choice([1,2,2,2,2,4,4,4,4])
         price = random.choice([35,40,50,52,55,58,65,67,70,72,74,78,85,88,100,110,120,195,250,300])
-        ticket_lot = Ticket_Lot(
-            seller = seller,
-            game = game,
-            section = section,
-            row = row,
-            price = price
-        )
-        session.add( ticket_lot)
-        for j in range(num_seats):
-            session.add( Ticket(
-                lot = ticket_lot,
-                seat = seat + j
-            ))
+        try:
+            ticket_lot = Ticket_Lot(
+                seller = seller,
+                game = game,
+                section = section,
+                row = row,
+                price = price
+            )
+            session.add( ticket_lot)
+            for j in range(num_seats):
+                session.add( Ticket(
+                    lot = ticket_lot,
+                    seat = seat + j
+                ))
+            num_tickets += num_seats
+
+        except:
+            session.rollback()
+
+        if i%1000 == 0:
+            print i
+            session.commit()
     session.commit()
+    print "created %d tickets" % num_tickets
+
 
 def populate_db():
     load_conferences_from_json()
     load_teams_from_json()
-    dates = get_saturdays(2016, 11)
+    dates = get_saturdays(year, number_of_games)
     for conf in session.query(Conference).all():
         schedule_games(conf.teams, dates)
-    create_users(1000)
-    create_tickets(10000)
+    create_users(number_of_users)
+    create_tickets(number_of_ticket_lots)
 
 session = DBSession()
 populate_db()

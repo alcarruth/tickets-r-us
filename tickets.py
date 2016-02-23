@@ -7,12 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker, backref
 from sqlalchemy.ext.hybrid import hybrid_property
 
-
-# OPTIONS
-#engine_type = 'postgres'
-engine_type = 'sqlite'
-
-db_name = 'tickets'
+from options import db_name, engine_type
 
 Base = declarative_base()
 

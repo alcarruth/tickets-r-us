@@ -462,13 +462,13 @@ def edit_tickets(ticket_lot_id):
     if 'user_id' not in login_session:
         print "You must be logged in to edit tickets!"
         flash("You must be logged in to edit tickets!")
-        return redirect(url_for('tickets', ticket_lot_id=ticket_lot_id))
+        return redirect(url_for('ticket_lot', ticket_lot_id=ticket_lot_id))
 
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=ticket_lot_id).one()
     if ticket_lot.seller_id != login_session['user_id']:
         print "You cannot edit another user's tickets!"
         flash("You cannot edit another user's tickets!")
-        return redirect(url_for('tickets', ticket_lot_id=ticket_lot_id))
+        return redirect(url_for('ticket_lot', ticket_lot_id=ticket_lot_id))
 
     if request.method == 'GET':
         ticket_lot = db_session.query(Ticket_Lot).filter_by(id=ticket_lot_id).one()
@@ -484,7 +484,7 @@ def edit_tickets(ticket_lot_id):
         except:
             print "edit_tickets(): could not commit transaction"
             flash("edit_tickets(): could not commit transaction")
-            return redirect(url_for('tickets', ticket_lot_id=ticket_lot_id))
+            return redirect(url_for('ticket_lot', ticket_lot_id=ticket_lot_id))
             
         return redirect(url_for('game', game_id=ticket_lot.game_id))
 
@@ -497,13 +497,13 @@ def delete_tickets(ticket_lot_id):
     if 'user_id' not in login_session:
         print "You must be logged in to delete tickets!"
         flash("You must be logged in to delete tickets!")
-        return redirect(url_for('tickets', ticket_lot_id=ticket_lot_id))
+        return redirect(url_for('ticket_lot', ticket_lot_id=ticket_lot_id))
 
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=ticket_lot_id).one()
     if ticket_lot.seller_id != login_session['user_id']:
         print "You cannot delete another user's tickets!"
         flash("You cannot delete another user's tickets!")
-        return redirect(url_for('tickets', ticket_lot_id=ticket_lot_id))
+        return redirect(url_for('ticket_lot', ticket_lot_id=ticket_lot_id))
 
     if request.method == 'GET':
         main = Markup(render_template(
