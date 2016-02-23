@@ -1,6 +1,6 @@
 #!/bin/sh
 
-db_name="catalog"
+db_name="tickets"
 
 # re-create the PostgreSQL database
 psql -c "DROP DATABASE IF EXISTS ${db_name};"
@@ -11,4 +11,3 @@ rm -v  "${db_name}.db" 2> /dev/null
 
 # initialize database
 python "init_${db_name}.py"
-
