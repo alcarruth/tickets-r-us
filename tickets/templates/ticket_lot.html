@@ -1,30 +1,4 @@
-<!DOCTYPE=html>
-<!--
- - index.html
- - 
- - Author: Al Carruth
- - Origin: 
- -
- - This file is part a project submitted by the author for the
- - Udacity Full Stack Fundamentals Course
- - 
--->
-
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title> {{ticket_lot.game.visiting_team.name}} at {{ticket_lot.game.home_team.name}} </title>
-    <link rel="stylesheet" href="/static/style/tickets.css">
-</head>
-
-<body>
-
-<div id="header">
-    <h1> Tickets 'R' Us </h1>
-</div>
-
-<div id="main">
-    <div class="college-football">
+    <div class="controls-div">
         <h3>
             {{ticket_lot.game.visiting_team.name}}
             at 
@@ -33,11 +7,28 @@
         <p> 
         {{ticket_lot.game.date.strftime("%A %B %d, %Y")}} <br>
         Price each: ${{ticket_lot.price}} <br>
-        Seller: {{ticket_lot.seller.name}} <br>
+        Seller: <a href="/users/{{ticket_lot.seller.id}}"> 
+                {{ticket_lot.seller.name}} </a> <br>
         Contact: <a href="mailto:{{ticket_lot.seller.email}}">
                 {{ticket_lot.seller.email}} </a>
         </p>
     </div>
+
+    <div class="controls-div">
+        {% if ticket_lot.seller_id==login_session['user_id'] %}
+        <p> 
+            <a class="sell-tickets-a" href="/tickets/{{ticket_lot.id}}/edit">
+                <button> Edit Tickets </button>
+            </a>
+        </p>
+        <p>
+            <a class="sell-tickets-a" href="/tickets/{{ticket_lot.id}}/delete">
+                <button> Delete Tickets </button>
+            </a>
+        </p>
+        {% endif %}
+    </div>
+
     {% for ticket in ticket_lot.tickets %}
 
     <div class="ticket">
@@ -71,8 +62,3 @@
 
     {% endfor %}
 
-</div>
-
-</body>
-
-</html>

@@ -20,8 +20,41 @@ body, div, ul, li, p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
-h1 {
+h1,h2,h3,h4 {
     width: 100%;
+}
+
+body {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    background-image: url("/static/images/FF8a5Ku_2000_cropped.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+
+#container {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: beginning;
+    width: 90%;
+    max-width: 1000px;
+}
+
+#login-container {
+    width: 90%;
+    max-width: 1000px;
+    background: #fff;
 }
 
 #header,
@@ -32,12 +65,43 @@ h1 {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
-    width: 90%;
-    max-width: 1000px;
+    width: 100%;
+}
+
+#title-a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.rant {
+    color: red;
+    background: black;
+    width: 50%;
+    margin: 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 30px;
+    text-align: left;
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+#game-heading {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 div.sub-header {
     width: 100%;
+}
+
+.login a {
+    text-decoration: none;
+    color: #fff;
 }
 
 #header,
@@ -46,12 +110,88 @@ div.sub-header {
     background: #337;
 }
 
+#header {
+    height: 100px;
+    padding-top: 20px;
+}
+
+#header-title-div {
+    width: 50%;
+}
+
+#header-title-h1 {
+    width: 100%;
+}
+
+#header-login-div {
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    width: 50%;
+    margin-top: 10px;
+}
+
+.header-login-a {
+    margin-left: 20px;
+    color: #ddd;
+    text-decoration: none;
+}
+
+#main {
+    background: #fff;
+    opacity: 1.0;
+    padding-top: 20px;
+    min-height: 700px;
+}
+
+.main-h1 {
+    width: 50%;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.controls-div {
+    width: 50%;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.game-team {
+    width: 100px;
+}
+
+.game-at {
+    width: 50px;
+    padding-top: 100px;
+}
+
 .box {
     border: 1px solid #444;
     padding: 15px;
     margin: 15px;
     width: 300px;
     text-align: left;
+    background-color: #fff;
+    opacity: 1.0;
+}
+
+.conference-box {
+    border: 1px solid #444;
+    padding: 15px;
+    margin: 15px;
+    width: 300px;
+    text-align: left;
+    background-color: #fff;
+    opacity: 1.0;
+}
+
+.conference-box:hover {
+    background: #ffe;
+    opacity: 1.0;
 }
 
 .conference-a,
@@ -69,6 +209,7 @@ div.sub-header {
     border: 1px solid #444;
     padding: 15px;
     margin: 15px;
+    background: #fff;
  /*   width: 700px; */
 }
 
@@ -81,7 +222,7 @@ div.sub-header {
 
 .team-name {
     font-weight: bold;
-    color: red;
+    color: #444;
     margin-bottom: 10px;
 }
 
@@ -93,6 +234,15 @@ div.sub-header {
 .game-a {
     text-decoration: none;
     color: #444;
+    border: 1px solid transparent;
+    width: 100%;
+}
+
+.game-a:hover {
+/*
+    background: #bbb;
+    border-color: #444;
+ */
 }
 
 .team-a {
@@ -110,32 +260,25 @@ div.sub-header {
 }
 
 .schedule-home-span {
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid transparent;
     font-weight: bold;
 }
-
+.schedule-home-span:hover {
+    border-color: #444;
+    background: #ffe;
+}
 .schedule-away-span {
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid transparent;
     font-weight: normal;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.schedule-away-span:hover {
+    border-color: #444;
+    background: #ffe;
+}
 
 span.nav-conference {
     font-weight: bold;
@@ -169,15 +312,6 @@ team-nickname-span {
     margin-top: 20px;
     border-color: #000;
     background: #fff;
-}
-
-body {
-    justify-content: space-around;
-    flex-direction: column;
-    font-family: "Roboto", sans-serif;
-    font-weight: bold;
-    font-style: italic;
-    text-align: center;
 }
 
 div.seat {

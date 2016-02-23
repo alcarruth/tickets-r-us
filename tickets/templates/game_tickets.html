@@ -1,40 +1,27 @@
-<!DOCTYPE=html>
-<!--
- - index.html
- - 
- - Author: Al Carruth
- - Origin: 
- -
- - This file is part a project submitted by the author for the
- - Udacity Full Stack Fundamentals Course
- - 
--->
-
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title> {{game.visiting_team.name}} at {{game.home_team.name}} </title>
-    <link rel="stylesheet" href="/static/style/tickets.css">
-</head>
-
-<body>
-
-<div id="header">
-    <h1> Tickets 'R' Us </h1>
-</div>
-
-<div id="main">
-    <h1>  
-        <img class="game-page-logo" src="/{{game.visiting_team.logo}}">
+    <div id="game-heading">
+    <div class="game-team">
+        <img class="team-logo" src="/{{game.visiting_team.logo}}">
         {{game.visiting_team.name}}
-        {{game.visiting_team.nickname}} <br>
-    </h1>
-        at <br>
-    <h1>  
-        <img class="game-page-logo" src="/{{game.home_team.logo}}">
+        <!-- {{game.visiting_team.nickname}} -->
+    </div>
+    <div class="game-at">
+        at
+    </div>
+    <div class="game-team">
+        <img class="team-logo" src="/{{game.home_team.logo}}">
         {{game.home_team.name}}
-        {{game.home_team.nickname}}
-    </h1>
+        <!-- {{game.home_team.nickname}} -->
+    </div>
+    </div>
+
+    <h3> {{game.date.strftime("%A %B %d, %Y")}} </h3>
+
+    <p> Want to sell tickets to this game? Click here: 
+        <a class="sell-tickets-a" href="/game/{{game.id}}/sell">
+            <button> Sell Tickets </button>
+        </a>
+    </p>
+        
 
     <div class="game-tickets">
         <table class="tickets">
@@ -60,8 +47,3 @@
          </table>
     </div>
 
-</div>
-
-</body>
-
-</html>

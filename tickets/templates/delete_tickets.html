@@ -1,0 +1,35 @@
+<div>
+    <div id="game-heading">
+    <div class="game-team">
+        <img class="team-logo" src="/{{ticket_lot.game.visiting_team.logo}}">
+        {{ticket_lot.game.visiting_team.name}}
+        <!-- {{ticket_lot.game.visiting_team.nickname}} -->
+    </div>
+    <div class="game-at">
+        at
+    </div>
+    <div class="game-team">
+        <img class="team-logo" src="/{{ticket_lot.game.home_team.logo}}">
+        {{ticket_lot.game.home_team.name}}
+        <!-- {{ticket_lot.game.home_team.nickname}} -->
+    </div>
+    </div>
+
+    <h3> {{ticket_lot.game.date.strftime("%A %B %d, %Y")}} </h3>
+
+
+    <div class="game-tickets">
+        Are you sure you want to delete these tickets? <br>
+        <form action="{{ url_for('delete_tickets', ticket_lot_id=ticket_lot.id)}}" method = "POST">
+            Section: {{ticket_lot.section}} <br>
+            Row: {{ticket_lot.row}} <br>
+            First seat: {{ticket_lot.seats()[0]}} <br>
+            Number of seats: {{ticket_lot.num_seats()}} <br>
+            Price per ticket: {{ticket_lot.price}} <br>
+            <input type="hidden" name="game_id" value="{{ticket_lot.game.id}}">
+            <input type="hidden" name="user_id" value="{{login_session['user_id']}}">
+            <input type="submit" value="Confirm Delete">
+        </form>
+    </div>
+</div>
+

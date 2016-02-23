@@ -7,12 +7,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker, backref
 from sqlalchemy.ext.hybrid import hybrid_property
 
-#---------
-# OPTIONS
-#---------
 
-engine_type = 'postgres'
-#engine_type = 'sqlite'
+# OPTIONS
+#engine_type = 'postgres'
+engine_type = 'sqlite'
 
 db_name = 'tickets'
 
@@ -113,56 +111,11 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     email = Column(String, nullable=False)
+    picture = Column(String, nullable=True)
 
     def __repr__(self):
         return "%s <%s>" % (self.name, self.email)
 
-#---------------------------------------------------------------
-# Seat
-#
-# Question: Do I really need this table?  It would be large.
-# 80,000 seats at 100 different stadiums.  Maybe just
-# a data structure specifying the stadium layout.
-# or a table of seat __rows__.  Or each section is just a
-# dict mapping row number to number of seats in the row, 
-# or (start, end) pair so the seat numbers might be generated
-# by range(start, end).
-#
-# Answer: Yes, I really need this table.  It doesn't have to
-# be any larger than the number of tickets in the database.
-# Some spec as in the paragraph above will serve as a constraint
-# on the data entered into the table.
-#
-# - a seat is a unique physical spot at a stadium
-# - the venue is here a reference to the home team, 
-#   so the only venues we have are team's stadiums.
-#
-# TODO: implement venues other than home stadiums.
-# - add a Stadium class
-# - add a home_field column for each team refering to their stadium
-# - allow *-1 teams to stadium, teams can share a home field.
-#   (like the NY Jets and NY Giants do, for example)
-#
-# Table Seat should be populated in the init code for this project
-# and should contain all the seats for all the teams' stadiums.
-
-# TODO: multi-column primary key as foreign key
-# Table Ticket refers to table Seat's primary key.  There is some
-# issue in doing this with a 'multi-column' primary key, which I
-# have decided to use here since (section, row, number) uniquely
-# identifies a seat.  I think what I can do is just use an Integer 
-# id and then require that (section, row, number) be unique.
-# Checking SQLAlchemy docs ...
-
-class Seat(Base):
-    __tablename__ = 'seat'
-
-    id = Column(Integer, primary_key=True)
-    venue = Column(Integer, ForeignKey('team.id'))
-    section = Column(Integer)
-    row = Column(Integer)
-    number = Column(Integer)
-    UniqueConstraint('venue', 'section', 'row', 'number')
 
 #---------------------------------------------------------------
 # 
@@ -188,6 +141,9 @@ class Ticket_Lot(Base):
 
     def seats(self):
         return [ ticket.seat for ticket in self.tickets ]
+
+    def num_seats(self):
+        return len(self.tickets)
 
     def seats_str(self):
         return ', '.join(map(str,self.seats()))

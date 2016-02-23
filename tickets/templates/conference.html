@@ -1,38 +1,11 @@
-<!DOCTYPE=html>
-<!--
- - index.html
- - 
- - Author: Al Carruth
- - Origin: 
- -
- - This file is part a project submitted by the author for the
- - Udacity Full Stack Fundamentals Course
- - 
--->
 
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title> {{conference.name}} </title>
-    <link rel="stylesheet" href="/static/style/tickets.css">
-</head>
-
-<body>
-
-    <div id="header">
-        <h1> Tickets 'R' Us </h1>
-    </div>
-
-    <div id="main">
-
-    <div class="sub-header">
-    <h1> {{conference.name}} </h1>
-
+    <h1 class="main-h1"> Step 2 - Pick a Game: </h1>
+    <div class="controls-div">
     <p>
-        Schedules by Team <br>
-        Home games in bold
+        {{conference.name}} schedules - home games in bold
     </p>
     </div>
+
 
     {% for team in conference.teams %}
 
@@ -48,23 +21,20 @@
                 <span class="schedule-home-span">
                     <img class="schedule-team-logo" src="/{{game.visiting_team.logo}}">
                     {{game.visiting_team.name}} <!-- {{game.visiting_team.nickname}} --> 
-                    {{game.date.strftime("%a %b %d")}} <br>
+                    {{game.date.strftime("%a %b %d")}}
                 </span>
                 {% else %}
                 <span class="schedule-away-span">
                     <img class="schedule-team-logo" src="/{{game.home_team.logo}}">
                     {{game.home_team.name}} <!-- {{game.home_team.nickname}} -->
-                    {{game.date.strftime("%a %b %d")}} <br>
+                    {{game.date.strftime("%a %b %d")}}
                 </span>
                 {% endif %}
             </a>
+            <br>
             {% endfor %}
         </p>
 
     </div>
     {% endfor %}
 
-    </div>
-</body>
-
-</html>
