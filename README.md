@@ -109,20 +109,34 @@ split into six files:
  - sliding_pizzas.js
  - timer.js
 
+#### Step 1 - Choose a conference
 ![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/tickets_step1.jpg "main page")
 
+#### Step 2 - Choose a game
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/step2.jpg "step 2")
 
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/delete_tickets.jpg "main page")
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/game_tickets.jpg "main page")
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/login.jpg "main page")
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/my_tickets.jpg "main page")
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/sell_tickets.jpg "main page")
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/ticket_lot.jpg "main page")
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/edit_tickets.jpg "main page")
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/logged_in.jpg "main page")
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/my_ticket_lot.jpg "main page")
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/new_tickets.jpg "main page")
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/step2.jpg "main page")
+#### View Tickets
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/game_tickets.jpg "game tickets")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/ticket_lot.jpg "ticket lot")
+
+#### Logging In
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/login.jpg "login")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/logged_in.jpg "logged in")
+
+#### Selling Tickets
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/sell_tickets.jpg "sell tickets")
+
+#### My Tickets
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/my_tickets.jpg "my tickets")
+
+#### Deleting Tickets
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/delete_tickets.jpg "delete tickets")
+
+#### Editing Tickets
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/edit_tickets.jpg "edit tickets")
+
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/my_ticket_lot.jpg "my ticket lot")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/new_tickets.jpg "new tickets")
 
 
 Extensive documentation can be found in the comments in these files, but here
