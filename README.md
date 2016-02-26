@@ -109,9 +109,7 @@ split into six files:
  - sliding_pizzas.js
  - timer.js
 
-![alt text](fullstack-p3-item-catalog/images/jpg/tickets_step1.jpg "main page")
-
-
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/tickets_step1.jpg "main page")
 
 Extensive documentation can be found in the comments in these files, but here
 is an overview.
