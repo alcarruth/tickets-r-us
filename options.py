@@ -12,4 +12,8 @@ engine_type = 'sqlite'
 year = 2016
 number_of_games = 11
 number_of_users = 1000
+
+# This is the number of ticket _lots_.
+# The actual number of tickets created will 
+# be 2 or 3 times this amount.
 number_of_ticket_lots = 5000

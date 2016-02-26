@@ -92,7 +92,14 @@ class Game(Base):
     visiting_team = relationship(Team, foreign_keys=[visiting_team_id], backref=backref('away_games'))
     date = Column(Date, nullable=False)
     #tickets = relationship('Ticket')
-    
+     
+    def serialize(self):
+        return {
+            'id': self.id,
+            'home_team': self.home_team.name,
+            'visiting_team': self.visiting_team.name,
+            'date': self.date.isoformat()
+        }
     def __repr__(self):
         s ="%s at %s on %s" % (self.visiting_team, self.home_team, self.date.isoformat())
         return s
@@ -107,6 +114,15 @@ class User(Base):
     name = Column(String, nullable=False)
     email = Column(String, nullable=False)
     picture = Column(String, nullable=True)
+
+    def serialize(self):
+        d = {
+            'name': self.name,
+            'email': self.email,
+        }
+        if self.picture:
+            d['picture'] = self.picture
+        return d
 
     def __repr__(self):
         return "%s <%s>" % (self.name, self.email)
@@ -145,7 +161,8 @@ class Ticket_Lot(Base):
 
     def serialize(self):
         return {
-            'game': self.game,
+            'game_id': self.game_id,
+            'seller_id': self.seller_id,
             'section': self.section,
             'row': self.row,
             'price': self.price,
@@ -155,7 +172,7 @@ class Ticket_Lot(Base):
     def __repr__(self):
         s = str(self.game)
         s += " [sec: %d, row: %d, seats: %s]" % (self.section, self.row, self.seats())
-        s += " $%d ea" % self.price()
+        s += " $%d ea" % self.price
         return s
 
 

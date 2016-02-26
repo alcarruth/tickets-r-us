@@ -1,6 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# init_tickets.py
+#
+# This file is used to populate the tickets database.
+# It is called by the reset_db.sh script.
+# Options for the sizes of the tables etc are included in
+# options.py.
+
 import json
 import datetime
 import random
