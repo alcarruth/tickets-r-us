@@ -109,6 +109,9 @@ split into six files:
  - sliding_pizzas.js
  - timer.js
 
+![alt text](images/jpg/tickets_step1.jpg, "main page")
+
+
 Extensive documentation can be found in the comments in these files, but here
 is an overview.
 
