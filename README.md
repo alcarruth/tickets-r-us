@@ -111,6 +111,20 @@ split into six files:
 
 ![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/tickets_step1.jpg "main page")
 
+
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/delete_tickets.jpg "main page")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/game_tickets.jpg "main page")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/login.jpg "main page")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/my_tickets.jpg "main page")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/sell_tickets.jpg "main page")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/ticket_lot.jpg "main page")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/edit_tickets.jpg "main page")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/logged_in.jpg "main page")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/my_ticket_lot.jpg "main page")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/new_tickets.jpg "main page")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/step2.jpg "main page")
+
+
 Extensive documentation can be found in the comments in these files, but here
 is an overview.
 
