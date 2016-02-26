@@ -109,7 +109,7 @@ split into six files:
  - sliding_pizzas.js
  - timer.js
 
-![alt text](fullstack-p3-item-catalog/images/jpg/tickets_step1.jpg, "main page")
+![alt text](fullstack-p3-item-catalog/images/jpg/tickets_step1.jpg "main page")
 
 
 
