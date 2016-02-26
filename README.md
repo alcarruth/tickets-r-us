@@ -138,7 +138,7 @@ In order to sell tickets a user must first be logged in.  We offer two methods f
 
 ![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/login.jpg "login")
 
-Once logged in:
+Once logged in the user's name appears next to the logout button in the header.
 ![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/logged_in.jpg "logged in")
 
 #### Selling Tickets
@@ -155,20 +155,19 @@ of the ticket lots the user has listed for sale.
 
 ![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/my_tickets.jpg "my tickets")
 
-#### Deleting Tickets
+#### User's Ticket Lot Page
 
 On the Tickets page, and if the logged in user is the owner of the tickets, there are buttons to edit 
 and to delete the ticket lot.  Editing is restricted to the price.  You can't change the section, row or seat numbers.
 To do this you would first have to delete the lot and enter them again with the correct data.
 
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/my_ticket_lot.jpg "my ticket lot")
+
+#### Deleting tickets page:
 ![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/delete_tickets.jpg "delete tickets")
 
-#### Editing Tickets
+#### Editing Tickets Page
 ![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/edit_tickets.jpg "edit tickets")
-
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/my_ticket_lot.jpg "my ticket lot")
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/new_tickets.jpg "new tickets")
-
 
 
 
