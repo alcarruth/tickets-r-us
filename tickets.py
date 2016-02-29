@@ -18,7 +18,7 @@ class Conference(Base):
     __tablename__ = 'conference'
    
     abbrev_name = Column(String, primary_key=True)
-    name = Column(String, nullable=False)
+    name = Column(String, unique=True, nullable=False)
     logo = Column(String, nullable=False)
     teams = relationship('Team')
 
@@ -26,11 +26,14 @@ class Conference(Base):
         return self.name
 
     def serialize(self):
-        d = {}
-        d['abbrev_name'] = self.abbrev_name
-        d['name'] = self.name
-        d['logo'] = self.logo
-        return d
+        return {
+            'table': self.__tablename__,
+            'values': {
+                'abbrev_name': self.abbrev_name,
+                'name': self.name,
+                'logo': self.logo
+            }
+        }
         
 #---------------------------------------------------------------
 # Teams
@@ -39,7 +42,7 @@ class Team(Base):
     __tablename__ = 'team'
 
     id = Column(Integer, primary_key = True)
-    name =Column(String, nullable = False)
+    name =Column(String, unique=True, nullable = False)
     nickname = Column(String)
     espn_id =  Column(Integer)
     city =  Column(String)
@@ -49,13 +52,16 @@ class Team(Base):
     
     def serialize(self):
         return {
-            'id': self.id,
-            'name': self.name,
-            'nickname': self.nickname,
-            'espn_id': self.espn_id,
-            'city': self.city,
-            'state': self.state,
-            'conference': self.conference
+            'table': self.__tablename__,
+            'values': {
+                'id': self.id,
+                'name': self.name,
+                'nickname': self.nickname,
+                'espn_id': self.espn_id,
+                'city': self.city,
+                'state': self.state,
+                'conference': self.conference
+            }
         }
 
     def schedule(self):
@@ -95,11 +101,15 @@ class Game(Base):
      
     def serialize(self):
         return {
-            'id': self.id,
-            'home_team': self.home_team.name,
-            'visiting_team': self.visiting_team.name,
-            'date': self.date.isoformat()
+            'table': self.__tablename__,
+            'values': {
+                'id': self.id,
+                'home_team': self.home_team.name,
+                'visiting_team': self.visiting_team.name,
+                'date': self.date.isoformat()
+            }
         }
+
     def __repr__(self):
         s ="%s at %s on %s" % (self.visiting_team, self.home_team, self.date.isoformat())
         return s
@@ -112,20 +122,52 @@ class User(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
-    email = Column(String, nullable=False)
+    email = Column(String, unique=True, nullable=False)
     picture = Column(String, nullable=True)
 
     def serialize(self):
         d = {
+            'id': self.id,
             'name': self.name,
             'email': self.email,
         }
         if self.picture:
             d['picture'] = self.picture
-        return d
+        return {
+            'table': self.__tablename__,
+            'values': d
+        }
 
     def __repr__(self):
         return "%s <%s>" % (self.name, self.email)
+
+# add a user to the database
+#
+def createUser(db_session, login_session):
+    user = User(
+        name = login_session['username'],
+        email = login_session['email'],
+        picture = login_session['picture']
+    )
+    db_session.add(user)
+    db_session.commit()
+    return user.id
+
+# maps a user_id to a user
+#
+def getUserInfo(db_session, user_id):
+    user = db_session.query(User).filter_by(id=user_id).one()
+    return user
+
+# lookup a user by their email address
+# and return the user id
+#
+def getUserID(db_session, email):
+    try:
+        user = db_session.query(User).filter_by(email=email).one()
+        return user.id
+    except:
+        return None
 
 
 #---------------------------------------------------------------
@@ -161,12 +203,16 @@ class Ticket_Lot(Base):
 
     def serialize(self):
         return {
-            'game_id': self.game_id,
-            'seller_id': self.seller_id,
-            'section': self.section,
-            'row': self.row,
-            'price': self.price,
-            'seats': self.seats()
+            'table': self.__tablename__,
+            'values': {
+                'id': self.id,
+                'game_id': self.game_id,
+                'seller_id': self.seller_id,
+                'section': self.section,
+                'row': self.row,
+                'price': self.price,
+                'seats': self.seats()
+            }
         }
 
     def __repr__(self):
@@ -193,11 +239,15 @@ class Ticket(Base):
 
     def serialize(self):
         return {
-            'game': self.lot.game,
-            'section': self.lot.section,
-            'row': self.lot.row,
-            'seat': self.seat,
-            'price': self.lot.price
+            'table': self.__tablename__,
+            'values': {
+                'id': self.id,
+                'game': self.lot.game,
+                'section': self.lot.section,
+                'row': self.lot.row,
+                'seat': self.seat,
+                'price': self.lot.price
+            }
         }
 
     def __repr__(self):

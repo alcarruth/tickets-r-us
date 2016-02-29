@@ -20,6 +20,11 @@
             <a id="title-a" href="{{url_for('conferences')}}"> Tickets 'R' Us </a>
         </h1>
         <div id="header-login-div">
+        <p>
+            {% for message in get_flashed_messages() %}
+            {{ message }}<br>
+            {% endfor %}
+        </p>
         </div>
     </div>
 
