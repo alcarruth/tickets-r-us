@@ -87,17 +87,6 @@ def check_authentication(msg):
 # check_authorization() should be placed inside the
 # check_authentication() decorator.
 #
-# TODO: Right now, this function is specific to ticket_lots but I have
-# a feeling I can make it more general, perhaps by providing the
-# redirect url along with msg as a parameter.  I need to sort out the
-# dependencies.
-#
-# TODO: There is a db query here to look up the item so we can find
-# the user_id of the owner of the item.  And then after continuing to
-# the wrapped (edit/delete whatever) function we do the look up again.
-# There's got to be a better way.  We should at least make sure the
-# lookup is cached.
-#
 def check_authorization(msg, item_class, end_point):
     def decorator(f):
         @wraps(f)
@@ -107,6 +96,10 @@ def check_authorization(msg, item_class, end_point):
             if item.user_id != login_session['user_id']:
                 flash(msg)
                 return redirect(url_for(end_point, item_id=item_id))
+            # We have already looked up the item so why have function f()
+            # do it again?  So we have the following statement and we change
+            # the endpoints that use this decorator to have the 'item' arg.
+            # (I guess this makes the item_id arg superfluous.)
             kwargs['item'] = item
             return f(*args, **kwargs)
         return decorated_function
@@ -407,7 +400,7 @@ def delete_tickets(item_id, item):
        
 # TODO: I don't think this does anything yet. It could be used
 # to provide a table of users, but I don't see why that would
-# be useful.  Maybe it would be useful for a super-user to browser
+# be useful.  Maybe it would be useful for a super-user to browse
 # user accounts.
 #
 @app.route('/users')
