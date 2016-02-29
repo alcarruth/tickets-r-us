@@ -20,7 +20,7 @@
 
     <div class="game-tickets">
         Are you sure you want to delete these tickets? <br>
-        <form action="{{ url_for('delete_tickets', ticket_lot_id=ticket_lot.id)}}" method = "POST">
+        <form action="{{ url_for('delete_tickets', item_id=ticket_lot.id)}}" method = "POST">
             Section: {{ticket_lot.section}} <br>
             Row: {{ticket_lot.row}} <br>
             First seat: {{ticket_lot.seats()[0]}} <br>

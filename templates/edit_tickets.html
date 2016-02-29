@@ -19,7 +19,7 @@
 
 
     <div class="game-tickets">
-        <form action="{{ url_for('edit_tickets', ticket_lot_id=ticket_lot.id)}}" method = "post">
+        <form action="{{ url_for('edit_tickets', item_id=ticket_lot.id)}}" method = "post">
             Section: {{ticket_lot.section}} <br>
             Row: {{ticket_lot.row}} <br>
             First seat: {{ticket_lot.seats()[0]}} <br>

@@ -1,0 +1,30 @@
+
+
+dict2xml
+
+
+flask
+flask.__version__
+
+sqlalchemy
+
+
+postgresql
+
+
+sqlite
+
+
+
+def engine_version():
+    if engine_type == 'postgres':
+        from psycopg2 import __version__
+        return '
+
+psycopg2.__version__
+
+
+sqlite3.version
+
+
+

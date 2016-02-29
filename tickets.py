@@ -184,7 +184,7 @@ class Ticket_Lot(Base):
     __tablename__ = 'ticket_lot'
 
     id = Column(Integer, primary_key=True)
-    seller_id = Column(Integer, ForeignKey('user.id'))
+    user_id = Column(Integer, ForeignKey('user.id'))
     seller = relationship(User, backref=backref('ticket_lots'))
     game_id = Column(Integer, ForeignKey('game.id'))
     game = relationship(Game, backref=backref('ticket_lots'))

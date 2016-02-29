@@ -20,7 +20,7 @@ db_session = DBSession()
 # The OAuth2 stuff has been moved to separate files google_auth.py and
 # facebook_auth.py.  The auth code needs access to the app and db_session
 # so we set those above and then use the separate code to produce
-# the connect and disconnect functions.  The routes are set in the 
+# the connect and disconnect functions, below.  The routes are set in the 
 # respective (google or fb) auth functions.
 
 # TODO: might this be done nicely with singleton classes?
@@ -98,15 +98,16 @@ def check_authentication(msg):
 # There's got to be a better way.  We should at least make sure the
 # lookup is cached.
 #
-def check_authorization(msg):
+def check_authorization(msg, item_class, end_point):
     def decorator(f):
         @wraps(f)
         def decorated_function(*args, **kwargs):
-            ticket_lot_id = kwargs['ticket_lot_id']
-            ticket_lot = db_session.query(Ticket_Lot).filter_by(id=ticket_lot_id).one()
-            if ticket_lot.seller_id != login_session['user_id']:
+            item_id = kwargs['item_id']
+            item = db_session.query(item_class).filter_by(id=item_id).one()
+            if item.user_id != login_session['user_id']:
                 flash(msg)
-                return redirect(url_for('ticket_lot', ticket_lot_id=ticket_lot_id))
+                return redirect(url_for(end_point, item_id=item_id))
+            kwargs['item'] = item
             return f(*args, **kwargs)
         return decorated_function
     return decorator
@@ -268,7 +269,7 @@ def sell_tickets(game_id):
 
         # get the information we need from the form
         try:
-            seller_id = request.form['user_id']
+            user_id = request.form['user_id']
             game_id = request.form['game_id']
             section =  request.form['section']
             row = request.form['row']
@@ -285,7 +286,7 @@ def sell_tickets(game_id):
         # add the tickets to the database
         try:
             ticket_lot = Ticket_Lot(
-                seller_id = seller_id,
+                user_id = user_id,
                 game_id = game_id,
                 section =  section,
                 row = row,
@@ -326,20 +327,20 @@ def game_xml(game_id):
 # ticket_lot() returns a page showing the group of tickets
 # that are being offered for sale together.
 #
-@app.route('/tickets/<int:ticket_lot_id>')
-def ticket_lot(ticket_lot_id):
-    ticket_lot = db_session.query(Ticket_Lot).filter_by(id=ticket_lot_id).one()
+@app.route('/tickets/<int:item_id>')
+def ticket_lot(item_id):
+    ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
     main = Markup(render_template('ticket_lot.html', ticket_lot=ticket_lot, login_session=login_session))
     return render_template('layout.html', main=main, login_session=login_session)
 
-@app.route('/tickets/<int:ticket_lot_id>/JSON')
-def ticket_lot_json(ticket_lot_id):
-    ticket_lot = db_session.query(Ticket_Lot).filter_by(id=ticket_lot_id).one()
+@app.route('/tickets/<int:item_id>/JSON')
+def ticket_lot_json(item_id):
+    ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
     return jsonify(ticket_lot.serialize())
 
-@app.route('/tickets/<int:ticket_lot_id>/XML')
-def ticket_lot_xml(ticket_lot_id):
-    ticket_lot = db_session.query(Ticket_Lot).filter_by(id=ticket_lot_id).one()
+@app.route('/tickets/<int:item_id>/XML')
+def ticket_lot_xml(item_id):
+    ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
     return xmlify(ticket_lot.serialize())
 
 # Edit Tickets
@@ -348,50 +349,38 @@ def ticket_lot_xml(ticket_lot_id):
 # If any of the other stuff is wrong, the ticket_lot can be deleted
 # and replaced.
 
-@app.route('/tickets/<int:ticket_lot_id>/edit', methods=['GET', 'POST'])
+@app.route('/tickets/<int:item_id>/edit', methods=['GET', 'POST'])
 @check_authentication("You must be logged in to edit tickets!")
-@check_authorization("You cannot edit another user's tickets!")
-def edit_tickets(ticket_lot_id):
+@check_authorization("You cannot edit another user's tickets!", Ticket_Lot, 'ticket_lot')
+def edit_tickets(item_id, item):
 
-    #if 'user_id' not in login_session:
-    #    flash("You must be logged in to edit tickets!")
-    #    return redirect(url_for('ticket_lot', ticket_lot_id=ticket_lot_id))
-
-    ticket_lot = db_session.query(Ticket_Lot).filter_by(id=ticket_lot_id).one()
-    #if ticket_lot.seller_id != login_session['user_id']:
-    #    flash("You cannot edit another user's tickets!")
-    #    return redirect(url_for('ticket_lot', ticket_lot_id=ticket_lot_id))
+    ticket_lot = item
+    #ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
 
     if request.method == 'GET':
-        ticket_lot = db_session.query(Ticket_Lot).filter_by(id=ticket_lot_id).one()
         main = Markup(render_template(
             'edit_tickets.html', ticket_lot=ticket_lot, login_session=login_session))
         return render_template('layout.html', main=main, login_session=login_session)
 
     elif request.method == 'POST':
         try:
-            ticket_lot = db_session.query(Ticket_Lot).filter_by(id=ticket_lot_id).one()
             ticket_lot.price = request.form['price']
             db_session.commit()
         except:
             print "edit_tickets(): could not commit transaction"
             flash("edit_tickets(): could not commit transaction")
-            return redirect(url_for('ticket_lot', ticket_lot_id=ticket_lot_id))
+            return redirect(url_for('ticket_lot', item_id=item_id))
             
         return redirect(url_for('game', game_id=ticket_lot.game_id))
 
 # Delete Tickets
 
-@app.route('/tickets/<int:ticket_lot_id>/delete', methods=['GET', 'POST'])
+@app.route('/tickets/<int:item_id>/delete', methods=['GET', 'POST'])
 @check_authentication("You must be logged in to delete tickets!")
-@check_authorization("You cannot delete another user's tickets!")
-def delete_tickets(ticket_lot_id):
+@check_authorization("You cannot edit another user's tickets!", Ticket_Lot, 'ticket_lot')
+def delete_tickets(item_id, item):
 
-    ticket_lot = db_session.query(Ticket_Lot).filter_by(id=ticket_lot_id).one()
-
-    #if ticket_lot.seller_id != login_session['user_id']:
-    #    flash("You cannot delete another user's tickets!")
-    #    return redirect(url_for('ticket_lot', ticket_lot_id=ticket_lot_id))
+    ticket_lot = item
 
     if request.method == 'GET':
         main = Markup(render_template(
@@ -408,7 +397,7 @@ def delete_tickets(ticket_lot_id):
         except:
             print "delete_tickets(): could not commit transaction"
             flash("delete_tickets(): could not commit transaction")
-            return redirect(url_for('tickets', ticket_lot_id=ticket_lot_id))
+            return redirect(url_for('tickets', item_id=item_id))
 
         flash("Tickets successfully deleted.")
         return redirect(url_for('game', game_id=game_id))
