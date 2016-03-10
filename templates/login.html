@@ -20,66 +20,67 @@
             <a id="title-a" href="{{url_for('conferences')}}"> Tickets 'R' Us </a>
         </h1>
         <div id="header-login-div">
-        <p>
-            {% for message in get_flashed_messages() %}
-            {{ message }}<br>
-            {% endfor %}
-        </p>
+            <p>
+                {% for message in get_flashed_messages() %}
+                {{ message }}<br>
+                {% endfor %}
+            </p>
         </div>
-    </div>
+    </div> <!-- header -->
 
     <div id="main">
         <div>
-        <h1> Login via Google or Facebook </h1>
-        <!-- GOOGLE PLUS SIGN IN-->
+            <h1> Login via Google or Facebook </h1>
+            <!-- GOOGLE PLUS SIGN IN-->
 
-        <div id="signInButton">
-            <span class="g-signin"
-                  data-scope="openid email"
-                  data-clientid="{{google_app_id}}"
-                  data-redirecturi="postmessage"
-                  data-accesstype="offline"
-                  data-cookiepolicy="single_host_origin"
-                  data-callback="signInCallback"
-                  data-approvalprompt="force">
-            </span>
-        </div>
+            <div id="signInButton">
+                <span class="g-signin"
+                      data-scope="openid email"
+                      data-clientid="{{google_app_id}}"
+                      data-redirecturi="postmessage"
+                      data-accesstype="offline"
+                      data-cookiepolicy="single_host_origin"
+                      data-callback="signInCallback"
+                      data-approvalprompt="force">
+                </span>
+            </div>
 
-        <div id="result"></div>
-        
-        <script>
-            {{google_connect_js}}
-        </script>
+            <div id="result"></div>
+            
+            <script>
+                {{google_connect_js}}
+            </script>
 
-        <!--END GOOGLE PLUS SIGN IN -->
+            <!--END GOOGLE PLUS SIGN IN -->
 
-        <!--FACEBOOK SIGN IN -->
-        <script>
-            {{fb_connect_js}}
-        </script>
-        
-        <fb:login-button scope="public_profile,email" onlogin="sendTokenToServer();">
+            <!--FACEBOOK SIGN IN -->
+            <script>
+                {{fb_connect_js}}
+            </script>
+            
+            <fb:login-button scope="public_profile,email" onlogin="sendTokenToServer();">
                 <a href='javascript:sendTokenToServer()'>Login with Facebook</a>
-        </fb:login-button>
-        <!--END FACEBOOK SIGN IN -->
-        
-        <div class="rant">
-            <p>
-                Notice how the Facebook login button messes up my layout?
-                Reload this page and see how it jumps around.
-                What's up with that?  
-            </p>
-            <p>
-                The fb javascript code for the button creates some
-                weird hidden &lt;iframe&gt;s and they
-                don't seem to play well with flex-box.
-                Is that really necessary?  Why can't I have a simple
-                button with a simple onclick function? C'mon Facebook!
-            </p>
+            </fb:login-button>
+            <!--END FACEBOOK SIGN IN -->
+            
+            <div class="rant">
+                <p>
+                    Notice how the Facebook login button messes up my layout?
+                    Reload this page and see how it jumps around.
+                    What's up with that?  
+                </p>
+                <p>
+                    The fb javascript code for the button creates some
+                    weird hidden &lt;iframe&gt;s and they
+                    don't seem to play well with flex-box.
+                    Is that really necessary?  Why can't I have a simple
+                    button with a simple onclick function? C'mon Facebook!
+                </p>
+            </div>
         </div>
-        </div>
-    </div>
-</div>
+    </div> <!-- main -->
+
+</div> <!-- container -->
 
 </body>
 

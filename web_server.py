@@ -5,37 +5,58 @@
 from flask import Flask, render_template, request, redirect, Markup
 from flask import jsonify, url_for, flash, make_response
 from flask import session as login_session
+from flask.ext.seasurf import SeaSurf
 
 # Standard python libraries
-import httplib2, json, requests, random, string
+import httplib2, json, requests, random, string, os
 from functools import wraps
 from dict2xml import dict2xml as xmlify
+
+# I need something like these to handle the file upload.
+# If I understand it correctly (doubtful !-) the examples found at
+# http://flask.pocoo.org/docs/0.10/patterns/fileuploads/
+# seem to trust the filename extension.  It seems to me that we
+# should verify the file type somehow and give it the appropriate
+# extension, .jpg, .png etc.
+
+import imghdr
+from werkzeug import secure_filename
 
 # The tickets database definitions are in tickets.py
 from tickets import DBSession, Conference, Team, Game, Ticket, Ticket_Lot, User
 
 app = Flask(__name__)
+
+# Prevent cross-site request forgery
+# Hidden '_csrf_token' fields have been added to the forms in the
+# templates sell_tickets.html, edit_tickets.html and delete_tickets.html.
+# See https://flask-seasurf.readthedocs.org/en/latest/
+csrf = SeaSurf(app)
+
 db_session = DBSession()
 
-# The OAuth2 stuff has been moved to separate files google_auth.py and
-# facebook_auth.py.  The auth code needs access to the app and db_session
-# so we set those above and then use the separate code to produce
+# The OAuth2 stuff has been moved to separate files:
+#  - google_auth.py    and
+#  - facebook_auth.py.
+
+# The auth code needs access to the db_session
+# so we set that above and then use the separate code to produce
 # the connect and disconnect functions, below.  The routes are set in the 
 # respective (google or fb) auth functions.
 
-# TODO: might this be done nicely with singleton classes?
-# We could maintain a list of auth providers.  Each provider
-# object would have methods connect() and disconnect().
-#
-# auth_providers = [] 
-# auth_providers.append( google_auth(app, db_session)) 
-# auth_providers.append( facebook_auth(app, db_session))
+from google_auth import Google_Auth
+from facebook_auth import Facebook_Auth
 
-from google_auth import google_auth
-from facebook_auth import facebook_auth
+# These are used in functions connect() and disconnect() below and in the
+# template login.html.
 
-(gconnect, gdisconnect) = google_auth(app, db_session)
-(fbconnect, fbdisconnect) = facebook_auth(app, db_session)
+# TODO: move specific html for the auth buttons to the respective python 
+# files and change login.html to iterate over auth_providers to create the 
+# buttons for the authentication providers included below.
+auth_providers = {
+    'google': Google_Auth(db_session, login_session),
+    'facebook': Facebook_Auth(db_session, login_session)
+}
 
 DEBUG = True
 LOG_ERRORS = True
@@ -55,6 +76,7 @@ def gen_response(msg, rc=401, content_type='application/json'):
     response.headers['Content-Type'] = content_type
     return response
 
+
 #------------------------------------------------------------------------------------
 # Authentication and Authorization View Decorators
 # 
@@ -62,6 +84,7 @@ def gen_response(msg, rc=401, content_type='application/json'):
 # auth_required() Each of them takes an arg 'msg' which is to be
 # flashed.  For example usage see sell_tickets(), edit_tickets() and
 # delete_tickets() below.
+
 
 # Function check_authentication() returns a decorator for wrapping
 # those functions which require that the user be logged in.  If used,
@@ -81,6 +104,7 @@ def check_authentication(msg):
             return f(*args, **kwargs)
         return decorated_function
     return decorator
+
 
 # Function check_authorization() returns a decorator for wrapping
 # those functions that require authorized access. If used,
@@ -106,11 +130,19 @@ def check_authorization(msg, item_class, end_point):
     return decorator
 
 
-#-------------------------------------------------------------------------
+#----------------------------------------------------------------------------------
 # Tickets 'R' Us App 
 
 # login
-#        
+#
+# TODO:
+# This could be cleaned up.
+# Move the fb and google code to their respective python files.
+# Use a list of providers.
+# Change the login.html template to work with the list of
+# providers.
+#
+
 @app.route('/login')
 def login():
 
@@ -145,27 +177,41 @@ def login():
         login_session = login_session
     )
 
+@csrf.exempt
+@app.route('/connect/<provider>/<state>', methods=['POST'])
+def connect(provider, state):
+
+    try:
+        return auth_providers[provider].connect(state)
+
+    except:
+        # TODO: handle this gracefully
+        pass
+
 # logout
 #
+@csrf.exempt
 @app.route('/disconnect')
 def disconnect():
 
-    if 'provider' in login_session.keys():
+    keys = login_session.keys()
+    if 'provider' in keys:
 
-        if login_session['provider'] == 'google':
-            gdisconnect()
+        try: 
+            auth_providers[login_session['provider']].disconnect()
+            flash("You have successfully been logged out.")
 
-        if login_session['provider'] == 'facebook':
-            fbdisconnect()
+        except:
+            flash("You are not logged in.")
 
-        # If login_session gets in to a bad state
-        # it seems to want to persist, so let's just
-        # clean it up.
-        for key in login_session.keys():
-            del login_session[key]
+    # If login_session gets into a bad state
+    # it seems to want to persist, so let's just
+    # clean it up.
+    for key in keys:
+        del login_session[key]
 
-        flash("You have successfully been logged out.")
-        return redirect(url_for('conferences'))
+    return redirect(url_for('conferences'))
+
 
 
 #---------------------------------------------------------------------------------------------
@@ -177,6 +223,7 @@ def conferences():
     conferences = db_session.query(Conference).all()
     main = Markup(render_template('conferences.html', conferences=conferences))
     return render_template('layout.html', main=main, login_session=login_session)
+
 
 
 #---------------------------------------------------------------------------------------------
@@ -202,6 +249,7 @@ def conference_xml(conference):
     return xmlify(conference.serialize())
 
 
+
 #---------------------------------------------------------------------------------------------
 # Team Views
 
@@ -225,8 +273,13 @@ def team_xml(team_name):
     return xmlify(team.serialize())
 
 
+
 #---------------------------------------------------------------------------------------------
 # Game Views
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in set(['png', 'jpg', 'jpeg', 'gif'])
 
 # The game page shows the tickets available for purchase
 # for that game.
@@ -244,11 +297,6 @@ def game(game_id):
 @app.route('/game/<int:game_id>/sell', methods=['GET', 'POST'])
 @check_authentication("You must be logged in to sell tickets!")
 def sell_tickets(game_id):
-
-    #if 'user_id' not in login_session:
-    #    print "You must be logged in to sell tickets!"
-    #    flash("You must be logged in to sell tickets!")
-    #    return redirect(url_for('game', game_id=game_id))
 
     # user is logged in so able to sell tickets
     # return a page with a fill-in form
@@ -269,6 +317,7 @@ def sell_tickets(game_id):
             price = request.form['price']
             seat = int(request.form['first_seat'])
             num_seats = int(request.form['num_seats'])
+            img = request.files['img']
 
         except:
             print "sell_tickets(): bad form data"
@@ -283,9 +332,24 @@ def sell_tickets(game_id):
                 game_id = game_id,
                 section =  section,
                 row = row,
-                price = price
+                price = price,
+                img_path = None
             )
             db_session.add( ticket_lot)
+            db_session.commit()
+            if img:
+                img_type = imghdr.what(img)
+                if img_type in ['jpeg', 'png']:
+                    # Unlike in all the examples on the Flask website,
+                    # the path must be relative to the website root in order
+                    # for img.save() to work.  This makes sense to me, but 
+                    # why do the examples have a leading '/' ?
+                    # http://flask.pocoo.org/docs/0.10/quickstart/#file-uploads
+                    # http://flask.pocoo.org/docs/0.10/patterns/fileuploads/
+                    img_dir = 'static/images/tickets/'
+                    img_file = 'ticket_lot_%d.%s' % (ticket_lot.id, img_type)
+                    ticket_lot.img_path = img_dir + img_file
+                    img.save(ticket_lot.img_path)
 
             for j in range(num_seats):
                 db_session.add( Ticket(
@@ -314,8 +378,11 @@ def game_xml(game_id):
     return xmlify(game.serialize())
 
 
+
 #---------------------------------------------------------------------------------------------
 # Tickets Views
+
+
 
 # ticket_lot() returns a page showing the group of tickets
 # that are being offered for sale together.
@@ -323,6 +390,10 @@ def game_xml(game_id):
 @app.route('/tickets/<int:item_id>')
 def ticket_lot(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
+
+    # TODO: 
+    # edit tiket_lot.html to display tickets image
+
     main = Markup(render_template('ticket_lot.html', ticket_lot=ticket_lot, login_session=login_session))
     return render_template('layout.html', main=main, login_session=login_session)
 
@@ -335,6 +406,8 @@ def ticket_lot_json(item_id):
 def ticket_lot_xml(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
     return xmlify(ticket_lot.serialize())
+
+
 
 # Edit Tickets
 
@@ -356,8 +429,30 @@ def edit_tickets(item_id, item):
         return render_template('layout.html', main=main, login_session=login_session)
 
     elif request.method == 'POST':
+
+    # TODO: 
+    # Handle uploaded ticket image.
+    # Add image to the static dir.
+    # Add image url to db entry.
+
         try:
             ticket_lot.price = request.form['price']
+            if request.files.has_key('img'):
+                img = request.files['img']
+                img_type = imghdr.what(img)
+                print img_type
+                if img_type in ['jpeg', 'png']:
+                    # Unlike in all the examples on the Flask website,
+                    # the path must be relative to the website root in order
+                    # for img.save() to work.  This makes sense to me, but 
+                    # why do the examples have a leading '/' ?
+                    # http://flask.pocoo.org/docs/0.10/quickstart/#file-uploads
+                    # http://flask.pocoo.org/docs/0.10/patterns/fileuploads/
+                    img_dir = 'static/images/tickets/'
+                    img_file = 'ticket_lot_%d.%s' % (ticket_lot.id, img_type)
+                    ticket_lot.img_path = img_dir + img_file
+                    img.save(ticket_lot.img_path)
+
             db_session.commit()
         except:
             print "edit_tickets(): could not commit transaction"
@@ -365,6 +460,8 @@ def edit_tickets(item_id, item):
             return redirect(url_for('ticket_lot', item_id=item_id))
             
         return redirect(url_for('game', game_id=ticket_lot.game_id))
+
+
 
 # Delete Tickets
 
@@ -381,19 +478,56 @@ def delete_tickets(item_id, item):
         return render_template('layout.html', main=main, login_session=login_session)
 
     elif request.method == 'POST':
-        try:
-            game_id = ticket_lot.game_id
-            for ticket in ticket_lot.tickets:
-                db_session.delete(ticket)
+
+        img_path = ticket_lot.img_path
+        print img_path
+        if img_path:
+            os.remove(img_path)
+        game_id = ticket_lot.game_id
+        print "game_id: %d" % game_id
+        for ticket in ticket_lot.tickets:
+            db_session.delete(ticket)
             db_session.delete(ticket_lot)
+        try:
             db_session.commit()
         except:
             print "delete_tickets(): could not commit transaction"
             flash("delete_tickets(): could not commit transaction")
-            return redirect(url_for('tickets', item_id=item_id))
+            return redirect(url_for('ticket_lot', item_id=item_id))
 
         flash("Tickets successfully deleted.")
         return redirect(url_for('game', game_id=game_id))
+
+
+# Delete Image
+
+@app.route('/tickets/<int:item_id>/delete_image', methods=['GET', 'POST'])
+@check_authentication("You must be logged in to delete ticket image!")
+@check_authorization("You cannot edit another user's ticket image!", Ticket_Lot, 'ticket_lot')
+def delete_image(item_id, item):
+
+    ticket_lot = item
+
+    if request.method == 'GET':
+        main = Markup(render_template(
+            'delete_image.html', ticket_lot=ticket_lot, login_session=login_session))
+        return render_template('layout.html', main=main, login_session=login_session)
+
+    elif request.method == 'POST':
+
+        ticket_lot.img_path = None
+        try:
+            db_session.commit()
+        except:
+            print "delete_image(): could not commit transaction"
+            flash("delete_image(): could not commit transaction")
+            return redirect(url_for('ticket_lot', item_id=item_id))
+
+        flash("Ticket image successfully deleted.")
+        return redirect(url_for('ticket_lot', item_id=item_id))
+
+
+
  
 #---------------------------------------------------------------------------------------------
 # User Views
@@ -423,6 +557,8 @@ def user_json(user_id):
 def user_xml(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
     return xmlify(user.serialize())
+
+
 
 
 #---------------------------------------------------------------------------------------------

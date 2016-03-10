@@ -17,7 +17,7 @@ from tickets import DBSession, startup_info
 from options import year, number_of_games, number_of_users, number_of_ticket_lots
 
 def team_logo(team):
-    logo = "static/images/" + team['name'] + '_' + team['nickname'] + '.png'
+    logo = "static/images/team_logos/" + team['name'] + '_' + team['nickname'] + '.png'
     logo = logo.replace(' ','_').lower()
     return logo
 
@@ -29,7 +29,7 @@ def load_teams_from_json():
     print "loading %d teams" % len(teams)
     for team in teams:
         session.add( Team(
-            conference = team['conference'].replace(' ','_'),
+            conference_name = team['conference'].replace(' ','_'),
             city = team['city'],
             espn_id = team['espn_id'],
             state = team['state'],

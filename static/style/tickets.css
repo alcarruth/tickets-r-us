@@ -205,12 +205,24 @@ div.sub-header {
     background: #ffe;
 }
 
+.tickets-img {
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.full-row {
+    width: 100%;
+}
+/*
+*/
+
 .game-tickets {
     border: 1px solid #444;
     padding: 15px;
     margin: 15px;
     background: #fff;
- /*   width: 700px; */
 }
 
 .schedule-div {

@@ -6,7 +6,6 @@ import json, httplib2, requests
 
 # Flask libraries
 from flask import request, redirect, flash, make_response
-from flask import session as login_session
 
 # OAuth2 client libraries
 from oauth2client.client import flow_from_clientsecrets
@@ -22,18 +21,20 @@ f = open(fb_client_secrets_file, 'r')
 fb_client_secrets = json.load(f)
 f.close()
 
-def facebook_auth(app, db_session):
+class Facebook_Auth:
 
-    @app.route('/fbconnect', methods=['POST'])
-    def fbconnect():
+    def __init__(self, db_session, login_session):
+        self.db_session = db_session
+        self.login_session = login_session
 
-        if request.args.get('state') != login_session['state']:
+    def connect(self, state):
+
+        if state != self.login_session['state']:
             response = make_response(json.dumps('Invalid state parameter.'), 401)
             response.headers['Content-Type'] = 'application/json'
             return response
 
         access_token = request.data
-        print "access token received %s " % access_token
 
         app_id = fb_client_secrets['web']['app_id']
         app_secret = fb_client_secrets['web']['app_secret']
@@ -60,17 +61,17 @@ def facebook_auth(app, db_session):
         result = h.request(url, 'GET')[1]
 
         data = json.loads(result)
-        login_session['provider'] = 'facebook'
-        login_session['username'] = data["name"]
-        login_session['email'] = data["email"]
-        login_session['facebook_id'] = data["id"]
+        self.login_session['provider'] = 'facebook'
+        self.login_session['username'] = data["name"]
+        self.login_session['email'] = data["email"]
+        self.login_session['facebook_id'] = data["id"]
 
-        # The token must be stored in the login_session in order to 
+        # The token must be stored in the self.login_session in order to 
         # properly logout, let's strip out the information before 
         # the equals sign in our token
     
         stored_token = token.split("=")[1]
-        login_session['access_token'] = stored_token
+        self.login_session['access_token'] = stored_token
     
         # Get user picture
         url = 'https://graph.facebook.com/v2.4/me/picture?'
@@ -83,32 +84,30 @@ def facebook_auth(app, db_session):
         result = h.request(url, 'GET')[1]
         data = json.loads(result)
 
-        login_session['picture'] = data["data"]["url"]
+        self.login_session['picture'] = data["data"]["url"]
 
         # see if user exists
-        user_id = getUserID(db_session, login_session['email'])
+        user_id = getUserID(self.db_session, self.login_session['email'])
         if not user_id:
-            user_id = createUser(db_session, login_session)
-        login_session['user_id'] = user_id
+            user_id = createUser(self.db_session, self.login_session)
+        self.login_session['user_id'] = user_id
 
         output = ''
-        output += '<h1>Welcome, %s!</h1>' % login_session['username']
-        output += '<img src="%s"' % login_session['picture']
+        output += '<h1>Welcome, %s!</h1>' % self.login_session['username']
+        output += '<img src="%s"' % self.login_session['picture']
         output += ' style = "width: 300px; height: 300px;border-radius: 150px;'
         output += '-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
 
-        flash("Now logged in as %s" % login_session['username'])
+        flash("Now logged in as %s" % self.login_session['username'])
         return output
 
-    def fbdisconnect():
+    def disconnect(self):
 
-        facebook_id = login_session['facebook_id']
-        access_token = login_session['access_token']
+        facebook_id = self.login_session['facebook_id']
+        access_token = self.login_session['access_token']
         url = 'https://graph.facebook.com/%s/' % facebook_id
         url += 'permissions?access_token=%s' % access_token
 
         h = httplib2.Http()
         result = h.request(url, 'DELETE')[1]
 
-
-    return (fbconnect, fbdisconnect)

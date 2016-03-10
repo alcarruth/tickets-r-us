@@ -1,64 +1,72 @@
-    <div class="controls-div">
-        <h3>
-            {{ticket_lot.game.visiting_team.name}}
-            at 
-            {{ticket_lot.game.home_team.name}}
-        </h3>
-        <p> 
-        {{ticket_lot.game.date.strftime("%A %B %d, %Y")}} <br>
-        Price each: ${{ticket_lot.price}} <br>
-        Seller: <a href="/users/{{ticket_lot.seller.id}}"> 
-                {{ticket_lot.seller.name}} </a> <br>
-        Contact: <a href="mailto:{{ticket_lot.seller.email}}">
-                {{ticket_lot.seller.email}} </a>
-        </p>
-    </div>
-
-    <div class="controls-div">
-        {% if ticket_lot.user_id==login_session['user_id'] %}
-        <p> 
-            <a class="sell-tickets-a" href="/tickets/{{ticket_lot.id}}/edit">
-                <button> Edit Tickets </button>
-            </a>
-        </p>
-        <p>
-            <a class="sell-tickets-a" href="/tickets/{{ticket_lot.id}}/delete">
-                <button> Delete Tickets </button>
-            </a>
-        </p>
-        {% endif %}
-    </div>
-
-    {% for ticket in ticket_lot.tickets %}
-
-    <div class="ticket">
-        <div class="college-football">
-            College Football
-        </div>
-        <div class="team" class="visiting">
-            <img class="team-logo" src="/{{ticket_lot.game.visiting_team.logo}}">
-            <span class="team-name">
-               {{ticket_lot.game.visiting_team.name}} {{ticket_lot.game.visiting_team.nickname}}
-            </span>
-        </div>
-        <div class="at"> at </div>
-        <div class="team" class="home">
-            <img class="team-logo" src="/{{ticket_lot.game.home_team.logo}}">
-            <span class="team-name">
-                {{ticket_lot.game.home_team.name}} {{ticket_lot.game.home_team.nickname}}
-            </span>
-        </div>
-        <div class="date">
-            {{ticket_lot.game.date}}
-        </div>
-        <div class="seat">
-            <p class="seat">
-                Sec: {{ticket_lot.section}} 
-                Row: {{ticket_lot.row}} <br>
-                Seat: {{ticket.seat}}
+        <div class="controls-div">
+            <h3>
+                {{ticket_lot.game.visiting_team.name}}
+                at 
+                {{ticket_lot.game.home_team.name}}
+            </h3>
+            <p> 
+                {{ticket_lot.game.date.strftime("%A %B %d, %Y")}} <br>
+                Price each: ${{ticket_lot.price}} <br>
+                Seller: <a href="/users/{{ticket_lot.seller.id}}"> 
+                    {{ticket_lot.seller.name}} </a> <br>
+                Contact: <a href="mailto:{{ticket_lot.seller.email}}">
+                    {{ticket_lot.seller.email}} </a>
             </p>
         </div>
-    </div>
 
-    {% endfor %}
+        <div class="controls-div">
+        {% if ticket_lot.user_id==login_session['user_id'] %}
 
+        <p> <a class="sell-tickets-a" href="/tickets/{{ticket_lot.id}}/edit">
+                <button> Edit Tickets </button> </a> </p>
+            
+        {% if ticket_lot.img_path %}
+        <p> <a class="sell-tickets-a" href="/tickets/{{ticket_lot.id}}/delete_image" method="Post">
+                <button> Delete Image </button> </a> </p>
+        {% endif %}
+
+        <p> <a class="sell-tickets-a" href="/tickets/{{ticket_lot.id}}/delete">
+                <button> Delete Tickets </button> </a> </p>
+        {% endif %}
+        </div>
+
+        {% if ticket_lot.img_path %}
+        
+        <img class="tickets-img" src="/{{ticket_lot.img_path}}">
+
+        {% else %}
+
+        {% for ticket in ticket_lot.tickets %}
+        <div class="ticket">
+            <div class="college-football">
+                College Football
+            </div>
+            <div class="team" class="visiting">
+                <img class="team-logo" src="/{{ticket_lot.game.visiting_team.logo}}">
+                <span class="team-name">
+                    {{ticket_lot.game.visiting_team.name}} {{ticket_lot.game.visiting_team.nickname}}
+                </span>
+            </div>
+            <div class="at"> at </div>
+            <div class="team" class="home">
+                <img class="team-logo" src="/{{ticket_lot.game.home_team.logo}}">
+                <span class="team-name">
+                    {{ticket_lot.game.home_team.name}} {{ticket_lot.game.home_team.nickname}}
+                </span>
+            </div>
+            <div class="date">
+                {{ticket_lot.game.date}}
+            </div>
+            <div class="seat">
+                <p class="seat">
+                    Sec: {{ticket_lot.section}} 
+                    Row: {{ticket_lot.row}} <br>
+                    Seat: {{ticket.seat}}
+                </p>
+            </div>
+        </div>
+
+        {% endfor %}
+
+        {% endif %}
+        

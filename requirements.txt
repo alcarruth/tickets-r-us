@@ -6,6 +6,11 @@ dict2xml
 flask
 flask.__version__
 
+
+flask seasurf
+flask.ext.seasurf.__version__
+'0.2.'1
+
 sqlalchemy
 
 

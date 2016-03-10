@@ -20,7 +20,6 @@ class Conference(Base):
     abbrev_name = Column(String, primary_key=True)
     name = Column(String, unique=True, nullable=False)
     logo = Column(String, nullable=False)
-    teams = relationship('Team')
 
     def __repr__(self):
         return self.name
@@ -47,7 +46,8 @@ class Team(Base):
     espn_id =  Column(Integer)
     city =  Column(String)
     state = Column(String)
-    conference = Column(String, ForeignKey('conference.abbrev_name'))
+    conference_name = Column(String, ForeignKey('conference.abbrev_name'))
+    conference = relationship('Conference', backref=backref('teams', cascade="all, delete-orphan"))
     logo = Column(String)
     
     def serialize(self):
@@ -97,7 +97,6 @@ class Game(Base):
     visiting_team_id = Column(Integer, ForeignKey('team.id'))
     visiting_team = relationship(Team, foreign_keys=[visiting_team_id], backref=backref('away_games'))
     date = Column(Date, nullable=False)
-    #tickets = relationship('Ticket')
      
     def serialize(self):
         return {
@@ -187,10 +186,14 @@ class Ticket_Lot(Base):
     user_id = Column(Integer, ForeignKey('user.id'))
     seller = relationship(User, backref=backref('ticket_lots'))
     game_id = Column(Integer, ForeignKey('game.id'))
-    game = relationship(Game, backref=backref('ticket_lots'))
+    game = relationship(Game, backref=backref('ticket_lots',  cascade="all, delete-orphan"))
     section = Column(Integer)
     row = Column(Integer)
     price = Column(Integer) # $ per ticket
+    img_path = Column(String)
+
+    def make_img_path(self, img_type):
+        return 'static/images/ticket_images/ticket_lot_%d.%s' % (self.id, img_type)
 
     def seats(self):
         return [ ticket.seat for ticket in self.tickets ]
@@ -233,7 +236,7 @@ class Ticket(Base):
 
     id = Column(Integer, primary_key=True)
     lot_id = Column(Integer, ForeignKey('ticket_lot.id'))
-    lot = relationship(Ticket_Lot, backref=backref('tickets'))
+    lot = relationship(Ticket_Lot, backref=backref('tickets', cascade="all, delete-orphan"))
     seat = Column(Integer)
     #UniqueConstraint('game', 'section', 'row', 'seat')
 

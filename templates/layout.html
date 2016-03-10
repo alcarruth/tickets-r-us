@@ -14,7 +14,9 @@
 <body>
 
 <div id="container">
+
     <div id="header">
+
         <div id="header-title-div">
             <h1 id="header-title-h1">
                 <a id="title-a" href="{{url_for('conferences')}}"> Tickets 'R' Us </a>
@@ -23,6 +25,7 @@
                 Buy and Sell College Football Tickets!
             </p>
         </div>
+
         <div id="header-login-div">
             {% if 'username' not in login_session %}
             <a class="header-login-a" href="{{url_for('login')}}">
@@ -37,22 +40,25 @@
             {% endif %}
         </div>
 
-        <p>
+        <p class="flash-messages">
             {% for message in get_flashed_messages() %}
             {{ message }}<br>
             {% endfor %}
-        </p>
-    </div>
+        </p> <!-- flash-messages -->
+
+    </div> <!-- header -->
+
 
     <div id="main">
         {{main}}
-    </div>
+    </div> <!-- main -->
+
 
     <div id="footer">
         {{footer}}
-    </div>
+    </div>  <!-- footer -->
 
-</div>
+</div> <!-- container -->
 
 </body>
 

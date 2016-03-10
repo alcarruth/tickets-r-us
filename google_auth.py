@@ -6,7 +6,6 @@ import json, httplib2, requests
 
 # Flask libraries
 from flask import request, redirect, flash
-from flask import session as login_session
 
 # OAuth2 client libraries
 from oauth2client.client import flow_from_clientsecrets
@@ -22,12 +21,15 @@ f = open(google_client_secrets_file, 'r')
 google_client_secrets = json.load(f)
 f.close()
 
-def google_auth(app, db_session):
+class Google_Auth:
 
-    @app.route('/gconnect', methods=['POST'])
-    def gconnect():
+    def __init__(self, db_session, login_session):
+        self.db_session = db_session
+        self.login_session = login_session
 
-        if request.args.get('state') != login_session['state']:
+    def connect(self, state):
+
+        if state != self.login_session['state']:
             msg = 'Invalid state parameter'
             return gen_response(msg)
 
@@ -64,16 +66,16 @@ def google_auth(app, db_session):
             return gen_response(msg)
 
         # Check to see if user is already logged in
-        stored_token = login_session.get('access_token')
-        stored_gplus_id = login_session.get('gplus_id')
+        stored_token = self.login_session.get('access_token')
+        stored_gplus_id = self.login_session.get('gplus_id')
         if (stored_token is not None) and (gplus_id == stored_gplus_id):
             msg = 'Current user is already connected.'
             return gen_response(msg, rc=200)
 
         # Store the access token in the session for later use.
-        login_session['provider'] = 'google'
-        login_session['access_token'] = access_token
-        login_session['gplus_id'] = gplus_id
+        self.login_session['provider'] = 'google'
+        self.login_session['access_token'] = access_token
+        self.login_session['gplus_id'] = gplus_id
 
         # Get user info
         userinfo_url = "https://www.googleapis.com/oauth2/v1/userinfo"
@@ -81,24 +83,24 @@ def google_auth(app, db_session):
         answer = requests.get(userinfo_url, params=params)
         data = json.loads(answer.text)
 
-        login_session['username'] = data["name"]
-        login_session['picture'] = data["picture"]
-        login_session['email'] = data["email"]
+        self.login_session['username'] = data["name"]
+        self.login_session['picture'] = data["picture"]
+        self.login_session['email'] = data["email"]
 
         # see if user exists
-        user_id = getUserID(db_session, login_session['email'])
+        user_id = getUserID(self.db_session, self.login_session['email'])
         if not user_id:
-            user_id = createUser(db_session, login_session)
-        login_session['user_id'] = user_id
+            user_id = createUser(self.db_session, self.login_session)
+        self.login_session['user_id'] = user_id
 
-        flash("you are now logged in as %s" % login_session['username'])
+        flash("you are now logged in as %s" % self.login_session['username'])
         return redirect('/conferences')
 
     # Logout - Revoke a current user's token and reset their login session
     #
-    def gdisconnect():
+    def disconnect(self):
 
-        access_token = login_session.get('access_token')
+        access_token = self.login_session.get('access_token')
         if access_token is None:
             msg = 'Current user not connected.'
             return gen_response(msg)
@@ -106,4 +108,3 @@ def google_auth(app, db_session):
         url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' % access_token
         result = httplib2.Http().request(url, 'GET')[0]
 
-    return (gconnect, gdisconnect)

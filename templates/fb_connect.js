@@ -32,7 +32,7 @@ function sendTokenToServer() {
         console.log('Successful login for: ' + response.name);
         $.ajax({
             type: 'POST',
-            url: '/fbconnect?state={{STATE}}',
+            url: '/connect/facebook/{{STATE}}',
             processData: false,
             data: access_token,
             contentType: 'application/octet-stream; charset=utf-8',

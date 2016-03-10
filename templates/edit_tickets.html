@@ -1,34 +1,33 @@
-<div>
-    <div id="game-heading">
-    <div class="game-team">
-        <img class="team-logo" src="/{{ticket_lot.game.visiting_team.logo}}">
-        {{ticket_lot.game.visiting_team.name}}
-        <!-- {{ticket_lot.game.visiting_team.nickname}} -->
-    </div>
-    <div class="game-at">
-        at
-    </div>
-    <div class="game-team">
-        <img class="team-logo" src="/{{ticket_lot.game.home_team.logo}}">
-        {{ticket_lot.game.home_team.name}}
-        <!-- {{ticket_lot.game.home_team.nickname}} -->
-    </div>
-    </div>
 
-    <h3> {{ticket_lot.game.date.strftime("%A %B %d, %Y")}} </h3>
+        <div id="game-heading">
+            <div class="game-team">
+                <img class="team-logo" src="/{{ticket_lot.game.visiting_team.logo}}">
+                {{ticket_lot.game.visiting_team.name}}
+                <!-- {{ticket_lot.game.visiting_team.nickname}} -->
+            </div>
+            <div class="game-at">
+                at
+            </div>
+            <div class="game-team">
+                <img class="team-logo" src="/{{ticket_lot.game.home_team.logo}}">
+                {{ticket_lot.game.home_team.name}}
+                <!-- {{ticket_lot.game.home_team.nickname}} -->
+            </div>
+        </div> <!-- game-heading -->
 
+        <h3> {{ticket_lot.game.date.strftime("%A %B %d, %Y")}} </h3>
 
-    <div class="game-tickets">
-        <form action="{{ url_for('edit_tickets', item_id=ticket_lot.id)}}" method = "post">
-            Section: {{ticket_lot.section}} <br>
-            Row: {{ticket_lot.row}} <br>
-            First seat: {{ticket_lot.seats()[0]}} <br>
-            Number of seats: {{ticket_lot.num_seats()}} <br>
-            Price per ticket: <input type="text" maxlength="10" name="price" value="{{ticket_lot.price}}"> <br>
-            <input type="hidden" name="game_id" value="{{ticket_lot.game.id}}">
-            <input type="hidden" name="user_id" value="{{login_session['user_id']}}">
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-</div>
-
+        <div class="game-tickets">
+            <form method="post" action="{{ url_for('edit_tickets', item_id=ticket_lot.id)}}" enctype="multipart/form-data">
+                Section: {{ticket_lot.section}} <br>
+                Row: {{ticket_lot.row}} <br>
+                First seat: {{ticket_lot.seats()[0]}} <br>
+                Number of seats: {{ticket_lot.num_seats()}} <br>
+                Price per ticket: <input type="text" maxlength="10" name="price" value="{{ticket_lot.price}}"> <br>
+                Image: <input type="file" name="img" accept="image/*"> <br>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="game_id" value="{{ticket_lot.game.id}}">
+                <input type="hidden" name="user_id" value="{{login_session['user_id']}}">
+                <input type="submit" value="Submit">
+            </form>
+        </div> <!-- game-tickets -->
