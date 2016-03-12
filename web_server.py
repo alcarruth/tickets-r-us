@@ -23,7 +23,7 @@ import imghdr
 from werkzeug import secure_filename
 
 # The tickets database definitions are in tickets.py
-from tickets import DBSession, Conference, Team, Game, Ticket, Ticket_Lot, User
+from tickets import DBSession, Conference, Team, Game, Ticket, Ticket_Lot, User, startup_info
 
 app = Flask(__name__)
 
@@ -515,8 +515,9 @@ def delete_image(item_id, item):
 
     elif request.method == 'POST':
 
-        ticket_lot.img_path = None
         try:
+            os.remove(ticket_lot.img_path)
+            ticket_lot.img_path = None
             db_session.commit()
         except:
             print "delete_image(): could not commit transaction"
@@ -565,6 +566,8 @@ def user_xml(user_id):
 # Start the server
 
 if __name__ == '__main__':
+    print startup_info
+
     app.secret_key = 'super_secret_key'
-    app.debug = True
+    #app.debug = True
     app.run(host='0.0.0.0', port=5000)

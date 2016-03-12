@@ -289,7 +289,7 @@ def alchemy_version():
     from sqlalchemy import __version__
     return 'SQL Alchemy (%s)' % __version__
 
-startup_info = alchemy_version() + '\n' + str(engine) + '\n'
+startup_info = "Tickets'R'Us Web App\n" + str(engine) + '\n'
 
 def show_tickets(user):
     print user

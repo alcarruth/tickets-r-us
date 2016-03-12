@@ -31,7 +31,7 @@ the command
 $ pip -r requirements.txt
 ```
 
-Edit the `options.py` file to suit your situation.  In particular, the
+Next, edit the `options.py` file to suit your situation.  In particular, the
 variable `engine-type` should be set to the db backend of your choice.
 The code has been tested and seems to work well with postgresql 9.3.11
 and with sqlite 2.6.0.  Once this is done,

@@ -1,5 +1,7 @@
         <div class="controls-div">
+
             <h3>
+                <a href="{{url_for('game', game_id=ticket_lot.game.id)}}">
                 {{ticket_lot.game.visiting_team.name}}
                 at 
                 {{ticket_lot.game.home_team.name}}
