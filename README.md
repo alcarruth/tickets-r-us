@@ -18,18 +18,17 @@ and tested with the following versions:
  - postgresql: 9.3.11
  - sqlite3: 2.6.0
  - psycopg2: 2.4.5
- - dict2xml
+ - dict2xml: 1.4
  - sqlalchemy: 1.0.9
  - flask: 0.10.1
- - psycopg2: 2.4.5
  - werkzeug: 0.11.4
  - oauth2client: 1.5.2
 
-You can check the availablity of these modules on your system by issuing
+You can check/install these modules on your system by issuing
 the command
 
 ```
-$ python ./requirements.py
+$ pip -r requirements.txt
 ```
 
 Edit the `options.py` file to suit your situation.  In particular, the

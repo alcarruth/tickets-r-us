@@ -132,7 +132,6 @@ Code Review of first submission.
   authentication, you will only need to edit one part of your code.
 
 
-
   Status: Done and then some !-)  
 
   I have added two decorator functions:
@@ -166,7 +165,7 @@ tickets.py
   http://docs.sqlalchemy.org/en/rel_0_9/orm/cascades.html
 
 
-  Status:  active
+  Status:  done
 
 
 --------------------------------------------------------------------------------
@@ -232,6 +231,8 @@ Requirements
   Moreover, please ensure your FB login is publicly accessible rather
   than in the development mode.
 
+  Status: done.
+
 
 
   Documentation
@@ -243,3 +244,6 @@ Requirements
 
   Please look at here for the details.
   https://pip.readthedocs.org/en/1.1/requirements.html
+
+  Status: done.
+
