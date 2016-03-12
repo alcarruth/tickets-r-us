@@ -24,9 +24,9 @@ class Conference(Base):
     def __repr__(self):
         return self.name
 
-    def serialize(self):
+    def to_dict(self):
         return {
-            'table': self.__tablename__,
+            'db_table': self.__tablename__,
             'values': {
                 'abbrev_name': self.abbrev_name,
                 'name': self.name,
@@ -50,9 +50,9 @@ class Team(Base):
     conference = relationship('Conference', backref=backref('teams', cascade="all, delete-orphan"))
     logo = Column(String)
     
-    def serialize(self):
+    def to_dict(self):
         return {
-            'table': self.__tablename__,
+            'db_table': self.__tablename__,
             'values': {
                 'id': self.id,
                 'name': self.name,
@@ -98,9 +98,9 @@ class Game(Base):
     visiting_team = relationship(Team, foreign_keys=[visiting_team_id], backref=backref('away_games'))
     date = Column(Date, nullable=False)
      
-    def serialize(self):
+    def to_dict(self):
         return {
-            'table': self.__tablename__,
+            'db_table': self.__tablename__,
             'values': {
                 'id': self.id,
                 'home_team': self.home_team.name,
@@ -124,7 +124,7 @@ class User(Base):
     email = Column(String, unique=True, nullable=False)
     picture = Column(String, nullable=True)
 
-    def serialize(self):
+    def to_dict(self):
         d = {
             'id': self.id,
             'name': self.name,
@@ -133,7 +133,7 @@ class User(Base):
         if self.picture:
             d['picture'] = self.picture
         return {
-            'table': self.__tablename__,
+            'db_table': self.__tablename__,
             'values': d
         }
 
@@ -204,9 +204,9 @@ class Ticket_Lot(Base):
     def seats_str(self):
         return ', '.join(map(str,self.seats()))
 
-    def serialize(self):
+    def to_dict(self):
         return {
-            'table': self.__tablename__,
+            'db_table': self.__tablename__,
             'values': {
                 'id': self.id,
                 'game_id': self.game_id,
@@ -240,9 +240,9 @@ class Ticket(Base):
     seat = Column(Integer)
     #UniqueConstraint('game', 'section', 'row', 'seat')
 
-    def serialize(self):
+    def to_dict(self):
         return {
-            'table': self.__tablename__,
+            'db_table': self.__tablename__,
             'values': {
                 'id': self.id,
                 'game': self.lot.game,

@@ -7,6 +7,7 @@ db_name = 'tickets'
 # db backend 
 # either 'postgres' or 'sqlite' 
 engine_type = 'sqlite'
+#engine_type = 'postgres'
 
 # options for dummy data creation
 year = 2016

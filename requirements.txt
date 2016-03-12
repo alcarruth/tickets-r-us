@@ -1,35 +1,23 @@
 
 
-dict2xml
+sqlite3 2.6.0
+
+psycopg2 2.4.5
 
 
-flask
-flask.__version__
+ dict2xml 1.4
 
+ Flask 0.10.1
+ Flask_SeaSurf 0.2.1
 
-flask seasurf
-flask.ext.seasurf.__version__
-'0.2.'1
+ httplib2 0.9.2
 
-sqlalchemy
+ Jinja2 2.8
+ MarkupSafe 0.23
 
+ oauth2client  1.5.2
+ SimpleWebSocketServer 0.1.0
 
-postgresql
-
-
-sqlite
-
-
-
-def engine_version():
-    if engine_type == 'postgres':
-        from psycopg2 import __version__
-        return '
-
-psycopg2.__version__
-
-
-sqlite3.version
-
-
+ SQLAlchemy  1.0.9
+ Werkzeug    0.11.4
 

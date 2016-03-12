@@ -131,7 +131,7 @@ def create_users(n):
         first_name = random.choice(male_names + female_names)
         last_name = random.choice(surnames)
         name = '%s %s' % (first_name, last_name)
-        email = first_name[0] + last_name + str(random.choice(range(1000,10000))) + '@gmail.com'
+        email = first_name[0] + last_name + str(random.choice(range(10000,100000))) + '@gmail.com'
         picture = None
         session.add( User(
             name = name,
@@ -191,6 +191,9 @@ def populate_db():
     create_users(number_of_users)
     create_tickets(number_of_ticket_lots)
 
-session = DBSession()
-populate_db()
-session.close()
+
+if __name__ == '__main__':
+    print startup_info
+    session = DBSession()
+    populate_db()
+    session.close()

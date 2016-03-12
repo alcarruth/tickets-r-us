@@ -241,12 +241,12 @@ def conference(conference):
 @app.route('/conference/<conference>/JSON')
 def conference_json(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
-    return jsonify(conference.serialize())
+    return jsonify(conference.to_dict())
 
 @app.route('/conference/<conference>/XML')
 def conference_xml(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
-    return xmlify(conference.serialize())
+    return xmlify(conference.to_dict())
 
 
 
@@ -265,12 +265,12 @@ def team(team_name):
 @app.route('/team/<team_name>/JSON')
 def team_json(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
-    return jsonify(team.serialize())
+    return jsonify(team.to_dict())
 
 @app.route('/team/<team_name>/XML')
 def team_xml(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
-    return xmlify(team.serialize())
+    return xmlify(team.to_dict())
 
 
 
@@ -370,12 +370,12 @@ def sell_tickets(game_id):
 @app.route('/game/<int:game_id>/JSON')
 def game_json(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
-    return jsonify(game.serialize())
+    return jsonify(game.to_dict())
 
 @app.route('/game/<int:game_id>/XML')
 def game_xml(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
-    return xmlify(game.serialize())
+    return xmlify(game.to_dict())
 
 
 
@@ -400,12 +400,12 @@ def ticket_lot(item_id):
 @app.route('/tickets/<int:item_id>/JSON')
 def ticket_lot_json(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
-    return jsonify(ticket_lot.serialize())
+    return jsonify(ticket_lot.to_dict())
 
 @app.route('/tickets/<int:item_id>/XML')
 def ticket_lot_xml(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
-    return xmlify(ticket_lot.serialize())
+    return xmlify(ticket_lot.to_dict())
 
 
 
@@ -551,12 +551,12 @@ def user(user_id):
 @app.route('/users/<int:user_id>/JSON')
 def user_json(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
-    return jsonify(user.serialize())
+    return jsonify(user.to_dict())
 
 @app.route('/users/<int:user_id>/XML')
 def user_xml(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
-    return xmlify(user.serialize())
+    return xmlify(user.to_dict())
 
 
 

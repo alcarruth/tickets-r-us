@@ -1,47 +1,34 @@
 
 from options import engine_type
+from subprocess import check_output
+import sys
 
-try:
-    import dict2xml
-    print 'dict2xml version %s' % 'unknown'
-except:
-    print 'dict2xml not installed'
+fmt_str = '%s: %s'
 
-try:
-    import flask
-    print 'flask version %s' % flask.__version__
-except:
-    print 'flask not installed'
+deps = {
+    'oauth2client': '__version__',
+    'werkzeug': '__version__',
+    'dict2xml': '',
+    'flask': '__version__',
+    'sqlalchemy': '__version__',
+    'sqlite3': 'version', 
+    'psycopg2': '__version__'
+} 
+ 
 
-try:
-    import sqlalchemy
-    print 'sqlalchemy version %s' % sqlalchemy.__version__
-except:
-    print 'sqlalchemy not installed'
-
-#try: 
-#    import postgresql
-#    print 'postgresql version %s' % postgresql.__version__
-#except:
-#    print 'postgresql not installed'
-
-if engine_type == 'sqlite':
+def check_dep(mod):
     try:
-        import sqlite3
-        print 'sqlite3 version %s' % sqlite3.version
+        m = __import__(mod)
+        print fmt_str % (mod, m.__dict__[deps[mod]])
     except:
-        print 'sqlite3 not installed'
+        print '%s not found' % mod 
 
-if engine_type == 'postgres':
-    #try: 
-    #    import postgresql
-    #    print 'postgresql version %s' % postgresql.__version__
-    #except:
-    #    print 'postgresql not installed'
 
-try: 
-    import psycopg2
-    print 'psycopg2 version: %s' % psycopg2.__version__
-except:
-    print 'psycopg2 not installed'
+if __name__ == '__main__':
 
+
+    print fmt_str % ('python', str.split(sys.version, ' ')[0])
+    print fmt_str % ('postgresql', str.split(check_output(['psql', '--version']).strip(),' ')[2])
+
+    for mod in deps:
+        check_dep(mod)

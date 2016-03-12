@@ -4,28 +4,41 @@
 
 #### Pre-requisites
 
-This project has been developed in a Linux environment and requires
-the following programs to build from scratch:
-
- - one of postgresql or sqlite
- - sqlalchemy
- - flask
-
-Now you can download, build
-and view the website as follows:
+Download the project as follows:
 
 ```
 $ git clone https://github.com/alcarruth/fullstack-p3-item-catalog.git
 $ cd fullstack-p3-item-catalog
 ```
 
-Edit the `options.py` file to suit your situation.  In particular, the variable
-`engine-type` should be set to the db backend of your choice.  The code
-has been tested and seems to work well with postgresql 9.3.11 and with
-whatever sqlite I've got. (what is it?)  Once this is done, rebuild the
-database usint the script `reset_db.sh`.  With the default dummy data
-table sizes, this takes a few seconds and produces something like the 
-following terminal output:
+This project requires a number of supporting modules and has been built
+and tested with the following versions:
+
+ - python: 2.7.6
+ - postgresql: 9.3.11
+ - sqlite3: 2.6.0
+ - psycopg2: 2.4.5
+ - dict2xml
+ - sqlalchemy: 1.0.9
+ - flask: 0.10.1
+ - psycopg2: 2.4.5
+ - werkzeug: 0.11.4
+ - oauth2client: 1.5.2
+
+You can check the availablity of these modules on your system by issuing
+the command
+
+```
+$ python ./requirements.py
+```
+
+Edit the `options.py` file to suit your situation.  In particular, the
+variable `engine-type` should be set to the db backend of your choice.
+The code has been tested and seems to work well with postgresql 9.3.11
+and with sqlite 2.6.0.  Once this is done,
+rebuild the database using the script `reset_db.sh`.  With the default
+dummy data table sizes, this takes a few seconds and produces
+something like the following terminal output:
 
 ```
 $ ./reset_db.sh 
