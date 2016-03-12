@@ -245,5 +245,8 @@ Requirements
   Please look at here for the details.
   https://pip.readthedocs.org/en/1.1/requirements.html
 
+
+
   Status: done.
+  See requirements.txt and stable-req.txt.
 
