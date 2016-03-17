@@ -1,0 +1,1026 @@
+[
+   {
+      "conference": "ACC",
+      "city": "Clemson",
+      "espn_id": "228",
+      "state": "South Carolina",
+      "name": "Clemson",
+      "nickname": "Tigers"
+   },
+   {
+      "conference": "ACC",
+      "city": "Tallahassee",
+      "espn_id": "52",
+      "state": "Florida",
+      "name": "Florida State",
+      "nickname": "Seminoles"
+   },
+   {
+      "conference": "ACC",
+      "city": "Winston-Salem",
+      "espn_id": "154",
+      "state": "North Carolina",
+      "name": "Wake Forest",
+      "nickname": "Demon Deacons"
+   },
+   {
+      "conference": "ACC",
+      "city": "Coral Gables",
+      "espn_id": "2390",
+      "state": "Florida",
+      "name": "Miami",
+      "nickname": "Hurricanes"
+   },
+   {
+      "conference": "ACC",
+      "city": "Chestnut Hill",
+      "espn_id": "103",
+      "state": "Massachusetts",
+      "name": "Boston College",
+      "nickname": "Eagles"
+   },
+   {
+      "conference": "ACC",
+      "city": "Pittsburgh",
+      "espn_id": "221",
+      "state": "Pennsylvania",
+      "name": "Pittsburgh",
+      "nickname": "Panthers"
+   },
+   {
+      "conference": "ACC",
+      "city": "Syracuse",
+      "espn_id": "183",
+      "state": "New York",
+      "name": "Syracuse",
+      "nickname": "Orange"
+   },
+   {
+      "conference": "ACC",
+      "city": "Chapel Hill",
+      "espn_id": "153",
+      "state": "North Carolina",
+      "name": "North Carolina",
+      "nickname": "Tar Heels"
+   },
+   {
+      "conference": "ACC",
+      "city": "Atlanta",
+      "espn_id": "59",
+      "state": "Georgia",
+      "name": "Georgia Tech",
+      "nickname": "Yellow Jackets"
+   },
+   {
+      "conference": "ACC",
+      "city": "Blacksburg",
+      "espn_id": "259",
+      "state": "Virginia",
+      "name": "Virginia Tech",
+      "nickname": "Hokies"
+   },
+   {
+      "conference": "ACC",
+      "city": "Louisville",
+      "espn_id": "97",
+      "state": "Kentucky",
+      "name": "Louisville",
+      "nickname": "Cardinals"
+   },
+   {
+      "conference": "ACC",
+      "city": "Durham",
+      "espn_id": "150",
+      "state": "North Carolina",
+      "name": "Duke",
+      "nickname": "Blue Devils"
+   },
+   {
+      "conference": "ACC",
+      "city": "Charlottesville",
+      "espn_id": "258",
+      "state": "Virginia",
+      "name": "Virginia",
+      "nickname": "Cavaliers"
+   },
+   {
+      "conference": "ACC",
+      "city": "Raleigh",
+      "espn_id": "152",
+      "state": "North Carolina",
+      "name": "NC State",
+      "nickname": "Wolfpack"
+   },
+   {
+      "conference": "Independent",
+      "city": "Provo",
+      "espn_id": "252",
+      "state": "Utah",
+      "name": "BYU",
+      "nickname": "Cougars"
+   },
+   {
+      "conference": "Independent",
+      "city": "West Point",
+      "espn_id": "349",
+      "state": "New York",
+      "name": "Army",
+      "nickname": "Black Knights"
+   },
+   {
+      "conference": "Independent",
+      "city": "South Bend",
+      "espn_id": "87",
+      "state": "Indiana",
+      "name": "Notre Dame",
+      "nickname": "Fighting Irish"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "East Lansing",
+      "espn_id": "127",
+      "state": "Michigan",
+      "name": "Michigan State",
+      "nickname": "Spartans"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "Minneapolis",
+      "espn_id": "135",
+      "state": "Minnesota",
+      "name": "Minnesota",
+      "nickname": "Golden Gophers"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "Urbana-Champaign",
+      "espn_id": "356",
+      "state": "Illinois",
+      "name": "Illinois",
+      "nickname": "Fighting Illini"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "Bloomington",
+      "espn_id": "84",
+      "state": "Indiana",
+      "name": "Indiana",
+      "nickname": "Hoosiers"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "Columbus",
+      "espn_id": "194",
+      "state": "Ohio",
+      "name": "Ohio State",
+      "nickname": "Buckeyes"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "College Park",
+      "espn_id": "120",
+      "state": "Maryland",
+      "name": "Maryland",
+      "nickname": "Terrapins"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "Iowa City",
+      "espn_id": "2294",
+      "state": "Iowa",
+      "name": "Iowa",
+      "nickname": "Hawkeyes"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "Ann Arbor",
+      "espn_id": "130",
+      "state": "Michigan",
+      "name": "Michigan",
+      "nickname": "Wolverines"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "Evanston",
+      "espn_id": "77",
+      "state": "Illinois",
+      "name": "Northwestern",
+      "nickname": "Wildcats"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "West Lafayette",
+      "espn_id": "2509",
+      "state": "Indiana",
+      "name": "Purdue",
+      "nickname": "Boilermakers"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "Piscataway",
+      "espn_id": "164",
+      "state": "New Jersey",
+      "name": "Rutgers",
+      "nickname": "Scarlet Knights"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "State College",
+      "espn_id": "213",
+      "state": "Pennsylvania",
+      "name": "Penn State",
+      "nickname": "Nittany Lions"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "Lincoln",
+      "espn_id": "158",
+      "state": "Nebraska",
+      "name": "Nebraska",
+      "nickname": "Cornhuskers"
+   },
+   {
+      "conference": "Big Ten",
+      "city": "Madison",
+      "espn_id": "275",
+      "state": "Wisconsin",
+      "name": "Wisconsin",
+      "nickname": "Badgers"
+   },
+   {
+      "conference": "Pac-12",
+      "city": "Seattle",
+      "espn_id": "264",
+      "state": "Washington",
+      "name": "Washington",
+      "nickname": "Huskies"
+   },
+   {
+      "conference": "Pac-12",
+      "city": "Tucson",
+      "espn_id": "12",
+      "state": "Arizona",
+      "name": "Arizona",
+      "nickname": "Wildcats"
+   },
+   {
+      "conference": "Pac-12",
+      "city": "Eugene",
+      "espn_id": "2483",
+      "state": "Oregon",
+      "name": "Oregon",
+      "nickname": "Ducks"
+   },
+   {
+      "conference": "Pac-12",
+      "city": "Pullman",
+      "espn_id": "265",
+      "state": "Washington",
+      "name": "Washington State",
+      "nickname": "Cougars"
+   },
+   {
+      "conference": "Pac-12",
+      "city": "Corvallis",
+      "espn_id": "204",
+      "state": "Oregon",
+      "name": "Oregon State",
+      "nickname": "Beavers"
+   },
+   {
+      "conference": "Pac-12",
+      "city": "Berkeley",
+      "espn_id": "25",
+      "state": "California",
+      "name": "California",
+      "nickname": "Golden Bears"
+   },
+   {
+      "conference": "Pac-12",
+      "city": "Boulder",
+      "espn_id": "38",
+      "state": "Colorado",
+      "name": "Colorado",
+      "nickname": "Buffaloes"
+   },
+   {
+      "conference": "Pac-12",
+      "city": "Los Angeles",
+      "espn_id": "26",
+      "state": "California",
+      "name": "UCLA",
+      "nickname": "Bruins"
+   },
+   {
+      "conference": "Pac-12",
+      "city": "Los Angeles",
+      "espn_id": "30",
+      "state": "California",
+      "name": "USC",
+      "nickname": "Trojans"
+   },
+   {
+      "conference": "Pac-12",
+      "city": "Salt Lake City",
+      "espn_id": "254",
+      "state": "Utah",
+      "name": "Utah",
+      "nickname": "Utes"
+   },
+   {
+      "conference": "Pac-12",
+      "city": "Tempe",
+      "espn_id": "9",
+      "state": "Arizona",
+      "name": "Arizona State",
+      "nickname": "Sun Devils"
+   },
+   {
+      "conference": "Pac-12",
+      "city": "Stanford",
+      "espn_id": "24",
+      "state": "California",
+      "name": "Stanford",
+      "nickname": "Cardinal"
+   },
+   {
+      "conference": "C-USA",
+      "city": "El Paso",
+      "espn_id": "2638",
+      "state": "Texas",
+      "name": "UTEP",
+      "nickname": "Miners"
+   },
+   {
+      "conference": "C-USA",
+      "city": "Miami",
+      "espn_id": "2229",
+      "state": "Florida",
+      "name": "FIU",
+      "nickname": "Panthers"
+   },
+   {
+      "conference": "C-USA",
+      "city": "Charlotte",
+      "espn_id": "2429",
+      "state": "North Carolina",
+      "name": "Charlotte",
+      "nickname": "49ers"
+   },
+   {
+      "conference": "C-USA",
+      "city": "Boca Raton",
+      "espn_id": "2226",
+      "state": "Florida",
+      "name": "Florida Atlantic",
+      "nickname": "Owls"
+   },
+   {
+      "conference": "C-USA",
+      "city": "Houston",
+      "espn_id": "242",
+      "state": "Texas",
+      "name": "Rice",
+      "nickname": "Owls"
+   },
+   {
+      "conference": "C-USA",
+      "city": "Murfreesboro",
+      "espn_id": "2393",
+      "state": "Tennessee",
+      "name": "Middle Tennessee",
+      "nickname": "Blue Raiders"
+   },
+   {
+      "conference": "C-USA",
+      "city": "Ruston",
+      "espn_id": "2348",
+      "state": "Louisiana",
+      "name": "Louisiana Tech",
+      "nickname": "Bulldogs"
+   },
+   {
+      "conference": "C-USA",
+      "city": "Hattiesburg",
+      "espn_id": "2572",
+      "state": "Mississippi",
+      "name": "Southern Mississippi",
+      "nickname": "Golden Eagles"
+   },
+   {
+      "conference": "C-USA",
+      "city": "Norfolk",
+      "espn_id": "295",
+      "state": "Virginia",
+      "name": "Old Dominion",
+      "nickname": "Monarchs"
+   },
+   {
+      "conference": "C-USA",
+      "city": "Huntington",
+      "espn_id": "276",
+      "state": "West Virginia",
+      "name": "Marshall",
+      "nickname": "Thundering Herd"
+   },
+   {
+      "conference": "C-USA",
+      "city": "Denton",
+      "espn_id": "249",
+      "state": "Texas",
+      "name": "North Texas",
+      "nickname": "Mean Green"
+   },
+   {
+      "conference": "C-USA",
+      "city": "San Antonio",
+      "espn_id": "2636",
+      "state": "Texas",
+      "name": "UTSA",
+      "nickname": "Roadrunners"
+   },
+   {
+      "conference": "C-USA",
+      "city": "Bowling Green",
+      "espn_id": "98",
+      "state": "Kentucky",
+      "name": "Western Kentucky",
+      "nickname": "Hilltoppers"
+   },
+   {
+      "conference": "MAC",
+      "city": "Kent",
+      "espn_id": "2309",
+      "state": "Ohio",
+      "name": "Kent State",
+      "nickname": "Golden Flashes"
+   },
+   {
+      "conference": "MAC",
+      "city": "Toledo",
+      "espn_id": "2649",
+      "state": "Ohio",
+      "name": "Toledo",
+      "nickname": "Rockets"
+   },
+   {
+      "conference": "MAC",
+      "city": "Mount Pleasant",
+      "espn_id": "2117",
+      "state": "Michigan",
+      "name": "Central Michigan",
+      "nickname": "Chippewas"
+   },
+   {
+      "conference": "MAC",
+      "city": "Oxford",
+      "espn_id": "193",
+      "state": "Ohio",
+      "name": "Miami OH",
+      "nickname": "RedHawks"
+   },
+   {
+      "conference": "MAC",
+      "city": "DeKalb",
+      "espn_id": "2459",
+      "state": "Illinois",
+      "name": "Northern Illinois",
+      "nickname": "Huskies"
+   },
+   {
+      "conference": "MAC",
+      "city": "Amherst",
+      "espn_id": "113",
+      "state": "Massachusetts",
+      "name": "Massachusetts",
+      "nickname": "Minutemen"
+   },
+   {
+      "conference": "MAC",
+      "city": "Athens",
+      "espn_id": "195",
+      "state": "Ohio",
+      "name": "Ohio",
+      "nickname": "Bobcats"
+   },
+   {
+      "conference": "MAC",
+      "city": "Buffalo",
+      "espn_id": "2084",
+      "state": "New York",
+      "name": "Buffalo",
+      "nickname": "Bulls"
+   },
+   {
+      "conference": "MAC",
+      "city": "Akron",
+      "espn_id": "2006",
+      "state": "Ohio",
+      "name": "Akron",
+      "nickname": "Zips"
+   },
+   {
+      "conference": "MAC",
+      "city": "Muncie",
+      "espn_id": "2050",
+      "state": "Indiana",
+      "name": "Ball State",
+      "nickname": "Cardinals"
+   },
+   {
+      "conference": "MAC",
+      "city": "Bowling Green",
+      "espn_id": "189",
+      "state": "Ohio",
+      "name": "Bowling Green",
+      "nickname": "Falcons"
+   },
+   {
+      "conference": "MAC",
+      "city": "Ypsilanti",
+      "espn_id": "2199",
+      "state": "Michigan",
+      "name": "Eastern Michigan",
+      "nickname": "Eagles"
+   },
+   {
+      "conference": "MAC",
+      "city": "Kalamazoo",
+      "espn_id": "2711",
+      "state": "Michigan",
+      "name": "Western Michigan",
+      "nickname": "Broncos"
+   },
+   {
+      "conference": "American",
+      "city": "Tulsa",
+      "espn_id": "202",
+      "state": "Oklahoma",
+      "name": "Tulsa",
+      "nickname": "Golden Hurricane"
+   },
+   {
+      "conference": "American",
+      "city": "Storrs",
+      "espn_id": "41",
+      "state": "Connecticut",
+      "name": "Connecticut",
+      "nickname": "Huskies"
+   },
+   {
+      "conference": "American",
+      "city": "New Orleans",
+      "espn_id": "2655",
+      "state": "Louisiana",
+      "name": "Tulane",
+      "nickname": "Green Wave"
+   },
+   {
+      "conference": "American",
+      "city": "Cincinnati",
+      "espn_id": "2132",
+      "state": "Ohio",
+      "name": "Cincinnati",
+      "nickname": "Bearcats"
+   },
+   {
+      "conference": "American",
+      "city": "Tampa",
+      "espn_id": "58",
+      "state": "Florida",
+      "name": "South Florida",
+      "nickname": "Bulls"
+   },
+   {
+      "conference": "American",
+      "city": "Greenville",
+      "espn_id": "151",
+      "state": "North Carolina",
+      "name": "East Carolina",
+      "nickname": "Pirates"
+   },
+   {
+      "conference": "American",
+      "city": "Annapolis",
+      "espn_id": "2426",
+      "state": "Maryland",
+      "name": "Navy",
+      "nickname": "Midshipmen"
+   },
+   {
+      "conference": "American",
+      "city": "University Park",
+      "espn_id": "2567",
+      "state": "Texas",
+      "name": "SMU",
+      "nickname": "Mustangs"
+   },
+   {
+      "conference": "American",
+      "city": "Philadelphia",
+      "espn_id": "218",
+      "state": "Pennsylvania",
+      "name": "Temple",
+      "nickname": "Owls"
+   },
+   {
+      "conference": "American",
+      "city": "Memphis",
+      "espn_id": "235",
+      "state": "Tennessee",
+      "name": "Memphis",
+      "nickname": "Tigers"
+   },
+   {
+      "conference": "American",
+      "city": "Orlando",
+      "espn_id": "2116",
+      "state": "Florida",
+      "name": "UCF",
+      "nickname": "Knights"
+   },
+   {
+      "conference": "American",
+      "city": "Houston",
+      "espn_id": "248",
+      "state": "Texas",
+      "name": "Houston",
+      "nickname": "Cougars"
+   },
+   {
+      "conference": "SEC",
+      "city": "Oxford",
+      "espn_id": "145",
+      "state": "Mississippi",
+      "name": "Ole Miss",
+      "nickname": "Rebels"
+   },
+   {
+      "conference": "SEC",
+      "city": "Columbia",
+      "espn_id": "142",
+      "state": "Missouri",
+      "name": "Missouri",
+      "nickname": "Tigers"
+   },
+   {
+      "conference": "SEC",
+      "city": "Baton Rouge",
+      "espn_id": "99",
+      "state": "Louisiana",
+      "name": "LSU",
+      "nickname": "Tigers"
+   },
+   {
+      "conference": "SEC",
+      "city": "Gainesville",
+      "espn_id": "57",
+      "state": "Florida",
+      "name": "Florida",
+      "nickname": "Gators"
+   },
+   {
+      "conference": "SEC",
+      "city": "Fayetteville",
+      "espn_id": "8",
+      "state": "Arkansas",
+      "name": "Arkansas",
+      "nickname": "Razorbacks"
+   },
+   {
+      "conference": "SEC",
+      "city": "Nashville",
+      "espn_id": "238",
+      "state": "Tennessee",
+      "name": "Vanderbilt",
+      "nickname": "Commodores"
+   },
+   {
+      "conference": "SEC",
+      "city": "Athens",
+      "espn_id": "61",
+      "state": "Georgia",
+      "name": "Georgia",
+      "nickname": "Bulldogs"
+   },
+   {
+      "conference": "SEC",
+      "city": "Starkville",
+      "espn_id": "344",
+      "state": "Mississippi",
+      "name": "Mississippi State",
+      "nickname": "Bulldogs"
+   },
+   {
+      "conference": "SEC",
+      "city": "Auburn",
+      "espn_id": "2",
+      "state": "Alabama",
+      "name": "Auburn",
+      "nickname": "Tigers"
+   },
+   {
+      "conference": "SEC",
+      "city": "College Station",
+      "espn_id": "245",
+      "state": "Texas",
+      "name": "Texas A&M",
+      "nickname": "Aggies"
+   },
+   {
+      "conference": "SEC",
+      "city": "Columbia",
+      "espn_id": "2579",
+      "state": "South Carolina",
+      "name": "South Carolina",
+      "nickname": "Gamecocks"
+   },
+   {
+      "conference": "SEC",
+      "city": "Lexington",
+      "espn_id": "96",
+      "state": "Kentucky",
+      "name": "Kentucky",
+      "nickname": "Wildcats"
+   },
+   {
+      "conference": "SEC",
+      "city": "Tuscaloosa",
+      "espn_id": "333",
+      "state": "Alabama",
+      "name": "Alabama",
+      "nickname": "Crimson Tide"
+   },
+   {
+      "conference": "SEC",
+      "city": "Knoxville",
+      "espn_id": "2633",
+      "state": "Tennessee",
+      "name": "Tennessee",
+      "nickname": "Volunteers"
+   },
+   {
+      "conference": "Big 12",
+      "city": "Austin",
+      "espn_id": "251",
+      "state": "Texas",
+      "name": "Texas",
+      "nickname": "Longhorns"
+   },
+   {
+      "conference": "Big 12",
+      "city": "Lawrence",
+      "espn_id": "2305",
+      "state": "Kansas",
+      "name": "Kansas",
+      "nickname": "Jayhawks"
+   },
+   {
+      "conference": "Big 12",
+      "city": "Morgantown",
+      "espn_id": "277",
+      "state": "West Virginia",
+      "name": "West Virginia",
+      "nickname": "Mountaineers"
+   },
+   {
+      "conference": "Big 12",
+      "city": "Norman",
+      "espn_id": "201",
+      "state": "Oklahoma",
+      "name": "Oklahoma",
+      "nickname": "Sooners"
+   },
+   {
+      "conference": "Big 12",
+      "city": "Fort Worth",
+      "espn_id": "2628",
+      "state": "Texas",
+      "name": "TCU",
+      "nickname": "Horned Frogs"
+   },
+   {
+      "conference": "Big 12",
+      "city": "Waco",
+      "espn_id": "239",
+      "state": "Texas",
+      "name": "Baylor",
+      "nickname": "Bears"
+   },
+   {
+      "conference": "Big 12",
+      "city": "Ames",
+      "espn_id": "66",
+      "state": "Iowa",
+      "name": "Iowa State",
+      "nickname": "Cyclones"
+   },
+   {
+      "conference": "Big 12",
+      "city": "Stillwater",
+      "espn_id": "197",
+      "state": "Oklahoma",
+      "name": "Oklahoma State",
+      "nickname": "Cowboys"
+   },
+   {
+      "conference": "Big 12",
+      "city": "Manhattan",
+      "espn_id": "2306",
+      "state": "Kansas",
+      "name": "Kansas State",
+      "nickname": "Wildcats"
+   },
+   {
+      "conference": "Big 12",
+      "city": "Lubbock",
+      "espn_id": "2641",
+      "state": "Texas",
+      "name": "Texas Tech",
+      "nickname": "Red Raiders"
+   },
+   {
+      "conference": "Mountain West",
+      "city": "San Diego",
+      "espn_id": "21",
+      "state": "California",
+      "name": "San Diego State",
+      "nickname": "Aztecs"
+   },
+   {
+      "conference": "Mountain West",
+      "city": "San Jose",
+      "espn_id": "23",
+      "state": "California",
+      "name": "San Jose State",
+      "nickname": "Spartans"
+   },
+   {
+      "conference": "Mountain West",
+      "city": "Logan",
+      "espn_id": "328",
+      "state": "Utah",
+      "name": "Utah State",
+      "nickname": "Aggies"
+   },
+   {
+      "conference": "Mountain West",
+      "city": "Colorado Springs",
+      "espn_id": "2005",
+      "state": "Colorado",
+      "name": "Air Force",
+      "nickname": "Falcons"
+   },
+   {
+      "conference": "Mountain West",
+      "city": "Fort Collins",
+      "espn_id": "36",
+      "state": "Colorado",
+      "name": "Colorado State",
+      "nickname": "Rams"
+   },
+   {
+      "conference": "Mountain West",
+      "city": "Albuquerque",
+      "espn_id": "167",
+      "state": "New Mexico",
+      "name": "New Mexico",
+      "nickname": "Lobos"
+   },
+   {
+      "conference": "Mountain West",
+      "city": "Reno",
+      "espn_id": "2440",
+      "state": "Nevada",
+      "name": "Nevada",
+      "nickname": "Wolf Pack"
+   },
+   {
+      "conference": "Mountain West",
+      "city": "Boise",
+      "espn_id": "68",
+      "state": "Idaho",
+      "name": "Boise State",
+      "nickname": "Broncos"
+   },
+   {
+      "conference": "Mountain West",
+      "city": "Las Vegas",
+      "espn_id": "2439",
+      "state": "Nevada",
+      "name": "UNLV",
+      "nickname": "Rebels"
+   },
+   {
+      "conference": "Mountain West",
+      "city": "Laramie",
+      "espn_id": "2751",
+      "state": "Wyoming",
+      "name": "Wyoming",
+      "nickname": "Cowboys"
+   },
+   {
+      "conference": "Mountain West",
+      "city": "Honolulu",
+      "espn_id": "62",
+      "state": "Hawaii",
+      "name": "Hawaii",
+      "nickname": "Rainbow Warriors"
+   },
+   {
+      "conference": "Mountain West",
+      "city": "Fresno",
+      "espn_id": "278",
+      "state": "California",
+      "name": "Fresno State",
+      "nickname": "Bulldogs"
+   },
+   {
+      "conference": "Sun Belt",
+      "city": "Atlanta",
+      "espn_id": "2247",
+      "state": "Georgia",
+      "name": "Georgia State",
+      "nickname": "Panthers"
+   },
+   {
+      "conference": "Sun Belt",
+      "city": "Jonesboro",
+      "espn_id": "2032",
+      "state": "Arkansas",
+      "name": "Arkansas State",
+      "nickname": "Red Wolves"
+   },
+   {
+      "conference": "Sun Belt",
+      "city": "Monroe",
+      "espn_id": "2433",
+      "state": "Louisiana",
+      "name": "Louisiana Monroe",
+      "nickname": "Warhawks"
+   },
+   {
+      "conference": "Sun Belt",
+      "city": "Boone",
+      "espn_id": "2026",
+      "state": "North Carolina",
+      "name": "Appalachian State",
+      "nickname": "Mountaineers"
+   },
+   {
+      "conference": "Sun Belt",
+      "city": "Troy",
+      "espn_id": "2653",
+      "state": "Alabama",
+      "name": "Troy",
+      "nickname": "Trojans"
+   },
+   {
+      "conference": "Sun Belt",
+      "city": "Mobile",
+      "espn_id": "6",
+      "state": "Alabama",
+      "name": "South Alabama",
+      "nickname": "Jaguars"
+   },
+   {
+      "conference": "Sun Belt",
+      "city": "San Marcos",
+      "espn_id": "326",
+      "state": "Texas",
+      "name": "Texas State",
+      "nickname": "Bobcats"
+   },
+   {
+      "conference": "Sun Belt",
+      "city": "Moscow",
+      "espn_id": "70",
+      "state": "Idaho",
+      "name": "Idaho",
+      "nickname": "Vandals"
+   },
+   {
+      "conference": "Sun Belt",
+      "city": "Lafayette",
+      "espn_id": "309",
+      "state": "Louisiana",
+      "name": "Louisiana Lafayette",
+      "nickname": "Ragin' Cajuns"
+   },
+   {
+      "conference": "Sun Belt",
+      "city": "Statesboro",
+      "espn_id": "290",
+      "state": "Georgia",
+      "name": "Georgia Southern",
+      "nickname": "Eagles"
+   },
+   {
+      "conference": "Sun Belt",
+      "city": "Las Cruces",
+      "espn_id": "166",
+      "state": "New Mexico",
+      "name": "New Mexico State",
+      "nickname": "Aggies"
+   }
+]
