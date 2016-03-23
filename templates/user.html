@@ -24,7 +24,7 @@
                         <td class="seats"> {{ticket_lot.seats_str()}} </td>
                         <td class="price"> ${{ticket_lot.price}} </td>
                         <td class="view-button">
-                            <a class="ticket-lot-a" href="/tickets/{{ticket_lot.id}}">
+                            <a class="ticket-lot-a" href="{{ url_for('ticket_lot', item_id=ticket_lot.id) }}">
                                 <button> View Tickets </button>
                             </a>
                         </td>

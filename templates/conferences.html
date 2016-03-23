@@ -6,12 +6,12 @@
         {% for conference in conferences %}
 
         <div class="conference-box">
-            <a class="conference-a" href="/conference/{{conference.abbrev_name}}">
+            <a class="conference-a" href="{{ url_for('conference', conference=conference.abbrev_name) }}">
 
                 <h3> {{conference.name}} </h3>
                 <p>
                     {% for team in conference.teams %}
-                    <img class="team-logo-img" src="/{{team.logo}}">
+                    <img class="team-logo-img" src="{{ url_for("static", filename=team.logo) }}">
                     <span class="team-name-span"> {{team.name}} {{team.nickname}} </span> <br>
                     {% endfor %}
                 </p>

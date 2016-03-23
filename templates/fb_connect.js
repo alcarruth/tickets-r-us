@@ -32,7 +32,8 @@ function sendTokenToServer() {
         console.log('Successful login for: ' + response.name);
         $.ajax({
             type: 'POST',
-            url: '/connect/facebook/{{STATE}}',
+            url: '{{ url_for('connect', provider='facebook', state=STATE) }}',
+            //_csrf_token: '{{csrf_token()}}',
             processData: false,
             data: access_token,
             contentType: 'application/octet-stream; charset=utf-8',

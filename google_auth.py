@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
- 
+
 # See google developer console for Tickets'R'Us
 # https://console.cloud.google.com/apis/credentials?project=tickets-r-us
  

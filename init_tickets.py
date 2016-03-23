@@ -17,7 +17,7 @@ from tickets import DBSession, startup_info
 from options import year, number_of_games, number_of_users, number_of_ticket_lots
 
 def team_logo(team):
-    logo = "static/images/team_logos/" + team['name'] + '_' + team['nickname'] + '.png'
+    logo = "/images/team_logos/" + team['name'] + '_' + team['nickname'] + '.png'
     logo = logo.replace(' ','_').lower()
     return logo
 

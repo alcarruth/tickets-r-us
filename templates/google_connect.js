@@ -4,7 +4,7 @@ function signInCallback(authResult) {
 
         $.ajax({
             type: 'POST',
-            url: '/connect/google/{{STATE}}',
+            url: '{{ url_for('connect', provider='google', state=STATE) }}',
             //_csrf_token: '{{csrf_token()}}',
             processData: false,
             data: authResult['code'],
@@ -13,7 +13,7 @@ function signInCallback(authResult) {
 
                 // Handle or verify the server response if necessary.
                 if (result) {
-                    window.location.href = "{{redirect_url}}";
+                    window.location.href = "{{ redirect_url }}";
                 } 
                 else if (authResult['error']) {
                     console.log('There was an error: ' + authResult['error']);

@@ -1,7 +1,7 @@
 
         <div id="game-heading">
             <div class="game-team">
-                <img class="team-logo" src="/{{game.visiting_team.logo}}">
+                <img class="team-logo" src="{{ url_for('static', filename=game.visiting_team.logo) }}">
                 {{game.visiting_team.name}}
                 <!-- {{game.visiting_team.nickname}} -->
             </div>
@@ -9,7 +9,7 @@
                 at
             </div>
             <div class="game-team">
-                <img class="team-logo" src="/{{game.home_team.logo}}">
+                <img class="team-logo" src="{{ url_for('static', filename=game.home_team.logo) }}">
                 {{game.home_team.name}}
                 <!-- {{game.home_team.nickname}} -->
             </div>

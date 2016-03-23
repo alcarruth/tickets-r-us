@@ -5,23 +5,10 @@
     <meta charset="UTF-8">
     <title> {{title}} </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style/tickets.css') }}">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"> </script>
     {% if google_sign_in %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"> </script>
     <script src="//apis.google.com/js/platform.js?onload=start"> </script>
     {% endif %}  
-    <script>
-    //  https://gist.github.com/alanhamlett/6316427
-    $.ajaxSetup({
-        beforeSend: function(xhr, settings) {
-            if (settings.type == 'POST' || settings.type == 'PUT' || settings.type == 'DELETE') {
-                if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
-                    // Only send the token to relative URLs i.e. locally.
-                    xhr.setRequestHeader("X-CSRFToken", '{{csrf_token()}}' );
-                }
-            }
-        }
-    });
-    </script>
 </head>
 
 <body>
@@ -32,7 +19,7 @@
 
         <div id="header-title-div">
             <h1 id="header-title-h1">
-                <a id="title-a" href="{{url_for('conferences')}}"> Tickets 'R' Us </a>
+                <a id="title-a" href="{{ url_for('conferences') }}"> Tickets 'R' Us </a>
             </h1>
             <p>
                 Buy and Sell College Football Tickets!
@@ -41,13 +28,13 @@
 
         <div id="header-login-div">
             {% if 'username' not in login_session %}
-            <a class="header-login-a" href="{{url_for('login')}}">
+            <a class="header-login-a" href="{{ url_for('login') }}">
                 <button> Login </button>
             </a>
             {% else %}
-            <a class="header-login-a" href="{{url_for('user', user_id=login_session['user_id'])}}">
+            <a class="header-login-a" href="{{ url_for('user', user_id=login_session['user_id']) }}">
                 {{login_session['username']}} </a>
-            <a class="header-login-a" href="{{url_for('disconnect')}}"> 
+            <a class="header-login-a" href="{{ url_for('disconnect') }}"> 
                 <button> Logout </button>
             </a>
             {% endif %}

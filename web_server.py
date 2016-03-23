@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Flask libraries
-from flask import Flask, render_template, request, redirect, Markup, Response
+from flask import Flask, render_template, request, redirect, Markup
 from flask import jsonify, url_for, flash, make_response
 from flask import session as login_session
 from flask.ext.seasurf import SeaSurf
@@ -161,7 +161,8 @@ def login():
     ))
 
     # Google login
-    google_app_id = "123296537254-thk0g1ciqscu3itopc5e8q8q6nps6iob.apps.googleusercontent.com"    
+    # zeus.armazilla.net
+    google_app_id = "123296537254-p2ogejugvienht07j20rnnok2ov5f277.apps.googleusercontent.com"
     google_connect_js = Markup(render_template(
         'google_connect.js',
         STATE = state,
@@ -177,8 +178,8 @@ def login():
         login_session = login_session
     )
 
-#@csrf.exempt
-@app.route('/connect/<path:provider>/<path:state>', methods=['POST'])
+@csrf.exempt
+@app.route('/connect/<provider>/<state>', methods=['POST'])
 def connect(provider, state):
 
     try:
@@ -190,7 +191,7 @@ def connect(provider, state):
 
 # logout
 #
-#@csrf.exempt
+@csrf.exempt
 @app.route('/disconnect')
 def disconnect():
 
@@ -232,21 +233,21 @@ def conferences():
 # a page for a single conference
 # it shows the schedules for each team
 #
-@app.route('/conference/<path:conference>')
+@app.route('/conference/<conference>')
 def conference(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     main = Markup(render_template('conference.html', conference=conference))
     return render_template('layout.html', main=main, login_session=login_session)
 
-@app.route('/conference/<path:conference>/JSON')
+@app.route('/conference/<conference>/JSON')
 def conference_json(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     return jsonify(conference.to_dict())
 
-@app.route('/conference/<path:conference>/XML')
+@app.route('/conference/<conference>/XML')
 def conference_xml(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
-    return Response(xmlify(conference.to_dict()), mimetype='text/xml')
+    return xmlify(conference.to_dict())
 
 
 
@@ -257,20 +258,20 @@ def conference_xml(conference):
 # delete it.  It could be used later on to provide more information
 # about a team / school on a new page.
 
-@app.route('/team/<path:team_name>')
+@app.route('/team/<team_name>')
 def team(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return render_template('team.html', team=team)
 
-@app.route('/team/<path:team_name>/JSON')
+@app.route('/team/<team_name>/JSON')
 def team_json(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return jsonify(team.to_dict())
 
-@app.route('/team/<path:team_name>/XML')
+@app.route('/team/<team_name>/XML')
 def team_xml(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
-    return Response(xmlify(team.to_dict()), mimetype='text/xml')
+    return xmlify(team.to_dict())
 
 
 
@@ -375,7 +376,7 @@ def game_json(game_id):
 @app.route('/game/<int:game_id>/XML')
 def game_xml(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
-    return Response(xmlify(game.to_dict()), mimetype='text/xml')
+    return xmlify(game.to_dict())
 
 
 
@@ -387,7 +388,7 @@ def game_xml(game_id):
 # ticket_lot() returns a page showing the group of tickets
 # that are being offered for sale together.
 #
-@app.route('/tickets/<int:item_id>')
+@app.route('/ticket_lot/<int:item_id>')
 def ticket_lot(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
 
@@ -397,12 +398,12 @@ def ticket_lot(item_id):
     main = Markup(render_template('ticket_lot.html', ticket_lot=ticket_lot, login_session=login_session))
     return render_template('layout.html', main=main, login_session=login_session)
 
-@app.route('/tickets/<int:item_id>/JSON')
+@app.route('/ticket_lot/<int:item_id>/JSON')
 def ticket_lot_json(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
     return jsonify(ticket_lot.to_dict())
 
-@app.route('/tickets/<int:item_id>/XML')
+@app.route('/ticket_lot/<int:item_id>/XML')
 def ticket_lot_xml(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
     return xmlify(ticket_lot.to_dict())
@@ -415,7 +416,7 @@ def ticket_lot_xml(item_id):
 # If any of the other stuff is wrong, the ticket_lot can be deleted
 # and replaced.
 
-@app.route('/tickets/<int:item_id>/edit', methods=['GET', 'POST'])
+@app.route('/ticket_lot/<int:item_id>/edit', methods=['GET', 'POST'])
 @check_authentication("You must be logged in to edit tickets!")
 @check_authorization("You cannot edit another user's tickets!", Ticket_Lot, 'ticket_lot')
 def edit_tickets(item_id, item):
@@ -465,7 +466,7 @@ def edit_tickets(item_id, item):
 
 # Delete Tickets
 
-@app.route('/tickets/<int:item_id>/delete', methods=['GET', 'POST'])
+@app.route('/ticket_lot/<int:item_id>/delete', methods=['GET', 'POST'])
 @check_authentication("You must be logged in to delete tickets!")
 @check_authorization("You cannot edit another user's tickets!", Ticket_Lot, 'ticket_lot')
 def delete_tickets(item_id, item):
@@ -501,7 +502,7 @@ def delete_tickets(item_id, item):
 
 # Delete Image
 
-@app.route('/tickets/<int:item_id>/delete_image', methods=['GET', 'POST'])
+@app.route('/ticket_lot/<int:item_id>/delete_image', methods=['GET', 'POST'])
 @check_authentication("You must be logged in to delete ticket image!")
 @check_authorization("You cannot edit another user's ticket image!", Ticket_Lot, 'ticket_lot')
 def delete_image(item_id, item):
@@ -557,10 +558,12 @@ def user_json(user_id):
 @app.route('/users/<int:user_id>/XML')
 def user_xml(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
-    return Response(xmlify(user.to_dict()), mimetype='text/xml')
+    return xmlify(user.to_dict())
 
 
 
+app.secret_key = 'super_secret_key'
+app.debug = True
 
 #---------------------------------------------------------------------------------------------
 # Start the server
@@ -568,6 +571,4 @@ def user_xml(user_id):
 if __name__ == '__main__':
     print startup_info
 
-    app.secret_key = 'super_secret_key'
-    #app.debug = True
     app.run(host='0.0.0.0', port=5000)

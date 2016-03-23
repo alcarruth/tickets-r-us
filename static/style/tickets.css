@@ -34,7 +34,7 @@ body {
     font-weight: bold;
     font-style: italic;
     text-align: center;
-    background-image: url("/static/images/FF8a5Ku_2000_cropped.jpg");
+    background-image: url("/tickets/static/images/FF8a5Ku_2000_cropped.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -47,8 +47,8 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: beginning;
-    width: 90%;
-    max-width: 1000px;
+    width: 94%;
+    max-width: 1200px;
 }
 
 #login-container {
@@ -65,6 +65,7 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+    padding: 30px;
     width: 100%;
 }
 
@@ -155,7 +156,7 @@ div.sub-header {
 .controls-div {
     width: 50%;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     text-align: left;
     padding-left: 20px;
 }
@@ -171,9 +172,11 @@ div.sub-header {
 
 .box {
     border: 1px solid #444;
-    padding: 15px;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 15px;
     margin: 15px;
-    width: 300px;
+    width: 320px;
     text-align: left;
     background-color: #fff;
     opacity: 1.0;
@@ -183,7 +186,7 @@ div.sub-header {
     border: 1px solid #444;
     padding: 15px;
     margin: 15px;
-    width: 300px;
+    width: 320px;
     text-align: left;
     background-color: #fff;
     opacity: 1.0;
