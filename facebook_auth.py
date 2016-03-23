@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# See facebook developer console for Tickets'R'Us
+# https://developers.facebook.com/apps/907786629329598/settings/
+
 # Standard python libraries
 import json, httplib2, requests
 

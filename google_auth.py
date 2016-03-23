@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
  
+# See google developer console for Tickets'R'Us
+# https://console.cloud.google.com/apis/credentials?project=tickets-r-us
+ 
 # Standard python libraries
 import json, httplib2, requests
 
@@ -16,7 +19,10 @@ from tickets import createUser, getUserID
 #------------------------------------------------------------------------------------
 # Google+ Authorization
 
-google_client_secrets_file = 'oauth/google/google_client_secrets.json'
+#google_client_secrets_file = 'oauth/google/linode-01_secrets.json'
+google_client_secrets_file = 'oauth/google/zeus_client_secrets.json'
+#google_client_secrets_file = 'oauth/google/localhost_5000_secrets.json'
+
 f = open(google_client_secrets_file, 'r')
 google_client_secrets = json.load(f)
 f.close()
@@ -52,7 +58,7 @@ class Google_Auth:
             
         # If there was an error in the access token info, abort.
         if result.get('error') is not None:
-            msg = result.get('error')
+            msg = result.get('error') + ' bad access token'
             return gen_response(msg, rc=500)
 
         # Verify that the access token is used for the intended user.
@@ -94,7 +100,7 @@ class Google_Auth:
         self.login_session['user_id'] = user_id
 
         flash("you are now logged in as %s" % self.login_session['username'])
-        return redirect('/conferences')
+        return redirect('/tickets/conferences')
 
     # Logout - Revoke a current user's token and reset their login session
     #
