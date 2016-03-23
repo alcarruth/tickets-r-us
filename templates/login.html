@@ -9,6 +9,18 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"> </script>
     <script src="//apis.google.com/js/platform.js?onload=start"> </script>
     {% endif %}  
+    <script>
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (settings.type == 'POST' || settings.type == 'PUT' || settings.type == 'DELETE') {
+                if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                    // Only send the token to relative URLs i.e. locally.
+                    xhr.setRequestHeader("X-CSRFToken", '{{csrf_token()}}' );
+                }
+            }
+        }
+    });
+    </script>
 </head>
 
 <body>

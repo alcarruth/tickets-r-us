@@ -73,40 +73,26 @@ def get_saturdays(year, n):
 #
 def round_robin_index(n):
     cs = range(n)
+    odd = n%2
+    if odd:
+        n += 1
+        cs.insert(0, -1)
     schedule = []
     for r in range(n-1):
-        for j in range(n/2):
+        for j in range(odd, n/2):
             c = cs[j]
             d = cs[n-j-1]
             schedule.append((c, d, r))
         cs = cs[0:1] + cs[n-1:n] + cs[1:n-1]
     return schedule
 
-# same as above but alternates the order
-# of c and d each round.
-#
-def round_robin_alt(n):
-    cs = range(n)
-    schedule = []
-    alt = False
-    for r in range(n-1):
-        for j in range(n/2):
-            c = cs[j]
-            d = cs[n-j-1]
-            if alt:
-                schedule.append((d, c, r))
-            else:
-                schedule.append((c, d, r))
-        cs = cs[0:1] + cs[n-1:n] + cs[1:n-1]
-        alt = not alt
-    return schedule
-
-
 def schedule_games(teams, dates):
     teams = teams[:]
     random.shuffle(teams)
     print "schecduling %d games" % (len(teams) * len(dates) /2)
-    for (c,d,r) in round_robin_alt(len(teams)):
+    for (c,d,r) in round_robin_index(len(teams)):
+        if r%2:
+            (c,d) = (d,c)
         if r < len(dates):
             session.add( Game(
                 home_team = teams[c],

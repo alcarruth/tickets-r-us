@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Flask libraries
-from flask import Flask, render_template, request, redirect, Markup
+from flask import Flask, render_template, request, redirect, Markup, Response
 from flask import jsonify, url_for, flash, make_response
 from flask import session as login_session
 from flask.ext.seasurf import SeaSurf
@@ -177,8 +177,8 @@ def login():
         login_session = login_session
     )
 
-@csrf.exempt
-@app.route('/connect/<provider>/<state>', methods=['POST'])
+#@csrf.exempt
+@app.route('/connect/<path:provider>/<path:state>', methods=['POST'])
 def connect(provider, state):
 
     try:
@@ -190,7 +190,7 @@ def connect(provider, state):
 
 # logout
 #
-@csrf.exempt
+#@csrf.exempt
 @app.route('/disconnect')
 def disconnect():
 
@@ -232,21 +232,21 @@ def conferences():
 # a page for a single conference
 # it shows the schedules for each team
 #
-@app.route('/conference/<conference>')
+@app.route('/conference/<path:conference>')
 def conference(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     main = Markup(render_template('conference.html', conference=conference))
     return render_template('layout.html', main=main, login_session=login_session)
 
-@app.route('/conference/<conference>/JSON')
+@app.route('/conference/<path:conference>/JSON')
 def conference_json(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     return jsonify(conference.to_dict())
 
-@app.route('/conference/<conference>/XML')
+@app.route('/conference/<path:conference>/XML')
 def conference_xml(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
-    return xmlify(conference.to_dict())
+    return Response(xmlify(conference.to_dict()), mimetype='text/xml')
 
 
 
@@ -257,20 +257,20 @@ def conference_xml(conference):
 # delete it.  It could be used later on to provide more information
 # about a team / school on a new page.
 
-@app.route('/team/<team_name>')
+@app.route('/team/<path:team_name>')
 def team(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return render_template('team.html', team=team)
 
-@app.route('/team/<team_name>/JSON')
+@app.route('/team/<path:team_name>/JSON')
 def team_json(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return jsonify(team.to_dict())
 
-@app.route('/team/<team_name>/XML')
+@app.route('/team/<path:team_name>/XML')
 def team_xml(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
-    return xmlify(team.to_dict())
+    return Response(xmlify(team.to_dict()), mimetype='text/xml')
 
 
 
@@ -375,7 +375,7 @@ def game_json(game_id):
 @app.route('/game/<int:game_id>/XML')
 def game_xml(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
-    return xmlify(game.to_dict())
+    return Response(xmlify(game.to_dict()), mimetype='text/xml')
 
 
 
@@ -557,7 +557,7 @@ def user_json(user_id):
 @app.route('/users/<int:user_id>/XML')
 def user_xml(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
-    return xmlify(user.to_dict())
+    return Response(xmlify(user.to_dict()), mimetype='text/xml')
 
 
 

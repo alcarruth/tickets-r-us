@@ -1,0 +1,342 @@
+
+
+webserver.py
+==============
+
+
+line 34
+
+     AWESOME
+
+     Well done for making use of the flask-seasurf to implement the
+     csrf_token to prevent the cross site request forgeries
+
+
+
+line 130
+
+     AWESOME
+
+     Awesome! This is an impressive work to have the decorator fully used
+     in your code to check User login status Ownership verification.
+
+     Here is a comprehensive explanation regarding to the decorator,
+     please consider to read about it.
+
+     http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/        
+
+
+line 180
+
+     AWESOME
+
+     Well done for this detail. csrf_token is only applicable in the
+     form POST. Google/FB login/logout is out of the form POST, thus
+     csrf.exempt is needed.
+
+
+
+line 235
+
+     SUGGESTION
+
+     As suggested in last review, please consider to make sure that the
+     special character / is handled properly.
+
+
+
+line 249
+
+     SUGGESTION
+
+     It's great effort here to make the XML endpoint - however, the
+     content-type in your response should be explicitly set to
+     text/xml. Please look at here for the details.
+     http://stackoverflow.com/questions/11773348/python-flask-how-to-set-content-type
+
+
+
+line 282
+
+     AWESOME
+
+     Well done for making use of the flask upload to have the ticket
+     images in the local file system.
+
+
+
+
+line 353
+
+     SUGGESTION
+
+     Kindly note that the though you have given a path to the images
+     that user is going to upload, the file has not actually stored in
+     the local file system.
+
+     Please make the following implementation to enhance the file upload:
+
+     - Get the file name that the user is going to upload
+     - Move the file to the destination folder on your server, i.e. images/tickets
+     - Rename the file if necessary
+
+     Please look at here for an example.
+     http://flask.pocoo.org/docs/0.10/patterns/fileuploads/
+
+
+
+line 519
+
+     AWESOME
+
+     Well done for the consideration! Removing the ticket image - once
+     the ticket is deleted.
+
+
+
+
+google_auth.py
+===============
+
+
+line 77
+
+     AWESOME
+
+     Well done! Saving the access_token directly into the
+     login_session to avoid the the potential Oauth2crendentail is not
+     JSON serializable problem has been done correctly.
+
+
+
+line 110
+
+     SUGGESTION
+
+     Please consider to delete the access token and other user
+     information from the login session.
+
+
+
+
+review.txt
+===========
+
+     AWESOME
+
+     Thank you for the log here, great improvement in this submission.
+     You have shown a great effort here! Keep the good work up!
+
+
+
+
+
+Project Review
+================
+
+
+API Endpoints
+--------------
+
+     SPECIFICATION
+
+     Page implements an JSON endpoint with all required content.
+
+     MEETS SPECIFICATION
+
+     Reviewer Comments
+
+     Kindly note that XML endpoint in current submission does not
+     return the response in XML format due to the content-type not
+     setting up correctly.
+
+
+
+
+
+CRUD: Read
+------------
+
+     SPECIFICATION
+
+     Page reads category and item information from a database.
+
+     MEETS SPECIFICATION
+
+     Reviewer Comments
+
+     Great effort in your images implementation by embedding the flask
+     file upload functionality.  However, in the ticket creation
+     process, the image has not been saved on the server side. Please
+     look at the code review section for the details.
+
+
+     Requirements to exceed the specification 
+
+     Page reads category and item information from a database. Student
+     adds an item image field that is read from the database and
+     displayed on the page.
+
+
+
+
+CRUD: Create
+--------------
+
+     SPECIFICATION
+
+     Page includes a form allowing users to add new items to the
+     database table.
+
+     MEETS SPECIFICATION
+
+     SPECIFICATION
+
+     Page correctly processes submitted forms.
+
+
+     MEETS SPECIFICATION
+
+     Reviewer Comments
+
+     Well done for the check_authorization() and
+     check_authentication() implementation and apply to the CRUD
+     operation.
+
+     Requirements to exceed the specification 
+
+     Page correctly processes submitted forms. Student updates the new
+     item form to correctly process the inclusion of item images.
+
+
+CRUD: Update
+--------------
+
+     SPECIFICATION
+
+     Page includes a function to edit/update a current record in the
+     database table.
+
+     MEETS SPECIFICATION
+
+     SPECIFICATION
+
+     Page correctly processes submitted forms.
+
+     MEETS SPECIFICATION
+
+     Reviewer Comments
+
+     If the image is updated, please consider to make the
+     implementation for deleting the original image and replace with
+     the new image.
+
+     Requirements to exceed the specification 
+
+     Page correctly processes submitted forms. Student updates the
+     edit/update item form to correctly process the inclusion of item
+     images.
+
+
+CRUD: Delete
+--------------
+
+     SPECIFICATION
+
+     Page includes a function to delete a current record in the database table.
+
+     EXCEEDS SPECIFICATION
+
+     Reviewer Comments
+
+     Great work here. CSRF_token has been implemented through the
+     flask-seasurf.
+
+     Requirements to exceed the specification 
+
+     Page includes a function to delete a current record. Student
+     researches and implements this function using POST requests and
+     nonces to prevent cross-site request forgeries (CSRF).
+
+
+Authentication & Authorization
+-------------------------------
+
+      SPECIFICATION
+
+      Create, delete and update operations do consider authorization
+      status prior to execution.
+
+      MEETS SPECIFICATION
+
+      Reviewer Comments
+
+      Authorization and Authentication both verified prior to the
+      CRUD execution.
+
+      SPECIFICATION
+
+      Page implements a third-party authentication & authorization
+      service (like Google Accounts or Mozilla Persona) instead of
+      implementing its own, insecure authentication & authorization
+      spec.
+
+      MEETS SPECIFICATION
+
+      SPECIFICATION
+
+      Make sure there is a 'Login' and 'Logout' button/link in the
+      project. The aesthetics of this button/link is up to the
+      discretion of the student.
+
+      MEETS SPECIFICATION
+
+
+Code Quality
+--------------
+
+      SPECIFICATION
+
+      Code is ready for personal review and neatly formatted.
+
+      MEETS SPECIFICATION
+
+      Reviewer Comments
+
+      For further improvement, please look at here for how to
+      organize the flask project more effectively.
+
+
+
+Comments
+---------
+
+      SPECIFICATION
+
+      Comments are present and effectively explain longer code
+      procedures.
+
+      MEETS SPECIFICATION
+
+
+
+Documentation
+--------------
+
+      SPECIFICATION
+
+      A README file is included.
+
+      MEETS SPECIFICATION
+
+      SPECIFICATION
+
+      README file includes details of all the steps required to
+      successfully run the application.
+
+      MEETS SPECIFICATION
+
+      Reviewer Comments
+
+      Well done for the requirements.txt implementation to further
+      align the user's system with the application's requirements.
