@@ -1,0 +1,191 @@
+
+
+/*
+  box-sizing simplifies box arithmetic by including border and
+  padding in the box dimensions
+*/
+
+body, div, ul, li, p, h1, h2, h3, h4, h5, h6, pre, code {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #ddd;
+    width: 100%;
+}
+
+div#main {
+    background-color: #fff;
+    width: 94%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    padding: 40px;
+}
+
+div.instructor_notes {
+    font-size: small;
+    background-color: #ffe;
+    margin-top: 20px;
+    width: 94%; 
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+}
+
+div.indent {
+    padding-left: 30px;
+}
+
+div.inset {
+    color: #a55;
+    background-color: #ffc;
+    font-size: small;
+    font-family: sans-serif;
+    margin-top: 20px;
+    width: 94%; 
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+}
+
+div.example {
+    color: #444;
+    background-color: #fff;
+    font-size: small;
+    font-family: sans-serif;
+    margin-top: 20px;
+    width: 94%; 
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+}
+pre.inset {
+    color: #444;
+    background-color: #eee;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: monospace;
+    margin-top: 20px;
+    width: 94%; 
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+}
+
+p.inset {
+    color: #444;
+    background-color: #fff;
+    font-size: small;
+    font-family: sans-serif;
+    margin-top: 20px;
+    width: 94%; 
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+}
+
+p.instructor_notes {
+    font-weight: bold;
+}
+
+p.cameron {
+    color: #008;
+}
+
+p.ilya {
+    color: #444;
+}
+
+p {
+    margin-top: 10px;
+    width: 94%; 
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 20px;
+}
+
+h3 {
+    color: #294860;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+img {
+    border: 1px solid black;
+    width: 94%; 
+    margin-top: 20px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+ol {
+    margin-top: 5px;
+    margin-left: 3%;
+}
+
+ul {
+    margin-top: 5px;
+    margin-left: 10%;
+}
+
+hr {
+    margin-top: 20px;
+}
+
+table {
+    border: 1px solid black;
+}
+
+span.highlight {
+    background-color: #ffc; /* yellow */
+}
+
+span.hl-yellow {
+    background-color: #ffc; /* yellow */
+}
+
+span.hl-green {
+    background-color: #cfc; /* green */
+}
+
+span.hl-blue {
+    background-color: #cef; /* blue */
+}
+
+span.hl-red {
+    background-color: #fcc; /* red */
+}
+
+span.hl-orange {
+    background-color: # fda; /* orange */
+}
+
+

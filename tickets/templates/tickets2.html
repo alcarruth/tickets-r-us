@@ -1,0 +1,29 @@
+
+<table>
+
+{% for ticket in tickets %}
+
+    {% visitor = ticket.game.visitor %}
+    {% home = ticket.game.home %}
+    {% seat = ticket.seat %}
+
+    <tr class="ticket">
+        <td class="team" class="visiting">
+            <img class="team_logo" src="{{visitor.logo}}">
+            <span class="team_name">
+               {{visitor.name}} 
+               {{visitor.nickname}}
+            </span>
+        </td>
+        <td class="at"> at </td>
+        <td class="team" class="home">
+            <img class="team_logo" src="{{home.logo}}">
+            <span class="team_name">
+                {{home.name}} {{home.nickname}}
+            </span>
+        </td>
+    </tr>
+
+{% endfor %}
+
+</table>

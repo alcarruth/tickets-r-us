@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <title> Fullstack P3 Item Catalog </title>
+    <link rel="stylesheet"  href="style/style.css">
+</head>
+
+<body>
+<div id="main">
+            
+    <h1> Fullstack P3 Item Catalog </h1>
+
+    <h3> Project Description </h3>
+
+    <p>
+        In this project, you will be developing a web application that
+        provides a list of items within a variety of categories and
+        integrate third party user registration and
+        authentication. Authenticated users should have the ability to
+        post, edit, and delete their own items.
+    </p>
+
+    <p>
+        You will be creating this project essentially from scratch, no
+        templates have been provided for you. This means that you have
+        free reign over the HTML, the CSS, and the files that include
+        the application itself utilizing Flask.
+    </p>
+
+    <h3> Project Display Example </h3>
+
+    <p>
+        Note: The screenshots on this page are just examples of one
+        implementation of the minimal functionality. You are
+        encouraged to redesign and strive for even better solutions.
+    </p>
+
+    <p>
+        In this sample project, the homepage displays all current
+        categories with the latest added items.
+    </p>
+
+    <p>
+        <code> <b> http://localhost:8000/ </b> </code>
+    </p>
+
+    <img src="images/home_page.png" alt="home page">
+
+    <p> Selecting a specific category shows you all the items
+        available for that category.
+    </p>
+
+    <p>
+        <code> <b> http://localhost:8000/catalog/Snowboarding/items </b> </code>
+    </p>
+
+    <img src="images/category_page.png" alt="category page">
+
+    <p>
+        Selecting a specific item shows you specific information about
+        that item.
+    </p>
+
+    <p>
+        <code> <b> http://localhost:8000/catalog/Snowboarding/Snowboard </b> </code>
+    </p>
+
+    <img src="images/item_page.png" alt="item page">
+
+    <p>
+        After logging in, a user has the ability to add, update, or
+        delete item information. Users should be able to modify only
+        those items that they themselves have created.
+    </p>
+
+    <p>
+        <code> <b> http://localhost:8000/ </b> </code> (logged in)
+    </p>
+
+    <img src="images/add_item1.png" alt="add_item1">
+
+    <p>
+        <code> <b> http://localhost:8000/catalog/Snowboarding/Snowboard </b> </code> (logged in)
+    </p>
+
+    <img src="images/add_item2.png" alt="add_item2">
+
+    <p>
+        <code> <b> http://localhost:8000/catalog/Snowboard/edit </b> </code> (logged in)
+    </p>
+
+    <img src="images/edit_item.png" alt="edit item">
+
+    <p>
+        <code> <b> http://localhost:8000/catalog/Snowboard/delete </b> </code> (logged in)
+    </p>
+
+    <img src="images/delete_item.png" alt="delete_item">
+
+    <p>
+        The application should provide a JSON endpoint at the very least.
+    </p>
+
+    <p>
+        <code> <b> http://localhost:8000/catalog.json </b> </code>
+    </p>
+
+<pre class="inset">
+{
+    "Category": [
+        {
+            "id": 1,
+            "name": "Soccer",
+            "item": [
+                {
+                    "cat_id": 1,
+                    "description": "The shoes",
+                    "id": 1,
+                    "title": "Soccer Cleats"
+                },
+                {
+                    "cat_id": 1,
+                    "description": "The shirt",
+                    "id": 2,
+                    "title": "Jersey"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Basketball",
+        },
+        {
+            "id": 3,
+            "name": "Baseball",
+            "item": [
+                {
+                    "cat_id": 3,
+                    "description": "The bat",
+                    "id": 3,
+                    "title": "Bat"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Frisbee",
+        },
+        {
+            "id": 5,
+            "name": "Snowboarding",
+            "item": [
+                {
+                    "cat_id": 5,
+                    "description": "Best for any terrain and conditions."
+                    "id": 7,
+                    "title": "Snowboard"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Rock Climbing"
+        }
+    ]
+}
+</pre>
+
+    <h3> Getting Started </h3>
+
+    <p>
+        Before we begin coding, there are several steps that
+        you should take to make sure that you have everything
+        downloaded in order to run your future web
+        application.
+    </p>
+
+    <ol>
+        <li>
+            Install ​Vagrant​ and ​VirtualBox​ if you have not done so
+            already. Instructions on how to do so can be found on the
+            websites as well as​ in the course materials.​
+        </li>
+        <li>
+            Clone the fullstack­nanodegree­vm repository​. There is a
+            catalog folder provided for you, but no files have been
+            included. If a catalog folder does not exist, simply
+            create your own inside of the vagrant folder.
+        </li>
+        <li>
+            Launch the Vagrant VM (by typing ​vagrant up ​in the
+            directory ​ fullstack/vagrant ​from the terminal). You can
+            find further instructions on how to do so ​here​.
+        </li>
+        <li>
+            Write the Flask application locally in the
+            /vagrant/catalog ​ directory (which will automatically be
+            synced to /vagrant/catalog ​ within the VM). Name it
+            application.py.
+        </li>
+        <li>
+            Run your application within the VM by typing ​python
+            /vagrant/catalog/application.py into the Terminal. If you
+            named the file from step 4 as something other than ​
+            application.py ​ , in the above command substitute in the
+            file name on your computer.
+        </li>
+        <li>
+            Access and test your application by visiting ​
+            http://localhost:8000​ locally on your browser.
+        </li>
+    </ol>
+
+    <p>
+        There are four parts that you will need to complete: 
+    </p>
+
+    <ul>
+        <li> the HTML </li>
+        <li> the CSS </li>
+        <li> the Flask Application </li>
+        <li> it must include authentication/authorization </li>
+        <li> the database </li>
+    </ul>
+
+    <h3> Additional Functionality </h3>
+
+    <p>
+        In addition to the basic functions listed above, this project
+        has many opportunities to go above and beyond what is
+        required. Some ways to achieve exceeds specifications are to
+        include the following requirements:
+    </p>
+
+    <p>
+        <b> API Endpoints​: </b> Research and implement additional API
+        endpoints, such as RSS, Atom, or XML. While we do require at
+        the bare minimum a JSON endpoint, we encourage you to research
+        and implement a different endpoint to see what else is out
+        there.
+    </p>
+
+    <p>
+        <b> CRUD: Read​: </b> Add an item image field that is read from
+        the database and displayed on the page. This project is being
+        built from scratch meaning that the information that you
+        include and the layout of the page are entirely up to you. Add
+        pictures for a more vibrant web application!
+    </p>
+
+    <p>
+        <b> CRUD: Create​: </b> Update the new item form to correctly
+        process the inclusion of item images. If you included
+        additional information to include images, there should be a
+        way to include those images when entering in new items into
+        the database.
+    </p>
+
+    <p>
+        <b> CRUD: Update:​ </b> Update the edit/update item form to
+        correctly process the inclusion of item images. Again, to stay
+        consistent with the inclusion of images, items that already
+        exist should have the option of changing the image as well.
+    </p>
+
+    <p>
+        <b> CRUD: Delete:​ </b> Research and implement this function
+        using POST requests and nonces to prevent cross­site request
+        forgeries (CSRF).
+    </p>
+
+    <p>
+        <b> Comments​: </b> Comments are not just a way for you to keep
+        track of what you’re writing in terms of code, but also a
+        great way to help other developers who may be reading your
+        code. While comment preferences may differ from team to team,
+        the general idea is that good comments cover the main purpose
+        of the code, mention inputs and outputs, etc. Check out the
+        comments section of ​ PEP­8​ and the Google Python Style Guide​
+        to get a better idea of good comments.
+    </p>
+
+    <p>
+        These are some points present on the rubric on how to exceed
+        specifications, but there are many other ways to create a
+        project that goes above and beyond to capture the attentions
+        of future employers.  Because this project is created from
+        scratch, feel free to display the website you believe is
+        best. Have fun with the design and the layout.  Go through
+        documentation to see if there are any other features that will
+        cause your website to be more dynamic and efficient. The sky
+        is truly the limit on this project.
+    </p> 
+
+
+    <h3> To Submit </h3>
+
+    <p>
+        Once you have finished your project, go to this link here. If
+        you have a Github account (which we recommend), connect with
+        Github to get started. If you do not have a Github account,
+        follow the instructions here for Mac OS X 10.0 or later, here
+        for Windows 7, 8, or 8.1, or here for anything else. These
+        links will help you create a Github account to submit your
+        project.
+    </p>
+
+    <p>
+        If you run into any trouble, send us an e-mail at
+        fullstack-project@udacity.com, and we will be more than happy
+        to help you.
+    </p>
+
+</div>
+</body>
+</html>
+

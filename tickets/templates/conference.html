@@ -1,0 +1,70 @@
+<!DOCTYPE=html>
+<!--
+ - index.html
+ - 
+ - Author: Al Carruth
+ - Origin: 
+ -
+ - This file is part a project submitted by the author for the
+ - Udacity Full Stack Fundamentals Course
+ - 
+-->
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> {{conference.name}} </title>
+    <link rel="stylesheet" href="/static/style/tickets.css">
+</head>
+
+<body>
+
+    <div id="header">
+        <h1> Tickets 'R' Us </h1>
+    </div>
+
+    <div id="main">
+
+    <div class="sub-header">
+    <h1> {{conference.name}} </h1>
+
+    <p>
+        Schedules by Team <br>
+        Home games in bold
+    </p>
+    </div>
+
+    {% for team in conference.teams %}
+
+    <div class="box">
+
+        <img class="team-logo" src="/{{team.logo}}">
+        <h3 class="team-name"> {{team.name}} {{team.nickname}} </h3>
+
+        <p class="schedule-p">
+            {% for game in team.schedule() %}
+            <a class="game-a" href="/game/{{game.id}}">
+                {% if team == game.home_team %}
+                <span class="schedule-home-span">
+                    <img class="schedule-team-logo" src="/{{game.visiting_team.logo}}">
+                    {{game.visiting_team.name}} <!-- {{game.visiting_team.nickname}} --> 
+                    {{game.date.strftime("%a %b %d")}} <br>
+                </span>
+                {% else %}
+                <span class="schedule-away-span">
+                    <img class="schedule-team-logo" src="/{{game.home_team.logo}}">
+                    {{game.home_team.name}} <!-- {{game.home_team.nickname}} -->
+                    {{game.date.strftime("%a %b %d")}} <br>
+                </span>
+                {% endif %}
+            </a>
+            {% endfor %}
+        </p>
+
+    </div>
+    {% endfor %}
+
+    </div>
+</body>
+
+</html>

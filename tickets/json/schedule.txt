@@ -1,0 +1,54 @@
+
+Looking for patterns
+
+2 teams:
+
+wk1: 01
+
+4 teams:
+
+wk1: 01 23
+wk2: 02 13
+wk3: 03 12
+
+8 teams:
+
+wk1: 01 23 45 67
+wk2: 02 13 46 57
+wk3: 03 12 47 56
+wk4: 04 15 26 37
+wk5: 05 14 27 36
+wk6: 06 17 24 35
+wk7: 07 16 25 34
+
+16 teams:
+
+wk  1:  01 23 45 67  89 ab cd ef 
+wk  2:  02 13 46 57  8a 9b ce df
+wk  3:  03 12 47 56  8b 9a cf de
+wk  4:  04 15 26 37  8c 9d ae bf
+wk  5:  05 14 27 36  8d 9c af be
+wk  6:  06 17 24 35  8e 9f ac bd
+wk  7:  07 16 25 34  8f 9e ad bc
+wk  8:  08 19 2a 3b  4c 5d 6e 7f
+wk  9:  09 18 2b 3a  4d 5c 6f 7e
+wk 10:  0a 1b 28 39  4e 5f 6c 7d
+wk 11:  0b 1a 29 38  4f 5e 6d 7c
+wk 12:  0c 1d 2e 3f  48 59 6a 7b
+wk 13:  0d 1c 2f 3e  49 58 6b 7a
+wk 14:  0e 1f 2c 3d  4a 5b 68 79
+wk 15:  0f 1e 2d 3c  4b 5a 69 78
+
+
+10 teams:
+
+wk  1:  01 23 45 67 89          
+wk  2:  02 13 46 57  8  9       
+wk  3:  03 12 47 56  8  9       
+wk  4:  04 15 26 37  8  9       
+wk  5:  05 14 27 36  8  9       
+wk  6:  06 17 24 35  8  9       
+wk  7:  07 16 25 34  8  9       
+
+see:
+https://en.wikipedia.org/wiki/Round-robin_tournament#Scheduling_algorithm

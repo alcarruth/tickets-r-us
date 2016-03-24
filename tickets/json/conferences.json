@@ -1,0 +1,57 @@
+[
+    {
+        "abbrev_name": "ACC",
+        "name": "Atlantic Coast Conference",
+        "logo": "Atlantic_Coast_Conference.png"
+    },
+    {
+        "abbrev_name": "Big 12",
+        "name": "Big 12 Conference",
+        "logo": "Big_12_Conference.png"
+    },
+    {
+        "abbrev_name": "Big Ten",
+        "name": "Big Ten Conference",
+        "logo": "Big_Ten_Conference.png"
+    },
+    {
+        "abbrev_name": "Pac-12",
+        "name": "Pacific 12 Conference",
+        "logo": "Pacific_12_Conference.png"
+    },
+    {
+        "abbrev_name": "SEC",
+        "name": "Southeastern Conference",
+        "logo": "Southeastern_Conference.png"
+    },
+    {
+        "abbrev_name": "C-USA",
+        "name": "Conference USA",
+        "logo": "Conference_USA.png"
+    },
+    {
+        "abbrev_name": "MAC",
+        "name": "Mid-American Conference",
+        "logo": "Mid-American_Conference.png"
+    },
+    {
+        "abbrev_name": "American",
+        "name": "American Athletic Conference",
+        "logo": "American_Athletic_Conference.png"
+    },
+    {
+        "abbrev_name": "Mountain West",
+        "name": "Mountain West Conference",
+        "logo": "Mountain_West_Conference.png"
+    },
+    {
+        "abbrev_name": "Sun Belt",
+        "name": "Sun Belt Conference",
+        "logo": "Sun_Belt_Conference.png"
+    },
+    {
+        "abbrev_name": "Independent",
+        "name": "Independent",
+        "logo": ""
+    }
+]

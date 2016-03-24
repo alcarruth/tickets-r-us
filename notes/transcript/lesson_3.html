@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <title> Lesson 3 - Developing with Frameworks </title>
+    <link rel="stylesheet"  href="style/transcript.css">
+</head>
+
+<body>
+<div id="main">
+    
+    <h1> Full Stack Foundations </h1>
+
+    <h2> Lesson 3 - Developing with Frameworks </h2>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 1 - Introducing Frameworks and Flask </h3>
+
+    <p>
+        So up to this point, we've created our code almost purely from
+        scratch, using a few internal libraries like HTTP_Base_Server and
+        external libraries like SQL_Alchemy.
+    </p>
+
+    <p>
+        Creating a website from scratch really shows that you have a good
+        grasp of underlying programming concepts and are able to utilize the
+        power of Python, but as we make our website more and more complex,
+        the code becomes repetitive and difficult to maintain.
+    </p>
+
+    <p>
+        Frameworks are collections of code that simplify the web development
+        process.  They take care of repetitive tasks and allow us to focus
+        on the more unique features of our project.  At the moment, some of
+        the most popular frameworks out there are 
+        <a href="https://en.wikipedia.org/wiki/Ruby_on_Rails">
+            Ruby on Rails,</a>
+        <a href="https://en.wikipedia.org/wiki/.NET_Framework">
+            .Net </a> and
+        <a href="https://en.wikipedia.org/wiki/Django_(web_framework)">
+            Django, </a>  but if we take a look at this 
+        <a href="https://en.wikipedia.org/wiki/Comparison_of_web_frameworks">
+            Wikipedia article, </a> we see that there are hundreds of
+        frameworks developers have created to code web applications
+        more efficiently.
+    </p>
+
+    <p>
+        Frameworks may rise and fall in popularity but the same underlying
+        concepts for developing web pages applies for all of these
+        technologies.
+    </p>
+
+    <p>
+        Think of a framework as a box of prepared cake mix.  We could make a
+        cake using all of these items from scratch and would probably have a
+        better understanding of how to make cakes.
+    </p>
+
+    <p>
+        But if we have several cakes to make in a short period of time,
+        finding a good cake mix simplifies the preparation process and helps
+        us focus on other things, like frosting.
+    </p>
+
+    <p>
+        In lesson two you built a website with the raw ingredients of web
+        development.  Now it's time to see how we can use frameworks to
+        improve our development process.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 2 - Lesson 3 Overview </h3>
+
+    <p>
+        In this lesson, you'll create a menu app, using the Flask
+        framework.  I will start by showing you the basic components
+        of a Flask application, with a simple hello world program,
+        which you will then create on your own.
+    </p>
+
+    <p>
+        Then we will connect to our database via SQL Alchemy to view
+        all of the items in each restaurant menu.
+    </p>
+
+    <p>
+        Next, you will learn about templates, and how they allow you
+        to write HTML code, separately from Python code, keeping your
+        application more organized.
+    </p>
+
+    <p>
+        After that, I will introduce a special function in Flask
+        called
+        <code> url_for()</code>, which builds the URLs that you will use to navigate
+        through your new Flask application.
+    </p>
+
+    <p>
+        We will then create forms to capture data from users, and use
+        message flashing to notify the user each time they
+        successfully change information in the database.
+    </p>
+
+    <p>
+        I will discuss a way to use flash to add the option to send
+        JSON messages instead of HTML, and finally, take some time to
+        style our app with some CSS.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 3 - Running Your First Flask Application </h3>
+
+    <p>
+        Let's go ahead and create our first application in Flask.  Create a
+        file name <code> project.py</code> in the same directory as the database 
+        <code> setup.py </code>
+        file.
+    </p>
+    
+<pre class="inset">
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+@app.route('/hello')
+def HelloWorld():
+   return "Hello World"
+
+if __name__ == '__main__':
+   app.debug = True
+   app.run(host = '0.0.0.0', port = 5000)
+</pre>
+
+    <p>
+        A minimal flask application looks something like this.  Let's take a
+        look at this code together and see what's going on.  First, I
+        imported this Flask class from the flask library.
+    </p>
+
+    <p>
+        Next, I create an instance of this class with the name of the
+        running application as the argument.  Any time we run an
+        application in Python, a special variable
+        called <code>__name__</code> gets defined for the application
+        and all of the imports it uses.  The application run by the
+        Python interpreter gets a name variable set
+        to <code>__main__</code>, whereas all the other important
+        Python files get a
+        <code>__name__</code> variable fit to the actual name of the Python file.
+    </p>
+
+    <p>
+        Next, I have this thing that looks like a function, but starts
+        with an at symbol.  This is called a decorator in Python.
+        This decorator essentially wraps our function inside the
+        app.route function, that flask is already created, so if
+        either of these routes get sent from the browser, the function
+        that we define here gets executed.
+    </p>
+
+    <p>
+        If this is difficult to follow, it's okay.  I'll provide a link in
+        the Instructor Notes if you're interested in learning more about
+        decorator functions.  Just know that this @app.route piece of code,
+        will call the function that follows it, whenever the website
+        receives your request with a URL that matches its argument.  So in
+        this case, if we visit the root of the site, or the back slash hello
+        page, this hello world function will be invoked.
+    </p>
+
+    <p>
+        Inside my hello world function, I return the message I want to
+        display to the user's browser.
+    </p>
+
+    <p>
+        Jumping to the last line of our code, I use the run function
+        to run the local server with our application.  The if
+        statement here makes sure the server only runs if the script
+        is executed directly from the python interpreter, and not used
+        as an imported module.  So basically, this line of code says,
+        if you're executing me with a Python interpreter, then do
+        this, but, if you're importing me into another Python file,
+        don't do this.
+    </p>
+
+    <p>
+        But you still have access to the rest of the code.  By
+        default, the server is only accessible from the host machine
+        and not from any other computer.  This is a default, because
+        in debugging mode, a user of the application can execute
+        arbitrary Python code on your computer.
+    </p>
+
+    <p>
+        Since we are using a vagrant environment for this course we
+        must make our server publicly available by changing the call
+        of the run method to look like this.  This tells the web
+        server on my vagrant machine to listen on all public IP
+        addresses.
+    </p>
+
+    <p>
+        Restarting our server each time we make a modification to our
+        code can get pretty annoying, but Flask can take care of this
+        for us.  If you enable debug support, the server will reload
+        itself each time it notices a code change.  It will also
+        provide you a helpful debugger in the browser if things go
+        wrong.
+    </p>
+
+    <p>
+        I'll save this code as <code> project.py</code>, in the same directory as my
+        <code>restaurant.db</code> file, and execute it with the python
+        interpreter.
+    </p>
+
+    <p>
+        Visiting <code>localhost:5000</code>
+        or <code>localhost:5000/hello</code>, I see the output of my
+        code.
+    </p>
+
+    <p>
+        To stop the server, I hit <code>Ctrl+C.</code>
+    </p>
+
+    <p>
+        So we see that with much fewer lines of code, I executed a
+        similar version of our hello world from lesson two.  Notice
+        that with Flask, we don't have to write out response codes
+        anymore.  You will soon see that this is just one of the
+        several features frameworks take care of automatically for the
+        developer.
+    </p>
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+
+        <ul>
+            <li>
+                <a href="http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/">
+                    A quick tutorial on decorators </a> </li>
+            <li>
+                <a href="https://github.com/lobrown/Full-Stack-Foundations/blob/master/Lesson-3/01_First-Flask-App/project.py">
+                    View the code for project.py </a> </li>
+        </ul>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 4 - First Flask App Quiz </h3>
+
+    <p>
+        Take a look again at these routing functions.  Notice that I have
+        two of them here.  What happens if I were to get rid of this
+        <code>@app.route("/")</code> ?  Test this out on your machine and see if you
+        notice any differences.
+    </p>
+
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 5 - First Flask App Quiz </h3>
+
+    <p>
+        The <code>@app.route('\')</code> line takes you to the same
+        page as visiting the <code>@app.route('/hello')</code>.  If this is not
+        present, then we get a File Not Found error on our browser, if
+        we just visit localhost port 5000, making it seem as if a
+        website didn't live at this address.
+    </p>
+
+    <p>
+        Decorators in Python can be stacked one on top of the other, so the
+        <code>@app.route('/')</code> will call
+        the <code>app.route('/hello')</code>, which will call
+        the <code> HelloWorld</code> function.  This is useful for
+        having different URLs all route to the same place.  Try
+        visiting amazon.com and amazon.com/index to see how their
+        server also handles routing different URLs to the same home
+        page
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 6 - Adding Database to Flask Application </h3>
+
+    <p>
+        So now that we have a functioning Flask application, let's bring our
+        CRUD functionality into it.  I will import the code for SQLAlchemy
+        and the database engine in sessionmaker like in Lessons 1 and 2.
+    </p>
+
+    <p>
+        Now I'm going to change my <code>HelloWorld()</code> function such that it performs
+        this following query to grab the first restaurant out of my
+        database, and list out all of the menu items and stored in a string
+        called <code>output</code>.
+    </p>
+
+    <p>
+        I'll also add a break line tag to make my output a bit easier to
+        read.  I will return this output string so that my user sees it from
+        the browser.
+    </p>
+
+    <p>
+        When I save my Python file my flask server instantly refreshes
+        itself, so when I refresh the page I now see all of my menu items
+        listed.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 7 - Adding Database to Flask Application Quiz </h3>
+
+    <p>
+        Try this thing out the menu items with Flask on your own
+        machine and modify the code to list out the price and
+        description for each menu item.  You may want to add a few
+        line breaks to make your output easy to read from within your
+        browser
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 8 - Adding Database to Flask Application Solution </h3>
+
+
+    <p>
+        In order to solve this problem, all I had to do was add 
+        <code> i.price</code> a
+        <code> &lt;br&gt;</code> and <code>i.description</code>,
+        followed by two more <code>&lt;br&gt;</code>s to my output
+        stream.  The solution code for this is available within the
+        instructor notes.
+    </p>
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+
+        <p>
+            <a href="https://github.com/lobrown/Full-Stack-Foundations/blob/master/Lesson-3/02_Adding-Database-to-Flask-Application/project.py"> Adding database to flask application project.py </a>
+        </p>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 9 - Routing </h3>
+
+    <p>
+        Most modern web applications have elegant URLs.  This helps people
+        remember links, which then can be easily bookmarked or shared with
+        others.
+    </p>
+
+    <p>
+        As we saw in previous videos, the route decorator is used to bind
+        the function to a URL, but there is more to it, than just static
+        paths.  We can make certain paths of the URL dynamic, and attach
+        multiple rows to a function.
+    </p>
+
+    <p>
+        To add variables to a URL, I can specify a rule, with type: variable
+        name, where type can be an integer, string, or another path.  I will
+        restructure the code for my menu app as so, and use the restaurant
+        id, to specify which menu I want to see.
+    </p>
+
+    <p>
+        Note that it's handy here to leave this trailing backslash, and Flask
+        when render the page, even when it's not there in the URL.
+    </p>
+
+    <p>
+        I will save my changes, and now when I visit
+        localhost:5000/restaurants/1, I can see my first restaurant menu
+        there.
+    </p>
+
+    <p>
+        If I change the integer after restaurants, I can see my other
+        restaurant menus in the database, as well.
+    </p>
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+        
+        <p>
+            Since the <code> HelloWorld(restaurant_id) </code> didn't make
+            much sense, I changed it to <code>
+                restaurantMenu(restaurant_id)</code> in the solution code.
+        </p>
+
+        <p>
+            <a href="http://flask.pocoo.org/docs/0.10/quickstart/#routing">
+                Flask Documentation on Routing </a>
+        </p>
+        
+        <p>
+            <a href="https://github.com/lobrown/Full-Stack-Foundations/blob/master/Lesson-3/04_Routing/project.py">
+                Code from this lesson </a>
+        </p>
+    </div>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 10 - Routing Create Quiz </h3>
+
+    <p>
+        Download the stutter template for this code in the instructor notes.
+        Note that there are functions for newMenuItem, editMenuItem, and
+        deleteMenuItem, all with the parameters that they take in.  Write up
+        the appropriate route decorations to properly execute these
+        functions.
+    </p>
+
+    <p>
+        When you can open the URLs to create, edit, and delete menu items,
+        you have successfully completed this challenge.  Don't hesitate to
+        view the Flask documentation or ask for help from your fellow
+        students if you have any questions.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 11 - Routing Create Quiz </h3>
+
+
+    <p>
+        Let's construct the route for our new menu item.
+    </p>
+
+    <p>
+        Now when I visit /restaurant and pass in an integer, and then /new,
+        this integer will get passed in as the new restaurant id for the
+        newMenuItem function and successfully return that task one is
+        complete.
+    </p>
+
+    <p>
+        The editMenuItem takes in two parameters, so we need to make sure
+        our route also has two parameters, the restaurant id and the menu id
+        and then /edit.
+    </p>
+
+    <p>
+        Now, we'll see that this page also works.
+    </p>
+
+    <p>
+        Similarly to the edit route, the delete route looks just about the
+        same except it has /delete.
+    </p>
+
+    <p>
+        Now our final route is also working.
+        The solutions for this challenge are available in the instructor
+        notes.
+    </p>
+
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+
+        <p>
+            View the template code 
+            <a href="https://github.com/lobrown/Full-Stack-Foundations/blob/master/Lesson-3/05_Routing-Create-Quiz-Template-Code/project.py">
+                here.</a>
+        </p>
+    </div>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 12 - Templates </h3>
+
+    <p>
+        Generating HTML from within Python isn't all that fun.  I am sure
+        you're getting pretty tired of having to create these strings we've
+        called output over and over and over.  This can get pretty
+        cumbersome as our application gets more and more complex.
+    </p>
+
+    <p>
+        Because of that, Flask configures a template engine for you to store
+        your HTML code.  To render a template you can use this cleverly
+        named method called render template.
+    </p>
+
+    <p>
+        All you have to do is provide the name of the template and the
+        variables you want to pass to the template engine as keyword
+        arguments.
+    </p>
+
+    <p>
+        Here I will render a template for my menu items page.  Flask will
+        look for my templates in a folder named templates, so I'll make a
+        directory called templates in the same folder as my Flask
+        application, and from within it I'll create an HTML document and
+        call it menu.html.
+    </p>
+
+    <p>
+        But what about when we need to get information from our database or
+        Python code into our HTML?  This retrieval of data is called HTML
+        escaping.  Templates in Flask are already pre-configured to handle
+        escape code, that is, the code that we are retrieving from our
+        application and database, and putting it into our html.
+    </p>
+
+    <p>
+        With HTML escaping we have access to python variables and functions,
+        and can even get the results added directly into our HTML code.
+    </p>
+
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+
+        <p>
+            Note: <br>
+            HTML Character Escaping is a way of writing special characters
+            inside of HTML code, this is a different concept from the HTML
+            escaping with python code shown in this lesson.
+        </p>
+
+        <p>
+            <a href="http://en.wikipedia.org/wiki/HTML#Character_and_entity_references">
+                Character_and_entity_references </a>
+        </p>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 13 - Templates Quiz </h3>
+
+    <p>
+        I've created a simple template here, and called it menu.html.  A
+        copy of it is available in the instructor notes.  Take a look at it,
+        and see if you can figure out, how Flask accommodates for escape
+        code?
+    </p>
+
+    <p>
+        You should see a few symbols here, that don't look like HTML.  Try
+        and see if you can figure out, what each one of them does.
+    </p>
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+
+        <p>
+            <a href="https://github.com/lobrown/Full-Stack-Foundations/blob/master/Lesson-3/07_Menu-Template-Quiz/menu.html"> Menu Template Quiz </a>
+        </p>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 14 - Templates Solution </h3>
+
+    <p>
+        All right, so we see that the code with the single bracket and a
+        percent sign on either side is the logical code that we want to
+        execute in our HTML, like a for loop.
+    </p>
+
+    <p>
+        The double brackets indicate the code that we want it's results
+        printed into the html document itself.
+    </p>
+
+    <p>
+        Since, from within HTML codes, we cannot use indentations to mark
+        the beginning and ending of statements and loops, we must use
+        keywords, like endfor, and endif, to indicate the end of a loop, or
+        statement.
+    </p>
+
+    <p>
+        Going back to my menu.html, I can see how I'm obtaining the result of
+        a query and executing the output here in my HTML page.
+    </p>
+
+    <p>
+        I will also need to substitute the code I had in my restaurant menu
+        method, so that instead of returning a string, we will return a
+        rendered template with the new menu.html file.
+    </p>
+
+    <p>
+        Since I'm querying on my restaurant and menu items table, I will
+        path my queries into the template, so that my escape code has access
+        to these variables.
+    </p>
+
+    <p>
+        I will also need to import the render template function from my Flask
+        library.
+    </p>
+
+    <p>
+        By saving and refreshing the page, I see the same code with a few
+        stylistic modifications I added inside of my template.
+    </p>
+
+    <p>
+        You'll be building your own templates very soon.  I just want to
+        talk about two more topics to help you get the most out of them
+        first.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 15 - <code> url_for </code> Quiz </h3>
+
+
+    <p>
+        URL building is a helpful feature in Flask to create URLs based on
+        the functions they execute.  This is really helpful when you want to
+        create links to other pages inside your application.
+    </p>
+
+    <p>
+        To build a URL to a specific function, we can use this url_for()
+        method.  This is one of the many helper functions that Flask makes
+        available to us.  The documentation for url_for() can be found on
+        the Flask documentation page here.
+    </p>
+
+    <p>
+        I want you to open up the menu.html template and add some new
+        hyperlinks to edit and delete each menu item.  Remember that this
+        url_for helper method returns a complete URL stream, so place it
+        where it belongs inside of an anchor tag.  If your code works you
+        should have edit and delete links now on every menu item.
+    </p>
+
+    <p>
+        Read through the documentation for reference.  Consult your fellow
+        students if you have any questions.
+    </p>
+
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+
+        <p>
+            Download the <code> menu.html</code>
+            file. Add <code>url_for()</code> links to edit and delete
+            each menu item.
+        </p>
+
+        <p>
+            <a href="https://github.com/lobrown/Full-Stack-Foundations/blob/master/Lesson-3/07_Menu-Template-Quiz/menu.html">
+                Menu-Template-Quiz </a>
+        </p>
+
+        <p>
+            Flask Documentation for url_for can be found 
+            <a href="http://flask.pocoo.org/docs/0.10/quickstart/#url-building">
+                here.</a>
+        </p>
+    </div>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 16 - <code> url_for </code> Solution </h3>
+
+    <p>
+        <code> url_for</code> accepts the name of the function as the first argument, and
+        a number of keyword arguments each corresponding to the variable
+        part of the URL rule.
+    </p>
+
+    <p>
+        So if my URL needs a variable for a restaurant ID and a menu item
+        ID, my url_for statement needs to look something like this, taking
+        in three arguments for the function it will call and the variables
+        to pass into that function.
+    </p>
+
+    <p>
+        So back in my template I can add this code inside my anchor tags right
+        after the href equals.
+        Since this is a method in Python and I want the output printed on to
+        my HTML document, I will enclose it with a double brackets.
+    </p>
+
+    <p>
+        When I save my code now, I see that there are edit and delete links
+        for each menu item below.
+    </p>
+
+    <p>
+        So you may be wondering why you would ever want to build URLs
+        instead of hard coding them into your templates.
+        Well, now if you ever need to change a URL path, with URL building,
+        you can change your URLs all in one place without having to remember
+        to change URLs all over the place from within your application.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 17 - Form Requests and Redirects </h3>
+
+    <p>
+        We know that with HTTP, there are various types of requests that we
+        can send along with URL.  By default a route in Flask only answers
+        to GET requests, but that can be changed by providing the methods
+        argument inside the route decorator.
+    </p>
+
+    <p>
+        I will change my route to create a new menu item, such as a response
+        to GET and POST requests like so.  Now that I can respond to POST
+        requests, I can make forms for creating and updating menu items.
+    </p>
+
+    <p>
+        I will make a new template called newMenuItem.html like so.  Take a
+        second to look over the code.  Here, I'm making a small form with
+        only one entry to create a new menu item name.
+    </p>
+
+    <p>
+        In order to get data from a form, I will input requests from my
+        Flask package like so, inside my project.py file.
+    </p>
+
+    <p>
+        Inside my new menu item function, I will create an if statement that
+        looks for a POST request.
+    </p>
+
+    <p>
+        I can create a new menu item like so.  And extract the name field
+        from my form using the request.form.
+    </p>
+
+    <p>
+        After I create the menu item, I can then add it to my session and
+        commit the session to the database.
+    </p>
+
+    <p>
+        To redirect the user back to the main user page I can use a helper
+        function called redirect like so.
+    </p>
+
+    <p>
+        I should remember to import redirect and url_for, in order to enable
+        this functionality in my project.
+    </p>
+
+    <p>
+        Now, I need to properly handle the get request, for creating a new
+        menu item.
+    </p>
+
+    <p>
+        If my server didn't receive a POST request, it's going to go ahead
+        and render the template, for the new HTML template that I created,
+        to create a new menu item, passing in the restaurant id as well.
+    </p>
+
+    <p>
+        Now when I click create new item it takes me to the New Menu Item
+        page and I have successfully created a new menu item
+    </p>
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+
+        <p>
+            <a href="https://github.com/lobrown/Full-Stack-Foundations/tree/master/Lesson-3/11_form-requests-and-redirects">
+                form requests and redirects </a>
+        </p>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 18 Edit Menu Form </h3>
+
+    <p>
+        Now, it's your turn to make a form and Flask.  Create a template
+        called, editMenuItem.html that allows me to edit the name, of a
+        specific menu item.
+    </p>
+
+    <p>
+        A major difference between this form, and the new menu form is that
+        now you should find the menu item, you want to edit, and pass that
+        in with the render template function.
+    </p>
+
+    <p>
+        Use the placeholder tag in HTML, so that the user sees the information
+        that they're about to modify.
+    </p>
+
+    <p>
+        Also, add a link called, Cancel that will take me back to the main
+        menu page, if I decide I don't want to modify a menu item.
+    </p>
+
+    <p>
+        In the instructor notes, you'll find a project.py file that already
+        has the editMenuItem function filled out, so you just need to create
+        the form that will communicate with it.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 19 Edit Menu Form Solution </h3>
+
+    <p>
+        Inside my editMenuItem function, I see that in my render template,
+        I'm passing in three variables that my editmenuitem.html file is
+        going to have access to: the restaurant id, the menu id, and i,
+        which is going to represent the item we want to edit.
+    </p>
+
+    <p>
+        So to edit a new menu item, I'm going to create a form, just like I
+        did when I created a new menu item.  Inside the form I'm going to
+        call my edit menu item function with the appropriate parameters.
+    </p>
+
+    <p>
+        Here I'll prompt for the name of the new menu item and create an input
+        field.
+    </p>
+
+    <p>
+        Using the placeholder attribute of HTML I can have that field already
+        filled out with the name of the item I'm going to edit.
+    </p>
+
+    <p>
+        I'll then add a button called Edit.
+    </p>
+
+    <p>
+        And here I create another link to cancel just in case I realize I
+        actually don't want to edit my menu item.
+    </p>
+
+    <p>
+        When I save and run, I see that I can now change the name of my menu
+        items.  The solution code for this video is available in the
+        instructor notes.
+    </p>
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+
+        <p>
+            <a href="https://github.com/lobrown/Full-Stack-Foundations/tree/master/Lesson-3/12_Edit-Menu-Form">
+            Edit Menu Form </a>
+        </p>
+    </div>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 20 - Delete Menu Item </h3>
+
+    <p>
+        In this next quiz, you're going to write code to remove an item from
+        our restaurant menu, but this time I'll provide you the template
+        code.
+    </p>
+
+    <p>
+        deletemenuitem.html is available in the instructor notes.
+    </p>
+
+    <p>
+        Your challenge is to refactor the code and project.py such that we
+        can effectively delete an item from the database.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 21 - Delete Menu Item Solution </h3>
+
+    <p>
+        The first thing I'll modify in my project.py file is this app.route,
+        such that we can respond to GET and POST requests.
+    </p>
+
+    <p>
+        Similarly to when I edited a menu item the next thing I'll do is find
+        the item I want to delete.
+    </p>
+
+    <p>
+        In my if statement I'll check again to see if it's a POST request,
+        delete the item, and redirect back to my main menu.  And if it's a
+        GET request, I'll go ahead and render that deleteMenuItem.html file
+        with the item I want to delete.
+    </p>
+
+    <p>
+        Solutions for this challenge are available in the Instructor Notes.
+    </p>
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+
+        <p>
+            <a href="https://github.com/lobrown/Full-Stack-Foundations/blob/master/Lesson-3/14_Delete-Menu-Item/deletemenuitem.html">
+                Delete Menu Item </a>
+        </p>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 22 Message Flashing </h3>
+
+    <p>
+        Good applications and user interfaces incorporate feedback
+        throughout the user experience.  If the user does not get enough
+        feedback they'll probably, end up hating the application.  We should
+        add a feature that explicitly notifies the user that the system has
+        responded to their input.
+    </p>
+
+    <p>
+        Flask provides a really simple way to give feedback to a user.
+        Message Flashing is a feature that will prompt a message to the user
+        immediately, after a certain action has taken place, and then
+        disappear the next time the page is requested.
+    </p>
+
+    <p>
+        We can use our templates to reveal a flash message, wherever and
+        however we want, from within the application.
+    </p>
+
+    <p>
+        To get started, let's import flash from our Flask module.  Flashing
+        works in Flask by using a concept called sessions.  This course does
+        not go too in depth with sessions, but just know that sessions are a
+        way a server can store information across multiple Web pages to
+        create a more personalized user experience.
+    </p>
+
+    <p>
+        In the bottom of our project.py file, let's first add a secret key,
+        which flask will use to create sessions for our users.  Normally,
+        this should be a very secure password, if our application was live
+        on the Internet but for development purposes, let's just set our key
+        to super secret key.
+    </p>
+
+    <p>
+        To flash the message within our application, we simply use the flash
+        function like this.
+    </p>
+
+    <p>
+        To get a hold of all of the flash messages, we can use get flash
+        messages, which will also work from within our templates.
+    </p>
+
+    <p>
+        So, from within my new menu item method, I will create a flash
+        message, right after I call, session.commit.
+    </p>
+
+    <p>
+        I will add the message, (new menu item created!) now, in my
+        newmenuitem.html template, I will add the following code.  If you
+        are not familiar, with this with construct in Python, don't worry.
+        It's just a block that does some automatic clean-up, when the block
+        is exited, that we don't really have to concern ourselves with.
+    </p>
+
+    <p>
+        If you are curious about the with method in Python, I will provide
+        some resources in the instructor notes.  The get flashed messages,
+        is returning an array of messages, that's going to get stored in
+        this variable, called messages.
+    </p>
+
+    <p>
+        We then loop through the array of message, if it's not empty, and
+        print it out to our HTML document inside an Unordered List.
+    </p>
+
+    <p>
+        Now, when I save my code, and try making a new item, and flashed
+        with a new confirmation message on my main menu screen.
+    </p>
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+
+        <p>
+            <a href="https://github.com/lobrown/Full-Stack-Foundations/tree/master/Lesson-3/16_Flash-Messaging">
+                Flash Messaging </a>
+        </p>
+
+        <p>
+            Click 
+            <a href="http://effbot.org/zone/python-with-statement.htm">
+                here </a>
+            to learn more about the 'with' statement in python.
+        </p>
+
+    </div>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 23 Message Flashing Quiz </h3>
+
+    <p>
+        Now I want you to add flash messages for when an item is edited or
+        deleted.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 24 - Message Flashing Solution </h3>
+
+    <p>
+        Right after I call session.commit( ), I'll go ahead and add a flash
+        message to let my user know that a item has successfully been
+        edited.
+    </p>
+
+    <p>
+        Likewise, in my deleteMenuItem function I'll add another flash
+        message to let the user know that a item has been deleted.
+        Solutions for this challenge are available in the instructor notes.
+    </p>
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+        
+        <p>
+            <a href="https://github.com/lobrown/Full-Stack-Foundations/tree/master/Lesson-3/16_Flash-Messaging">
+                Flash Messaging </a>
+        </p>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 25 - Styling </h3>
+
+    <p>
+        So we have a working application now, but we should probably add
+        some style to it, if we want it to be appealing to users.  Flask can
+        automatically look for CSS, JavaScript, and media files, if we put
+        them in a folder named static.
+    </p>
+
+    <p>
+        So I will create a folder called static, in the same directory as my
+        project.py file, as so.  I will create a CSS file, and name it
+        styles.css, and store it inside of this directory.
+    </p>
+
+    <p>
+        By adding this following link to my template files, I will tell
+        Flask to use this styles.css file when it renders this template.
+    </p>
+
+    <p>
+        When I refresh my browser, I turn my old unstyled menu page into one
+        that looks like this.  Take some time to add some styles to your
+        menu app.  My CSS file and templates can be found in the instructor
+        notes for reference.
+    </p>
+
+    <div class="inset"> 
+        <h4> Instructor Notes </h4>
+
+        <p>
+            <a href="https://github.com/lobrown/Full-Stack-Foundations/tree/master/Lesson-3/18_Styling">
+                Styling </a>
+        </p>
+
+    </div>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 26 - Responding With JSON </h3>
+
+    <p>
+        Responding with web pages is great, but sometimes all that needs to
+        be communicated is information.  For example, let's say that there's
+        a web application out there called Yum that wants to collect our
+        restaurant menus and advertise them to mobile clients based on their
+        location.  Free advertising, all right!
+    </p>
+
+    <p>
+        This app wants to see the restaurants and menus available in our
+        database but doesn't really need to parse through HTML or waste
+        bandwidth receiving CSS files.  It just wants the data.  For this
+        reason, developers have created APIs, or Application Programming
+        Interfaces, that allow external applications to use public
+        information our apps want to share, without all the bells and
+        whistles.
+    </p>
+
+    <p>
+        When an API is communicated over the Internet, following the rules
+        of HTTP, we call this a restful API.  One of the most popular ways
+        of sending data with a restful architecture is with a format called
+        JSON, which stands for JavaScript object notation.  JSON uses
+        attribute value pairings which are delimited by a colon.  Brackets
+        are used to encapsulate individual objects.
+    </p>
+
+    <p>
+        Let's start coding to add this JSON feature to our application.
+        Before we write the JSON function in our Flask menu app, let's first
+        open up the database setup.pi and add a decorator method.  This
+        serializable function will help define what data we want to send
+        across, and put it in a format that Flask can easily use.
+    </p>
+
+    <p>
+        Flask has a built-in package, called jsonify, that will allow us to
+        easily configure an API endpoint for our application.  I will go
+        ahead and import this package now in my project.py file.
+    </p>
+
+    <p>
+        For this lesson we are only going to focus on using a GET request to
+        get a collection of restaurant menu items, but know that other types
+        of requests can be implemented as well.
+    </p>
+
+    <p>
+        I will now create a route similar to my restaurant menu page with
+        /JSON at the end.  I then create a function and name it restaurant
+        menu JSON and then perform the same query as in my restaurant menu
+        class, but instead of returning a template, I will return this
+        jsonify class and use this loop to serialize all of my database
+        entries.
+    </p>
+
+    <p>
+        Now, if I save and go to local host port
+        5000/restaurants/1/menu/json, I return with the pure data form of my
+        menu in a format that can easily be read by humans and easily parsed
+        by other computers.
+    </p>
+
+    <div class="inset">
+        <h4> Instructor Notes </h4>
+
+        <p>
+            <a href="https://github.com/lobrown/Full-Stack-Foundations/tree/master/Lesson-3/19_Responding-with-JSON">
+                Responding-with-JSON </a>
+        </p>
+
+        <p>
+            RESTful:
+            <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">
+                Representational_state_transfer </a>
+        </p>
+        
+        <p>
+            <a href="http://en.wikipedia.org/wiki/JSON">
+                JSON </a>
+        </p>
+    </div>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 27 JSON Quiz </h3>
+
+    <p>
+        In this challenge, I want you to add another JSON method that will
+        get a specific menu item like this, when we visit a route that looks
+        like this.
+    </p>
+
+    <p>
+        Template code and the example from the previous JSON request are
+        available in the instructor notes.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 28 - JSON Solution </h3>
+
+
+    <p>
+        So, in order to add our second JSON endpoint, we should add a route,
+        just like specified in the question.
+    </p>
+
+    <p>
+        Then we create a new function.  I decided to call it menuItemJSON,
+        that passes in the restaurant id and menu id, since both of them are
+        specified in the URL.
+    </p>
+
+    <p>
+        I'll then perform a query to get the one menu ID that I want to get
+        the information about.  I will JSONify that menu item, but
+        serializing it first.  You can see a copy of this code in the
+        instructor notes.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 29 - Lesson 3 Wrap-Up </h3>
+
+    <p>
+        Awesome job reaching the end of lesson three.  Getting over the
+        learning curve takes some time, but the benefits of using a
+        framework reveals themselves rather quickly.  At this point you have
+        learned all the essential tools for creating a web application, and
+        are ready to take on the final project.
+    </p>
+
+
+</div>
+</body>
+</html>

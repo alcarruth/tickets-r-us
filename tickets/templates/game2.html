@@ -1,0 +1,47 @@
+<!DOCTYPE=html>
+<!--
+ - index.html
+ - 
+ - Author: Al Carruth
+ - Origin: 
+ -
+ - This file is part a project submitted by the author for the
+ - Udacity Full Stack Fundamentals Course
+ - 
+-->
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> {{game.visiting_team.name}} at {{game.home_team.name}} </title>
+    <link rel="stylesheet" href="/static/style/tickets.css">
+</head>
+
+<body>
+    <div class="main">
+    <h1>  
+        <img class="game-page-logo" src="/{{game.visiting_team.logo}}">
+        {{game.visiting_team.name}}
+        {{game.visiting_team.nickname}} 
+        at
+        <img class="game-page-logo" src="/{{game.home_team.logo}}">
+        {{game.home_team.name}}
+        {{game.home_team.nickname}}
+    </h1>
+
+    <table class="tickets">
+    {% for ticket_lot in game.ticket_lots %}
+    <tr class="ticket-lot">
+        <td class="section"> Section: {{ticket_lot.section}} </td>
+        <td class="row"> Row: {{ticket_lot.row}} </td>
+        <td class="seats"> Seat: {{ticket_lot.seats()}} </td>
+        <td class="price"> ${{ticket_lot.price}} </td>
+    </tr>
+    {% endfor %}
+    </table>
+
+    </div>
+
+</body>
+
+</html>

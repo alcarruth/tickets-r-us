@@ -1,0 +1,44 @@
+<!DOCTYPE=html>
+<!--
+ - index.html
+ - 
+ - Author: Al Carruth
+ - Origin: 
+ -
+ - This file is part a project submitted by the author for the
+ - Udacity Full Stack Fundamentals Course
+ - Puppy Shelter Database
+-->
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> Puppy Shelters </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <h1> Puppy Shelters </h1>
+    {% for shelter in shelters %}
+        <p class="shelter">
+            <span class="shelter-name"> {{ shelter.name }} </span> <br />
+            <span class="shelter-address"> {{ shelter.address }} </span> <br />
+            <span class="shelter-city"> {{ shelter.city }}, </span> 
+            <span class="shelter-state"> {{ shelter.state }} </span> 
+            <span class="shelter-zip"> {{ shelter.zipCode }} </span> <br />
+            {% if shelter.website %}
+            <span class="shelter-website"> {{ shelter.website }} </span> <br />
+            {% endif %}
+            {% if shelter.email %}
+            <span class="shelter-email"> {{ shelter.email }} </span> <br />
+            {% endif %}
+        </p>
+        <p class="shelter">
+            <span class="shelter-maximum-capacity"> maximum_capacity: {{ shelter.maximum_capacity }} </span> <br />
+            <span class="shelter-current-occupancy"> current_occupancy: {{ shelter.current_occupancy }} </span> <br />
+        </p>
+    {% endfor %}
+    
+</body>
+
+</html>

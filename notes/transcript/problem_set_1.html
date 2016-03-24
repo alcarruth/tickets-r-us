@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <title> Problem Set 1 </title>
+    <link rel="stylesheet"  href="style/transcript.css">
+</head>
+
+<body>
+<div id="main">
+            
+    <h1> Full Stack Foundations </h1>
+
+    <h2> Problem Set 1 </h2>
+
+
+    <h3> Intro to Problem Set 1 </h3>
+
+    <p>
+        Problem Sets are completely optional but are designed to guide
+        you into solving development challenges on your own while
+        still being able to rely on your peers and instructors as
+        auxiliary resources. Upon completing the problem sets, you
+        will not only have additional projects to add to your
+        portfolio, but be prepared to exceed specifications on your
+        Nanodegree projects.
+    </p>
+
+    <p>
+        <b> Resources </b>
+    </p>
+
+    <p>
+        In order to complete the exercises in this problem set, you
+        will need to rely on the SQLAlchemy documentation and Python
+        documentation heavily. You are free to use any other outside
+        resources like StackOverflow or Flask blogs but we would like
+        you to get into the habit of going to the original
+        documentation before looking for tutorials.
+    </p>
+
+    <p>
+        All images used are under the creative commons license.
+    </p>
+
+    <h3> Puppy Shelters to the Rescue!! </h3>
+
+    <p>
+        For this exercise you will be the database architect for the
+        Uda County District of Animal Shelters. The shelters need a
+        database for adopting puppies.
+    </p>
+
+    <h3> Exercise 1 - Setting Up the Database </h3>
+
+    <p>
+        I have drawn up the following layout for my database. Go ahead
+        and create a python file to model this database layout or
+        create one of your own. In the next exercise I will provide
+        you some code to help populate this database. This code should
+        create a SQLite file called puppies.db in your working
+        directory. Refer to the <code> database_setup.py </code>file
+        you created for reference.
+    </p>
+
+    <img src="images/exercise_1.png">
+
+    <p>
+        You’ve already seen the Integer and String column properties
+        used in the restaurant menu database, check out the SQLAlchemy
+        documentation to view some of the other properties you can use
+        to define your column attributes:
+        http://docs.sqlalchemy.org/en/latest/core/type_basics.html
+    </p>
+
+    <p>
+        <b> Aside on Models and MVC </b>
+    </p>
+
+    <p>
+        Many web frameworks embody design patterns to separate
+        different parts of your server-side code, MVC
+        (Model-View-Controller) is one of the more popular design
+        patterns used in Django, Ruby on Rails, and many other popular
+        web frameworks. Flask does not force you to use any particular
+        design pattern or application structure but just know that the
+        “Model” of the MVC code would be the code written in this
+        exercise, and similarly the code you wrote in
+        <code> database_setup.py </code>
+    </p>
+
+    <h3> Exercise 2 - Database Population and Queries </h3>
+
+    <p>
+        Download and run <code> puppypopulator.py </code> file to
+        populate your database with puppies and shelters. If you have
+        a database layout different from the one I provided, you may
+        have to modify <code> puppypopulations.py </code> in order for
+        the code to properly function.
+    </p>
+
+    <p>
+        Using SQLAlchemy perform the following queries on your database:
+    </p>
+
+    <ol>
+        <li> Query all of the puppies and return the results in ascending alphabetical order </li>
+        <li> Query all of the puppies that are less than 6 months old organized by the youngest first </li>
+        <li> Query all puppies by ascending weight </li>
+        <li> Query all puppies grouped by the shelter in which they are staying </li>
+    </ol>
+
+    <p>
+        <b> Where Do I Start? </b>
+    </p>
+
+    <p>
+        Search SQLAlchemy Documentation to find the methods that can help
+        implement these queries. 
+    </p>
+
+    <p>
+        <a href="http://docs.sqlalchemy.org/">
+            http://docs.sqlalchemy.org/ </a>
+    </p>
+
+    <p>
+        If you have any questions or comments please visit the forums
+        for feedback.
+    </p>
+
+    <h3> Exercise 3 - Associations </h3>
+
+    <p>
+        <b> Many to One Associations </b>
+    </p>
+
+    <p>
+        Up until now, the only relationship between tables we have
+        used have been one-to-many. Each restaurant menu belonged to
+        one restaurant and each puppy belongs to one shelter. We will
+        now discuss and implement one-to-one and many-to-many table
+        associations two puppies
+    </p>
+
+    <p>
+        <b> One to One Associations </b>
+    </p>
+
+    <p>
+        One-to-one associations indicate that one row in a table is
+        allowed to have a foreign key relationship with one and only
+        one row in another table. In this exercise you will create
+        puppy profiles to collect even more information about each
+        puppy. Each puppy is allowed one profile which can contain a
+        url to the puppy’s photo, a description about the puppy, and
+        any special needs the puppy may have. Implement this table and
+        the foreign key relationship in your code.
+    </p>
+
+    <p>
+        <b> Many to Many Associations </b>
+    </p>
+
+    <p>
+        Puppies can be adopted by one person, or a family of
+        people. Similarly, a person or family can adopt one or several
+        puppies. See if you can create a many-to-many relationship
+        between puppies and adopters.
+    </p>
+
+    <p>
+        <b> Where Do I Start? </b>
+    </p>
+
+    <p>
+        Check out the SQLAlchemy documentation on relationships.
+        <a href="http://docs.sqlalchemy.org/en/latest/orm/relationships.html">
+            http://docs.sqlalchemy.org/en/latest/orm/relationships.html </a>
+    </p>
+
+    <p>
+        <b> Database Migrations </b>
+    </p>
+
+    <p>
+        Currently, each time you want to modify your database, you end
+        up having to delete the old database and create a new one,
+        losing all the data. For these small exercises where we can
+        just run a population script that is fine, but what if the
+        data cannot be recreated easily?  You may be forced to write
+        export and import scripts yourself. Luckily, we have a much
+        better option. Both SQLAlchemy-migrate and Flask-migrate can
+        keep track of database updates for us. For the problem set we
+        will not go in depth on database migrations, but if you are
+        interested you can learn how to implement them reading the
+        articles below:
+    </p>
+
+    <p>
+        <a href="https://sqlalchemy-migrate.readthedocs.org/en/latest/">
+            https://sqlalchemy-migrate.readthedocs.org/en/latest/ </a>
+    </p>
+
+    <p>
+        <a href="https://flask-migrate.readthedocs.org/en/latest/">
+            https://flask-migrate.readthedocs.org/en/latest/ </a>
+    </p>
+
+    <p>
+        (Note: you will learn how to build a web application with the
+        Flask microframework in Lesson 3)
+    </p>
+
+    <h3> Exercise 4 - Adding Shelter Capacity </h3>
+
+    <p>
+        We now want to add a column to our shelter database to specify
+        the maximum_capacity each shelter can have for puppies, also
+        add a current_occupancy for finding the current number of
+        puppies that haven’t yet been adopted that are living in the
+        shelter. Add the maximum_capacity and current_occupancy
+        columns to your database.
+    </p>
+
+    <h3> Exercise 5 - Shelter Overflow Algorithm </h3>
+
+    <p> 
+        <b> Puppy Overflow!!! </b>
+    </p>
+
+    <p>
+        Create a function to check a puppy into a shelter, if the
+        shelter is at capacity, prompt the user to try a different
+        shelter. If you’re feeling extra ambitious write an algorithm
+        that will find another shelter in the same area or with a
+        higher vacancy. If all shelters are full, prompt the user that
+        a new shelter needs to be opened.
+    </p>
+
+    <p>
+        <b> Feeling Extra Udacious? </b>
+    </p>
+
+    <p>
+        Write a load-balancing algorithm that can transfer puppies
+        evenly throughout all the shelters in the database.
+    </p>
+
+    <h3> Exercise 6 - Adopt a Puppy </h3>
+    <p>
+        Create a method for adopting a puppy based on its id. the
+        method should also take in an array of adopter ids of the
+        family members who will be responsible for the puppy. An
+        adopted puppy should stay in the puppy database but no longer
+        be taking up an occupancy spot in the shelter.
+    </p>
+
+    <p>
+        Congratulations! You've reached the end of this first problem
+        set, at the end of this course you can take on Problem Set 2
+        and turn this puppy database into a website!!
+    </p>
+
+<code>
+<pre>
+
+import datetime
+from puppy_shelter import Base, Shelter, Puppy, DBSession, startup_info
+
+session = DBSession()
+
+# Exercise 1 was to create the database_setup.py file which I did.  The
+# file has evolved into puppy_shelter.py
+
+# Exercise 2 had four parts, addressed by the four test below.
+
+def test_1():
+    # Query all of the puppies and return the results in ascending
+    # alphabetical order
+    puppies = session.query(Puppy).order_by('name').all()
+    for puppy in puppies:
+        print puppy.name, puppy.dob, puppy.weight
+
+def test_2():
+    # Query all of the puppies that are less than 6 months old
+    # organized by the youngest first
+    cut_off_date = datetime.date.today() - datetime.timedelta(weeks=26)
+    puppies = session.query(Puppy).filter(Puppy.dob > cut_off_date).order_by('dob').all()
+    for puppy in puppies:
+        print puppy.name, puppy.dob
+
+def test_3():
+    # Query all puppies by ascending weight
+    puppies = session.query(Puppy).order_by('weight').all()
+    for puppy in puppies:
+        print puppy.name, puppy.weight
+
+def test_4():
+    # Query all puppies grouped by the shelter in which they are staying
+    puppies = session.query(Puppy).order_by('shelter_id').all()
+    for puppy in puppies:
+        print puppy.name, puppy.shelter_id
+
+if __name__ == '__main__':
+    print startup_info
+
+</pre>
+</code>
+
+</div>
+</body>
+</html>

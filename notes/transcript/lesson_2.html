@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <title> Lesson 2 - Making a Web Server </title>
+    <link rel="stylesheet"  href="style/transcript.css">
+</head>
+
+<body>
+<div id="main">
+    
+    <h1> Full Stack Foundations </h1>
+
+    <h2> Lesson 2 - Making a Web Server </h2>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 1 - Lesson 2 Introduction </h3>
+
+    <p>
+        Now that we have a working database, let's create our first web server
+        in Python.  Once our web server is up and running, let's use the CRUD
+        commands from lesson one to access, our data from a Web page.  There
+        will be some opportunities in this lesson for you to try coding a few
+        things on your own.  Set aside some extra time to work through these
+        challenges.
+    </p>
+
+    <p>
+        But before we get started coding, let's review some of the basics of
+        client/server communications across the Internet.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+    
+    <h3> Section 2 - Review of Clients, Servers and Protocols </h3>
+
+
+    <p>
+        Clients and servers can be most simply understood as computers
+        communicating across the Internet.
+    </p>
+
+    <p>
+        We define the client as the computer that wants information, and the
+        server as the computer that has information that can be shared with
+        clients.
+    </p>
+
+    <p>
+        This means that a client has to initiate communication to request
+        information, while the server constantly stays listening for any
+        clients to communicate with it, and responds with the data that the
+        client requested.
+    </p>
+
+    <p>
+        Let's briefly discuss some of the important concepts in order to
+        better understand how this actually happens.
+    </p>
+
+    <p>
+        So we know that clients and servers can communicate with each other,
+        but how do we know that they're all speaking the same language?
+        Well, protocols are like the grammatical rules that we use to make
+        sure all machines on the Internet are communicating in the same way.
+    </p>
+
+    <p>
+        There are several protocols that computers on the Internet adhere to.
+        The most common three are the Transmission Protocol, or TCP, the
+        Internet Protocol, IP, and the HyperText Transfer Protocol or HTTP.
+        The Transmission Control Protocol or TCP enables information to be
+        broken into small packets and sent between clients and servers.
+    </p>
+
+    <p>
+        If a packet is lost somewhere along the way the sender and receiver
+        have a way of figuring out which of the packets is missing and request
+        that they be resent.
+    </p>
+
+    <p>
+        The counterpart to TCP is UDP, User Datagram Protocol, which is good
+        for streaming content like music or video.
+    </p>
+
+    <p>
+        Similar to postal addresses, IP addresses allow messages to be
+        properly routed to all participants on the Internet.
+    </p>
+
+    <p>
+        For simplicity's sake, we can assume that every device on the Internet
+        gets an IP address that is either statically or dynamically assigned
+        by the Internet service provider.
+    </p>
+
+    <p>
+        Here's the IP address of my laptop, and here is the IP address for
+        Google.
+    </p>
+
+    <p>
+        When I type google.com into my browser, my computer first figures out
+        the IP address of Google by looking it up in a Domain Name Server, or
+        DNS.
+    </p>
+
+    <p>
+        Think of DNS as a big online phonebook that finds theIP address of web
+        URLs.
+    </p>
+
+    <p>
+        Once DNS gives my computer the IP address, it uses that address to
+        initiate communication with the server for Google.
+    </p>
+
+    <p>
+        Since multiple applications using the Internet can run on one machine,
+        operating systems use ports to designate channels of communication on
+        the same IP address.
+    </p>
+
+    <p>
+        Placing a colon after an IP address, with another number indicates
+        that we want to communicate on a specific port on the device using
+        that IP address.
+    </p>
+
+    <p>
+        On most machines, port numbers can range from 0 to 65,536.
+    </p>
+
+    <p>
+        The first 10,000 ports are often times reserved by the operating
+        system for a specific use.
+    </p>
+
+    <p>
+        Port 80 is the most common port for web servers.
+        So most websites we use every day are hitting port 80 when they reach
+        a server.
+    </p>
+
+    <p>
+        8080 is also a common port for web communications.
+    </p>
+
+    <p>
+        When client and server applications are on the same machine we
+        indicate this with the term localhost.
+    </p>
+
+    <p>
+        Localhost also has a special IP address of 127.0.0.1.
+    </p>
+
+    <p>
+        Whenever we type localhost, or this special IP address into a browser
+        or web application, the operating system knows to look for this
+        resource locally and not go out to the Internet.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 3 - HTTP and Response Codes </h3>
+
+    <p>
+        The main concept of HTTP is that clients tell servers what they want
+        by using an HTTP verb, also know as an HTTP method.
+    </p>
+
+    <p>
+        There are nine HTTP verbs in the current HTTP specification.
+    </p>
+
+    <p>
+        The two most commonly used methods for websites though, are GET and
+        POST.
+    </p>
+
+    <p>
+        A GET request can be thought of as the client telling the server, get
+        me some information that you have.
+    </p>
+
+    <p>
+        Or, a POST can be thought of as the client saying, I want to modify
+        some information that you have.
+    </p>
+
+    <p>
+        GETs are sometimes called safe methods, since they are only used to
+        retrieve existing data from the database, whereas POSTs call for data
+        to be added, removed, or changed on a server.
+    </p>
+
+    <p>
+        We know that the client prefixes requests to the server with HTTP
+        verbs.
+    </p>
+
+    <p>
+        So, how does the server reply?
+    </p>
+
+    <p>
+        Status codes are the server's reply to a client as to what happened
+        after a specific request.
+    </p>
+
+    <p>
+        In addition to a status code, a server can also supply any requested
+        resources the client requested, such as HTML, CSS and JavaScript, and
+        media files such as images and audio.
+    </p>
+
+    <p>
+        Some common response codes are 200, which indicates a successful GET
+        request, 301, which is a successful post request, and 404, which
+        indicates that we were looking for a file on the server, and the
+        server couldn't find it.
+    </p>
+
+    <p>
+        In the next section, we'll put all of these concepts together as we
+        create our own web server in Python.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 4 - Building a Server with HTTPBaseServer </h3>
+
+    <p>
+        In the previous video, I introduced a lot of new concepts that may or
+        may not be familiar to you.
+    </p>
+
+    <p>
+        To see all of these concepts in action, in this section we're going to
+        build our own web server in Python that not only renders web pages in
+        a browser, but by processing data submitted by the user, can create a
+        unique web page each time a user modifies the input.
+    </p>
+
+    <p>
+        To get started let's create a new Python file called webserver.py and
+        save it in the same directory as your restaurantmenu.db.
+    </p>
+
+    <p>
+        And databasesetup.py files so we can access it from our vagrant
+        machine.
+    </p>
+
+    <p>
+        Follow along with me using Sublime or your favorite text editor.
+    </p>
+
+    <p>
+        One of the cool things about Python is that it comes with a large
+        collection of libraries we can use right out of the box.
+    </p>
+
+    <p>
+        We will be using the HTTP base server library extensively to create
+        this project.
+    </p>
+
+    <p>
+        Take a minute to skim over the HTTP base server documentation on the
+        official Python documentation website.
+    </p>
+
+    <p>
+        I will add from BaseHTTPServer import BaseHTTPRequestHandler and
+    </p>
+
+    <p>
+        HTTPServer to the first line of my webserver.py file to be able to
+        take advantage of this BaseHTTPServer functionality.
+    </p>
+
+    <p>
+        Our web server code will have two main sections, the main method and
+        the handler class.
+    </p>
+
+    <p>
+        In main we instantiate our server and specify what port it will listen
+        on.
+    </p>
+
+    <p>
+        Our handler code indicates what code to execute based on the type of
+        HTTP request that is sent to the server.
+    </p>
+
+    <p>
+        I will start by coding a main method as the entry point of my code.
+    </p>
+
+    <p>
+        I'll add this block of code at the end of my file to immediately run
+        the main method when the Python interpreter executes my script.
+    </p>
+
+    <p>
+        Inside this main method, I will add a try except block.
+    </p>
+
+    <p>
+        The Python interpreter will try to attempt the code inside the try
+        block.
+    </p>
+
+    <p>
+        And if a defined event occurs, we can exit out of the code with an
+        exception.
+    </p>
+
+    <p>
+        The exception I want to handle is KeyboardInterrupt.
+    </p>
+
+    <p>
+        This is a built-in exception in Python that can be triggered when the
+        user holds Ctrl+C on the keyboard.
+    </p>
+
+    <p>
+        Going back inside my try block,
+    </p>
+
+    <p>
+        I will create an instance of an HTTP server class.
+    </p>
+
+    <p>
+        Looking at the documentation for HTTPServer, I see that I can create a
+        web server like so.
+    </p>
+
+    <p>
+        In the documentation we also see that HTTPServer is built off of a
+        TCPServer class, indicating the transmission protocol that this server
+        will use.
+    </p>
+
+    <p>
+        Server address is a tuple that contains the host and port number for
+        our server.
+    </p>
+
+    <p>
+        I will leave host as an empty string and specify our port number with
+        an integer.
+    </p>
+
+    <p>
+        I will define port in a separate variable, and create my server
+        instance as so.
+    </p>
+
+    <p>
+        Notice that I just made up a name, webserverHandler, for the request
+        handler class.
+    </p>
+
+    <p>
+        I will define my webserverHandler in the next section of code.
+    </p>
+
+    <p>
+        But first, let me add some finishing code to the main method.
+    </p>
+
+    <p>
+        After I create the server I'll add a print statement to know that my
+        server is running.
+    </p>
+
+    <p>
+        Then I will use this serve forever function built into my HTTPServer
+        to keep it constantly listening until I call Ctrl+C or exit the
+        application.
+    </p>
+
+    <p>
+        Inside my KeyboardInterrupt exception I will shut down the server by
+        calling server.socket.close.
+    </p>
+
+    <p>
+        And I have another print statement, just letting me know that the
+        server was properly stopped.
+    </p>
+
+    <p>
+        Above my main method, I will now define the webserverHandler class
+        that I called in my HTTPServer, and have it extend from a class called
+        BaseHTTPRequestHandler.
+    </p>
+
+    <p>
+        The do GET function handles all get requests our web server receives.
+    </p>
+
+    <p>
+        In order to figure out which resource we are trying to access, we will
+        use a simple pattern matching plan that only looks for the ending of
+        our URL path.
+    </p>
+
+    <p>
+        Let's create another try except block for our do GET method.
+    </p>
+
+    <p>
+        The BaseHTTPRequestHandler provides us a variable called path that
+        contains the URL sent by the client to the server as a string.
+    </p>
+
+    <p>
+        I will make an if statement that looks for the URL that ends with
+        /hello.
+    </p>
+
+    <p>
+        I will tell my web server to send a response code of 200 indicating a
+        successful get request.
+    </p>
+
+    <p>
+        I will use the send header function to indicate that I'm replying with
+        text in the form of HTML to my client along with this end headers
+        command which just sends a blank line indicating the end of our HTTP
+        headers in the response.
+    </p>
+
+    <p>
+        Now that I've created the response I can include some content to send
+        back to the client.
+    </p>
+
+    <p>
+        I'll create an empty string for now and name it output.
+    </p>
+
+    <p>
+        In the next line I will add a message with some HTML and body tags to
+        my output stream.
+    </p>
+
+    <p>
+        I can use the self.wfile.write function to send a message back to the
+        client.
+    </p>
+
+    <p>
+        So I'll go ahead and put my output string there.
+    </p>
+
+    <p>
+        I'm going to add a print statement for now, just so I can see my
+        output string in the terminal.
+    </p>
+
+    <p>
+        This might come in handy for debugging.
+    </p>
+
+    <p>
+        Then I can exit my if statement with the return command.
+    </p>
+
+    <p>
+        I will also write an exception for IOErrors, and use the following
+        line of code to notify me of a 404 or file not found error.
+    </p>
+
+    <p>
+        Now, I think I'm ready to test and see what I've written thus far in
+        the browser.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 5 - Running webserver.py </h3>
+
+    <p>
+        I will save the webserver.py file, navigate to it from within my
+        Vagrant machine, and execute it writing python webserver.py.
+    </p>
+
+    <p>
+        The Vagrant environment for this course is already configured to
+        forward port 8080 requests from the host machine to port 8080 on the
+        Vagrant machine.
+    </p>
+
+    <p>
+        So if we open up a browser and visit the URL localhost8080/hello look,
+        our server recognized the GET request and responded with the code that
+        we wrote.
+    </p>
+
+    <p>
+        From the Vagrant machine, we can also see the GET request it received
+        from the browser and the code we sent as a reply.
+    </p>
+
+    <p>
+        Try and create this code on your own.
+    </p>
+
+    <p>
+        If you run in to any problems, a functioning version of this python
+        code, can be found in the instructor notes.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 6 - Responding to Multiple GET Requests </h3>
+
+    <p>
+        We have a server that can say hello, so now let's add some more
+        functionality to it.
+    </p>
+
+    <p>
+        Most modern websites have more than just one page, so let's figure out
+        how to add this feature to our web server.
+    </p>
+
+    <p>
+        In this section we will see that our server can handle different types
+        of GET requests, and respond with different types of messages.
+    </p>
+
+    <p>
+        Instead of replying with hello, let's make a page that also replies in
+        Spanish when we visit the hola URL.
+    </p>
+
+    <p>
+        I'm going to copy my if block from before and paste it below.
+    </p>
+
+    <p>
+        I will change the message that said hello in English, to hola in
+        Spanish, using this special entity code that HTML will render as an
+        upside-down exclamation point.
+    </p>
+
+    <p>
+        I will also add an anchor tag to link back to my original hello page,
+        just so we can see how that's done here.
+    </p>
+
+    <p>
+        Now, I'm ready to try and run this and see what happens.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 7 - Running hola server </h3>
+
+    <p>
+        I will stop my server with Ctrl+C and start it again to reflect my
+        code changes.
+    </p>
+
+    <p>
+        Now, I have two URLs I can visit, each rendering a unique page to my
+        browser.
+    </p>
+
+    <p>
+        Add the hola functionality into the web server.
+    </p>
+
+    <p>
+        The Python code for this section is also available in the instructor
+        notes.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 8 - Adding POST to web server </h3>
+
+    <p>
+        So now that I have a good understanding of do GET, let's take this web
+        server to the next level with some post functionality.
+    </p>
+
+    <p>
+        Gets are good for viewing information all ready on the server, but
+        posts are what allow the user to customize their web experience.
+    </p>
+
+    <p>
+        Get requests happen simply by visiting the URL in a browser, but post
+        requests from a browser require data to be submitted, like with a
+        form.
+    </p>
+
+    <p>
+        I'm going to add a post method such that our server doesn't just say
+        hello or hola, but whatever the user prompts as a salutation.
+    </p>
+
+    <p>
+        On the same level as my do GET method, I will create another method
+        called do POST, which overrides the method in
+    </p>
+
+    <p>
+        the base http request handler superclass, just like doGet.
+    </p>
+
+    <p>
+        I'll make another try except block, similar to my do GET method.
+    </p>
+
+    <p>
+        When I receive a post request, I'll send off the response code that
+        indicates a successful post.
+    </p>
+
+    <p>
+        Next, I need to decipher the message that was sent from the server.
+    </p>
+
+    <p>
+        In order to do this, I'm going to use some message from the CGI, or
+        common gateway interface, library in Python.
+    </p>
+
+    <p>
+        So I'll add import cgi to the top of my file.
+    </p>
+
+    <p>
+        Let's take a look at the following chunk of code I'm going to add.
+    </p>
+
+    <p>
+        This cgi.parse header function parses an HTML form header, such as
+        content type, into a main value and dictionary of parameters.
+    </p>
+
+    <p>
+        After that, we check and see if this is form data being received.
+    </p>
+
+    <p>
+        I then make a variable called fields, which we use the cgi.parse
+        multipart to collect all of the fields in a form.
+    </p>
+
+    <p>
+        Then I will make a variable called messagecontent to get out the value
+        of a specific field or set of fields and store them in an array.
+    </p>
+
+    <p>
+        I will call this field message here, and when I create my HTML form.
+    </p>
+
+    <p>
+        So now that I've received a post request, I can decide what to tell
+        the client with the new information I've received.
+    </p>
+
+    <p>
+        I will create an empty string named output again and then add some
+        opening HTML tags to it.
+    </p>
+
+    <p>
+        I'll have my server respond with, okay, how about this.
+    </p>
+
+    <p>
+        And then return the first value of the array that was created when I
+        submitted the form.
+    </p>
+
+    <p>
+        Hm?
+    </p>
+
+    <p>
+        Well you might be thinking, hey, you haven't even created an HTML
+        form, but keep talking about it in the post handler.
+    </p>
+
+    <p>
+        And you'd be right.
+    </p>
+
+    <p>
+        So I'll go ahead and do that now.
+    </p>
+
+    <p>
+        In this line of HTML code, I'm adding a post request along with the
+        header tag, to prompt the user to input some data.
+    </p>
+
+    <p>
+        Here, I wrote the name of my input field as message, to coincide with
+        the message field I'm extracting data from in the post request.
+    </p>
+
+    <p>
+        I'm going to copy this line of code and paste it into my hello and
+        hola get requests, so this form will be present on their pages as
+        well.
+    </p>
+
+    <p>
+        I will also separate out my opening and closing HTML tags on their own
+        line of code.
+    </p>
+
+    <p>
+        Let me not forget to close the body and html tags in my post handler.
+    </p>
+
+    <p>
+        Send the output out to the server and print out the output for
+        debugging.
+    </p>
+
+    <p>
+        In my exception block, I will just leave it as pass for now.
+    </p>
+
+    <p>
+        Let's see these new changes in action from the web browser.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 9 - Running the POST web server </h3>
+
+    <p>
+        I save my code, stop and start my server again, and visit the slash
+        hello page.
+    </p>
+
+    <p>
+        And look.
+    </p>
+
+    <p>
+        Now my server responds to my input, so I can make it say hello in any
+        language I'd like.
+    </p>
+
+    <p>
+        Get this server up and running on your machine.
+    </p>
+
+    <p>
+        Feel free to use the code in the instructor notes as reference.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 10 - Adding CRUD to our Website </h3>
+
+    <p>
+        Great job on creating your hello server.
+    </p>
+
+    <p>
+        Now that we have a working web server, let's see if we can add some
+        CRUD operations to our site.
+    </p>
+
+    <p>
+        This will be a fun activity, where you'll finally bring together all
+        of the major aspects you've learned about creating data-driven
+        websites.
+    </p>
+
+    <p>
+        In this next section, you are going to modify our web server code,
+        such that we can create, read, update, and delete restaurants from our
+        restaurant menu database.
+    </p>
+
+    <p>
+        I will be adding these features in the next five sections, divided up
+        into objectives.
+    </p>
+
+    <p>
+        I highly encourage you to read through the objective's descriptions
+        that I'll be presenting in a moment, and attempt to solve them before
+        seeing the solution videos.
+    </p>
+
+    <p>
+        Up until now, we've been moving pretty quickly.
+    </p>
+
+    <p>
+        But this is an opportunity to slow down, and get messy, figuring out
+        these challenges.
+    </p>
+
+    <p>
+        I'll be sharing my answers with you, but through this process you
+        might even create more elegant solutions than my own.
+    </p>
+
+    <p>
+        Before we get started coding, let me list off the objectives I want to
+        complete for this project.
+    </p>
+
+    <p>
+        Listing objectives helps me to understand the scope of my project and
+        create identifiable milestones along the way.
+    </p>
+
+    <p>
+        These objectives should also serve as guidelines you should follow to
+        complete this project.
+    </p>
+
+    <p>
+        The goal of objective one is to modify the webserver.py file, so that
+        opening local hosts or 8080/restaurants, the user sees a list of all
+        the restaurant names in the database.
+    </p>
+
+    <p>
+        To complete objective two, after the name of each restaurant, there
+        should be a link to edit and delete each restaurant.
+    </p>
+
+    <p>
+        These links don't have to work for now.
+    </p>
+
+    <p>
+        They should just be visible.
+    </p>
+
+    <p>
+        The third objective goal is to add code such that there is a page to
+        create new restaurants, with a form for writing the new restaurant
+        name.
+    </p>
+
+    <p>
+        The form should create a post request that creates a new restaurant
+        menu item in the database.
+    </p>
+
+    <p>
+        To complete objective four, we enhance the web server such that users
+        can rename a restaurant and persist this edit to the database via
+        post.
+    </p>
+
+    <p>
+        And the last objective creates a feature, such that by clicking
+        Delete, takes the user to a confirmation page.
+    </p>
+
+    <p>
+        That then sends a post command to the database to delete the selected
+        restaurant.
+    </p>
+
+    <p>
+        If you don't get it on the first attempt or have to spend some time
+        debugging or looking things up online, that's okay.
+    </p>
+
+    <p>
+        Even the best of programmers have to debug code.
+    </p>
+
+    <p>
+        Try to spend about three hours working on each of the objectives
+        before viewing the solutions if you're still relatively new to
+        programming.
+    </p>
+
+    <p>
+        Don't forget to use your resources like the Python documentation, and
+        tools like the source code inspector in Chrome to help you debug your
+        program, and don't hesitate to ask questions in the forum.
+    </p>
+
+    <p>
+        I'll be going over the solution to this challenge piece by piece,
+        solving each objective in order, once you're finished with an object,
+        continue to the next video to see my implementation of the solution.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 11 - Adding CRUD Hints </h3>
+
+    <p>
+        I want to provide you some hints as to how to go about restructuring
+        this code.
+    </p>
+
+    <p>
+        You have already seen all the code necessary to complete this
+        challenge.
+    </p>
+
+    <p>
+        All of the CRUD operations from lesson one will come in handy here.
+    </p>
+
+    <p>
+        You will have to import the modules you used to do your CRUD commands
+        in lesson one.
+    </p>
+
+    <p>
+        All of the code for these objectives can be written within your
+        webserver.py file.
+    </p>
+
+    <p>
+        You'll need to reconstruct your do GET and do POST methods, such that
+        they perform the necessary CRUD operations to create the desired
+        functionality.
+    </p>
+
+    <p>
+        Print statements are simple ways to see if our code is flowing the way
+        we expect.
+    </p>
+
+    <p>
+        Feel free to use print statements to see what blocks your code is in,
+        and the value of variables, like I did with the output variable that
+        showed our HTML code.
+    </p>
+
+    <p>
+        Within your browser, you can view source code, as well as inspect DOM
+        elements, to see if you are outputting the HTML you expect to see from
+        your server code.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 12 - Objective 1 </h3>
+
+    <p>
+        In this next video, I will implement objective one, creating a web
+        page that lists all the restaurants in the database when the user
+        visits localhost port 8080/restaurants.
+    </p>
+
+    <p>
+        Once you've attempted this challenge, proceed to the solution video.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 13 - Objective 1 </h3>
+
+    <p>
+        In order to complete this first challenge, I must first import the
+        classes I use to execute my CRUD operations from lesson one.
+    </p>
+
+    <p>
+        I will import Base, Restaurant, and MenuItem from my database setup
+        file as well as create engine and sessionmaker from my sqlalchemy, and
+        sqlalchemy.orm libraries.
+    </p>
+
+    <p>
+        Along with my imports, I must also add these four lines of code to
+        connect to my database.
+    </p>
+
+    <p>
+        Once again just copying code written in lesson one.
+    </p>
+
+    <p>
+        Now, I will add another if statement to my do get method, such that
+        landing on /restaurants lists out all of the restaurants in my
+        database.
+    </p>
+
+    <p>
+        Let's look at this new if statement.
+    </p>
+
+    <p>
+        Where I once looked for/hello, or /hola, I am not looking for the
+        /restaurants path.
+    </p>
+
+    <p>
+        I then execute a query to get all of the restaurants in the database.
+    </p>
+
+    <p>
+        My response codes are the same as with my previous do GET if
+        statements.
+    </p>
+
+    <p>
+        But here, I execute a for-loop, and add all of the restaurant menu
+        items to my output string.
+    </p>
+
+    <p>
+        Separate it with break lines, and enclosed in my HTML and body tags.
+    </p>
+
+    <p>
+        I write the output to my wfile, and send it off to the client.
+    </p>
+
+    <p>
+        When I save my code, and restart my web server, I get an output like
+        this.
+    </p>
+
+    <p>
+        When I visit local host port 8080/restaurants, it lists out all the
+        restaurants in my data base.
+    </p>
+
+    <p>
+        Objective one, complete.
+    </p>
+
+    <p>
+        See the instructor notes if you'd like to see my code for objective
+        one.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 14 - Objective 2 </h3>
+
+    <p>
+        In this next solution video, I will tackle the second challenge by
+        adding a link to edit and delete each restaurant entry.  Once you've
+        attempted this objective, proceed to the next video.
+    </p>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 15 - Objective 2 </h3>
+
+    <p>
+        In order to complete this challenge, I will take advantage of the for
+        loop I've already created.
+    </p>
+
+    <p>
+        Within it, I will add an anchor tag to edit and delete each restaurant
+        like so.
+    </p>
+
+    <p>
+        I will leave the hrefs empty with hashtags for now, since I'll be
+        adding the edit and delete functionality in later objectives.
+    </p>
+
+    <p>
+        I rerun my server again, and get a restaurants page with Edit and
+        Delete options for each restaurant.
+    </p>
+
+    <p>
+        Objective two is in the bag.
+    </p>
+
+    <p>
+        The source code for objective two is available in the instructor
+        notes.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 16 - Objective 3 </h3>
+
+    <p>
+        I will solve objective three in this next video, by creating a webpage
+        when the user visits localhost:/8080/restaurants/new.
+    </p>
+
+    <p>
+        This page will contain a form that a user can fill out to create a new
+        restaurant.
+    </p>
+
+    <p>
+        The form will then send a post request to the server, and create a new
+        restaurant entry in the database.
+    </p>
+
+    <p>
+        Once you've attempted this challenge, proceed to the solution video.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 17 - Objective 3 </h3>
+
+    <p>
+        Okay.
+    </p>
+
+    <p>
+        So now let's tackle objective three together.
+    </p>
+
+    <p>
+        This objective really has three parts.
+    </p>
+
+    <p>
+        First we need to create a link to make a new restaurant.
+    </p>
+
+    <p>
+        Then create a page to handle the get request when we click on that
+        link.
+    </p>
+
+    <p>
+        And finally, a get post method to persist the data to the database.
+    </p>
+
+    <p>
+        Well the first part doesn't seem too hard.
+    </p>
+
+    <p>
+        Let's add another anchor tag to our restaurants page that prompts the
+        user to create a new restaurant, followed by a few break lines.
+    </p>
+
+    <p>
+        We can go ahead and fill out this href to /restaurants/new as stated
+        in the objective.
+    </p>
+
+    <p>
+        Next, I will create another page to handle this new restaurant
+        request.
+    </p>
+
+    <p>
+        Inside my do GET block, I will add another if statement that looks for
+        the /restaurants/new URL.
+    </p>
+
+    <p>
+        Looking at this code, we can see a lot of similarities with our
+        previous do GET if statements.
+    </p>
+
+    <p>
+        I have added here a field where the user can input the name of a new
+        restaurant.
+    </p>
+
+    <p>
+        So now that the layout is in place, the magic really happens with our
+        post request.
+    </p>
+
+    <p>
+        Unlike get requests, post requests cannot be executed by simply typing
+        a URL in the browser and hitting enter.
+    </p>
+
+    <p>
+        However, do POST is going to look for the /restaurants /newpath,
+        passed along from my forum, in order to know what action to perform.
+    </p>
+
+    <p>
+        Inside my do POST, I will comment out the previous code inside the try
+        block for now.
+    </p>
+
+    <p>
+        I then add an if statement, looking for /restaurants/new.
+    </p>
+
+    <p>
+        Then I extract the information from the form similarly to the way I
+        did it in the first web server we wrote.
+    </p>
+
+    <p>
+        But this time I incorporate that data into my declaration of a new
+        restaurant class.
+    </p>
+
+    <p>
+        Also differently now, instead of printing my results to the current
+        webpage, I create a redirect here that will take me back to my
+        original restaurant's homepage.
+    </p>
+
+    <p>
+        Let's save and restart our server again.
+    </p>
+
+    <p>
+        If we can create a new restaurant, and see it added to our page,
+        objective three is over and out.
+    </p>
+
+    <p>
+        The source code for objective three is available in the instructor
+        notes.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 18 - Objective 4 </h3>
+
+    <p>
+        The fourth objective, is to create a page to edit the name of the
+        specific restaurant.
+    </p>
+
+    <p>
+        I will do this by passing a URL to my server with the id number of the
+        specific restaurant, followed by back slash edit.
+    </p>
+
+    <p>
+        Once, you've attempted this challenge, proceed to the solution video.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 19 Objective 4 </h3>
+
+    <p>
+        When we created the main restaurants page, we executed a query to get
+        all of the restaurants in the database.
+    </p>
+
+    <p>
+        I will use the ID number of each restaurant entry in order to find a
+        specific restaurant to update.
+    </p>
+
+    <p>
+        Let's go ahead and replace that hashtag with the restaurant ID number,
+        and then a backslash, and the word edit to indicate a new path where
+        we will edit our menu entries.
+    </p>
+
+    <p>
+        I will now create another if statement that looks for /edit in my URL.
+    </p>
+
+    <p>
+        Since I chose to edit restaurants by their ID,
+    </p>
+
+    <p>
+        I need to find a way to grab that ID number out of the URL.
+    </p>
+
+    <p>
+        The split command in Python comes in handy here and returns an array
+        of strings separated by the backslash.
+    </p>
+
+    <p>
+        I figured out that the third value of this array contains my ID
+        number.
+    </p>
+
+    <p>
+        So with this 2 here, I'm grabbing the third element of this zero
+        indexed array.
+    </p>
+
+    <p>
+        I then do a restaurant query to grab the restaurant entry equal to the
+        ID in the URL.
+    </p>
+
+    <p>
+        If I find that query, then I generate a response and begin to render
+        the page.
+    </p>
+
+    <p>
+        I can create a form with one field for the new restaurant name.
+    </p>
+
+    <p>
+        Let's create a post method, and pass in the path for the
+        /restaurants/ID/edit, passing in the ID of the restaurant I want to
+        edit.
+    </p>
+
+    <p>
+        I also pre-filled this field with the current name of the restaurant.
+    </p>
+
+    <p>
+        I close all my tags and add this output string to the wfile.
+    </p>
+
+    <p>
+        Now, let's write up the post response for our edit form.
+    </p>
+
+    <p>
+        Some of this code might be starting to look pretty familiar.
+    </p>
+
+    <p>
+        After making another if statement, we grab the input from our form
+        again.
+    </p>
+
+    <p>
+        Then we perform the query to find the object with the matching ID.
+    </p>
+
+    <p>
+        We reset the name field to the entry we created in the form, then add
+        to the session and commit.
+    </p>
+
+    <p>
+        I then added a redirect to bring us back to our restaurants page after
+        the code has been executed.
+    </p>
+
+    <p>
+        This was a lot of code to write.
+    </p>
+
+    <p>
+        So let's save and rerun our server again to see if it worked.
+    </p>
+
+    <p>
+        If I rename Panda Garden to The New Panda Garden, look!
+    </p>
+
+    <p>
+        It's been updated in the database and in our restaurants page.
+    </p>
+
+    <p>
+        The source code for objective four is also available in the instructor
+        notes.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 20 - Objective 5 </h3>
+
+    <p>
+        Now, we'll be addressing the final challenge, which will allow me to
+        delete a restaurant from my database, by taking me to a confirmation
+        page with a POST command to remove my restaurant menu item.
+    </p>
+
+    <p>
+        Once you have attempted this challenge, go ahead and move on to the
+        solution video.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 21 - Objective 5 </h3>
+
+    <p>
+        To get started, let's replace the hashtag in our delete link with the
+        path for /restaurants/idnumber/delete.
+    </p>
+
+    <p>
+        Here, inside my doGet block, I make a confirmation page that informs
+        the user that they are about to delete a restaurant from the database.
+    </p>
+
+    <p>
+        Within it, I create a POST form that only contains the button element
+        to confirm the delete.
+    </p>
+
+    <p>
+        Then I use wfile to write my output back out to the client.
+    </p>
+
+    <p>
+        Similarly to my edit post, I grab the ID part of my URL and create a
+        query to find that restaurant object.
+    </p>
+
+    <p>
+        I then call session.delete on the object and commit the delete to the
+        database.
+    </p>
+
+    <p>
+        I redirect once again to the main restaurants page.
+    </p>
+
+    <p>
+        Let's save our code and fire up the server one more time.
+    </p>
+
+    <p>
+        And we see that we can now create, read, update, and delete via our
+        web page, all objectives complete.
+    </p>
+
+    <p>
+        And of course, the source code for objective five can also be found in
+        the instructor notes.
+    </p>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <hr>
+
+    <h3> Section 22 - Lesson 2 Wrap-Up </h3>
+
+    <p>
+        Great job on finishing lesson two.
+    </p>
+
+    <p>
+        At this rate, you'll be a professional in no time.
+    </p>
+
+    <p>
+        In this lesson, you created a web server in Python, learned what GET
+        and POST requests are and how to create code to handle them, and
+        implemented all CRUD operations via web pages and forms.
+    </p>
+
+    <p>
+        So, now you've learned the basic underlying concepts of creating a
+        data-driven web app using just Python.
+    </p>
+
+    <p>
+        In lesson three, you'll be developing a new web server, but this time,
+        using a framework to help you code more efficiently.
+    </p>
+
+  
+</div>
+</body>
+</html>
