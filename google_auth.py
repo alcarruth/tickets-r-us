@@ -14,7 +14,7 @@ from flask import request, redirect, flash
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 
-from tickets import createUser, getUserID
+from tickets import createUser, getUserByEmail, getUserByID
 
 #------------------------------------------------------------------------------------
 # Google+ Authorization
@@ -101,37 +101,29 @@ class Google_Auth:
         print >> sys.stderr, "user is not already logged in"
 
 
+        # Get user data
+        userinfo_url = "https://www.googleapis.com/oauth2/v1/userinfo"
+        params = {'access_token': access_token, 'alt':'json'}
+        answer = requests.get(userinfo_url, params=params)
+        user_data = json.loads(answer.text)
+        print >> sys.stderr, "got user data %s" % str(user_data)
+
+
+        # create user if new
+        user = getUserByEmail(self.db_session, user_data['email'])
+        if not user:
+            user = createUser(self.db_session, user_data)
+            print >> sys.stderr, 'created user: %s' % str(user)
+            
         # Store the access token in the session for later use.
         self.app_session['provider'] = 'google'
         self.app_session['access_token'] = access_token
         self.app_session['gplus_id'] = gplus_id
+        self.app_session['user_id'] = user.id
+        self.app_session['username'] = user.name
 
-
-        # Get user info
-        userinfo_url = "https://www.googleapis.com/oauth2/v1/userinfo"
-        params = {'access_token': access_token, 'alt':'json'}
-        answer = requests.get(userinfo_url, params=params)
-        data = json.loads(answer.text)
-        print >> sys.stderr, "got user info"
-
-
-        # create user if new
-        user_id = getUserID(self.db_session, data['email'])
-        if not user_id:
-            user_id = createUser(self.db_session, self.app_session)
-            print >> sys.stderr, 'creating user ' + user_id
-
-
-        self.app_session['user_id'] = user_id
-        self.app_session['username'] = data["name"]
-        self.app_session['picture'] = data["picture"]
-        self.app_session['email'] = data["email"]
-
-        print >> sys.stderr, "almost done"
-
-        username = self.app_session['username']
-        flash("you are now logged in as %s" % username)
-        print >> sys.stderr, 'login successful for user %s' % username
+        flash("you are now logged in as %s" % user.name)
+        print >> sys.stderr, 'login successful for user %s' % user.name
         return redirect('/tickets/conferences')
 
     # Logout - Revoke a current user's token and reset their login session

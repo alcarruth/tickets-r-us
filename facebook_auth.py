@@ -14,7 +14,7 @@ from flask import request, redirect, flash, make_response
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 
-from tickets import createUser, getUserID
+from tickets import createUser, getUserByEmail
 
 #------------------------------------------------------------------------------------
 # Facebook Authorization
@@ -48,26 +48,18 @@ class Facebook_Auth:
         url += '&client_secret=%s' % app_secret
         url += '&fb_exchange_token=%s' % access_token
 
-        h = httplib2.Http()
-        result = h.request(url, 'GET')[1]
+        
+        # Use token to get user data
+        token = httplib2.Http().request(url, 'GET')[1].split("&")[0]
+        url = 'https://graph.facebook.com/v2.4/me?%s&fields=name,id,email' % token
+        data = json.loads(httplib2.Http().request(url, 'GET')[1])
 
-        # Use token to get user info from API
-        userinfo_url = "https://graph.facebook.com/v2.4/me"
-        # strip expire tag from access token
-        token = result.split("&")[0]
-
-        url = 'https://graph.facebook.com/v2.4/me?'
-        url += '%s&' % token
-        url += 'fields=name,id,email'
-
-        h = httplib2.Http()
-        result = h.request(url, 'GET')[1]
-
-        data = json.loads(result)
         self.app_session['provider'] = 'facebook'
-        self.app_session['username'] = data["name"]
-        self.app_session['email'] = data["email"]
         self.app_session['facebook_id'] = data["id"]
+
+        user_data = {}
+        user_data['name'] = data["name"]
+        user_data['email'] = data["email"]
 
         # The token must be stored in the self.app_session in order to 
         # properly logout, let's strip out the information before 
@@ -77,40 +69,29 @@ class Facebook_Auth:
         self.app_session['access_token'] = stored_token
     
         # Get user picture
-        url = 'https://graph.facebook.com/v2.4/me/picture?'
-        url += '%s&' % token
-        url += 'redirect=0&'
-        url += 'height=200&'
-        url += 'width=200'
-
-        h = httplib2.Http()
-        result = h.request(url, 'GET')[1]
-        data = json.loads(result)
-
-        self.app_session['picture'] = data["data"]["url"]
+        url = 'https://graph.facebook.com/v2.4/me/picture?%s&redirect=0&height=200&width=200' % token
+        data = json.loads(httplib2.Http().request(url, 'GET')[1])
+        user_data['picture'] = data["data"]["url"]
 
         # see if user exists
-        user_id = getUserID(self.db_session, self.app_session['email'])
-        if not user_id:
-            user_id = createUser(self.db_session, self.app_session)
-        self.app_session['user_id'] = user_id
+        user = getUserByEmail(self.db_session, user_data['email'])
+        if not user:
+            user = createUser(self.db_session, user_data)
+        self.app_session['user'] = user
 
         output = ''
-        output += '<h1>Welcome, %s!</h1>' % self.app_session['username']
-        output += '<img src="%s"' % self.app_session['picture']
+        output += '<h1>Welcome, %s!</h1>' % user.name
+        output += '<img src="%s"' % user.picture
         output += ' style = "width: 300px; height: 300px;border-radius: 150px;'
         output += '-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
 
-        flash("Now logged in as %s" % self.app_session['username'])
+        flash("Now logged in as %s" % user.name)
         return output
 
     def disconnect(self):
-
         facebook_id = self.app_session['facebook_id']
         access_token = self.app_session['access_token']
         url = 'https://graph.facebook.com/%s/' % facebook_id
         url += 'permissions?access_token=%s' % access_token
-
-        h = httplib2.Http()
-        result = h.request(url, 'DELETE')[1]
+        result = httplib2.Http().request(url, 'DELETE')[1]
 

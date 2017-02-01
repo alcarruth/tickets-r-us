@@ -147,14 +147,6 @@ def ensure_session():
 # Tickets 'R' Us App 
 
 # login
-#
-# TODO:
-# This could be cleaned up.
-# Move the fb and google code to their respective python files.
-# Use a list of providers.
-# Change the login.html template to work with the list of
-# providers.
-#
 
 @app.route('/login')
 @ensure_session()
@@ -234,6 +226,7 @@ def disconnect():
 #---------------------------------------------------------------------------------------------
 # Conferences View
 
+@ensure_session()
 @app.route('/')
 @app.route('/conferences')
 @ensure_session()
@@ -603,7 +596,9 @@ def user_xml(user_id):
 app.secret_key = ''.join(random.choice(
     string.ascii_uppercase + string.digits) for x in xrange(32))
 
-app.debug = True
+app.debug = False
+print >> sys.stderr, 'tickets app loaded.'
+print >> sys.stderr, app
 
 #---------------------------------------------------------------------------------------------
 # Start the server

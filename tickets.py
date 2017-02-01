@@ -142,29 +142,32 @@ class User(Base):
 
 # add a user to the database
 #
-def createUser(db_session, app_session):
+def createUser(db_session, user_data):
     user = User(
-        name = app_session['username'],
-        email = app_session['email'],
-        picture = app_session['picture']
+        name = user_data["name"],
+        email = user_data["email"],
+        picture = user_data["picture"]
     )
     db_session.add(user)
     db_session.commit()
-    return user.id
+    return user
 
 # maps a user_id to a user
 #
-def getUserInfo(db_session, user_id):
-    user = db_session.query(User).filter_by(id=user_id).one()
-    return user
+def getUserByID(db_session, user_id):
+    try:
+        user = db_session.query(User).filter_by(id=user_id).one()
+        return user
+    except:
+        return None
 
 # lookup a user by their email address
 # and return the user id
 #
-def getUserID(db_session, email):
+def getUserByEmail(db_session, email):
     try:
         user = db_session.query(User).filter_by(email=email).one()
-        return user.id
+        return user
     except:
         return None
 
