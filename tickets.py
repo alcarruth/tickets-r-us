@@ -117,7 +117,7 @@ class Game(Base):
 # User - someone with a ticket they're trying to sell
 
 class User(Base):
-    __tablename__ = 'user'
+    __tablename__ = 'ticket_user'
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
@@ -142,11 +142,11 @@ class User(Base):
 
 # add a user to the database
 #
-def createUser(db_session, login_session):
+def createUser(db_session, app_session):
     user = User(
-        name = login_session['username'],
-        email = login_session['email'],
-        picture = login_session['picture']
+        name = app_session['username'],
+        email = app_session['email'],
+        picture = app_session['picture']
     )
     db_session.add(user)
     db_session.commit()
@@ -183,7 +183,7 @@ class Ticket_Lot(Base):
     __tablename__ = 'ticket_lot'
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('user.id'))
+    user_id = Column(Integer, ForeignKey('ticket_user.id'))
     seller = relationship(User, backref=backref('ticket_lots'))
     game_id = Column(Integer, ForeignKey('game.id'))
     game = relationship(Game, backref=backref('ticket_lots',  cascade="all, delete-orphan"))

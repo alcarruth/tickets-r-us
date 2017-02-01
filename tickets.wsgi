@@ -1,7 +1,7 @@
 
 import sys, os
 
-app_dir = '/usr/local/server/https/wsgi/tickets'
+app_dir = '/home/carruth/tickets'
 os.chdir(app_dir)
 sys.path.insert(0, app_dir)
 

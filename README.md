@@ -18,17 +18,26 @@ and tested with the following versions:
  - postgresql: 9.3.11
  - sqlite3: 2.6.0
  - psycopg2: 2.4.5
+ - pip: 1.5.4
+
+The above can be installed (on Linux) using apt-get:
+
+```
+$ sudo apt-get install postgresql sqlite3 python-psycopg2 python-pip
+```
+
  - dict2xml: 1.4
  - sqlalchemy: 1.0.9
  - flask: 0.10.1
+ - flask-seasurf: 0.2.2
  - werkzeug: 0.11.4
  - oauth2client: 1.5.2
 
 You can check/install these modules on your system by issuing
-the command
+the command:
 
 ```
-$ pip -r requirements.txt
+$ sudo pip install -r requirements.txt
 ```
 
 Next, edit the `options.py` file to suit your situation.  In particular, the

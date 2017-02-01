@@ -32,7 +32,7 @@ function sendTokenToServer() {
         console.log('Successful login for: ' + response.name);
         $.ajax({
             type: 'POST',
-            url: '{{ url_for('connect', provider='facebook', state=STATE) }}',
+            url: '{{ url_for('connect', provider='facebook', session_id=SESSION_ID) }}',
             //_csrf_token: '{{csrf_token()}}',
             processData: false,
             data: access_token,

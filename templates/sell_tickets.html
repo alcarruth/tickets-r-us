@@ -27,7 +27,7 @@
                 Image: <input type="file" name="img" accept="image/*"> <br>
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="game_id" value="{{game.id}}">
-                <input type="hidden" name="user_id" value="{{login_session['user_id']}}">
+                <input type="hidden" name="user_id" value="{{app_session['user_id']}}">
                 <input type="submit" value="Submit">
             </form>
         </div> <!-- game-tickets -->

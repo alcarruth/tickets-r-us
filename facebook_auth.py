@@ -26,14 +26,14 @@ f.close()
 
 class Facebook_Auth:
 
-    def __init__(self, db_session, login_session):
+    def __init__(self, db_session, app_session):
         self.db_session = db_session
-        self.login_session = login_session
+        self.app_session = app_session
 
-    def connect(self, state):
+    def connect(self, session_id):
 
-        if state != self.login_session['state']:
-            response = make_response(json.dumps('Invalid state parameter.'), 401)
+        if session_id != self.app_session['session_id']:
+            response = make_response(json.dumps('Invalid session_id.'), 401)
             response.headers['Content-Type'] = 'application/json'
             return response
 
@@ -64,17 +64,17 @@ class Facebook_Auth:
         result = h.request(url, 'GET')[1]
 
         data = json.loads(result)
-        self.login_session['provider'] = 'facebook'
-        self.login_session['username'] = data["name"]
-        self.login_session['email'] = data["email"]
-        self.login_session['facebook_id'] = data["id"]
+        self.app_session['provider'] = 'facebook'
+        self.app_session['username'] = data["name"]
+        self.app_session['email'] = data["email"]
+        self.app_session['facebook_id'] = data["id"]
 
-        # The token must be stored in the self.login_session in order to 
+        # The token must be stored in the self.app_session in order to 
         # properly logout, let's strip out the information before 
         # the equals sign in our token
     
         stored_token = token.split("=")[1]
-        self.login_session['access_token'] = stored_token
+        self.app_session['access_token'] = stored_token
     
         # Get user picture
         url = 'https://graph.facebook.com/v2.4/me/picture?'
@@ -87,27 +87,27 @@ class Facebook_Auth:
         result = h.request(url, 'GET')[1]
         data = json.loads(result)
 
-        self.login_session['picture'] = data["data"]["url"]
+        self.app_session['picture'] = data["data"]["url"]
 
         # see if user exists
-        user_id = getUserID(self.db_session, self.login_session['email'])
+        user_id = getUserID(self.db_session, self.app_session['email'])
         if not user_id:
-            user_id = createUser(self.db_session, self.login_session)
-        self.login_session['user_id'] = user_id
+            user_id = createUser(self.db_session, self.app_session)
+        self.app_session['user_id'] = user_id
 
         output = ''
-        output += '<h1>Welcome, %s!</h1>' % self.login_session['username']
-        output += '<img src="%s"' % self.login_session['picture']
+        output += '<h1>Welcome, %s!</h1>' % self.app_session['username']
+        output += '<img src="%s"' % self.app_session['picture']
         output += ' style = "width: 300px; height: 300px;border-radius: 150px;'
         output += '-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
 
-        flash("Now logged in as %s" % self.login_session['username'])
+        flash("Now logged in as %s" % self.app_session['username'])
         return output
 
     def disconnect(self):
 
-        facebook_id = self.login_session['facebook_id']
-        access_token = self.login_session['access_token']
+        facebook_id = self.app_session['facebook_id']
+        access_token = self.app_session['access_token']
         url = 'https://graph.facebook.com/%s/' % facebook_id
         url += 'permissions?access_token=%s' % access_token
 

@@ -4,11 +4,12 @@
 # Flask libraries
 from flask import Flask, render_template, request, redirect, Markup
 from flask import jsonify, url_for, flash, make_response
-from flask import session as login_session
-from flask.ext.seasurf import SeaSurf
+from flask import session as app_session
+#from flask.ext.seasurf import SeaSurf <- deprecated
+from flask_seasurf import SeaSurf
 
 # Standard python libraries
-import httplib2, json, requests, random, string, os
+import httplib2, json, requests, random, string, os, sys
 from functools import wraps
 from dict2xml import dict2xml as xmlify
 
@@ -54,8 +55,8 @@ from facebook_auth import Facebook_Auth
 # files and change login.html to iterate over auth_providers to create the 
 # buttons for the authentication providers included below.
 auth_providers = {
-    'google': Google_Auth(db_session, login_session),
-    'facebook': Facebook_Auth(db_session, login_session)
+    'google': Google_Auth(db_session, app_session, 'oauth/google/udacity_dev_env_secrets.json'),
+    'facebook': Facebook_Auth(db_session, app_session)
 }
 
 DEBUG = True
@@ -95,7 +96,7 @@ def check_authentication(msg):
     def decorator(f):
         @wraps(f)
         def decorated_function(*args, **kwargs):
-            if 'user_id' not in login_session:
+            if 'user_id' not in app_session:
                 flash(msg)
                 # The keyword arg 'next_url' is used in function login() 
                 # in the call to redirect().  So we attempt the login and
@@ -117,7 +118,7 @@ def check_authorization(msg, item_class, end_point):
         def decorated_function(*args, **kwargs):
             item_id = kwargs['item_id']
             item = db_session.query(item_class).filter_by(id=item_id).one()
-            if item.user_id != login_session['user_id']:
+            if item.user_id != app_session['user_id']:
                 flash(msg)
                 return redirect(url_for(end_point, item_id=item_id))
             # We have already looked up the item so why have function f()
@@ -125,6 +126,18 @@ def check_authorization(msg, item_class, end_point):
             # the endpoints that use this decorator to have the 'item' arg.
             # (I guess this makes the item_id arg superfluous.)
             kwargs['item'] = item
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator
+
+
+def ensure_session():
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            if not app_session.has_key('session_id'):
+                app_session['session_id'] = ''.join(random.choice(
+                    string.ascii_uppercase + string.digits) for x in xrange(32))
             return f(*args, **kwargs)
         return decorated_function
     return decorator
@@ -144,28 +157,26 @@ def check_authorization(msg, item_class, end_point):
 #
 
 @app.route('/login')
+@ensure_session()
 def login():
 
     redirect_url = request.args.get('next_url') or url_for('conferences')
-    state = ''.join(random.choice(
-        string.ascii_uppercase + string.digits) for x in xrange(32))
-    login_session['state'] = state
+    session_id = app_session['session_id']
 
     # Facebook login
     fb_app_id = '907786629329598'
     fb_connect_js = Markup(render_template(
         'fb_connect.js',
         fb_app_id = fb_app_id,
-        STATE = state,
+        SESSION_ID = session_id,
         redirect_url = redirect_url
     ))
 
     # Google login
-    # zeus.armazilla.net
-    google_app_id = "123296537254-p2ogejugvienht07j20rnnok2ov5f277.apps.googleusercontent.com"
+    google_app_id = auth_providers['google'].app_id()
     google_connect_js = Markup(render_template(
         'google_connect.js',
-        STATE = state,
+        SESSION_ID = session_id,
         redirect_url = redirect_url
     ))
 
@@ -175,41 +186,46 @@ def login():
         google_connect_js = google_connect_js,
         fb_connect_js = fb_connect_js,
         google_sign_in = True,
-        login_session = login_session
+        app_session = app_session
     )
 
 @csrf.exempt
-@app.route('/connect/<provider>/<state>', methods=['POST'])
-def connect(provider, state):
+@app.route('/connect/<provider>/<session_id>', methods=['POST'])
+@ensure_session()
+def connect(provider, session_id):
 
     try:
-        return auth_providers[provider].connect(state)
+        return auth_providers[provider].connect(session_id)
 
     except:
+        print >> sys.stderr, "provider: %s" % provider
+        print >> sys.stderr, "session_id: %s" % session_id
+        return session_id
         # TODO: handle this gracefully
-        pass
+        #pass
 
 # logout
 #
 @csrf.exempt
 @app.route('/disconnect')
+@ensure_session()
 def disconnect():
 
-    keys = login_session.keys()
+    keys = app_session.keys()
     if 'provider' in keys:
 
         try: 
-            auth_providers[login_session['provider']].disconnect()
+            auth_providers[app_session['provider']].disconnect()
             flash("You have successfully been logged out.")
 
         except:
             flash("You are not logged in.")
 
-    # If login_session gets into a bad state
+    # If app_session gets into a bad state
     # it seems to want to persist, so let's just
     # clean it up.
     for key in keys:
-        del login_session[key]
+        del app_session[key]
 
     return redirect(url_for('conferences'))
 
@@ -220,10 +236,12 @@ def disconnect():
 
 @app.route('/')
 @app.route('/conferences')
+@ensure_session()
 def conferences():
+    print >> sys.stderr, str(app_session)
     conferences = db_session.query(Conference).all()
     main = Markup(render_template('conferences.html', conferences=conferences))
-    return render_template('layout.html', main=main, login_session=login_session)
+    return render_template('layout.html', main=main, app_session=app_session)
 
 
 
@@ -234,17 +252,20 @@ def conferences():
 # it shows the schedules for each team
 #
 @app.route('/conference/<conference>')
+@ensure_session()
 def conference(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     main = Markup(render_template('conference.html', conference=conference))
-    return render_template('layout.html', main=main, login_session=login_session)
+    return render_template('layout.html', main=main, app_session=app_session)
 
 @app.route('/conference/<conference>/JSON')
+@ensure_session()
 def conference_json(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     return jsonify(conference.to_dict())
 
 @app.route('/conference/<conference>/XML')
+@ensure_session()
 def conference_xml(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     return xmlify(conference.to_dict())
@@ -259,16 +280,19 @@ def conference_xml(conference):
 # about a team / school on a new page.
 
 @app.route('/team/<team_name>')
+@ensure_session()
 def team(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return render_template('team.html', team=team)
 
 @app.route('/team/<team_name>/JSON')
+@ensure_session()
 def team_json(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return jsonify(team.to_dict())
 
 @app.route('/team/<team_name>/XML')
+@ensure_session()
 def team_xml(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return xmlify(team.to_dict())
@@ -286,16 +310,18 @@ def allowed_file(filename):
 # for that game.
 #
 @app.route('/game/<int:game_id>')
+@ensure_session()
 def game(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
     game.ticket_lots.sort(key = lambda x: x.price)
     main = Markup(render_template('game_tickets.html', game=game))
-    return render_template('layout.html', main=main, login_session=login_session)
+    return render_template('layout.html', main=main, app_session=app_session)
 
 
 # Sell Tickets
 
 @app.route('/game/<int:game_id>/sell', methods=['GET', 'POST'])
+@ensure_session()
 @check_authentication("You must be logged in to sell tickets!")
 def sell_tickets(game_id):
 
@@ -303,8 +329,8 @@ def sell_tickets(game_id):
     # return a page with a fill-in form
     if request.method == 'GET':
         game = db_session.query(Game).filter_by(id=game_id).one()
-        main = Markup(render_template('sell_tickets.html', game=game, login_session=login_session))
-        return render_template('layout.html', main=main, login_session=login_session)
+        main = Markup(render_template('sell_tickets.html', game=game, app_session=app_session))
+        return render_template('layout.html', main=main, app_session=app_session)
 
     # process a submitted form for selling tickets
     elif request.method == 'POST':
@@ -369,11 +395,13 @@ def sell_tickets(game_id):
         return redirect(url_for('game', game_id=game_id))
 
 @app.route('/game/<int:game_id>/JSON')
+@ensure_session()
 def game_json(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
     return jsonify(game.to_dict())
 
 @app.route('/game/<int:game_id>/XML')
+@ensure_session()
 def game_xml(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
     return xmlify(game.to_dict())
@@ -389,21 +417,24 @@ def game_xml(game_id):
 # that are being offered for sale together.
 #
 @app.route('/ticket_lot/<int:item_id>')
+@ensure_session()
 def ticket_lot(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
 
     # TODO: 
     # edit tiket_lot.html to display tickets image
 
-    main = Markup(render_template('ticket_lot.html', ticket_lot=ticket_lot, login_session=login_session))
-    return render_template('layout.html', main=main, login_session=login_session)
+    main = Markup(render_template('ticket_lot.html', ticket_lot=ticket_lot, app_session=app_session))
+    return render_template('layout.html', main=main, app_session=app_session)
 
 @app.route('/ticket_lot/<int:item_id>/JSON')
+@ensure_session()
 def ticket_lot_json(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
     return jsonify(ticket_lot.to_dict())
 
 @app.route('/ticket_lot/<int:item_id>/XML')
+@ensure_session()
 def ticket_lot_xml(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
     return xmlify(ticket_lot.to_dict())
@@ -417,6 +448,7 @@ def ticket_lot_xml(item_id):
 # and replaced.
 
 @app.route('/ticket_lot/<int:item_id>/edit', methods=['GET', 'POST'])
+@ensure_session()
 @check_authentication("You must be logged in to edit tickets!")
 @check_authorization("You cannot edit another user's tickets!", Ticket_Lot, 'ticket_lot')
 def edit_tickets(item_id, item):
@@ -426,8 +458,8 @@ def edit_tickets(item_id, item):
 
     if request.method == 'GET':
         main = Markup(render_template(
-            'edit_tickets.html', ticket_lot=ticket_lot, login_session=login_session))
-        return render_template('layout.html', main=main, login_session=login_session)
+            'edit_tickets.html', ticket_lot=ticket_lot, app_session=app_session))
+        return render_template('layout.html', main=main, app_session=app_session)
 
     elif request.method == 'POST':
 
@@ -467,16 +499,17 @@ def edit_tickets(item_id, item):
 # Delete Tickets
 
 @app.route('/ticket_lot/<int:item_id>/delete', methods=['GET', 'POST'])
+@ensure_session()
 @check_authentication("You must be logged in to delete tickets!")
-@check_authorization("You cannot edit another user's tickets!", Ticket_Lot, 'ticket_lot')
+@check_authorization("You cannot delete another user's tickets!", Ticket_Lot, 'ticket_lot')
 def delete_tickets(item_id, item):
 
     ticket_lot = item
 
     if request.method == 'GET':
         main = Markup(render_template(
-            'delete_tickets.html', ticket_lot=ticket_lot, login_session=login_session))
-        return render_template('layout.html', main=main, login_session=login_session)
+            'delete_tickets.html', ticket_lot=ticket_lot, app_session=app_session))
+        return render_template('layout.html', main=main, app_session=app_session)
 
     elif request.method == 'POST':
 
@@ -503,16 +536,17 @@ def delete_tickets(item_id, item):
 # Delete Image
 
 @app.route('/ticket_lot/<int:item_id>/delete_image', methods=['GET', 'POST'])
+@ensure_session()
 @check_authentication("You must be logged in to delete ticket image!")
-@check_authorization("You cannot edit another user's ticket image!", Ticket_Lot, 'ticket_lot')
+@check_authorization("You cannot delete another user's ticket image!", Ticket_Lot, 'ticket_lot')
 def delete_image(item_id, item):
 
     ticket_lot = item
 
     if request.method == 'GET':
         main = Markup(render_template(
-            'delete_image.html', ticket_lot=ticket_lot, login_session=login_session))
-        return render_template('layout.html', main=main, login_session=login_session)
+            'delete_image.html', ticket_lot=ticket_lot, app_session=app_session))
+        return render_template('layout.html', main=main, app_session=app_session)
 
     elif request.method == 'POST':
 
@@ -540,29 +574,35 @@ def delete_image(item_id, item):
 # user accounts.
 #
 @app.route('/users')
+@ensure_session()
 def users():
     users = db_session.query(User).all()
     return render_template('users.html', users=users)
 
 @app.route('/users/<int:user_id>')
+@ensure_session()
 def user(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
     main = Markup(render_template('user.html', user=user))
-    return render_template('layout.html', main=main, login_session=login_session)
+    return render_template('layout.html', main=main, app_session=app_session)
 
 @app.route('/users/<int:user_id>/JSON')
+@ensure_session()
 def user_json(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
     return jsonify(user.to_dict())
 
 @app.route('/users/<int:user_id>/XML')
+@ensure_session()
 def user_xml(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
     return xmlify(user.to_dict())
 
 
+# generate a random secret key
+app.secret_key = ''.join(random.choice(
+    string.ascii_uppercase + string.digits) for x in xrange(32))
 
-app.secret_key = 'super_secret_key'
 app.debug = True
 
 #---------------------------------------------------------------------------------------------

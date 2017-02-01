@@ -104,7 +104,7 @@ line 77
      AWESOME
 
      Well done! Saving the access_token directly into the
-     login_session to avoid the the potential Oauth2crendentail is not
+     app_session to avoid the the potential Oauth2crendentail is not
      JSON serializable problem has been done correctly.
 
 

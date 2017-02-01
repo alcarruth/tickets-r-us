@@ -26,15 +26,15 @@ Code Review of first submission.
   version of Flask: The OAuth2Credentials object is not designed to be
   directly JSON serializable, so you have to use the methods to_json
   and from_json instead, which could be used to get the JSON for
-  storage, i.e: login_session['credentials'] = credentials.to_json()
+  storage, i.e: app_session['credentials'] = credentials.to_json()
 
   You may consider to save the access_token directly into the
-  login_session since the access_token will be used in the later stage
+  app_session since the access_token will be used in the later stage
   of login.
 
   Status: done.
 
-  I stored the access_token in login_session rather than
+  I stored the access_token in app_session rather than
   the entire credentials object.
 
 
