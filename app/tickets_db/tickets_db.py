@@ -7,7 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker, backref
 from sqlalchemy.ext.hybrid import hybrid_property
 
-from options import db_name, engine_type
+import settings
 
 Base = declarative_base()
 
@@ -156,8 +156,7 @@ def createUser(db_session, user_data):
 #
 def getUserByID(db_session, user_id):
     try:
-        user = db_session.query(User).filter_by(id=user_id).one()
-        return user
+        return db_session.query(User).filter_by(id=user_id).one()
     except:
         return None
 
@@ -166,8 +165,7 @@ def getUserByID(db_session, user_id):
 #
 def getUserByEmail(db_session, email):
     try:
-        user = db_session.query(User).filter_by(email=email).one()
-        return user
+        return db_session.query(User).filter_by(email=email).one()
     except:
         return None
 
@@ -264,21 +262,25 @@ class Ticket(Base):
 
 #---------------------------------------------------------------
 
+# For postgresql the db user will be the user asssociated with the
+# current python process.  See postgresql configuration files pg_hba.conf
+# and pg_ident.conf for more information.
+#
 db_urls = {
-    'postgres': 'postgresql:///%s' % db_name,
-    'sqlite': 'sqlite:///%s.db' % db_name
+    'postgres': 'postgresql:///%s' % settings.db_name,
+    'sqlite': 'sqlite:///%s.db' % settings.db_name
 }
-engine = create_engine(db_urls[engine_type])
+engine = create_engine(db_urls[settings.engine_type])
 Base.metadata.create_all(engine)
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
 
 def engine_version():
-    if engine_type == 'postgres':
+    if settings.engine_type == 'postgres':
         from psycopg2 import __version__
         return 'psycopg2 (%s)' % __version__
-    if engine_type == 'sqlite':
+    if settings.engine_type == 'sqlite':
         from sqlite3 import version
         return 'SQLite3 (%s)' % version
 
@@ -286,7 +288,7 @@ def set_prompt(ps):
     sys.ps1 = "\n%s->>> " % ps
     sys.ps2 = " " * len(str(ps)) +  " ... "
 
-# set_prompt(db_name)
+# set_prompt(settings.db_name)
 
 def alchemy_version():
     from sqlalchemy import __version__
@@ -298,13 +300,3 @@ def show_tickets(user):
     print user
     for ticket in user.tickets:
         print ticket
-
-if __name__ == '__main__':
-    print startup_info
-
-    session = DBSession()
-    conferences = session.query(Conference).all()
-    tickets = session.query(Ticket).all()
-    games = session.query(Game).all()
-    users = session.query(User).all()
-    teams = session.query(Team).all()

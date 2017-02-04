@@ -5,7 +5,6 @@
 from flask import Flask, render_template, request, redirect, Markup
 from flask import jsonify, url_for, flash, make_response
 from flask import session as app_session
-#from flask.ext.seasurf import SeaSurf <- deprecated
 from flask_seasurf import SeaSurf
 
 # Standard python libraries
@@ -24,7 +23,8 @@ import imghdr
 from werkzeug import secure_filename
 
 # The tickets database definitions are in tickets.py
-from tickets import DBSession, Conference, Team, Game, Ticket, Ticket_Lot, User, startup_info
+from tickets_db import DBSession, Conference, Team, Game, Ticket, Ticket_Lot, User, startup_info
+from tickets_db import createUser, getUserByEmail, getUserByID
 
 app = Flask(__name__)
 
@@ -45,8 +45,10 @@ db_session = DBSession()
 # the connect and disconnect functions, below.  The routes are set in the 
 # respective (google or fb) auth functions.
 
-from google_auth import Google_Auth
-from facebook_auth import Facebook_Auth
+from auth.google import Google_Auth_Client
+from auth.facebook import Facebook_Auth_Client
+
+import settings
 
 # These are used in functions connect() and disconnect() below and in the
 # template login.html.
@@ -55,8 +57,8 @@ from facebook_auth import Facebook_Auth
 # files and change login.html to iterate over auth_providers to create the 
 # buttons for the authentication providers included below.
 auth_providers = {
-    'google': Google_Auth(db_session, app_session, 'oauth/google/udacity_dev_env_secrets.json'),
-    'facebook': Facebook_Auth(db_session, app_session)
+    'google': Google_Auth_Client(settings.google_secrets_file),
+    'facebook': Facebook_Auth_Client(settings.facebook_secrets_file)
 }
 
 DEBUG = True
@@ -130,30 +132,44 @@ def check_authorization(msg, item_class, end_point):
         return decorated_function
     return decorator
 
-
-def ensure_session():
-    def decorator(f):
-        @wraps(f)
-        def decorated_function(*args, **kwargs):
-            if not app_session.has_key('session_id'):
-                app_session['session_id'] = ''.join(random.choice(
-                    string.ascii_uppercase + string.digits) for x in xrange(32))
-            return f(*args, **kwargs)
-        return decorated_function
-    return decorator
-
+def get_session_id():
+    if not app_session.has_key('session_id'):
+        app_session['session_id'] = ''.join(random.choice(
+            string.ascii_uppercase + string.digits) for x in xrange(32))
+    return app_session.get('session_id')
 
 #----------------------------------------------------------------------------------
 # Tickets 'R' Us App 
 
 # login
 
+class Login:
+
+    def __init__(self, provider_name, access_token, access_id, user_data):
+        self.provider_name = provider_name
+        self.access_token = access_token
+        self.access_id = access_id
+        self.user_data = user_data
+
+    def to_json(self):
+        return json.dumps( {
+            'provider_name': self.provider_name,
+            'access_token': self.access_token,
+            'access_id': self.access_id,
+            'user_data': self.user_data } )
+
+    def from_json(self, login_json):
+        d = json.loads(login_json)
+        self.provider_name = d['provider_name']
+        self.access_token = d['access_token']
+        self.access_id = d['access_id']
+        self.user_data = d['user_data']
+
 @app.route('/login')
-@ensure_session()
 def login():
 
     redirect_url = request.args.get('next_url') or url_for('conferences')
-    session_id = app_session['session_id']
+    session_id = get_session_id()
 
     # Facebook login
     fb_app_id = '907786629329598'
@@ -165,7 +181,7 @@ def login():
     ))
 
     # Google login
-    google_app_id = auth_providers['google'].app_id()
+    google_app_id = auth_providers['google'].client_id
     google_connect_js = Markup(render_template(
         'google_connect.js',
         SESSION_ID = session_id,
@@ -181,43 +197,62 @@ def login():
         app_session = app_session
     )
 
+
 @csrf.exempt
-@app.route('/connect/<provider>/<session_id>', methods=['POST'])
-@ensure_session()
-def connect(provider, session_id):
+@app.route('/connect/<provider_name>/<session_id>', methods=['POST'])
+def connect(provider_name, session_id):
 
-    try:
-        return auth_providers[provider].connect(session_id)
+    # verify session_id
+    if session_id != get_session_id():
+        flash('Invalid session_id.')
+        return redirect('/tickets/conferences')
 
-    except:
-        print >> sys.stderr, "provider: %s" % provider
-        print >> sys.stderr, "session_id: %s" % session_id
-        return session_id
-        # TODO: handle this gracefully
-        #pass
+    # auth_code is in the 'POST' data
+    auth_code = request.data
+    login = auth_providers[provider_name].connect(auth_code, Login)
+
+    if (app_session.get('login') is not None):
+        prev_login = Login()
+        prev_login.from_json(app_session.get('login'))
+        if login.get('access_id') == prev_login.get('access_id'):
+            msg = 'Current user is already connected.'
+            flash(msg)
+            return redirect(url_for('conferences'))
+            
+    user = getUserByEmail(db_session, login.user_data['email'])
+    if not user:
+        user = createUser(db_session, login.user_data)
+
+    # Store the access token in the session for later use.
+    app_session['login'] = login.to_json()
+    app_session['user_id'] = user.id
+    app_session['user_name'] = user.name
+
+    msg = "you are now logged in as %s" % user.name
+    flash(msg)
+    return redirect('/tickets/conferences')
+
 
 # logout
 #
 @csrf.exempt
 @app.route('/disconnect')
-@ensure_session()
 def disconnect():
 
-    keys = app_session.keys()
-    if 'provider' in keys:
+    try:
+        login_json = app_session.get('login')
+        login = json.loads(login_json)
+        provider = auth_providers[login.get('provider_name')]
+        result = provider.disconnect(login)
+        del app_session['login']
+        del app_session['user_id']
+        del app_session['user_name']
+        msg = "You have successfully logged out."
+        flash(msg)
 
-        try: 
-            auth_providers[app_session['provider']].disconnect()
-            flash("You have successfully been logged out.")
-
-        except:
-            flash("You are not logged in.")
-
-    # If app_session gets into a bad state
-    # it seems to want to persist, so let's just
-    # clean it up.
-    for key in keys:
-        del app_session[key]
+    except:
+        msg = "You are not logged in."
+        flash(msg)
 
     return redirect(url_for('conferences'))
 
@@ -226,12 +261,9 @@ def disconnect():
 #---------------------------------------------------------------------------------------------
 # Conferences View
 
-@ensure_session()
 @app.route('/')
 @app.route('/conferences')
-@ensure_session()
 def conferences():
-    print >> sys.stderr, str(app_session)
     conferences = db_session.query(Conference).all()
     main = Markup(render_template('conferences.html', conferences=conferences))
     return render_template('layout.html', main=main, app_session=app_session)
@@ -245,20 +277,17 @@ def conferences():
 # it shows the schedules for each team
 #
 @app.route('/conference/<conference>')
-@ensure_session()
 def conference(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     main = Markup(render_template('conference.html', conference=conference))
     return render_template('layout.html', main=main, app_session=app_session)
 
 @app.route('/conference/<conference>/JSON')
-@ensure_session()
 def conference_json(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     return jsonify(conference.to_dict())
 
 @app.route('/conference/<conference>/XML')
-@ensure_session()
 def conference_xml(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     return xmlify(conference.to_dict())
@@ -273,19 +302,16 @@ def conference_xml(conference):
 # about a team / school on a new page.
 
 @app.route('/team/<team_name>')
-@ensure_session()
 def team(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return render_template('team.html', team=team)
 
 @app.route('/team/<team_name>/JSON')
-@ensure_session()
 def team_json(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return jsonify(team.to_dict())
 
 @app.route('/team/<team_name>/XML')
-@ensure_session()
 def team_xml(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return xmlify(team.to_dict())
@@ -303,7 +329,6 @@ def allowed_file(filename):
 # for that game.
 #
 @app.route('/game/<int:game_id>')
-@ensure_session()
 def game(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
     game.ticket_lots.sort(key = lambda x: x.price)
@@ -314,7 +339,6 @@ def game(game_id):
 # Sell Tickets
 
 @app.route('/game/<int:game_id>/sell', methods=['GET', 'POST'])
-@ensure_session()
 @check_authentication("You must be logged in to sell tickets!")
 def sell_tickets(game_id):
 
@@ -340,8 +364,8 @@ def sell_tickets(game_id):
             img = request.files['img']
 
         except:
-            print "sell_tickets(): bad form data"
-            flash("sell_tickets(): bad form data")
+            msg = "sell_tickets(): bad form data"
+            flash(msg)
             return redirect(url_for('game', game_id=game_id))
 
         # ok, got the info
@@ -379,7 +403,6 @@ def sell_tickets(game_id):
             db_session.commit()
 
         except:
-            print "sell_tickets(): could not commit transaction"
             flash("sell_tickets(): could not commit transaction")
             return redirect(url_for('game', game_id=game_id))
             
@@ -388,13 +411,11 @@ def sell_tickets(game_id):
         return redirect(url_for('game', game_id=game_id))
 
 @app.route('/game/<int:game_id>/JSON')
-@ensure_session()
 def game_json(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
     return jsonify(game.to_dict())
 
 @app.route('/game/<int:game_id>/XML')
-@ensure_session()
 def game_xml(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
     return xmlify(game.to_dict())
@@ -410,7 +431,6 @@ def game_xml(game_id):
 # that are being offered for sale together.
 #
 @app.route('/ticket_lot/<int:item_id>')
-@ensure_session()
 def ticket_lot(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
 
@@ -421,13 +441,11 @@ def ticket_lot(item_id):
     return render_template('layout.html', main=main, app_session=app_session)
 
 @app.route('/ticket_lot/<int:item_id>/JSON')
-@ensure_session()
 def ticket_lot_json(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
     return jsonify(ticket_lot.to_dict())
 
 @app.route('/ticket_lot/<int:item_id>/XML')
-@ensure_session()
 def ticket_lot_xml(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
     return xmlify(ticket_lot.to_dict())
@@ -441,7 +459,6 @@ def ticket_lot_xml(item_id):
 # and replaced.
 
 @app.route('/ticket_lot/<int:item_id>/edit', methods=['GET', 'POST'])
-@ensure_session()
 @check_authentication("You must be logged in to edit tickets!")
 @check_authorization("You cannot edit another user's tickets!", Ticket_Lot, 'ticket_lot')
 def edit_tickets(item_id, item):
@@ -466,7 +483,6 @@ def edit_tickets(item_id, item):
             if request.files.has_key('img'):
                 img = request.files['img']
                 img_type = imghdr.what(img)
-                print img_type
                 if img_type in ['jpeg', 'png']:
                     # Unlike in all the examples on the Flask website,
                     # the path must be relative to the website root in order
@@ -481,8 +497,8 @@ def edit_tickets(item_id, item):
 
             db_session.commit()
         except:
-            print "edit_tickets(): could not commit transaction"
-            flash("edit_tickets(): could not commit transaction")
+            msg = "edit_tickets(): could not commit transaction"
+            flash(msg)
             return redirect(url_for('ticket_lot', item_id=item_id))
             
         return redirect(url_for('game', game_id=ticket_lot.game_id))
@@ -492,7 +508,6 @@ def edit_tickets(item_id, item):
 # Delete Tickets
 
 @app.route('/ticket_lot/<int:item_id>/delete', methods=['GET', 'POST'])
-@ensure_session()
 @check_authentication("You must be logged in to delete tickets!")
 @check_authorization("You cannot delete another user's tickets!", Ticket_Lot, 'ticket_lot')
 def delete_tickets(item_id, item):
@@ -529,7 +544,6 @@ def delete_tickets(item_id, item):
 # Delete Image
 
 @app.route('/ticket_lot/<int:item_id>/delete_image', methods=['GET', 'POST'])
-@ensure_session()
 @check_authentication("You must be logged in to delete ticket image!")
 @check_authorization("You cannot delete another user's ticket image!", Ticket_Lot, 'ticket_lot')
 def delete_image(item_id, item):
@@ -560,33 +574,25 @@ def delete_image(item_id, item):
  
 #---------------------------------------------------------------------------------------------
 # User Views
-       
-# TODO: I don't think this does anything yet. It could be used
-# to provide a table of users, but I don't see why that would
-# be useful.  Maybe it would be useful for a super-user to browse
-# user accounts.
-#
+
+
 @app.route('/users')
-@ensure_session()
 def users():
     users = db_session.query(User).all()
     return render_template('users.html', users=users)
 
 @app.route('/users/<int:user_id>')
-@ensure_session()
-def user(user_id):
+def ticket_user(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
     main = Markup(render_template('user.html', user=user))
     return render_template('layout.html', main=main, app_session=app_session)
 
 @app.route('/users/<int:user_id>/JSON')
-@ensure_session()
 def user_json(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
     return jsonify(user.to_dict())
 
 @app.route('/users/<int:user_id>/XML')
-@ensure_session()
 def user_xml(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
     return xmlify(user.to_dict())

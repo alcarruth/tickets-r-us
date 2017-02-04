@@ -27,16 +27,21 @@
         </div>
 
         <div id="header-login-div">
-            {% if 'username' not in app_session or 'user_id' not in app_session %}
-            <a class="header-login-a" href="{{ url_for('login') }}">
-                <button> Login </button>
-            </a>
-            {% else %}
-            <a class="header-login-a" href="{{ url_for('user', user_id=app_session['user_id']) }}">
-                {{app_session['username']}} </a>
+
+            {% if 'login' in app_session %}
+            {% set user_id = app_session.get('user_id') %}
+            {% set user_name = app_session.get('user_name') %}
+
+            <a class="header-login-a" href="{{ url_for('ticket_user', user_id=user_id) }}">
+                {{ user_name }} </a>
             <a class="header-login-a" href="{{ url_for('disconnect') }}"> 
-                <button> Logout </button>
-            </a>
+                <button> Logout </button> </a>
+
+            {% else %}
+
+            <a class="header-login-a" href="{{ url_for('login') }}">
+                <button> Login </button> </a>
+
             {% endif %}
         </div>
 

@@ -7,7 +7,7 @@ function signInCallback(authResult) {
 
         $.ajax({
             type: 'POST',
-            url: '{{ url_for('connect', provider='google', session_id=SESSION_ID) }}',
+            url: '{{ url_for('connect', provider_name='google', session_id=SESSION_ID) }}',
             //_csrf_token: '{{csrf_token()}}',
             processData: false,
             data: authResult['code'],

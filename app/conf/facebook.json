@@ -1,0 +1,11 @@
+{
+    "web": {
+        "app_id": "907786629329598",
+        "app_secret": "a8e07a882c00c5b07afa789d1ab915bf",
+        "client_id": "907786629329598",
+        "client_secret": "a8e07a882c00c5b07afa789d1ab915bf",
+        "redirect_uris": [
+            "http://ec2-52-33-68-114.us-west-2.compute.amazonaws.com/tickets/connect/facebook/"
+        ]
+    }
+}
