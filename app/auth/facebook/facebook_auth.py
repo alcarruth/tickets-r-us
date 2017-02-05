@@ -32,20 +32,19 @@ class Facebook_Auth_Client:
     def __init__(self, secrets_file):
         self.secrets_file = secrets_file
         f = open(secrets_file, 'r')
-        secrets = json.load(f)
+        secrets = json.load(f)['web']
         f.close()
-        self.access_token_url = 'https://graph.facebook.com/oauth/access_token?'
+        self.access_token_url = 'https://graph.facebook.com/oauth/access_token'
         self.access_token_params = {
             'grant_type': 'fb_exchange_token',
-            'client_id': secrets['web']['app_id'],
-            'client_secret': secrets['web']['app_secret'],
+            'client_id': secrets['app_id'],
+            'client_secret': secrets['app_secret'],
             'fb_exchange_token': None }
-        self.data_url = 'https://graph.facebook.com/v2.4/me?'
+        self.data_url = 'https://graph.facebook.com/v2.4/me'
         self.data_params = {
-            #'fields': ['name', 'id', 'email'],
             'fields': 'name,id,email',
             'access_token': None }
-        self.img_url = 'https://graph.facebook.com/v2.4/me/picture?'
+        self.img_url = 'https://graph.facebook.com/v2.4/me/picture'
         self.img_params = {
             'redirect': 0, 
             'height': 200,
@@ -70,7 +69,6 @@ class Facebook_Auth_Client:
         params = self.data_params.copy()
         params['access_token'] = access_token
         response = requests.get(url, params=params)
-        text = response.text
         data = response.json()
         access_id = data['id']
         user_data['name'] = data['name']
@@ -84,14 +82,16 @@ class Facebook_Auth_Client:
         data = response.json()
         user_data['picture'] = data['data']['url']
 
-        print >> sys.stderr, str(user_data)
         login = Login('facebook', access_token, access_id, user_data)
         return login
 
     def disconnect(self, login):
         access_id = login['access_id']
         access_token = login['access_token']
-        url = 'https://graph.facebook.com/%s/' % access_id
-        url += 'permissions?access_token=%s' % access_token
-        result = httplib2.Http().request(url, 'DELETE')[1]
+        url = 'https://graph.facebook.com/%s/permissions?' % access_id
+        params = { 'access_token': access_token }
+        response = requests.delete(url, params=params)
+        print >> sys.stderr, 'disconnect status code: %s' % response.status_code
+        return response.status_code
+
 
