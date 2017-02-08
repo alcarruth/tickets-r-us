@@ -582,7 +582,7 @@ def users():
     return render_template('users.html', users=users)
 
 @app.route('/users/<int:user_id>')
-def ticket_user(user_id):
+def user(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
     main = Markup(render_template('user.html', user=user))
     return render_template('layout.html', main=main, app_session=app_session)

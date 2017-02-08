@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-app_dir = '/home/carruth/tickets/app'
+app_dir = '/opt/git/tickets-r-us/app'
 db_name = 'tickets'
 engine_type = 'postgres'
 google_secrets_file = 'conf/google.json'

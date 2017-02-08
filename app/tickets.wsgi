@@ -3,7 +3,7 @@
 
 import sys, os
 
-app_dir = '/home/carruth/tickets/app'
+app_dir = '/opt/git/tickets-r-us/app'
 os.chdir(app_dir)
 sys.path.insert(0, app_dir)
 
