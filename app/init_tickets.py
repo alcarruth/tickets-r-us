@@ -12,9 +12,9 @@ import json
 import datetime
 import random
 
-from tickets import Conference, Team, Game, Ticket, Ticket_Lot, User
-from tickets import DBSession, startup_info
-from options import year, number_of_games, number_of_users, number_of_ticket_lots
+from tickets_db import Conference, Team, Game, Ticket, Ticket_Lot, User
+from tickets_db import DBSession, startup_info
+from settings import year, number_of_games, number_of_users, number_of_ticket_lots
 
 def team_logo(team):
     logo = "/images/team_logos/" + team['name'] + '_' + team['nickname'] + '.png'

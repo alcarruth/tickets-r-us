@@ -7,7 +7,7 @@
 # using the db's init script, e.g. init_tickets.py
 # 
 
-db_name="tickets"
+db_name='tickets'
 
 # re-create the PostgreSQL database
 psql -c "DROP DATABASE IF EXISTS ${db_name};"
