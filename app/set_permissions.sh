@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 db_name='tickets'
 db_owner='carruth'
