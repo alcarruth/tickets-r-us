@@ -3,7 +3,7 @@
 
 import sys, os
 
-app_dir = '/opt/git/tickets-r-us/app'
+app_dir = '/opt/git/fullstack-p3-item-catalog/app/'
 os.chdir(app_dir)
 sys.path.insert(0, app_dir)
 
