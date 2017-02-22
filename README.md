@@ -126,7 +126,7 @@ The Tickets 'R' Us home page presents the user with a list of conferences, each 
 an oulined box containing a list of teams in the conferences.  Clicking anywhere
 in the box will bring up the conference page.
 
-![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/images/jpg/tickets_step1.jpg "main page")
+![alt text](https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/tickets_step1.jpg "main page")
 
 #### Step 2 - Choose a game
 
