@@ -16,6 +16,7 @@ sudo -u postgres psql -c "DROP DATABASE IF EXISTS ${db_name};"
 sudo -u postgres psql -c "DROP ROLE IF EXISTS ${db_user};"
 sudo -u postgres psql -c "DROP ROLE IF EXISTS ${db_owner};"
 sudo -u postgres psql -c "CREATE USER ${db_owner} CREATEDB CREATEROLE;"
+sudo -u postgres psql -c "CREATE DATABASE ${db_owner};"
 
 # now we can do the rest as db_owner.
 sudo -u ${db_owner} psql -c "CREATE USER ${db_user};"

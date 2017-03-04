@@ -141,6 +141,8 @@ def get_session_id():
 #----------------------------------------------------------------------------------
 # Tickets 'R' Us App 
 
+mount_point = '/tickets'
+
 # login
 
 class Login:
@@ -165,10 +167,13 @@ class Login:
         self.access_id = d['access_id']
         self.user_data = d['user_data']
 
-@app.route('/login')
+@app.route(mount_point + '/login')
 def login():
 
-    redirect_url = request.args.get('next_url') or url_for('conferences')
+    # TODO: next_url wasn't working with https
+    redirect_path = request.args.get('next_url') or url_for('conferences')
+    redirect_url = 'https://zeus.armazilla.net' + redirect_path
+    print >>sys.stdout, redirect_url
     session_id = get_session_id()
 
     # Facebook login
@@ -199,25 +204,28 @@ def login():
 
 
 @csrf.exempt
-@app.route('/connect/<provider_name>/<session_id>', methods=['POST'])
+@app.route(mount_point + '/connect/<provider_name>/<session_id>', methods=['POST'])
 def connect(provider_name, session_id):
+
+    # TODO: Fix this hack:
+    redirect_url = 'https://zeus.armazilla.net/tickets/conferences'
 
     # verify session_id
     if session_id != get_session_id():
         flash('Invalid session_id.')
-        return redirect('/tickets/conferences')
+        return redirect(redirect_url)
 
     # auth_code is in the 'POST' data
     auth_code = request.data
     login = auth_providers[provider_name].connect(auth_code, Login)
 
     if (app_session.get('login') is not None):
-        prev_login = Login()
+        prev_login = Login(None, None, None, None)
         prev_login.from_json(app_session.get('login'))
         if login.get('access_id') == prev_login.get('access_id'):
             msg = 'Current user is already connected.'
             flash(msg)
-            return redirect(url_for('conferences'))
+            return redirect(redirect_url)
             
     user = getUserByEmail(db_session, login.user_data['email'])
     if not user:
@@ -230,14 +238,17 @@ def connect(provider_name, session_id):
 
     msg = "you are now logged in as %s" % user.name
     flash(msg)
-    return redirect('/tickets/conferences')
+    return redirect(redirect_url)
 
 
 # logout
 #
 @csrf.exempt
-@app.route('/disconnect')
+@app.route(mount_point + '/disconnect')
 def disconnect():
+
+    # TODO: Fix this hack:
+    redirect_url = 'https://zeus.armazilla.net/tickets/conferences'
 
     try:
         login_json = app_session.get('login')
@@ -254,15 +265,15 @@ def disconnect():
         msg = "You are not logged in."
         flash(msg)
 
-    return redirect(url_for('conferences'))
+    return redirect(redirect_url)
 
 
 
 #---------------------------------------------------------------------------------------------
 # Conferences View
 
-@app.route('/')
-@app.route('/conferences')
+@app.route(mount_point + '/')
+@app.route(mount_point + '/conferences')
 def conferences():
     conferences = db_session.query(Conference).all()
     main = Markup(render_template('conferences.html', conferences=conferences))
@@ -276,18 +287,18 @@ def conferences():
 # a page for a single conference
 # it shows the schedules for each team
 #
-@app.route('/conference/<conference>')
+@app.route(mount_point + '/conference/<conference>')
 def conference(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     main = Markup(render_template('conference.html', conference=conference))
     return render_template('layout.html', main=main, app_session=app_session)
 
-@app.route('/conference/<conference>/JSON')
+@app.route(mount_point + '/conference/<conference>/JSON')
 def conference_json(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     return jsonify(conference.to_dict())
 
-@app.route('/conference/<conference>/XML')
+@app.route(mount_point + '/conference/<conference>/XML')
 def conference_xml(conference):
     conference = db_session.query(Conference).filter_by(abbrev_name=conference).one()
     return xmlify(conference.to_dict())
@@ -301,17 +312,17 @@ def conference_xml(conference):
 # delete it.  It could be used later on to provide more information
 # about a team / school on a new page.
 
-@app.route('/team/<team_name>')
+@app.route(mount_point + '/team/<team_name>')
 def team(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return render_template('team.html', team=team)
 
-@app.route('/team/<team_name>/JSON')
+@app.route(mount_point + '/team/<team_name>/JSON')
 def team_json(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return jsonify(team.to_dict())
 
-@app.route('/team/<team_name>/XML')
+@app.route(mount_point + '/team/<team_name>/XML')
 def team_xml(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
     return xmlify(team.to_dict())
@@ -328,7 +339,7 @@ def allowed_file(filename):
 # The game page shows the tickets available for purchase
 # for that game.
 #
-@app.route('/game/<int:game_id>')
+@app.route(mount_point + '/game/<int:game_id>')
 def game(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
     game.ticket_lots.sort(key = lambda x: x.price)
@@ -338,7 +349,7 @@ def game(game_id):
 
 # Sell Tickets
 
-@app.route('/game/<int:game_id>/sell', methods=['GET', 'POST'])
+@app.route(mount_point + '/game/<int:game_id>/sell', methods=['GET', 'POST'])
 @check_authentication("You must be logged in to sell tickets!")
 def sell_tickets(game_id):
 
@@ -390,7 +401,7 @@ def sell_tickets(game_id):
                     # why do the examples have a leading '/' ?
                     # http://flask.pocoo.org/docs/0.10/quickstart/#file-uploads
                     # http://flask.pocoo.org/docs/0.10/patterns/fileuploads/
-                    img_dir = 'static/images/tickets/'
+                    img_dir = mount_point + '/static/images/tickets/'
                     img_file = 'ticket_lot_%d.%s' % (ticket_lot.id, img_type)
                     ticket_lot.img_path = img_dir + img_file
                     img.save(ticket_lot.img_path)
@@ -410,12 +421,12 @@ def sell_tickets(game_id):
         # the newly added tickets should be visible
         return redirect(url_for('game', game_id=game_id))
 
-@app.route('/game/<int:game_id>/JSON')
+@app.route(mount_point + '/game/<int:game_id>/JSON')
 def game_json(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
     return jsonify(game.to_dict())
 
-@app.route('/game/<int:game_id>/XML')
+@app.route(mount_point + '/game/<int:game_id>/XML')
 def game_xml(game_id):
     game = db_session.query(Game).filter_by(id=game_id).one()
     return xmlify(game.to_dict())
@@ -430,7 +441,7 @@ def game_xml(game_id):
 # ticket_lot() returns a page showing the group of tickets
 # that are being offered for sale together.
 #
-@app.route('/ticket_lot/<int:item_id>')
+@app.route(mount_point + '/ticket_lot/<int:item_id>')
 def ticket_lot(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
 
@@ -440,12 +451,12 @@ def ticket_lot(item_id):
     main = Markup(render_template('ticket_lot.html', ticket_lot=ticket_lot, app_session=app_session))
     return render_template('layout.html', main=main, app_session=app_session)
 
-@app.route('/ticket_lot/<int:item_id>/JSON')
+@app.route(mount_point + '/ticket_lot/<int:item_id>/JSON')
 def ticket_lot_json(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
     return jsonify(ticket_lot.to_dict())
 
-@app.route('/ticket_lot/<int:item_id>/XML')
+@app.route(mount_point + '/ticket_lot/<int:item_id>/XML')
 def ticket_lot_xml(item_id):
     ticket_lot = db_session.query(Ticket_Lot).filter_by(id=item_id).one()
     return xmlify(ticket_lot.to_dict())
@@ -458,7 +469,7 @@ def ticket_lot_xml(item_id):
 # If any of the other stuff is wrong, the ticket_lot can be deleted
 # and replaced.
 
-@app.route('/ticket_lot/<int:item_id>/edit', methods=['GET', 'POST'])
+@app.route(mount_point + '/ticket_lot/<int:item_id>/edit', methods=['GET', 'POST'])
 @check_authentication("You must be logged in to edit tickets!")
 @check_authorization("You cannot edit another user's tickets!", Ticket_Lot, 'ticket_lot')
 def edit_tickets(item_id, item):
@@ -490,7 +501,7 @@ def edit_tickets(item_id, item):
                     # why do the examples have a leading '/' ?
                     # http://flask.pocoo.org/docs/0.10/quickstart/#file-uploads
                     # http://flask.pocoo.org/docs/0.10/patterns/fileuploads/
-                    img_dir = 'static/images/tickets/'
+                    img_dir = mount_point + '/static/images/tickets/'
                     img_file = 'ticket_lot_%d.%s' % (ticket_lot.id, img_type)
                     ticket_lot.img_path = img_dir + img_file
                     img.save(ticket_lot.img_path)
@@ -507,7 +518,7 @@ def edit_tickets(item_id, item):
 
 # Delete Tickets
 
-@app.route('/ticket_lot/<int:item_id>/delete', methods=['GET', 'POST'])
+@app.route(mount_point + '/ticket_lot/<int:item_id>/delete', methods=['GET', 'POST'])
 @check_authentication("You must be logged in to delete tickets!")
 @check_authorization("You cannot delete another user's tickets!", Ticket_Lot, 'ticket_lot')
 def delete_tickets(item_id, item):
@@ -543,7 +554,7 @@ def delete_tickets(item_id, item):
 
 # Delete Image
 
-@app.route('/ticket_lot/<int:item_id>/delete_image', methods=['GET', 'POST'])
+@app.route(mount_point + '/ticket_lot/<int:item_id>/delete_image', methods=['GET', 'POST'])
 @check_authentication("You must be logged in to delete ticket image!")
 @check_authorization("You cannot delete another user's ticket image!", Ticket_Lot, 'ticket_lot')
 def delete_image(item_id, item):
@@ -576,23 +587,23 @@ def delete_image(item_id, item):
 # User Views
 
 
-@app.route('/users')
+@app.route(mount_point + '/users')
 def users():
     users = db_session.query(User).all()
     return render_template('users.html', users=users)
 
-@app.route('/users/<int:user_id>')
+@app.route(mount_point + '/users/<int:user_id>')
 def user(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
     main = Markup(render_template('user.html', user=user))
     return render_template('layout.html', main=main, app_session=app_session)
 
-@app.route('/users/<int:user_id>/JSON')
+@app.route(mount_point + '/users/<int:user_id>/JSON')
 def user_json(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
     return jsonify(user.to_dict())
 
-@app.route('/users/<int:user_id>/XML')
+@app.route(mount_point + '/users/<int:user_id>/XML')
 def user_xml(user_id):
     user = db_session.query(User).filter_by(id=user_id).one()
     return xmlify(user.to_dict())

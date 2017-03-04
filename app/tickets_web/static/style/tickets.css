@@ -34,7 +34,8 @@ body {
     font-weight: bold;
     font-style: italic;
     text-align: center;
-    background-image: url("/tickets/static/images/FF8a5Ku_2000_cropped.jpg");
+    /* TODO */
+    background-image: url("/static/images/FF8a5Ku_2000_cropped.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
