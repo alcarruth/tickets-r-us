@@ -8,7 +8,7 @@ STATIC_PORT='8083'
 RUN_DIR=${APP_DIR}/run
 ACTIVATE=${APP_DIR}/tickets_venv/bin/activate
 
-function tickets_uwsgi_server {
+function uwsgi_server {
 
     LOG_FILE=${RUN_DIR}/${FUNCNAME}.log
     PID_FILE=${RUN_DIR}/${FUNCNAME}.pid
@@ -45,7 +45,7 @@ function tickets_uwsgi_server {
 }
 
  
-function tickets_static_server {
+function static_server {
 
     LOG_FILE=${RUN_DIR}/${FUNCNAME}.log
     PID_FILE=${RUN_DIR}/${FUNCNAME}.pid
@@ -81,3 +81,16 @@ function tickets_static_server {
     esac;
 }
 
+case ${1} in
+
+    start|stop|restart|clear)
+        cd ${APP_DIR}
+        uwsgi_server ${1}
+        static_server ${1}
+        ;;
+        
+    *)
+        echo "usage: ${0} [start|stop|restart|clear]"
+        ;;
+
+esac;
