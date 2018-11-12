@@ -1,0 +1,35 @@
+
+        <div id="game-heading">
+            <div class="game-team">
+                <img class="team-logo" src="{{ url_for('static', filename=game.visiting_team.logo) }}">
+                {{game.visiting_team.name}}
+                <!-- {{game.visiting_team.nickname}} -->
+            </div>
+            <div class="game-at">
+                at
+            </div>
+            <div class="game-team">
+                <img class="team-logo" src="{{ url_for('static', filename=game.home_team.logo) }}">
+                {{game.home_team.name}}
+                <!-- {{game.home_team.nickname}} -->
+            </div>
+        </div> <!-- game-heading -->
+
+        <h3> {{game.date.strftime("%A %B %d, %Y")}} </h3>
+
+        <div class="game-tickets">
+            <form method="post" action="{{ url_for('sell_tickets', game_id=game.id)}}" enctype="multipart/form-data">
+                Section: <input type="text" maxlength="10" name="section"> <br>
+                Row: <input type="text" maxlength="10" name="row"> <br>
+                First seat: <input type="text" maxlength="10" name="first_seat"> <br>
+                Number of seats: <input type="text" maxlength="10" name="num_seats"> <br>
+                Price per ticket: <input type="text" maxlength="10" name="price"> <br>
+                Image: <input type="file" name="img" accept="image/*"> <br>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="game_id" value="{{game.id}}">
+                <input type="hidden" name="user_id" value="{{app_session['user_id']}}">
+                <input type="submit" value="Submit">
+            </form>
+        </div> <!-- game-tickets -->
+
+

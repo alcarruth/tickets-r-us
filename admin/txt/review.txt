@@ -1,0 +1,253 @@
+
+Code Review of first submission.
+=================================
+
+
+  web_server.py
+  ================
+
+
+  line 126
+  ---------
+
+  If a user like me who is using the latest version of Flask, they
+  would get the error similar to the following:
+
+  TypeError: <oauth2client.client.OAuth2Credentials object at
+  0x00000000039DBC88> is not JSON serializable
+
+  In the terminal when they try and login with Google on your site.
+
+  This is a common bug with the OAuth code provided by Udacity and is
+  easily fixed by installing version 0.9 of Flask (pip install
+  flask==0.9), which you could specify in the README.
+
+  You can also fix the code and make it compatible with the latest
+  version of Flask: The OAuth2Credentials object is not designed to be
+  directly JSON serializable, so you have to use the methods to_json
+  and from_json instead, which could be used to get the JSON for
+  storage, i.e: app_session['credentials'] = credentials.to_json()
+
+  You may consider to save the access_token directly into the
+  app_session since the access_token will be used in the later stage
+  of login.
+
+  Status: done.
+
+  I stored the access_token in app_session rather than
+  the entire credentials object.
+
+
+
+  line 169
+  ---------
+
+  REQUIRED
+
+  Kindly note that your FB login app is still under development mode:
+
+  "App Not Setup: This app is still in development mode, and you don't
+  have access to it. Switch to a registered test user or ask an app
+  admin for permissions."
+
+  Please consider to switch your application from development mode to
+  live mode - find the reference here about how to do so.
+
+
+
+  Status: Done.
+
+  The facebook app has been switched to live mode.
+
+
+
+  line 331
+  ---------
+
+  SUGGESTION
+
+  Please note that category_id, item_id are defined as the primary key
+  for category and item, category_name, item_name has not been
+  declared as unique identifiers for category and item.
+
+  To preserve the database's integrity and prevent any duplicate
+  category_name / item_name, please consider to add the UNIQUE
+  constraint for these column in database_setup.py
+
+  Moreover, please look at here for how to prevent the special
+  characters entered by the user such like /
+
+  http://flask.pocoo.org/snippets/76/
+
+  Status: Done.
+
+  I added 'unique=True' to a number of column declarations in
+  tickets.py
+
+
+
+  line 441
+  ---------
+
+  SUGGESTION
+
+  Please consider to have the data type included.
+
+  Status: Done.
+
+  I changed <user_id> (<game_id>, <ticket_lot_id> ...) to
+  <int:user_id> ...
+
+
+
+  line 465
+  ---------
+
+  SUGGESTION
+
+  It’s awesome that you check if the user is signed in, I recommend
+  you put this code into a Login Required Decorator. So for example
+  your code would look something like this, though you would need to
+  modify it to suit your app:
+
+    def login_required(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            if g.user is None:
+                return redirect(url_for('login', next=request.url))
+            return f(*args, **kwargs)
+        return decorated_function
+
+  and above each function that you need to be logged in to use:
+
+    @login_required
+
+  Here is a full explanation on how to implement it along with the
+  code examples in the following link:
+
+  http://flask.pocoo.org/docs/0.10/patterns/viewdecorators/
+
+  The advantage of this, is of course you can avoid a lot of code
+  repetition, it will be easier to tell at a glance which parts of
+  your site is being protected and when you want to tweak your
+  authentication, you will only need to edit one part of your code.
+
+
+  Status: Done and then some !-)  
+
+  I have added two decorator functions:
+
+  check_authorization() and 
+  check_authentication()
+
+  Each takes a msg string as an arg.  When a check_auth...() fails,
+  msg is flashed as the user is redirected appropriately.
+
+
+  See sell_tickets(), edit_tickets() and delete_tickets() for example usage.
+
+
+
+tickets.py
+==============
+
+
+  line 47
+  ---------
+
+  SUGGESTION
+
+  In order to keep the database's integrity, please consider to
+  implement the ON DELETE CASCADE, which means when the category being
+  referenced deleted, you need to delete the all the items belongs to
+  it.
+
+  Please look at here about how to do the implementation
+  http://docs.sqlalchemy.org/en/rel_0_9/orm/cascades.html
+
+
+  Status:  done
+
+
+--------------------------------------------------------------------------------
+
+Requirements
+=============
+
+
+  CRUD Requirements
+  ==================
+
+  READ
+  -----
+
+  Page reads category and item information from a database. Student
+  adds an item image field that is read from the database and
+  displayed on the page.
+
+  CREATE
+  -------
+  Page correctly processes submitted forms. Student updates the new
+  item form to correctly process the inclusion of item images.
+
+  Added:
+  <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+  to form in the sell_tickets.html template.
+
+  UPDATE
+  -------
+
+  Page correctly processes submitted forms. Student updates the
+  edit/update item form to correctly process the inclusion of item
+  images.
+
+  Added:
+  <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+  to form in the  edit_tickets.html template.
+
+  DELETE
+  -------
+
+  It would be better for all the POST request, you could include the
+  csrf_token, flask-seasurf provides you some simple way for this
+  improvement.
+
+  Page includes a function to delete a current record. Student
+  researches and implements this function using POST requests and
+  nonces to prevent cross-site request forgeries (CSRF).
+
+  Added:
+  <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+  to form in the  edit_tickets.html template.
+
+
+
+  Authentication and Authorization
+  ==================================
+
+  Please kindly look at the code review section for how to avoid the
+  Oauth2Credential is not JSON Serializable problem if the user is not
+  using flask version 0.9.
+
+  Moreover, please ensure your FB login is publicly accessible rather
+  than in the development mode.
+
+  Status: done.
+
+
+
+  Documentation
+  ===============
+
+  In additional to the README, please consider to have the
+  requirements.txt implemented so that user could install all the
+  dependencies by following the required version.
+
+  Please look at here for the details.
+  https://pip.readthedocs.org/en/1.1/requirements.html
+
+
+
+  Status: done.
+  See requirements.txt and stable-req.txt.
+

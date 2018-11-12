@@ -1,0 +1,7 @@
+
+dict2xml>=1.4
+SQLAlchemy>=1.0.9
+Flask>=0.10.1
+flask-seasurf>=0.2.2
+Werkzeug>=0.11.4
+oauth2client>=1.5.2

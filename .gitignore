@@ -1,5 +1,11 @@
+# The tickets SQLite3 db file
+tickets.db
+
 # emacs backup files
 *~
+
+# the runtime directory
+app/run/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

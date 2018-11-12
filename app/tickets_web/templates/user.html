@@ -1,0 +1,35 @@
+
+        <div id="user-div">
+            <h1>  
+                {{user.name}} <br>
+                {{user.email}}
+            </h1>
+
+            <div class="game-tickets">
+                <table class="tickets">
+                    <tr class="ticket-lot">
+                        <th> Game </th>
+                        <th> Date </th>
+                        <th class="section"> Section </th>
+                        <th class="row"> Row </th>
+                        <th class="seats"> Seats </th>
+                        <th class="price"> Price (ea) </th>
+                    </tr>
+                    {% for ticket_lot in user.ticket_lots %}
+                    <tr class="ticket-lot">
+                        <td class="game"> {{ticket_lot.game.visiting_team.name}} @ {{ticket_lot.game.home_team.name}} </td>
+                        <td class="date"> {{ticket_lot.game.date}} </td>
+                        <td class="section"> {{ticket_lot.section}} </td>
+                        <td class="row"> {{ticket_lot.row}} </td>
+                        <td class="seats"> {{ticket_lot.seats_str()}} </td>
+                        <td class="price"> ${{ticket_lot.price}} </td>
+                        <td class="view-button">
+                            <a class="ticket-lot-a" href="{{ url_for('ticket_lot', item_id=ticket_lot.id) }}">
+                                <button> View Tickets </button>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div> <!-- game-tickets -->
+        </div> <!-- user-div -->

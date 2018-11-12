@@ -1,0 +1,68 @@
+
+Automate complete installation of the tickets app.
+
+settings
+---------
+
+ticket_root='/opt/git/fullstack-p3-item-catalog/app/'
+web_dir='/var/www/html/tickets/'
+
+db_user='catalog'
+db_owner='carruth'
+db_map_name='ticket-app'
+
+
+system users
+-------------
+add users to system if necessary
+adduser ${db_user}
+adduser ${db_owner}
+
+
+apache2 setup
+--------------
+
+install apache2, apache2-utils, libapache2-mod-wsgi if necessary
+
+mkdir ${web_dir}
+ln -s ${ticket_root}/app/tickets.wsgi ${web_dir}
+ln -s ${ticket_root}/app/static ${web_dir}
+
+wsgi_path="${web_dir}/tickets.wsgi"
+static_path="${web_dir}/static"
+
+generate tickets-r-us.conf from template
+enable mod expires
+ln -s '../mods-available/expires.load' /etc/apache2/mods-enabled
+
+would it be better to make tickets app a separate 'site' as in
+ln -s '../sites-available/tickets.conf' /etc/apache2/sites-enabled
+
+or just leave it as an include in the main apache site conf?
+
+restart apache2
+
+
+
+postgres setup
+---------------
+
+install postgresql if necessary
+get pg_conf_dir somehow
+pg_conf_dir='/etc/postgresql/9.5/main/'
+
+in pg_hba.conf add map to end of the local line:
+sed -i "s/^\(local.*all.*all.*peer\)/%1 map=${db_map_name}/" ${pg_conf_dir}/pg_hba.conf
+
+in pg_ident.conf add the lines:
+echo "map ${db_owner} ${db_owner}" >> ${pg_conf_dir}/pg_ident.conf
+echo "map ${db_user} ${db_user}" >> ${pg_conf_dir}/pg_ident.conf
+
+restart postgresql
+
+
+tickets db setup
+-----------------
+
+cd ${ticket_root}
+./reset_db.sh
