@@ -1,7 +1,15 @@
 #!/bin/bash
 
-APP_DIR='/opt/git/udacity/fullstack-projects/fullstack-p3-item-catalog/app/'
-IP_ADDR='192.168.166.230'
+# TODO: http-
+# There are a couple of untracked dependencies.
+# Add these to requirements.pip and the README.md
+#
+#  npm install -g http-server
+#  pip install uwsgi
+#
+
+APP_DIR='/home/carruth/git/tickets-r-us/app/'
+IP_ADDR='127.0.0.1'
 DYNAMIC_PORT='8082'
 STATIC_PORT='8083'
 
@@ -15,7 +23,8 @@ function uwsgi_server {
         
     case ${1} in
 
-        start) 
+        start)
+            mkdir ${RUN_DIR} 2> /dev/null
             source ${ACTIVATE}
             nohup uwsgi --socket ${IP_ADDR}:${DYNAMIC_PORT} --protocol http -w tickets >${LOG_FILE} &
             echo $! > ${PID_FILE}

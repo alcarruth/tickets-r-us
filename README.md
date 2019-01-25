@@ -37,10 +37,10 @@ You can check/install these modules on your system by issuing
 the command:
 
 ```
-$ sudo pip install -r requirements.txt
+$ sudo pip install -r admin/requirements.pip
 ```
 
-Next, edit the `options.py` file to suit your situation.  In particular, the
+Next, edit the `settings.py` file to suit your situation.  In particular, the
 variable `engine-type` should be set to the db backend of your choice.
 The code has been tested and seems to work well with postgresql 9.3.11
 and with sqlite 2.6.0.  Once this is done,
@@ -49,7 +49,7 @@ dummy data table sizes, this takes a few seconds and produces
 something like the following terminal output:
 
 ```
-$ ./reset_db.sh 
+$ ./app/reset_db.sh 
 DROP DATABASE
 CREATE DATABASE
 removed ‘tickets.db’
