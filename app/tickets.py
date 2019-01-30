@@ -2,13 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import sys, os
-
-# TODO: handle setting of app_dir better
-app_dir = '/home/carruth/git/tickets/app/'
-
-os.chdir(app_dir)
-sys.path.insert(0, app_dir)
-
 import settings
+
+os.chdir(settings.app_dir)
+sys.path.insert(0, settings.app_dir)
 
 from tickets_web import app as application
