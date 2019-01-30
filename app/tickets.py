@@ -3,6 +3,7 @@
 
 import sys, os
 
+# TODO: handle setting of app_dir better
 app_dir = '/home/carruth/git/tickets/app/'
 
 os.chdir(app_dir)

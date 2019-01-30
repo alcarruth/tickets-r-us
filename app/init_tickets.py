@@ -6,7 +6,7 @@
 # This file is used to populate the tickets database.
 # It is called by the reset_db.sh script.
 # Options for the sizes of the tables etc are included in
-# options.py.
+# settings.py.
 
 import json
 import datetime
