@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # app settings
-app_dir = '/opt/git/tickets-r-us/app'
+app_dir = '/home/carruth/git/tickets/app'
 google_secrets_file = 'conf/google.json'
 facebook_secrets_file = 'conf/facebook.json'
 

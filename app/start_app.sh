@@ -1,7 +1,9 @@
 #!/bin/bash
 
-APP_DIR='/opt/git/udacity/fullstack-projects/fullstack-p3-item-catalog/app/'
-IP_ADDR='192.168.166.230'
+PATH="/opt/node/bin:${PATH}"
+HTTP_SERVER='/opt/node/bin/http-server'
+APP_DIR='/home/carruth/git/tickets/app/'
+IP_ADDR='127.0.0.1'
 DYNAMIC_PORT='8082'
 STATIC_PORT='8083'
 
@@ -54,7 +56,7 @@ function static_server {
 
         start)
             pushd tickets_web/static/
-            http-server -p ${STATIC_PORT} >${LOG_FILE} &
+            ${HTTP_SERVER} -p ${STATIC_PORT} >${LOG_FILE} &
             echo $! > ${PID_FILE}
             popd
             ;;
