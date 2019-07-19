@@ -8,7 +8,7 @@ and view tickets available for purchase.  The tickets are organized into 'ticket
 which are owned by a user.  These ticket lots can be edited and deleted only by the
 owning user.  New ticket lots for sale can be added by any logged in user.
 
-See a running instance of this project at [https://alcarruth.net/tickets/](https://alcarruth.net/tickets/).  (Note that this was back end project - the front end needs a lot of work !-)
+See a running instance of this project at [https://alcarruth.net/tickets/](https://alcarruth.net/tickets/).  (Note that this was a back end project - the front end needs a lot of work !-)
 
 ### Quick Start
 
