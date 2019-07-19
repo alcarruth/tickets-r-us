@@ -7,8 +7,8 @@
 Download the project as follows:
 
 ```
-$ git clone https://github.com/alcarruth/fullstack-p3-item-catalog.git
-$ cd fullstack-p3-item-catalog
+$ git clone https://github.com/alcarruth/tickets-r-us.git
+$ cd tickets-r-us
 ```
 
 This project requires a number of supporting modules and has been built
