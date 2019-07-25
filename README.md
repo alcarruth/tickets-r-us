@@ -1,5 +1,15 @@
 ## Udacity FSND Project 3 Item Catalog
 
+### Introduction
+
+This project implements a basic ticket broker website for college football games.
+A user can select a conference, select a game from the conference teams' schedules
+and view tickets available for purchase.  The tickets are organized into 'ticket lots'
+which are owned by a user.  These ticket lots can be edited and deleted only by the
+owning user.  New ticket lots for sale can be added by any logged in user.
+
+See a running instance of this project at [https://alcarruth.net/tickets/](https://alcarruth.net/tickets/).  (Note that this was a back end project - the front end needs a lot of work !-)
+
 ### Quick Start
 
 #### Pre-requisites
@@ -7,8 +17,8 @@
 Download the project as follows:
 
 ```
-$ git clone https://github.com/alcarruth/fullstack-p3-item-catalog.git
-$ cd fullstack-p3-item-catalog
+$ git clone https://github.com/alcarruth/tickets-r-us.git
+$ cd tickets-r-us
 ```
 
 This project requires a number of supporting modules and has been built
