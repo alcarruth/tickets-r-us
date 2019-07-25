@@ -3,6 +3,7 @@
 
 # See facebook developer console for Tickets'R'Us
 # https://developers.facebook.com/apps/907786629329598/settings/
+# https://developers.facebook.com/docs/facebook-login
 
 # Standard python libraries
 import json, httplib2, requests, sys
@@ -10,12 +11,12 @@ import json, httplib2, requests, sys
 # Flask libraries
 from flask import request, redirect, flash, make_response
 
+#import urllib
+from urlparse import parse_qs
+
 # OAuth2 client libraries
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
-
-import urllib
-from urlparse import parse_qs
 
 # TODO: 
 # where to put Login?
@@ -29,69 +30,75 @@ from urlparse import parse_qs
 
 class Facebook_Auth_Client:
 
-    def __init__(self, secrets_file):
-        self.secrets_file = secrets_file
-        f = open(secrets_file, 'r')
-        secrets = json.load(f)['web']
-        f.close()
-        self.access_token_url = 'https://graph.facebook.com/oauth/access_token'
-        self.access_token_params = {
-            'grant_type': 'fb_exchange_token',
-            'client_id': secrets['app_id'],
-            'client_secret': secrets['app_secret'],
-            'fb_exchange_token': None }
-        self.data_url = 'https://graph.facebook.com/v2.4/me'
-        self.data_params = {
-            'fields': 'name,id,email',
-            'access_token': None }
-        self.img_url = 'https://graph.facebook.com/v2.4/me/picture'
-        self.img_params = {
-            'redirect': 0, 
-            'height': 200,
-            'width': 200,
-            'access_token': None }
+  def __init__(self, secrets_file):
+    self.secrets_file = secrets_file
+    f = open(secrets_file, 'r')
+    secrets = json.load(f)['web']
+    f.close()
+    
+    self.access_token_url = 'https://graph.facebook.com/oauth/access_token'
+    self.access_token_params = {
+      'grant_type': 'fb_exchange_token',
+      'client_id': secrets['app_id'],
+      'client_secret': secrets['app_secret'],
+      'fb_exchange_token': None }
+    self.data_url = 'https://graph.facebook.com/v2.4/me'
+    self.data_params = {
+      'fields': 'name,id,email',
+      'access_token': None }
+    self.img_url = 'https://graph.facebook.com/v2.4/me/picture'
+    self.img_params = {
+      'redirect': 0, 
+      'height': 200,
+      'width': 200,
+      'access_token': None }
 
-    def connect(self, auth_code, Login):
+  def connect(self, auth_code, Login):
 
-        # we'll fill these in as we go
-        user_data = {}
+    print "\n\nfacebook resquests: \n%s\n\n" % str(requests)
 
-        # use auth_code to get access_token
-        url = self.access_token_url
-        params = self.access_token_params.copy()
-        params['fb_exchange_token'] = auth_code
-        response = requests.get(url, params=params)
-        data = parse_qs(response.text)
-        access_token = data['access_token'][0]
+    # we'll fill these in as we go
+    user_data = {}
 
-        # use access_token to get user's name and email
-        url = self.data_url
-        params = self.data_params.copy()
-        params['access_token'] = access_token
-        response = requests.get(url, params=params)
-        data = response.json()
-        access_id = data['id']
-        user_data['name'] = data['name']
-        user_data['email'] = data['email']
+    # use auth_code to get access_token
+    url = self.access_token_url
+    print "\n\nurl: %s\n\n" % url
+    params = self.access_token_params.copy()
+    params['fb_exchange_token'] = auth_code
+    print "\n\nparams: %s\n\n" % params
+    response = requests.get(url, params=params)
+    print "\n\nresponse.text: %\n\n" % response.text
+    data = parse_qs(response.text)
+    access_token = data['access_token'][0]
 
-        # use access_token to get user's picture
-        url = self.img_url
-        params = self.img_params.copy()
-        params['access_token'] = access_token
-        response = requests.get(url, params=params)
-        data = response.json()
-        user_data['picture'] = data['data']['url']
+    # use access_token to get user's name and email
+    url = self.data_url
+    params = self.data_params.copy()
+    params['access_token'] = access_token
+    response = requests.get(url, params=params)
+    data = response.json()
+    access_id = data['id']
+    user_data['name'] = data['name']
+    user_data['email'] = data['email']
 
-        login = Login('facebook', access_token, access_id, user_data)
-        return login
+    # use access_token to get user's picture
+    url = self.img_url
+    params = self.img_params.copy()
+    params['access_token'] = access_token
+    response = requests.get(url, params=params)
+    data = response.json()
+    user_data['picture'] = data['data']['url']
 
-    def disconnect(self, login):
-        access_id = login['access_id']
-        access_token = login['access_token']
-        url = 'https://graph.facebook.com/%s/permissions?' % access_id
-        params = { 'access_token': access_token }
-        response = requests.delete(url, params=params)
-        print >> sys.stderr, 'disconnect status code: %s' % response.status_code
-        return response.status_code
+    login = Login('facebook', access_token, access_id, user_data)
+    return login
+
+  def disconnect(self, login):
+    access_id = login['access_id']
+    access_token = login['access_token']
+    url = 'https://graph.facebook.com/%s/permissions?' % access_id
+    params = { 'access_token': access_token }
+    response = requests.delete(url, params=params)
+    print >> sys.stderr, 'disconnect status code: %s' % response.status_code
+    return response.status_code
 
 

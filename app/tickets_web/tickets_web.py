@@ -273,11 +273,19 @@ def disconnect():
     return redirect(redirect_url)
 
 
+#---------------------------------------------------------------------------------------------
+# Landing View
+
+@app.route(mount_point + '/')
+def landing():
+    main = Markup(render_template('landing.html'))
+    return render_template('layout.html', main=main, app_session=app_session)
+
+
 
 #---------------------------------------------------------------------------------------------
 # Conferences View
 
-@app.route(mount_point + '/')
 @app.route(mount_point + '/conferences')
 def conferences():
     conferences = db_session.query(Conference).all()

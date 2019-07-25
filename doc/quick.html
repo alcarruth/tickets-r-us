@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Readme </title>
+    <link rel="stylesheet" href="css/prism_custom.css">
+    <script src="js/prism.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <h2 id="ticketsrus">Tickets'R'Us</h2>
+<h3 id="quickstart">Quick Start</h3>
+<h4 id="prerequisites">Pre-requisites</h4>
+<p>Download the project as follows:</p>
+<pre><code>$ git clone https://github.com/alcarruth/fullstack-p3-item-catalog.git
+$ cd fullstack-p3-item-catalog
+</code></pre>
+<p>This project requires a number of supporting modules and has been built
+and tested with the following versions:</p>
+<ul>
+<li>python: 2.7.6</li>
+<li>postgresql: 9.3.11</li>
+<li>sqlite3: 2.6.0</li>
+<li>psycopg2: 2.4.5</li>
+<li>pip: 1.5.4</li>
+</ul>
+<p>The above can be installed (on Linux) using apt-get:</p>
+<pre><code>$ sudo apt-get install postgresql sqlite3 python-psycopg2 python-pip
+</code></pre>
+<ul>
+<li>dict2xml: 1.4</li>
+<li>sqlalchemy: 1.0.9</li>
+<li>flask: 0.10.1</li>
+<li>flask-seasurf: 0.2.2</li>
+<li>werkzeug: 0.11.4</li>
+<li>oauth2client: 1.5.2</li>
+<li>requests: 2.21.0</li>
+<li>psycopg2-binary: 2.7.7</li>
+<li>uwsgi: 2.0</li>
+</ul>
+<p>You can check/install these modules on your system by issuing
+the command:</p>
+<pre><code>$ sudo pip install -r admin/requirements.pip
+</code></pre>
+<p>Next, edit the <code>settings.py</code> file to suit your situation.  In particular, the
+variable <code>engine-type</code> should be set to the db backend of your choice.
+The code has been tested and seems to work well with postgresql 9.3.11
+and with sqlite 2.6.0.  Once this is done,
+rebuild the database using the script <code>reset_db.sh</code>.  With the default
+dummy data table sizes, this takes a few seconds and produces
+something like the following terminal output:</p>
+<pre><code>$ ./app/reset_db.sh 
+DROP DATABASE
+CREATE DATABASE
+removed ‘tickets.db’
+loading 10 conferences
+loading 128 teams
+schecduling 77 games
+schecduling 66 games
+schecduling 77 games
+schecduling 66 games
+schecduling 77 games
+schecduling 71 games
+schecduling 71 games
+schecduling 66 games
+schecduling 66 games
+schecduling 66 games
+creating 1000 users
+creating 5000 ticket lots
+0
+1000
+2000
+3000
+4000
+created 13793 tickets
+</code></pre>
+<p>Now the db has been initialized and you can run the ticket app server:</p>
+<pre><code>$ ./web_server.py 
+ * Running on http://0.0.0.0:5000/
+ * Restarting with reloader
+</code></pre>
+<p>Point your browser to <code>http://localhost:5000</code> to view the Tickets'R'Us 
+web app.</p>
+  </body>
+</html>

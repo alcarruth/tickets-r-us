@@ -1,0 +1,25 @@
+
+body {
+    font-family: Helvetica,Arial,sans-serif;
+    color: #24292e;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: auto;
+    width: 80vw;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    padding: 40px;
+}
+pre {
+    background-color: #f6f8fa;
+    border: 1px solid #ddd;
+    padding: 20px;
+    font-size: 10px;
+}
+
+img {
+    width: 60vw;
+    max-width: 450px;
+    margin: 3vw;
+    border: 1px solid #888;
+}

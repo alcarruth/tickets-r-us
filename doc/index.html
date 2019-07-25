@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Readme </title>
+    <link rel="stylesheet" href="/css/prism_custom.css">
+    <script src="/js/prism.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <h2 id="ticketsrus">Tickets'R'Us</h2>
+<h3 id="projectoverview">Project Overview</h3>
+<p>This project implements a basic ticket broker website for college football games.
+A user can select a conference, select a game from the conference teams' schedules
+and view tickets available for purchase.  The tickets are organized into 'ticket lots'
+which are owned by a user.  These ticket lots can be edited and deleted only by the
+owning user.  New ticket lots for sale can be added by any logged in user.</p>
+<h4 id="dummydata">Dummy Data</h4>
+<p>A significant portion of the work involved setting up 'dummy data' to populate
+the database with conferences, teams, games, schedules, tickets and users.  I have
+used the conferences from NCAA Division 1 football with a slight modification:
+Notre Dame and BYU have been moved to the Big 12 Conference and Army has been
+moved to the Sun Belt Conference.  This was done in an attempt to even the 
+sizes of the conferences and give them each at least 12 teams.  The logo
+images for the teams were shamelessly purloined from the ESPN website.  Of course
+they are registered trademarks of their respective institutions and cannot
+be used without permission.  I thought I'd be ok including them in this strictly
+academic exercise.</p>
+<p>The initialization program <code>init_tickets.py</code> adds the conferences and the
+teams to the database and then randomly generates game schedules for each
+team using a round robin algorithm for each conference.  Each team plays
+11 games.</p>
+<p>The initialization program then randomly generates a large number of dummy
+users with dummy email addresses, and then a large number of ticket_lots
+with tickets to randomly selected games and being offered by randomly selected
+users.</p>
+<h4 id="usingtheticketsruswebsite">Using the Tickets 'R' Us Website</h4>
+<h4 id="step1chooseaconference">Step 1 - Choose a conference</h4>
+<p>The Tickets 'R' Us home page presents the user with a list of conferences, each in 
+an oulined box containing a list of teams in the conferences.  Clicking anywhere
+in the box will bring up the conference page.</p>
+<p><img src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/tickets_step1.jpg" alt="alt text" title="main page" /></p>
+<h4 id="step2chooseagame">Step 2 - Choose a game</h4>
+<p>On the conference page the user is presented with the schedules for each team in the 
+conference.  Clicking on a game in a schedule will bring up a page with the ticket lots
+available for that game.</p>
+<p><img src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/step2.jpg" alt="alt text" title="step 2" /></p>
+<h4 id="gamepage">Game Page</h4>
+<p>The game page displays the ticket lots available for that game.  The ticket lots are 
+collections of tickets (intended to be adjacent seats) in numbers of 1, 2 and 4.</p>
+<p><img src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/game_tickets.jpg" alt="alt text" title="game tickets" /></p>
+<h4 id="ticketspage">Tickets Page</h4>
+<p>The tickets page displays the data associated with a ticket lot, i.e. the tickets, the user (seller),
+the user's email address and the price per ticket.  Actual ticket purchasing is not implemented.
+(So a fictitious buyer must contact the fictitious seller at the fictitious email address in order
+to buy the fictitious tickets !-)</p>
+<p><img src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/ticket_lot.jpg" alt="alt text" title="ticket lot" /></p>
+<h4 id="loggingin">Logging In</h4>
+<p>In order to sell tickets a user must first be logged in.  We offer two methods for logging in: via Google and via Facebook.</p>
+<p><img src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/login.jpg" alt="alt text" title="login" /></p>
+<p>Once logged in the user's name appears next to the logout button in the header.
+<img src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/logged_in.jpg" alt="alt text" title="logged in" /></p>
+<h4 id="sellingtickets">Selling Tickets</h4>
+<p>To sell tickets, a user must be logged in.  If they are logged in, clicking the sell button brings up a form
+where they can enter the data for the ticket lot.</p>
+<p><img src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/sell_tickets.jpg" alt="alt text" title="sell tickets" /></p>
+<h4 id="userpage">User Page</h4>
+<p>Clicking on the user's name brings up the User Page which shows the user's name, email address and a table
+of the ticket lots the user has listed for sale.</p>
+<p><img src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/my_tickets.jpg" alt="alt text" title="my tickets" /></p>
+<h4 id="usersticketlotpage">User's Ticket Lot Page</h4>
+<p>On the Tickets page, and if the logged in user is the owner of the tickets, there are buttons to edit 
+and to delete the ticket lot.  Editing is restricted to the price.  You can't change the section, row or seat numbers.
+To do this you would first have to delete the lot and enter them again with the correct data.</p>
+<p><img src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/my_ticket_lot.jpg" alt="alt text" title="my ticket lot" /></p>
+<h4 id="deletingticketspage">Deleting tickets page:</h4>
+<p><img src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/delete_tickets.jpg" alt="alt text" title="delete tickets" /></p>
+<h4 id="editingticketspage">Editing Tickets Page</h4>
+<p><img src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/edit_tickets.jpg" alt="alt text" title="edit tickets" /></p>
+<h3 id="license">License</h3>
+<p>Probably GNU or MIT or BSD … I don't know.</p>
+  </body>
+</html>

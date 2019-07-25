@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title> {{title}} </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style/tickets.css') }}">
+    <script src="{{ url_for('static', filename='images.js') }}" async >  </script>
     {% if google_sign_in %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"> </script>
     <script src="//apis.google.com/js/platform.js?onload=start"> </script>

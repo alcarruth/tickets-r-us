@@ -21,7 +21,6 @@ from oauth2client.client import FlowExchangeError
 # maybe define class Auth_Client and have both
 # google_auth and facebook_auth sub-class it.
 
-
 #------------------------------------------------------------------------------------
 # Google+ Authorization Client
 
@@ -30,8 +29,10 @@ class Google_Auth_Client:
     def __init__(self, secrets_file):
         self.secrets_file = secrets_file
         f = open(secrets_file, 'r')
-        self.client_id = json.load(f)['web']['client_id']
+        secrets = json.load(f)['web']
         f.close()
+        
+        self.client_id = secrets['client_id']
         self.oauth_flow = flow_from_clientsecrets(self.secrets_file, scope='')
         self.oauth_flow.redirect_uri = 'postmessage'
 

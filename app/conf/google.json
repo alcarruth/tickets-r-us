@@ -1,16 +1,16 @@
 {
-    "web": {
-        "client_id": "123296537254-go0vf0bstjamvacaieel1fii74c5o7ok.apps.googleusercontent.com",
-        "project_id": "tickets-r-us",
-        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-        "token_uri": "https://accounts.google.com/o/oauth2/token",
-        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-        "client_secret": "RMoJuYICNVXhL0Hs-r27jXLW",
-        "redirect_uris": [
-            "https://zeus.armazilla.net/tickets/connect/google/"
-        ],
-        "javascript_origins": [
-            "https://zeus.armazilla.net"
-        ]
-    }
+  "web": {
+    "client_id": "123296537254-go0vf0bstjamvacaieel1fii74c5o7ok.apps.googleusercontent.com",
+    "client_secret": "RMoJuYICNVXhL0Hs-r27jXLW",
+    "project_id": "tickets-r-us",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "redirect_uris": [
+      "https://armazilla.net/tickets/connect/google/"
+    ],
+    "javascript_origins": [
+      "https://armazilla.net"
+    ]
+  }
 }
