@@ -54,12 +54,24 @@
             <!--END GOOGLE PLUS SIGN IN -->
 
             <!--FACEBOOK SIGN IN -->
+            <div id="fb-root"></div>
+            <!--
+            <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=907786629329598&autoLogAppEvents=1"></script>
+
+            <div class="fb-login-button"
+                 data-size="medium"
+                 data-button-type="continue_with"
+                 data-auto-logout-link="false"
+                 data-use-continue-as="false">
+            </div>
+            -->
             <script>
-                {{fb_connect_js}}
+              {{fb_connect_js}}
             </script>
-            
-            <fb:login-button scope="public_profile,email" onlogin="sendTokenToServer();">
-                <a href='javascript:sendTokenToServer()'>Login with Facebook</a>
+            <fb:login-button
+              scope=""
+              onlogin="sendTokenToServer();">
+              <a href='javascript:sendTokenToServer()'>Login with Facebook</a>
             </fb:login-button>
             <!--END FACEBOOK SIGN IN -->
             

@@ -1,20 +1,11 @@
 #!/bin/bash
 
-
-PATH="/opt/node/bin:${PATH}"
-HTTP_SERVER='/opt/node/bin/http-server'
+HTTP_SERVER='python -m SimpleHTTPServer'
 APP_DIR='/home/carruth/git/tickets/app/'
-
-# TODO: There are a couple of untracked dependencies.
-# Add these to requirements.pip and the README.md
-#
-#  npm install -g http-server
-#  pip install uwsgi
-#
 
 IP_ADDR='127.0.0.1'
 DYNAMIC_PORT='8082'
-STATIC_PORT='8083'
+STATIC_PORT=8083
 
 RUN_DIR=${APP_DIR}/run
 ACTIVATE=${APP_DIR}/tickets_venv/bin/activate
@@ -22,6 +13,7 @@ ACTIVATE=${APP_DIR}/tickets_venv/bin/activate
 function uwsgi_server {
 
     LOG_FILE=${RUN_DIR}/${FUNCNAME}.log
+    ERR_FILE=${RUN_DIR}/${FUNCNAME}.err
     PID_FILE=${RUN_DIR}/${FUNCNAME}.pid
         
     case ${1} in
@@ -29,7 +21,7 @@ function uwsgi_server {
         start)
             mkdir ${RUN_DIR} 2> /dev/null
             source ${ACTIVATE}
-            nohup uwsgi --socket ${IP_ADDR}:${DYNAMIC_PORT} --protocol http -w tickets >${LOG_FILE} &
+            nohup uwsgi --socket ${IP_ADDR}:${DYNAMIC_PORT} --protocol http -w tickets >${LOG_FILE} 2>${ERR_FILE} &
             echo $! > ${PID_FILE}
             deactivate
             ;;
@@ -37,7 +29,7 @@ function uwsgi_server {
         stop)
             pid=$(cat ${PID_FILE})
             kill ${pid}
-            rm ${PID_FILE}
+            #rm ${PID_FILE}
             ;;
 
         restart)
@@ -60,13 +52,14 @@ function uwsgi_server {
 function static_server {
 
     LOG_FILE=${RUN_DIR}/${FUNCNAME}.log
+    ERR_FILE=${RUN_DIR}/${FUNCNAME}.err
     PID_FILE=${RUN_DIR}/${FUNCNAME}.pid
 
     case ${1} in
 
         start)
             pushd tickets_web/static/
-            ${HTTP_SERVER} -p ${STATIC_PORT} >${LOG_FILE} &
+            ${HTTP_SERVER} ${STATIC_PORT} >${LOG_FILE} 2>${ERR_FILE}&
             echo $! > ${PID_FILE}
             popd
             ;;
@@ -74,7 +67,7 @@ function static_server {
         stop)
             pid=$(cat ${PID_FILE})
             kill ${pid}
-            rm ${PID_FILE}
+            #rm ${PID_FILE}
             ;;
 
         restart)

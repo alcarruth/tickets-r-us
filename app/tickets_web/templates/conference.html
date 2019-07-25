@@ -1,41 +1,44 @@
 
-        <h1 class="main-h1"> Step 2 - Pick a Game: </h1>
-        <div class="controls-div">
-            <p>
-                {{conference.name}} schedules - home games in bold
-            </p>
-        </div>
+<h1 class="main-h1"> Step 2 - Pick a Game: </h1>
+<div class="controls-div">
+  <p>
+    {{conference.name}} schedules - home games in bold
+  </p>
+</div>
 
-        {% for team in conference.teams %}
+{% for team in conference.teams %}
 
-        <div class="box">
+<div class="box">
 
-            <img class="team-logo" src="{{ url_for('static', filename=team.logo) }}">
-            <h3 class="team-name"> {{team.name}} {{team.nickname}} </h3>
+  <img class="team-logo"
+       src="{{ url_for('static', filename=team.logo) }}">
+  <h3 class="team-name"> {{team.name}} {{team.nickname}} </h3>
 
-            <p class="schedule-p">
-                {% for game in team.schedule() %}
-                {% if team == game.home_team %}
-                <a class="game-a" href="{{ url_for('game', game_id=game.id) }}">
-                    <span class="schedule-home-span">
-                        <img class="schedule-team-logo" src="{{ url_for('static', filename=game.visiting_team.logo) }}">
-                        {{game.visiting_team.name}} <!-- {{game.visiting_team.nickname}} --> 
-                        {{game.date.strftime("%a %b %d")}}
-                    </span>
-                </a> <br>
-                {% else %}
-                <a class="game-a" href="{{ url_for('game', game_id=game.id) }}">
-                    <span class="schedule-away-span">
-                        <img class="schedule-team-logo" src="{{ url_for('static', filename=game.home_team.logo) }}">
-                        {{game.home_team.name}} <!-- {{game.home_team.nickname}} -->
-                        {{game.date.strftime("%a %b %d")}}
-                    </span>
-                </a> <br>
-                {% endif %}
-                {% endfor %}
-            </p> <!-- schedule-p -->
+  <p class="schedule-p">
+    {% for game in team.schedule() %}
+    {% if team == game.home_team %}
+    <a class="game-a" href="{{ url_for('game', game_id=game.id) }}">
+      <span class="schedule-home-span">
+        <img class="schedule-team-logo"
+             src="{{ url_for('static', filename=game.visiting_team.logo) }}">
+        {{game.visiting_team.name}} <!-- {{game.visiting_team.nickname}} --> 
+        {{game.date.strftime("%a %b %d")}}
+      </span>
+    </a> <br>
+    {% else %}
+    <a class="game-a" href="{{ url_for('game', game_id=game.id) }}">
+      <span class="schedule-away-span">
+        <img class="schedule-team-logo"
+             src="{{ url_for('static', filename=game.home_team.logo) }}">
+        {{game.home_team.name}} <!-- {{game.home_team.nickname}} -->
+        {{game.date.strftime("%a %b %d")}}
+      </span>
+    </a> <br>
+    {% endif %}
+    {% endfor %}
+  </p> <!-- schedule-p -->
 
-        </div>
+</div>
 
-        {% endfor %}
+{% endfor %}
 

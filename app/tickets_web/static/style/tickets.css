@@ -48,12 +48,12 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: beginning;
-    width: 94%;
+    width: 100%;
     max-width: 1200px;
 }
 
 #login-container {
-    width: 90%;
+    width: 100%;
     max-width: 1000px;
     background: #fff;
 }
@@ -176,7 +176,7 @@ div.sub-header {
     padding: 5px;
     padding-top: 10px;
     padding-bottom: 15px;
-    margin: 15px;
+    margin: 10px;
     width: 320px;
     text-align: left;
     background-color: #fff;
@@ -184,10 +184,11 @@ div.sub-header {
 }
 
 .conference-box {
+    font-size: 10px;
     border: 1px solid #444;
-    padding: 15px;
-    margin: 15px;
-    width: 320px;
+    padding: 10px;
+    margin: 5px;
+    width: 196px;
     text-align: left;
     background-color: #fff;
     opacity: 1.0;

@@ -172,7 +172,7 @@ def login():
 
     # TODO: next_url wasn't working with https
     redirect_path = request.args.get('next_url') or url_for('conferences')
-    redirect_url = 'https://zeus.armazilla.net' + redirect_path
+    redirect_url = 'https://armazilla.net' + redirect_path
     print >>sys.stdout, redirect_url
     session_id = get_session_id()
 
@@ -207,16 +207,21 @@ def login():
 @app.route(mount_point + '/connect/<provider_name>/<session_id>', methods=['POST'])
 def connect(provider_name, session_id):
 
+    print "\n\nprovider_name: %s\n" % provider_name
+    print "session_id: %s\n" % session_id
+
     # TODO: Fix this hack:
-    redirect_url = 'https://zeus.armazilla.net/tickets/conferences'
+    redirect_url = 'https://armazilla.net/tickets/conferences'
 
     # verify session_id
+    print "get_session_id(): %s\n" % get_session_id()
     if session_id != get_session_id():
         flash('Invalid session_id.')
         return redirect(redirect_url)
 
     # auth_code is in the 'POST' data
     auth_code = request.data
+    print "auth_code: %s\n" % auth_code
     login = auth_providers[provider_name].connect(auth_code, Login)
 
     if (app_session.get('login') is not None):
@@ -248,7 +253,7 @@ def connect(provider_name, session_id):
 def disconnect():
 
     # TODO: Fix this hack:
-    redirect_url = 'https://zeus.armazilla.net/tickets/conferences'
+    redirect_url = 'https://armazilla.net/tickets/conferences'
 
     try:
         login_json = app_session.get('login')

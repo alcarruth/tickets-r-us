@@ -1,10 +1,5 @@
 
+ - README says to edit options.py but it is acutally app/settings.py
 
-1. currently a node module is required: npm i -g http-server
-   change to some other static server?
-   what about uwsgi?
-
-2. README says to edit options.py but it is acutally app/settings.py
-
-3. initialize postgresql environment
+ - initialize postgresql environment
    see /opt/git/udacity/fullstack-nanodegree/projects/p5-linux-server-configuration/saved_config

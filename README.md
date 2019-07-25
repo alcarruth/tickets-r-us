@@ -32,6 +32,9 @@ $ sudo apt-get install postgresql sqlite3 python-psycopg2 python-pip
  - flask-seasurf: 0.2.2
  - werkzeug: 0.11.4
  - oauth2client: 1.5.2
+ - requests: 2.21.0
+ - psycopg2-binary: 2.7.7
+ - uwsgi: 2.0
 
 You can check/install these modules on your system by issuing
 the command:

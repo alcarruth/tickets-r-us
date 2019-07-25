@@ -1,74 +1,79 @@
-        <div class="controls-div">
+<div class="controls-div">
 
-            <h3>
-                <a href="{{ url_for('game', game_id=ticket_lot.game.id) }}">
-                {{ticket_lot.game.visiting_team.name}}
-                at 
-                {{ticket_lot.game.home_team.name}}
-            </h3>
-            <p> 
-                {{ticket_lot.game.date.strftime("%A %B %d, %Y")}} <br>
-                Price each: ${{ticket_lot.price}} <br>
-                Seller: <a href="{{ url_for('user', user_id=ticket_lot.seller.id) }}"> 
-                    {{ticket_lot.seller.name}} </a> <br>
-                Contact: <a href="mailto:{{ticket_lot.seller.email}}">
-                    {{ticket_lot.seller.email}} </a>
-            </p>
-        </div>
+  <h3>
+    <a href="{{ url_for('game', game_id=ticket_lot.game.id) }}">
+      {{ticket_lot.game.visiting_team.name}}
+      at 
+      {{ticket_lot.game.home_team.name}}
+  </h3>
+  <p> 
+    {{ticket_lot.game.date.strftime("%A %B %d, %Y")}} <br>
+    Price each: ${{ticket_lot.price}} <br>
+    Seller: <a href="{{ url_for('user', user_id=ticket_lot.seller.id) }}"> 
+      {{ticket_lot.seller.name}} </a> <br>
+    Contact: <a href="mailto:{{ticket_lot.seller.email}}">
+      {{ticket_lot.seller.email}} </a>
+  </p>
+</div>
 
-        <div class="controls-div">
-        {% if ticket_lot.user_id==app_session['user_id'] %}
+<div class="controls-div">
+  {% if ticket_lot.user_id==app_session['user_id'] %}
 
-        <p> <a class="sell-tickets-a" href="{{ url_for('ticket_lot', item_id=ticket_lot.id) + '/edit' }}">
-                <button> Edit Tickets </button> </a> </p>
-            
-        {% if ticket_lot.img_path %}
-        <p> <a class="sell-tickets-a" href="{{ url_for('ticket_lot', item_id=ticket_lot.id) + '/delete_image' }}" method="Post">
-                <button> Delete Image </button> </a> </p>
-        {% endif %}
+  <p> <a class="sell-tickets-a" href="{{ url_for('ticket_lot', item_id=ticket_lot.id) + '/edit' }}">
+      <button> Edit Tickets </button> </a> </p>
+  
+  {% if ticket_lot.img_path %}
+  <p> <a class="sell-tickets-a" href="{{ url_for('ticket_lot', item_id=ticket_lot.id) + '/delete_image' }}" method="Post">
+      <button> Delete Image </button> </a> </p>
+  {% endif %}
 
-        <p> <a class="sell-tickets-a" href="{{ url_for('ticket_lot', item_id=ticket_lot.id) + '/delete' }}">
-                <button> Delete Tickets </button> </a> </p>
-        {% endif %}
-        </div>
+  <p> <a class="sell-tickets-a" href="{{ url_for('ticket_lot', item_id=ticket_lot.id) + '/delete' }}">
+      <button> Delete Tickets </button> </a> </p>
+  {% endif %}
+</div>
 
-        {% if ticket_lot.img_path %}
-        
-        <img class="tickets-img" src="{{ url_for('static', filename=ticket_lot.img_path) }}">
+{% if ticket_lot.img_path %}
 
-        {% else %}
+<img class="tickets-img"
+     src="{{ url_for('static', filename=ticket_lot.img_path) }}">
 
-        {% for ticket in ticket_lot.tickets %}
-        <div class="ticket">
-            <div class="college-football">
-                College Football
-            </div>
-            <div class="team" class="visiting">
-                <img class="team-logo" src="{{ url_for('static', filename=ticket_lot.game.visiting_team.logo) }}">
-                <span class="team-name">
-                    {{ticket_lot.game.visiting_team.name}} {{ticket_lot.game.visiting_team.nickname}}
-                </span>
-            </div>
-            <div class="at"> at </div>
-            <div class="team" class="home">
-                <img class="team-logo" src="{{ url_for('static', filename=ticket_lot.game.home_team.logo) }}">
-                <span class="team-name">
-                    {{ticket_lot.game.home_team.name}} {{ticket_lot.game.home_team.nickname}}
-                </span>
-            </div>
-            <div class="date">
-                {{ticket_lot.game.date}}
-            </div>
-            <div class="seat">
-                <p class="seat">
-                    Sec: {{ticket_lot.section}} 
-                    Row: {{ticket_lot.row}} <br>
-                    Seat: {{ticket.seat}}
-                </p>
-            </div>
-        </div>
+{% else %}
 
-        {% endfor %}
+{% for ticket in ticket_lot.tickets %}
+<div class="ticket">
+  <div class="college-football">
+    College Football
+  </div>
+  <div class="team" class="visiting">
+    <img class="team-logo"
+         src="{{ url_for('static', filename=ticket_lot.game.visiting_team.logo) }}">
+    <span class="team-name">
+      {{ticket_lot.game.visiting_team.name}}
+      {{ticket_lot.game.visiting_team.nickname}}
+    </span>
+  </div>
+  <div class="at"> at </div>
+  <div class="team" class="home">
+    <img class="team-logo"
+         src="{{ url_for('static', filename=ticket_lot.game.home_team.logo) }}">
+    <span class="team-name">
+      {{ticket_lot.game.home_team.name}}
+      {{ticket_lot.game.home_team.nickname}}
+    </span>
+  </div>
+  <div class="date">
+    {{ticket_lot.game.date}}
+  </div>
+  <div class="seat">
+    <p class="seat">
+      Sec: {{ticket_lot.section}} 
+      Row: {{ticket_lot.row}} <br>
+      Seat: {{ticket.seat}}
+    </p>
+  </div>
+</div>
 
-        {% endif %}
-        
+{% endfor %}
+
+{% endif %}
+
