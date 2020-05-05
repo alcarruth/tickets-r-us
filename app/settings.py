@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # app settings
-app_dir = '/var/www/git/udacity/tickets/app/'
+app_dir = '/opt/github/tickets/app/'
 
 google_secrets_file = 'conf/google.json'
 facebook_secrets_file = 'conf/facebook.json'

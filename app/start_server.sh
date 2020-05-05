@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HTTP_SERVER='python -m SimpleHTTPServer'
-APP_DIR='/var/www/git/udacity/tickets/app/'
+APP_DIR='/opt/github/tickets/app/'
 
 IP_ADDR='127.0.0.1'
 DYNAMIC_PORT='8082'

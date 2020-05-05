@@ -1,4 +1,4 @@
-#!/usr/bin/python
+
 # -*- coding: utf-8 -*-
 
 # Flask libraries
@@ -26,7 +26,8 @@ from werkzeug import secure_filename
 from tickets_db import DBSession, Conference, Team, Game, Ticket, Ticket_Lot, User, startup_info
 from tickets_db import createUser, getUserByEmail, getUserByID
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/apps/tickets/static')
+#app = Flask(__name__)
 
 # Prevent cross-site request forgery
 # Hidden '_csrf_token' fields have been added to the forms in the
@@ -141,7 +142,7 @@ def get_session_id():
 #----------------------------------------------------------------------------------
 # Tickets 'R' Us App 
 
-mount_point = '/tickets'
+mount_point = '/apps/tickets'
 
 # login
 
@@ -253,7 +254,7 @@ def connect(provider_name, session_id):
 def disconnect():
 
     # TODO: Fix this hack:
-    redirect_url = 'https://armazilla.net/tickets/conferences'
+    redirect_url = 'https://armazilla.net/apps/tickets/conferences'
 
     try:
         login_json = app_session.get('login')

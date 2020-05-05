@@ -1,27 +1,24 @@
 #!/bin/bash
 
 HTTP_SERVER='python -m SimpleHTTPServer'
-APP_DIR='/var/www/git/udacity/tickets/app/'
-
 IP_ADDR='127.0.0.1'
-DYNAMIC_PORT='8082'
-STATIC_PORT=8083
 
-RUN_DIR=${APP_DIR}/run
-LOG_DIR="/var/log/alcarruth/"
-PID_DIR="/var/run/alcarruth/"
+APP_DIR='/opt/github/tickets/app/'
+RUN_DIR=${APP_DIR}/run/
+LOG_DIR="/var/log/alcarruth/tickets/"
+PID_DIR="/var/run/alcarruth/tickets/"
 
-LOG_FILE=${LOG_DIR}/tickets.log
-ERR_FILE=${LOG_DIR}/tickets.err
-PID_FILE=${PID_DIR}/tickets.pid
-STATIC_PID_FILE=${PID_DIR}/tickets_static.pid
+UWSGI_PORT='8082'
+UWSGI_LOG=${LOG_DIR}/uwsgi.log
+UWSGI_ERR=${LOG_DIR}/uwsgi.err
+UWSGI_PID=${PID_DIR}/uwsgi.pid
 
-ACTIVATE=${APP_DIR}/tickets_venv/bin/activate
+STATIC_PORT='8083'
+STATIC_LOG=${LOG_DIR}/static.log
+STATIC_ERR=${LOG_DIR}/static.err
+STATIC_PID=${PID_DIR}/static.pid
 
-function start_server {
-    uwsgi --socket ${IP_ADDR}:${DYNAMIC_PORT} --protocol http -w tickets >${LOG_FILE} 2>${ERR_FILE} &
-    echo "$!" > ${PID_FILE};
-}
+#ACTIVATE=${APP_DIR}/tickets_venv/bin/activate
 
 function uwsgi_server {
 
@@ -29,17 +26,17 @@ function uwsgi_server {
 
         start)
             mkdir ${RUN_DIR} 2> /dev/null
-            source ${ACTIVATE}
-            uwsgi --socket ${IP_ADDR}:${DYNAMIC_PORT} --protocol http -w tickets >${LOG_FILE} 2>${ERR_FILE} &
-            echo "$!" > ${PID_FILE};
+            #source ${ACTIVATE}
+            uwsgi --socket ${IP_ADDR}:${UWSGI_PORT} --protocol http -w tickets >${UWSGI_LOG} 2>${UWSGI_ERR} &
+            echo "$!" > ${UWSGI_PID};
             #start_server
-            deactivate
+            #deactivate
             ;;
 
         stop)
-            pid=$(cat ${PID_FILE})
+            pid=$(cat ${UWSGI_PID})
             kill ${pid}
-            rm ${PID_FILE}
+            rm ${UWSGI_PID}
             ;;
 
         restart)
@@ -48,7 +45,7 @@ function uwsgi_server {
             ;;
 
         clear)
-            echo > ${LOG_FILE}
+            echo > ${UWSGI_LOG}
             ;;
         
         *)
@@ -64,16 +61,16 @@ function static_server {
     case ${1} in
 
         start)
-            pushd tickets_web/static/
-            ${HTTP_SERVER} ${STATIC_PORT} >${LOG_FILE} 2>${ERR_FILE}&
-            echo $! > ${STATIC_PID_FILE}
-            popd
+            pushd tickets_web/static/ >/dev/null
+            ${HTTP_SERVER} ${STATIC_PORT} >${STATIC_LOG} 2>${STATIC_ERR}&
+            echo $! > ${STATIC_PID}
+            popd >/dev/null
             ;;
 
         stop)
-            pid=$(cat ${STATIC_PID_FILE})
+            pid=$(cat ${STATIC_PID})
             kill ${pid}
-            rm ${STATIC_PID_FILE}
+            rm ${STATIC_PID}
             ;;
 
         restart)
@@ -82,7 +79,7 @@ function static_server {
             ;;
 
         clear)
-            echo > ${LOG_FILE}
+            echo > ${STATIC_LOG}
             ;;
         
         *)
