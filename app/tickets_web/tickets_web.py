@@ -141,7 +141,7 @@ def get_session_id():
 #----------------------------------------------------------------------------------
 # Tickets 'R' Us App 
 
-mount_point = '/tickets'
+mount_point = '/apps/tickets'
 
 # login
 
