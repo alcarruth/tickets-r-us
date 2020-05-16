@@ -9,7 +9,7 @@
   <a class="conference-a"
      href="{{ url_for('conference', conference=conference.abbrev_name) }}">
     <h3> {{conference.name}} </h3>
-      <img class="conference-img" src="{{ url_for("static", filename = "images/conference_images/" + conference.logo) }}">
+      <img class="conference-img" src="{{ url_for("static", filename = "images/conference_logos/" + conference.logo) }}">
   </a>
 </div>
 
