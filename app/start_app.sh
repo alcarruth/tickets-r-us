@@ -1,14 +1,14 @@
 #!/bin/bash
 
 HTTP_SERVER='python -m SimpleHTTPServer'
-APP_DIR='/home/carruth/git/tickets/app/'
+APP_DIR='/opt/github/tickets/app/'
 
 IP_ADDR='127.0.0.1'
 DYNAMIC_PORT='8082'
 STATIC_PORT=8083
 
 RUN_DIR=${APP_DIR}/run
-ACTIVATE=${APP_DIR}/tickets_venv/bin/activate
+#ACTIVATE=${APP_DIR}/tickets_venv/bin/activate
 
 function uwsgi_server {
 
@@ -20,10 +20,10 @@ function uwsgi_server {
 
         start)
             mkdir ${RUN_DIR} 2> /dev/null
-            source ${ACTIVATE}
+            #source ${ACTIVATE}
             nohup uwsgi --socket ${IP_ADDR}:${DYNAMIC_PORT} --protocol http -w tickets >${LOG_FILE} 2>${ERR_FILE} &
             echo $! > ${PID_FILE}
-            deactivate
+            #deactivate
             ;;
 
         stop)
