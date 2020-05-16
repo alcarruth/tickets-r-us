@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 # Flask libraries
@@ -26,7 +25,8 @@ from werkzeug import secure_filename
 from tickets_db import DBSession, Conference, Team, Game, Ticket, Ticket_Lot, User, startup_info
 from tickets_db import createUser, getUserByEmail, getUserByID
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/apps/tickets/static')
+#app = Flask(__name__)
 
 # Prevent cross-site request forgery
 # Hidden '_csrf_token' fields have been added to the forms in the
@@ -56,6 +56,7 @@ import settings
 # TODO: move specific html for the auth buttons to the respective python 
 # files and change login.html to iterate over auth_providers to create the 
 # buttons for the authentication providers included below.
+#
 auth_providers = {
     'google': Google_Auth_Client(settings.google_secrets_file),
     'facebook': Facebook_Auth_Client(settings.facebook_secrets_file)
@@ -68,7 +69,7 @@ LOG_ERRORS = True
 # Helper function gen_response() is just a little wrapper around
 # make_response() to make the code below more readable.
 #
-# TODO: this could do more, like have an error notification  page with 
+# TODO: this could do more, like have an error notification page with 
 # a 'Continue' button which would either take you to the main page
 # or perhaps to where you were before the error.  Give it some thought.
 #
@@ -253,7 +254,7 @@ def connect(provider_name, session_id):
 def disconnect():
 
     # TODO: Fix this hack:
-    redirect_url = 'https://armazilla.net/tickets/conferences'
+    redirect_url = 'https://armazilla.net/apps/tickets/conferences'
 
     try:
         login_json = app_session.get('login')
@@ -273,11 +274,19 @@ def disconnect():
     return redirect(redirect_url)
 
 
+#---------------------------------------------------------------------------------------------
+# Landing View
+
+@app.route(mount_point + '/')
+def landing():
+    main = Markup(render_template('landing.html'))
+    return render_template('layout.html', main=main, app_session=app_session)
+
+
 
 #---------------------------------------------------------------------------------------------
 # Conferences View
 
-@app.route(mount_point + '/')
 @app.route(mount_point + '/conferences')
 def conferences():
     conferences = db_session.query(Conference).all()

@@ -2,34 +2,35 @@
 
 HTTP_SERVER='python -m SimpleHTTPServer'
 APP_DIR='/opt/github/tickets/app/'
-
 IP_ADDR='127.0.0.1'
-DYNAMIC_PORT='8082'
-STATIC_PORT=8083
 
-RUN_DIR=${APP_DIR}/run
-#ACTIVATE=${APP_DIR}/tickets_venv/bin/activate
+APP_DIR='/opt/github/tickets/app/'
+RUN_DIR=${APP_DIR}/run/
+
+UWSGI_PORT='8082'
+UWSGI_LOG=${RUN_DIR}/uwsgi.log
+UWSGI_ERR=${RUN_DIR}/uwsgi.err
+UWSGI_PID=${RUN_DIR}/uwsgi.pid
+
+STATIC_PORT='8083'
+STATIC_LOG=${RUN_DIR}/static.log
+STATIC_ERR=${RUN_DIR}/static.err
+STATIC_PID=${RUN_DIR}/static.pid
 
 function uwsgi_server {
 
-    LOG_FILE=${RUN_DIR}/${FUNCNAME}.log
-    ERR_FILE=${RUN_DIR}/${FUNCNAME}.err
-    PID_FILE=${RUN_DIR}/${FUNCNAME}.pid
-        
     case ${1} in
 
         start)
             mkdir ${RUN_DIR} 2> /dev/null
-            #source ${ACTIVATE}
-            nohup uwsgi --socket ${IP_ADDR}:${DYNAMIC_PORT} --protocol http -w tickets >${LOG_FILE} 2>${ERR_FILE} &
-            echo $! > ${PID_FILE}
-            #deactivate
+            uwsgi --socket ${IP_ADDR}:${UWSGI_PORT} --protocol http --file tickets.wsgi >${UWSGI_LOG} 2>${UWSGI_ERR} &
+            echo "$!" > ${UWSGI_PID};
             ;;
 
         stop)
-            pid=$(cat ${PID_FILE})
+            pid=$(cat ${UWSGI_PID})
             kill ${pid}
-            #rm ${PID_FILE}
+            rm ${UWSGI_PID}
             ;;
 
         restart)
@@ -38,7 +39,7 @@ function uwsgi_server {
             ;;
 
         clear)
-            echo > ${LOG_FILE}
+            echo > ${UWSGI_LOG}
             ;;
         
         *)
@@ -51,23 +52,19 @@ function uwsgi_server {
  
 function static_server {
 
-    LOG_FILE=${RUN_DIR}/${FUNCNAME}.log
-    ERR_FILE=${RUN_DIR}/${FUNCNAME}.err
-    PID_FILE=${RUN_DIR}/${FUNCNAME}.pid
-
     case ${1} in
 
         start)
-            pushd tickets_web/static/
-            ${HTTP_SERVER} ${STATIC_PORT} >${LOG_FILE} 2>${ERR_FILE}&
-            echo $! > ${PID_FILE}
-            popd
+            pushd tickets_web/static/ >/dev/null
+            ${HTTP_SERVER} ${STATIC_PORT} >${STATIC_LOG} 2>${STATIC_ERR}&
+            echo $! > ${STATIC_PID}
+            popd >/dev/null
             ;;
 
         stop)
-            pid=$(cat ${PID_FILE})
+            pid=$(cat ${STATIC_PID})
             kill ${pid}
-            #rm ${PID_FILE}
+            rm ${STATIC_PID}
             ;;
 
         restart)
@@ -76,7 +73,7 @@ function static_server {
             ;;
 
         clear)
-            echo > ${LOG_FILE}
+            echo > ${STATIC_LOG}
             ;;
         
         *)

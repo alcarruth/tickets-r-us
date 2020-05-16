@@ -35,7 +35,7 @@ body {
     font-style: italic;
     text-align: center;
     /* TODO */
-    background-image: url("/static/images/FF8a5Ku_2000_cropped.jpg");
+    background-image: url("/apps/tickets/static/images/FF8a5Ku_2000_cropped.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -140,7 +140,6 @@ div.sub-header {
 }
 
 #main {
-    background: #fff;
     opacity: 1.0;
     padding-top: 20px;
     min-height: 700px;
@@ -208,6 +207,11 @@ div.sub-header {
 .ticket-lot-a:hover {
     text-decoration: none;
     background: #ffe;
+}
+
+.conference-img {
+    width: 170px;
+    height: auto;
 }
 
 .tickets-img {

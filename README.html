@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Readme </title>
+    <link rel="stylesheet" href="css/prism_custom.css">
+    <script src="js/prism.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <h2>Udacity FSND Project 3 Item Catalog</h2>
+
+<h3>Quick Start</h3>
+
+<h4>Pre-requisites</h4>
+
+<p>Download the project as follows:</p>
+
+<p><code>
+$ git clone https://github.com/alcarruth/fullstack-p3-item-catalog.git
+$ cd fullstack-p3-item-catalog
+</code></p>
+
+<p>This project requires a number of supporting modules and has been built
+and tested with the following versions:</p>
+
+<ul><li>python: 2.7.6</li><li>postgresql: 9.3.11</li><li>sqlite3: 2.6.0</li><li>psycopg2: 2.4.5</li><li>pip: 1.5.4</li></ul>
+
+<p>The above can be installed (on Linux) using apt-get:</p>
+
+<p><code>
+$ sudo apt-get install postgresql sqlite3 python-psycopg2 python-pip
+</code></p>
+
+<ul><li>dict2xml: 1.4</li><li>sqlalchemy: 1.0.9</li><li>flask: 0.10.1</li><li>flask-seasurf: 0.2.2</li><li>werkzeug: 0.11.4</li><li>oauth2client: 1.5.2</li><li>requests: 2.21.0</li><li>psycopg2-binary: 2.7.7</li><li>uwsgi: 2.0</li></ul>
+
+<p>You can check/install these modules on your system by issuing
+the command:</p>
+
+<p><code>
+$ sudo pip install -r admin/requirements.pip
+</code></p>
+
+<p>Next, edit the <code>settings.py</code> file to suit your situation.  In particular, the
+variable <code>engine-type</code> should be set to the db backend of your choice.
+The code has been tested and seems to work well with postgresql 9.3.11
+and with sqlite 2.6.0.  Once this is done,
+rebuild the database using the script <code>reset_db.sh</code>.  With the default
+dummy data table sizes, this takes a few seconds and produces
+something like the following terminal output:</p>
+
+<p><code>
+$ ./app/reset_db.sh 
+DROP DATABASE
+CREATE DATABASE
+removed ‘tickets.db’
+loading 10 conferences
+loading 128 teams
+schecduling 77 games
+schecduling 66 games
+schecduling 77 games
+schecduling 66 games
+schecduling 77 games
+schecduling 71 games
+schecduling 71 games
+schecduling 66 games
+schecduling 66 games
+schecduling 66 games
+creating 1000 users
+creating 5000 ticket lots
+0
+1000
+2000
+3000
+4000
+created 13793 tickets
+</code></p>
+
+<p>Now the db has been initialized and you can run the ticket app server:</p>
+
+<p><code>
+$ ./web_server.py 
+ * Running on http://0.0.0.0:5000/
+ * Restarting with reloader
+</code></p>
+
+<p>Point your browser to <code>http://localhost:5000</code> to view the Tickets&#39;R&#39;Us 
+web app.</p>
+
+<h3>Project Overview</h3>
+
+<p>This project implements a basic ticket broker website for college football games.
+A user can select a conference, select a game from the conference teams&#39; schedules
+and view tickets available for purchase.  The tickets are organized into &#39;ticket lots&#39;
+which are owned by a user.  These ticket lots can be edited and deleted only by the
+owning user.  New ticket lots for sale can be added by any logged in user.</p>
+
+<h4>Dummy Data</h4>
+
+<p>A significant portion of the work involved setting up &#39;dummy data&#39; to populate
+the database with conferences, teams, games, schedules, tickets and users.  I have
+used the conferences from NCAA Division 1 football with a slight modification:
+Notre Dame and BYU have been moved to the Big 12 Conference and Army has been
+moved to the Sun Belt Conference.  This was done in an attempt to even the 
+sizes of the conferences and give them each at least 12 teams.  The logo
+images for the teams were shamelessly purloined from the ESPN website.  Of course
+they are registered trademarks of their respective institutions and cannot
+be used without permission.  I thought I&#39;d be ok including them in this strictly
+academic exercise.</p>
+
+<p>The initialization program <code>init_tickets.py</code> adds the conferences and the
+teams to the database and then randomly generates game schedules for each
+team using a round robin algorithm for each conference.  Each team plays
+11 games.</p>
+
+<p>The initialization program then randomly generates a large number of dummy
+users with dummy email addresses, and then a large number of ticket_lots
+with tickets to randomly selected games and being offered by randomly selected
+users.</p>
+
+<h4>Using the Tickets &#39;R&#39; Us Website</h4>
+
+<h4>Step 1 - Choose a conference</h4>
+
+<p>The Tickets &#39;R&#39; Us home page presents the user with a list of conferences, each in 
+an oulined box containing a list of teams in the conferences.  Clicking anywhere
+in the box will bring up the conference page.</p>
+
+<p><img alt="alt text" title="main page" src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/tickets_step1.jpg"/></p>
+
+<h4>Step 2 - Choose a game</h4>
+
+<p>On the conference page the user is presented with the schedules for each team in the 
+conference.  Clicking on a game in a schedule will bring up a page with the ticket lots
+available for that game.</p>
+
+<p><img alt="alt text" title="step 2" src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/step2.jpg"/></p>
+
+<h4>Game Page</h4>
+
+<p>The game page displays the ticket lots available for that game.  The ticket lots are 
+collections of tickets (intended to be adjacent seats) in numbers of 1, 2 and 4.</p>
+
+<p><img alt="alt text" title="game tickets" src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/game_tickets.jpg"/></p>
+
+<h4>Tickets Page</h4>
+
+<p>The tickets page displays the data associated with a ticket lot, i.e. the tickets, the user (seller),
+the user&#39;s email address and the price per ticket.  Actual ticket purchasing is not implemented.
+(So a fictitious buyer must contact the fictitious seller at the fictitious email address in order
+to buy the fictitious tickets !-)</p>
+
+<p><img alt="alt text" title="ticket lot" src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/ticket_lot.jpg"/></p>
+
+<h4>Logging In</h4>
+
+<p>In order to sell tickets a user must first be logged in.  We offer two methods for logging in: via Google and via Facebook.</p>
+
+<p><img alt="alt text" title="login" src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/login.jpg"/></p>
+
+<p>Once logged in the user&#39;s name appears next to the logout button in the header.
+<img alt="alt text" title="logged in" src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/logged_in.jpg"/></p>
+
+<h4>Selling Tickets</h4>
+
+<p>To sell tickets, a user must be logged in.  If they are logged in, clicking the sell button brings up a form
+where they can enter the data for the ticket lot.</p>
+
+<p><img alt="alt text" title="sell tickets" src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/sell_tickets.jpg"/></p>
+
+<h4>User Page</h4>
+
+<p>Clicking on the user&#39;s name brings up the User Page which shows the user&#39;s name, email address and a table
+of the ticket lots the user has listed for sale.</p>
+
+<p><img alt="alt text" title="my tickets" src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/my_tickets.jpg"/></p>
+
+<h4>User&#39;s Ticket Lot Page</h4>
+
+<p>On the Tickets page, and if the logged in user is the owner of the tickets, there are buttons to edit 
+and to delete the ticket lot.  Editing is restricted to the price.  You can&#39;t change the section, row or seat numbers.
+To do this you would first have to delete the lot and enter them again with the correct data.</p>
+
+<p><img alt="alt text" title="my ticket lot" src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/my_ticket_lot.jpg"/></p>
+
+<h4>Deleting tickets page:</h4>
+
+<p><img alt="alt text" title="delete tickets" src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/delete_tickets.jpg"/></p>
+
+<h4>Editing Tickets Page</h4>
+
+<p><img alt="alt text" title="edit tickets" src="https://raw.githubusercontent.com/alcarruth/fullstack-p3-item-catalog/tickets/admin/images/jpg/edit_tickets.jpg"/></p>
+
+<h3>License</h3>
+
+<p>Probably GNU or MIT or BSD ... I don&#39;t know.</p>
+  </body>
+</html>

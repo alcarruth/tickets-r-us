@@ -9,7 +9,7 @@
   <p> 
     {{ticket_lot.game.date.strftime("%A %B %d, %Y")}} <br>
     Price each: ${{ticket_lot.price}} <br>
-    Seller: <a href="{{ url_for('user', user_id=ticket_lot.seller.id) }}"> 
+    Seller: <a href="{{ url_for('user', user_id=ticket_lot.seller_id) }}"> 
       {{ticket_lot.seller.name}} </a> <br>
     Contact: <a href="mailto:{{ticket_lot.seller.email}}">
       {{ticket_lot.seller.email}} </a>
