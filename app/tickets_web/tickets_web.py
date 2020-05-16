@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 # Flask libraries
@@ -57,6 +56,7 @@ import settings
 # TODO: move specific html for the auth buttons to the respective python 
 # files and change login.html to iterate over auth_providers to create the 
 # buttons for the authentication providers included below.
+#
 auth_providers = {
     'google': Google_Auth_Client(settings.google_secrets_file),
     'facebook': Facebook_Auth_Client(settings.facebook_secrets_file)
@@ -69,7 +69,7 @@ LOG_ERRORS = True
 # Helper function gen_response() is just a little wrapper around
 # make_response() to make the code below more readable.
 #
-# TODO: this could do more, like have an error notification  page with 
+# TODO: this could do more, like have an error notification page with 
 # a 'Continue' button which would either take you to the main page
 # or perhaps to where you were before the error.  Give it some thought.
 #
