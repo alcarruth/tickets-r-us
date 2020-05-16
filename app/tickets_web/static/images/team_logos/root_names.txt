@@ -46,7 +46,7 @@ kansas_jayhawks
 kansas_state_wildcats
 kent_state_golden_flashes
 kentucky_wildcats
-louisiana_lafayette_ragin'_cajuns
+louisiana_lafayette_ragin_cajuns
 louisiana_monroe_warhawks
 louisiana_tech_bulldogs
 louisville_cardinals

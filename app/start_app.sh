@@ -5,20 +5,16 @@ IP_ADDR='127.0.0.1'
 
 APP_DIR='/opt/github/tickets/app/'
 RUN_DIR=${APP_DIR}/run/
-LOG_DIR="/var/log/alcarruth/tickets/"
-PID_DIR="/var/run/alcarruth/tickets/"
 
 UWSGI_PORT='8082'
-UWSGI_LOG=${LOG_DIR}/uwsgi.log
-UWSGI_ERR=${LOG_DIR}/uwsgi.err
-UWSGI_PID=${PID_DIR}/uwsgi.pid
+UWSGI_LOG=${RUN_DIR}/uwsgi.log
+UWSGI_ERR=${RUN_DIR}/uwsgi.err
+UWSGI_PID=${RUN_DIR}/uwsgi.pid
 
 STATIC_PORT='8083'
-STATIC_LOG=${LOG_DIR}/static.log
-STATIC_ERR=${LOG_DIR}/static.err
-STATIC_PID=${PID_DIR}/static.pid
-
-#ACTIVATE=${APP_DIR}/tickets_venv/bin/activate
+STATIC_LOG=${RUN_DIR}/static.log
+STATIC_ERR=${RUN_DIR}/static.err
+STATIC_PID=${RUN_DIR}/static.pid
 
 function uwsgi_server {
 
@@ -26,11 +22,8 @@ function uwsgi_server {
 
         start)
             mkdir ${RUN_DIR} 2> /dev/null
-            #source ${ACTIVATE}
-            uwsgi --socket ${IP_ADDR}:${UWSGI_PORT} --protocol http -w tickets >${UWSGI_LOG} 2>${UWSGI_ERR} &
+            uwsgi --socket ${IP_ADDR}:${UWSGI_PORT} --protocol http --file tickets.wsgi >${UWSGI_LOG} 2>${UWSGI_ERR} &
             echo "$!" > ${UWSGI_PID};
-            #start_server
-            #deactivate
             ;;
 
         stop)

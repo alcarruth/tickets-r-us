@@ -209,6 +209,11 @@ div.sub-header {
     background: #ffe;
 }
 
+.conference-img {
+    width: 170px;
+    height: auto;
+}
+
 .tickets-img {
     width: auto;
     height: auto;
