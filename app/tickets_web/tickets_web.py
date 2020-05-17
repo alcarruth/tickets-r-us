@@ -298,8 +298,8 @@ def conferences():
 #---------------------------------------------------------------------------------------------
 # Conference Views
 
-# a page for a single conference
-# it shows the schedules for each team
+# A page for a single conference showing the teams in the conference and
+# with links to their respective web pages.
 #
 @app.route(mount_point + '/conference/<conference>')
 def conference(conference):
@@ -322,14 +322,14 @@ def conference_xml(conference):
 #---------------------------------------------------------------------------------------------
 # Team Views
 
-# TODO: I don't think this is used anymore.  Delete it ?  No, don't
-# delete it.  It could be used later on to provide more information
-# about a team / school on a new page.
-
+# A page for a single team showing the teams schedule and providing
+# links to ticket lots for each game.
+#
 @app.route(mount_point + '/team/<team_name>')
 def team(team_name):
     team = db_session.query(Team).filter_by(name=team_name).one()
-    return render_template('team.html', team=team)
+    main = Markup(render_template('team.html', team=team))
+    return render_template('layout.html', main=main, app_session=app_session)
 
 @app.route(mount_point + '/team/<team_name>/JSON')
 def team_json(team_name):

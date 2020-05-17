@@ -5,430 +5,546 @@
 /*
   box-sizing simplifies box arithmetic by including border and
   padding in the box dimensions
-  */
+*/
 
 body, div, ul, li, p, h1, h2, h3, h4, h5, h6 {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    border: 1px solid transparent;
-}
-
-body, div, ul, li, p, h1, h2, h3, h4, h5, h6 {
-    padding: 0;
-    margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 h1,h2,h3,h4 {
-    width: 100%;
+  width: 100%;
 }
 
 body {
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    font-family: "Roboto", sans-serif;
-    font-weight: bold;
-    font-style: italic;
-    text-align: center;
-    /* TODO */
-    background-image: url("/apps/tickets/static/images/FF8a5Ku_2000_cropped.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  /* TODO */
+  background-image: url("/apps/tickets/static/images/FF8a5Ku_2000_cropped.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }
 
 #container {
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: beginning;
-    width: 100%;
-    max-width: 1200px;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 }
 
 #login-container {
-    width: 100%;
-    max-width: 1000px;
-    background: #fff;
+  width: 100%;
+  max-width: 1000px;
+  background: #fff;
 }
 
 #header,
 #footer,
 #main {
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 30px;
-    width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: normal;
+  padding: 3vw;
+  width: 100vw;
+}
+
+#header {
+  height: 5vh;
+}
+
+#footer {
+  height: 5vh;
 }
 
 #title-a {
-    color: #ddd;
-    text-decoration: none;
+  color: #ddd;
+  text-decoration: none;
 }
 
 .rant {
-    color: red;
-    background: black;
-    width: 50%;
-    margin: 20px;
-    margin-left: 25%;
-    margin-right: 25%;
-    padding: 30px;
-    text-align: left;
-    font-family: arial, sans-serif;
-    font-weight: bold;
-    font-style: normal;
+  color: red;
+  background: black;
+  width: 50%;
+  margin: 20px;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 30px;
+  text-align: left;
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
 }
 
 #game-heading {
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 div.sub-header {
-    width: 100%;
+  width: 100%;
 }
 
 .login a {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: #fff;
 }
 
 #header,
 #footer {
-    color: #ddd;
-    background: #337;
+  color: #ddd;
+  background: #337;
 }
 
 #header {
-    height: 100px;
-    padding-top: 20px;
+  height: 100px;
+  padding-top: 20px;
 }
 
 #header-title-div {
-    width: 50%;
+  width: 50%;
 }
 
 #header-title-h1 {
-    width: 100%;
+  width: 100%;
 }
 
 #header-login-div {
-    font-family: "Roboto", sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    width: 50%;
-    margin-top: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  width: 50%;
+  margin-top: 10px;
 }
 
 .header-login-a {
-    margin-left: 20px;
-    color: #ddd;
-    text-decoration: none;
+  margin-left: 20px;
+  color: #ddd;
+  text-decoration: none;
 }
 
 #main {
-    opacity: 1.0;
-    padding-top: 20px;
-    min-height: 700px;
+  min-height: 75vh;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  width: 100vw;
+  max-width: 720px;
 }
 
-.main-h1 {
-    width: 50%;
-    font-style: normal;
-    font-weight: normal;
-    text-align: left;
-    padding-left: 20px;
+#main-body {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: normal;
+  padding: 0;
+  padding-top: 2vw;
+  width: 100vw;
+  max-width: 720px;
+}
+
+#main-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#main-title {
+  width: 50%;
+  font-size: 2.2vw;
+  font-style: normal;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 2vw;
+}
+
+#main-controls {
+  width: 50%;
+  font-style: normal;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 0px;
 }
 
 .controls-div {
-    width: 50%;
-    font-style: normal;
-    font-weight: bold;
-    text-align: left;
-    padding-left: 20px;
+  width: 30%;
+  font-style: normal;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 0px;
 }
 
 .game-team {
-    width: 100px;
+  width: 100px;
 }
 
 .game-at {
-    width: 50px;
-    padding-top: 100px;
+  width: 50px;
+  padding-top: 100px;
 }
 
 .box {
-    border: 1px solid #444;
-    padding: 5px;
-    padding-top: 10px;
-    padding-bottom: 15px;
-    margin: 10px;
-    width: 320px;
-    text-align: left;
-    background-color: #fff;
-    opacity: 1.0;
+  border: 1px solid #444;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  margin: 10px;
+  width: 320px;
+  text-align: left;
+  background-color: #fff;
+  opacity: 1.0;
 }
 
+.team-box,
 .conference-box {
-    font-size: 10px;
-    border: 1px solid #444;
-    padding: 10px;
-    margin: 5px;
-    width: 196px;
-    text-align: left;
-    background-color: #fff;
-    opacity: 1.0;
+  width: 120px;
+  height: 120px;
+  font-size: 12px;
+  border: 1px solid #444;
+  padding: 0;
+  padding-top: 10px;
+  margin: 10px;
+  background-color: #f0f0e0;
+  opacity: 0.7;
 }
 
+.team-box:hover,
 .conference-box:hover {
-    background: #ffe;
-    opacity: 1.0;
+  background: #f0f0e0;
+  opacity: 1.0;
 }
 
-.conference-a,
+.team-box-link,
+.team-box-link:visited,
+.conference-box-link,
+.conference-box-link:visited {
+  color: #239;
+  text-decoration: none;
+}
+
+.team-box-link:hover,
+.conference-box-link:hover {
+/*  background: #ffe; */
+}
+
+.team-box-heading,
+.conference-box-heading {
+  color: #444;
+/*  font-size: 11px; */
+  text-align: center;
+  height: 25px;
+  margin: 5px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.team-box-logo,
+.conference-box-logo {
+  width: 5vw;
+  height: auto;
+  margin: 0;
+}
+
+#ticket-lot-description {
+  width: 30%;
+}
+
+#ticket-lot-controls {
+  width: 65%;
+}
+
 .ticket-lot-a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-.conference-a:hover,
 .ticket-lot-a:hover {
-    text-decoration: none;
-    background: #ffe;
-}
-
-.conference-img {
-    width: 170px;
-    height: auto;
+  text-decoration: none;
+  background: #ffe;
 }
 
 .tickets-img {
-    width: auto;
-    height: auto;
-    max-width: 300px;
-    max-height: 300px;
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  max-height: 300px;
 }
 
 .full-row {
-    width: 100%;
+   width: 100%;
 }
 /*
-*/
+ */
 
 .game-tickets {
-    border: 1px solid #444;
-    padding: 15px;
-    margin: 15px;
-    background: #fff;
+  border: 1px solid #444;
+  padding: 15px;
+  margin: 15px;
+  background: #fff;
 }
 
 .schedule-div {
-    justify-content: beginning;
-    flex-direction: column;
-    border: 1px solid #444;
-    padding: 10px;
+  justify-content: beginning;
+  flex-direction: column;
+  border: 1px solid #444;
+  padding: 10px;
 }
 
 .team-name {
-    font-weight: bold;
-    color: #444;
-    margin-bottom: 10px;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 10px;
 }
 
 .team-name-span {
-    font-weight: normal;
-    color: #444;
-}
-
-.game-a {
-    text-decoration: none;
-    color: #444;
-    border: 1px solid transparent;
-    width: 100%;
-}
-
-.game-a:hover {
-/*
-    background: #bbb;
-    border-color: #444;
- */
+  font-weight: normal;
+  color: #444;
 }
 
 .team-a {
-    text-decoration: none;
-    color: #444;
+  text-decoration: none;
+  color: #444;
 }
 
-.schedule-p {
-    text-align: left;
+.schedule-box {
+  width: 360px;
+  padding-left: 20px;
+  padding-right: 20px;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.schedule {
+  text-align: left;
+  font-size: 20px;
+  width: 100%;
+}
+
+.schedule-header {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.schedule-header-team-logo {
+  width: 20%;
+  border: 0;
+  margin: 3%;
+}
+
+.schedule-header-team-name {
+  color: #444;
+  text-align: left;
+  font-size: 21px;
+  font-weight: bold;
+  width: 66%;
+  border: 0;
+  margin: 3%;
+  margin-top: 17px;
+}
+
+.schedule-hr {
+  width: 96%;
+  height: 0;
+  color: #444;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.schedule-game-a {
+  text-decoration: none;
+}
+
+.schedule-game {
+  color: #444;
+  width: 100%;
+  height: 36px;
+  padding-left: 10px;
+  padding-top: 5px;
+  border: 1px solid transparent;
+}
+
+.schedule-game:hover {
+  border-color: #444;
+  background: #ffe;
+  opacity: 1;
 }
 
 .schedule-team-logo {
-    width: 15px;
-    height: 15px;
+  width: 30px;
+  height: auto;
+}
+
+.schedule-span {
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: top;
 }
 
 .schedule-home-span {
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid transparent;
-    font-weight: bold;
+  font-weight: bold;
 }
-.schedule-home-span:hover {
-    border-color: #444;
-    background: #ffe;
-}
+
 .schedule-away-span {
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid transparent;
-    font-weight: normal;
-}
-.schedule-away-span:hover {
-    border-color: #444;
-    background: #ffe;
+  font-weight: normal;
 }
 
 span.nav-conference {
-    font-weight: bold;
-    color: red;
+  font-weight: bold;
+  color: red;
 }
 
 team-name-span {
-    font-weight: normal;
-    color: #444;
+  font-weight: normal;
+  color: #444;
 }
 
 team-nickname-span {
-    font-weight: normal;
-    color: #444;
+  font-weight: normal;
+  color: #444;
 }
 
 .conference {
-    justify-content: left;
-    flex-direction: row;
-    margin-top: 20px;
-    border-color: #000;
-    background: #fff;
-    padding: 15px;
-    border: 1px solid #444;
+  justify-content: left;
+  flex-direction: row;
+  margin-top: 20px;
+  border-color: #000;
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #444;
 }
 
 
 .team {
-    justify-content: left;
-    flex-direction: row;
-    margin-top: 20px;
-    border-color: #000;
-    background: #fff;
+  justify-content: left;
+  flex-direction: row;
+  margin-top: 20px;
+  border-color: #000;
+  background: #fff;
 }
 
 div.seat {
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 10px;
-    border: 1px solid transparent;
-    border-top-color: 1px dotted #444;
-    color: #444;
-    background: #fff;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-top-color: 1px dotted #444;
+  color: #444;
+  background: #fff;
 }
 
 p.seat {
-    font-family: monospace;
-    font-weight: bold;
-    font-style: normal;
-    font-size: normal;
+  font-family: monospace;
+  font-weight: bold;
+  font-style: normal;
+  font-size: normal;
 }
 
 div.date {
-    font-family: sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    font-size: small;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: small;
 }
 
 div.college-football {
-    width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-family: sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    font-size: large;
-    color: #222;
-    background: #ddd;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: large;
+  color: #222;
+  background: #ddd;
 }
 
 .ticket {
-    width: 175px;
-    margin: 10px;
-    padding: 0;
-    border: 1px solid #446;
-    background: #fff;
+  width: 175px;
+  margin: 10px;
+  padding: 0;
+  border: 1px solid #446;
+  background: #fff;
 }
 
 .team {
-    width: 80%;
-    margin: 10%;
-    border: 1px solid transparent;
+  width: 80%;
+  margin: 10%;
+  border: 1px solid transparent;
 }
 
-.team-logo {
-    width: 100px;
-    height: 100px;
+.team-logo-small {
+  width: 100px;
+  height: 100px;
 }
 
-.team-logo-img {
-    width: 20px;
-    height: 20px;
+.team-logo-small-img {
+  width: 20px;
+  height: 20px;
 }
 
 table {
-    border: 1px solid transparent;
-    border-collapse: collapse;
+  border: 1px solid transparent;
+  border-collapse: collapse;
 }
 
 tr {
-    border: 1px solid transparent;
-    border-collapse: collapse;
+  border: 1px solid transparent;
+  border-collapse: collapse;
 }
 
 th {
-    padding-left: 15px;
-    padding-right: 0px;
-    text-align: left;
+  padding-left: 15px;
+  padding-right: 0px;
+  text-align: left;
 }
 
 td {
-    border: 1px solid transparent;
-    border-collapse: collapse;
-    padding: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: left;
+  border: 1px solid transparent;
+  border-collapse: collapse;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: left;
 }
 
 td.price {
-    text-align: right;
+  text-align: right;
 }
 
 .game-page-logo {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 

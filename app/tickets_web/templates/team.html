@@ -1,0 +1,48 @@
+<div id="main-header">
+  <div id="main-title"> Step 2 - Pick a Game: </div>
+  <div id="main-controls">
+    <p>
+      {{team.name}} schedule - home games in bold
+    </p>
+  </div>
+</div>
+
+
+<div class="box schedule-box">
+
+  <div class="schedule-header">
+    <img class="schedule-header-team-logo"
+         src="{{ url_for('static', filename=team.logo) }}">
+    <h3 class="schedule-header-team-name"> {{team.name}} <br /> {{team.nickname}} </h3>
+  </div>
+  <hr class="schedule-hr">
+  <div class="schedule">
+    {% for game in team.schedule() %}
+    {% if team == game.home_team %}
+    <a class="schedule-game-a" href="{{ url_for('game', game_id=game.id) }}">
+      <div class="schedule-game">
+        <img class="schedule-team-logo"
+             src="{{ url_for('static', filename=game.visiting_team.logo) }}">
+        <span class="schedule-span schedule-home-span">
+          {{game.visiting_team.name}} <!-- {{game.visiting_team.nickname}} --> 
+          {{game.date.strftime("%a %b %d")}}
+        </span>
+      </div>
+    </a>
+    {% else %}
+    <a class="schedule-game-a" href="{{ url_for('game', game_id=game.id) }}">
+      <div class="schedule-game">
+        <img class="schedule-team-logo"
+             src="{{ url_for('static', filename=game.home_team.logo) }}">
+        <span class="schedule-span schedule-away-span">
+          {{game.home_team.name}} <!-- {{game.home_team.nickname}} -->
+          {{game.date.strftime("%a %b %d")}}
+        </span>
+      </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div> <!-- schedule -->
+
+</div>
+
