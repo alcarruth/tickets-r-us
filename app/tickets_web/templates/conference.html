@@ -7,10 +7,10 @@
   
 {% for team in conference.teams %}
 
-<div class="team-box">
+<div>
   <a class="team-box-link"
      href="{{ url_for('team', team_name=team.name) }}">
-    <div>
+    <div class="team-box">
       <p class="team-box-heading"> {{ team.name }} </p>
       <img class="team-box-logo" src="{{ url_for("static", filename=team.logo) }}">
     </div>

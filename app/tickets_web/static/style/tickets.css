@@ -268,12 +268,130 @@ div.sub-header {
   margin: 0;
 }
 
+.ticket-lots-table {
+  font-size: 12px;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.ticket-lots-header {
+}
+
+.ticket-lots-row {
+}
+
+.ticket-lots-table-th {
+}
+
+.ticket-lots-table-td {
+  border: 1px solid #ddd;
+  border-left: 0;
+  border-right: 0;
+  border-collapse: collapse;
+  padding: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: left;
+}
+
+.ticket-lot {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: normal;
+  padding: 0;
+  padding-top: 2vw;
+  width: 100vw;
+  max-width: 720px;
+}
+
 #ticket-lot-description {
   width: 30%;
 }
 
 #ticket-lot-controls {
   width: 65%;
+}
+
+.ticket {
+  font-size: 10px;
+  font-weight: normal;
+  width: 100px;
+  margin: 5px;
+  padding: 0;
+  border: 1px solid #446;
+  background: #fff;
+}
+
+.ticket-top {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 10px;
+  color: #222;
+  background: #ddd;
+}
+
+.ticket-team {
+  justify-content: left;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-color: #000;
+  background: #fff;
+}
+
+.ticket-team-logo {
+  width: 75%;
+  height: auto;
+}
+
+.ticket-team-name {
+  font-size: 10px;
+  font-weight: bold;
+  justify-content: left;
+  flex-direction: row;
+  margin-top: 5px;
+  border-color: #000;
+  background: #fff;
+}
+
+.ticket-at {
+  font-weight: normal;
+  font-size: 8px;
+  font-style: normal;
+}
+
+div.ticket-seat {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 5px;
+  border: 1px solid transparent;
+  border-top: 1px dotted #444;
+  color: #444;
+  background: #fff;
+}
+
+p.ticket-seat {
+  font-family: monospace;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 8px;
+}
+
+.ticket-date {
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 10px;
 }
 
 .ticket-lot-a {
@@ -292,13 +410,69 @@ div.sub-header {
   max-height: 300px;
 }
 
-.full-row {
+.game-view-row {
    width: 100%;
 }
-/*
- */
 
-.game-tickets {
+#game-view {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid #444;
+  padding: 15px;
+  margin: 15px;
+  background: #fff;
+}
+
+.game-view-row {
+   width: 100%;
+}
+
+#game-view-heading {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.game-view-team {
+}
+
+.game-view-at {
+  font-size: 10px;
+  font-weight: normal;
+  margin: 27px;
+}
+
+.game-view-team-logo {
+  width: 60px;
+  height: auto;
+}
+
+.game-view-team-name {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+#game-view-date {
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+#game-view-notice {
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+#game-tickets {
   border: 1px solid #444;
   padding: 15px;
   margin: 15px;
@@ -476,26 +650,6 @@ div.date {
   font-weight: normal;
   font-style: normal;
   font-size: small;
-}
-
-div.college-football {
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-family: sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  font-size: large;
-  color: #222;
-  background: #ddd;
-}
-
-.ticket {
-  width: 175px;
-  margin: 10px;
-  padding: 0;
-  border: 1px solid #446;
-  background: #fff;
 }
 
 .team {

@@ -41,6 +41,7 @@
 </div>
 
 
+<div class="ticket-lot">
 
 {% if ticket_lot.img_path %}
 
@@ -53,36 +54,36 @@
 
     <div class="ticket">
     
-      <div class="college-football">
+      <div class="ticket-top">
         College Football
       </div>
 
-      <div class="team" class="visiting">
-        <img class="team-logo"
+      <div class="ticket-team" class="visiting">
+        <img class="ticket-team-logo"
              src="{{ url_for('static', filename=ticket_lot.game.visiting_team.logo) }}">
-        <span class="team-name">
-          {{ ticket_lot.game.visiting_team.name }}
+        <span class="ticket-team-name">
+          {{ ticket_lot.game.visiting_team.name }} <br />
           {{ ticket_lot.game.visiting_team.nickname }}
         </span>
       </div>
       
-      <div class="at"> at </div>
+      <div class="ticket-at"> at </div>
       
-      <div class="team" class="home">
-        <img class="team-logo"
+      <div class="ticket-team" class="home">
+        <img class="ticket-team-logo"
              src="{{ url_for('static', filename=ticket_lot.game.home_team.logo) }}">
-        <span class="team-name">
-          {{ ticket_lot.game.home_team.name }}
+        <span class="ticket-team-name">
+          {{ ticket_lot.game.home_team.name }} <br />
           {{ ticket_lot.game.home_team.nickname }}
         </span>
       </div>
       
-      <div class="date">
+      <div class="ticket-date">
         {{ticket_lot.game.date}}
       </div>
       
-      <div class="seat">
-        <p class="seat">
+      <div class="ticket-seat">
+        <p class="ticket-seat">
           Sec: {{ticket_lot.section}} 
           Row: {{ticket_lot.row}} <br>
           Seat: {{ticket.seat}}
@@ -94,3 +95,4 @@
 
 {% endif %}
 
+</div>

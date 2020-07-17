@@ -1,53 +1,70 @@
 
-<div id="game-heading">
-  <div class="game-team">
-    <img class="team-logo"
-         src="{{ url_for('static', filename=game.visiting_team.logo) }}">
-    {{game.visiting_team.name}}
-    <!-- {{game.visiting_team.nickname}} -->
+<div id="game-view">
+
+  <div class="game-view-row">
+  <div id="game-view-heading">
+    
+    <div class="game-view-team">
+      <img class="game-view-team-logo"
+           src="{{ url_for('static', filename=game.visiting_team.logo) }}">
+      <p class="game-view-team-name">
+        {{game.visiting_team.name}} <br />
+        {{game.visiting_team.nickname}}
+      </p>
+    </div>
+    
+    <div class="game-view-at"> at </div>
+    
+    <div class="game-view-team">
+      <img class="game-view-team-logo"
+           src="{{ url_for('static', filename=game.home_team.logo) }}">
+      <p class="game-view-team-name">
+        {{game.home_team.name}} <br />
+        {{game.home_team.nickname}}
+      </p>
+    </div>
+    
+  </div> <!-- game-view-heading -->
+
+  </div> <!-- game-view-row -->
+  
+  <span id="game-view-date"> {{game.date.strftime("%A %B %d, %Y")}} </span>
+
+  <div id="game-view-notice">
+    <p> Want to sell tickets to this game? Click here: 
+      <a class="sell-tickets-a" href="{{ url_for('game', game_id=game.id) + '/sell' }}">
+        <button> Sell Tickets </button>
+      </a>
+    </p>
   </div>
-  <div class="game-at">
-    at
-  </div>
-  <div class="game-team">
-    <img class="team-logo"
-         src="{{ url_for('static', filename=game.home_team.logo) }}">
-    {{game.home_team.name}}
-    <!-- {{game.home_team.nickname}} -->
-  </div>
-</div> <!-- game-heading -->
 
-<h3> {{game.date.strftime("%A %B %d, %Y")}} </h3>
-
-<div class="full-row">
-  <p> Want to sell tickets to this game? Click here: 
-    <a class="sell-tickets-a" href="{{ url_for('game', game_id=game.id) + '/sell' }}">
-      <button> Sell Tickets </button>
-    </a>
-  </p>
-</div>
-
-<div class="game-tickets">
-  <table class="tickets">
-    <tr class="ticket-lot">
-      <th class="section"> Section </th>
-      <th class="row"> Row </th>
-      <th class="seats"> Sets </th>
-      <th class="price"> Price (ea) </th>
-    </tr>
-    {% for ticket_lot in game.ticket_lots %}
-    <tr class="ticket-lot">
-      <td class="section"> Section {{ticket_lot.section}} </td>
-      <td class="row"> Row {{ticket_lot.row}} </td>
-      <td class="seats"> {{ticket_lot.seats_str()}} </td>
-      <td class="price"> ${{ticket_lot.price}} </td>
-      <td class="view-button">
-        <a class="ticket-lot-a" href="{{ url_for('ticket_lot', item_id=ticket_lot.id) }}">
-          <button> View Tickets </button>
-        </a>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
-</div> <!-- game-tickets -->
-
+  <div class="game-tickets">
+    <table class="ticket-lots-table">
+      <thead>
+        <tr class="ticket-lots-header">
+          <th class="ticket-lots-table-th"> Section </th>
+          <th class="ticket-lots-table-th"> Row </th>
+          <th class="ticket-lots-table-th"> Seats </th>
+          <th class="ticket-lots-table-th"> Price (ea) </th>
+          <th class="ticket-lots-table-th"> </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ticket_lot in game.ticket_lots %}
+        <tr class="ticket-lot-row">
+          <td class="ticket-lots-table-td"> Section {{ticket_lot.section}} </td>
+          <td class="ticket-lots-table-td"> Row {{ticket_lot.row}} </td>
+          <td class="ticket-lots-table-td"> {{ticket_lot.seats_str()}} </td>
+          <td class="ticket-lots-table-td"> ${{ticket_lot.price}} </td>
+          <td class="ticket-lots-table-td">
+            <a class="ticket-lot-a" href="{{ url_for('ticket_lot', item_id=ticket_lot.id) }}">
+              <button> View Tickets </button>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div> <!-- game-tickets -->
+  
+</div> <!-- game-view -->

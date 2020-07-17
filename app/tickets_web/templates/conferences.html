@@ -7,10 +7,10 @@
   
 {% for conference in conferences %}
 
-<div class="conference-box">
+<div>
   <a class="conference-box-link"
      href="{{ url_for('conference', conference=conference.abbrev_name) }}">
-    <div>
+    <div class="conference-box">
       <p class="conference-box-heading"> {{ conference.name }} </p>
       <img class="conference-box-logo"
            src="{{ url_for("static", filename = "images/conference_logos/" + conference.logo) }}">

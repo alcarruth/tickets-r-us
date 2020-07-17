@@ -450,8 +450,6 @@ def game_xml(game_id):
 #---------------------------------------------------------------------------------------------
 # Tickets Views
 
-
-
 # ticket_lot() returns a page showing the group of tickets
 # that are being offered for sale together.
 #
