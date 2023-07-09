@@ -1,3 +1,3 @@
 
 
-from tickets_web import *
+from .tickets_web import *

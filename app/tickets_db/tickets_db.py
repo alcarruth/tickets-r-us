@@ -1,4 +1,4 @@
-#!/usr/bin/python -i
+#!/usr/bin/python3 -i
 # -*- coding: utf-8 -*-
 
 import json
@@ -71,7 +71,7 @@ class Team(Base):
 
     def dates(self):
         games = self.away_games + self.home_games
-        ds = map(lambda x: x.date, games)
+        ds = [x.date for x in games]
         ds.sort()
         return ds
 
@@ -298,6 +298,6 @@ def alchemy_version():
 startup_info = "Tickets'R'Us Web App\n" + str(engine) + '\n'
 
 def show_tickets(user):
-    print user
+    print(user)
     for ticket in user.tickets:
-        print ticket
+        print(ticket)

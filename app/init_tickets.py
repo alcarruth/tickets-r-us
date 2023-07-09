@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # init_tickets.py
@@ -26,7 +26,7 @@ def load_teams_from_json():
     f = open('json/teams_new.json')
     teams = json.load(f)
     f.close()
-    print "loading %d teams" % len(teams)
+    print(("loading %d teams" % len(teams)))
     for team in teams:
         session.add( Team(
             conference_name = team['conference'].replace(' ','_'),
@@ -44,7 +44,7 @@ def load_conferences_from_json():
     f = open('json/conferences_new.json')
     conferences = json.load(f)
     f.close()
-    print "loading %d conferences" % len(conferences)
+    print(("loading %d conferences" % len(conferences)))
     for conference in conferences:
         session.add( Conference(
             abbrev_name = conference['abbrev_name'].replace(' ','_'),
@@ -72,14 +72,14 @@ def get_saturdays(year, n):
 # meaning c plays d in round r
 #
 def round_robin_index(n):
-    cs = range(n)
+    cs = list(range(n))
     odd = n%2
     if odd:
         n += 1
         cs.insert(0, -1)
     schedule = []
     for r in range(n-1):
-        for j in range(odd, n/2):
+        for j in range(odd, n//2):
             c = cs[j]
             d = cs[n-j-1]
             schedule.append((c, d, r))
@@ -89,7 +89,7 @@ def round_robin_index(n):
 def schedule_games(teams, dates):
     teams = teams[:]
     random.shuffle(teams)
-    print "schecduling %d games" % (len(teams) * len(dates) /2)
+    print(("schecduling %d games" % (len(teams) * len(dates) /2)))
     for (c,d,r) in round_robin_index(len(teams)):
         if r%2:
             (c,d) = (d,c)
@@ -103,7 +103,7 @@ def schedule_games(teams, dates):
 
 def load_names_from_json(name_root):
     f = open('json/' + name_root + '.json')
-    names = json.loads(f.read()).keys()
+    names = list(json.loads(f.read()).keys())
     f.close()
     return names
 
@@ -112,12 +112,12 @@ def create_users(n):
     male_names = load_names_from_json('male_names')
     surnames = load_names_from_json('surnames')
 
-    print "creating %d users" % n
+    print(("creating %d users" % n))
     for i in range(n):
         first_name = random.choice(male_names + female_names)
         last_name = random.choice(surnames)
         name = '%s %s' % (first_name, last_name)
-        email = first_name[0] + last_name + str(random.choice(range(10000,100000))) + '@gmail.com'
+        email = first_name[0] + last_name + str(random.choice(list(range(10000,100000)))) + '@gmail.com'
         picture = None
         session.add( User(
             name = name,
@@ -132,7 +132,7 @@ def create_tickets(n):
     users = session.query(User).all()
     games = session.query(Game).all()
 
-    print "creating %d ticket lots" % n
+    print(("creating %d ticket lots" % n))
     num_tickets = 0
     for i in range(n):
         game = random.choice(games)
@@ -162,10 +162,10 @@ def create_tickets(n):
             session.rollback()
 
         if i%1000 == 0:
-            print i
+            print(i)
             session.commit()
     session.commit()
-    print "created %d tickets" % num_tickets
+    print(("created %d tickets" % num_tickets))
 
 
 def populate_db():
@@ -179,7 +179,7 @@ def populate_db():
 
 
 if __name__ == '__main__':
-    print startup_info
+    print(startup_info)
     session = DBSession()
     populate_db()
     session.close()

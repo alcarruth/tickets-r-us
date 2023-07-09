@@ -1,4 +1,3 @@
-# -*- python3 -*-
 # -*- coding: utf-8 -*-
 
 # Flask libraries
@@ -76,7 +75,7 @@ LOG_ERRORS = True
 #
 def gen_response(msg, rc=401, content_type='application/json'):
     if DEBUG or LOG_ERRORS:
-        print(msg)
+        print msg
     response = make_response(json.dumps(msg), rc)
     response.headers['Content-Type'] = content_type
     return response
@@ -135,9 +134,9 @@ def check_authorization(msg, item_class, end_point):
     return decorator
 
 def get_session_id():
-    if 'session_id' not in app_session:
+    if not app_session.has_key('session_id'):
         app_session['session_id'] = ''.join(random.choice(
-            string.ascii_uppercase + string.digits) for x in range(32))
+            string.ascii_uppercase + string.digits) for x in xrange(32))
     return app_session.get('session_id')
 
 #----------------------------------------------------------------------------------
@@ -175,7 +174,7 @@ def login():
     # TODO: next_url wasn't working with https
     redirect_path = request.args.get('next_url') or url_for('conferences')
     redirect_url = 'https://armazilla.net' + redirect_path
-    print(redirect_url, file=sys.stdout)
+    print >>sys.stdout, redirect_url
     session_id = get_session_id()
 
     # Facebook login
@@ -209,21 +208,21 @@ def login():
 @app.route(mount_point + '/connect/<provider_name>/<session_id>', methods=['POST'])
 def connect(provider_name, session_id):
 
-    print("\n\nprovider_name: %s\n" % provider_name)
-    print("session_id: %s\n" % session_id)
+    print "\n\nprovider_name: %s\n" % provider_name
+    print "session_id: %s\n" % session_id
 
     # TODO: Fix this hack:
     redirect_url = 'https://armazilla.net/tickets/conferences'
 
     # verify session_id
-    print("get_session_id(): %s\n" % get_session_id())
+    print "get_session_id(): %s\n" % get_session_id()
     if session_id != get_session_id():
         flash('Invalid session_id.')
         return redirect(redirect_url)
 
     # auth_code is in the 'POST' data
     auth_code = request.data
-    print("auth_code: %s\n" % auth_code)
+    print "auth_code: %s\n" % auth_code
     login = auth_providers[provider_name].connect(auth_code, Login)
 
     if (app_session.get('login') is not None):
@@ -504,7 +503,7 @@ def edit_tickets(item_id, item):
 
         try:
             ticket_lot.price = request.form['price']
-            if 'img' in request.files:
+            if request.files.has_key('img'):
                 img = request.files['img']
                 img_type = imghdr.what(img)
                 if img_type in ['jpeg', 'png']:
@@ -546,18 +545,18 @@ def delete_tickets(item_id, item):
     elif request.method == 'POST':
 
         img_path = ticket_lot.img_path
-        print(img_path)
+        print img_path
         if img_path:
             os.remove(img_path)
         game_id = ticket_lot.game_id
-        print("game_id: %d" % game_id)
+        print "game_id: %d" % game_id
         for ticket in ticket_lot.tickets:
             db_session.delete(ticket)
             db_session.delete(ticket_lot)
         try:
             db_session.commit()
         except:
-            print("delete_tickets(): could not commit transaction")
+            print "delete_tickets(): could not commit transaction"
             flash("delete_tickets(): could not commit transaction")
             return redirect(url_for('ticket_lot', item_id=item_id))
 
@@ -586,7 +585,7 @@ def delete_image(item_id, item):
             ticket_lot.img_path = None
             db_session.commit()
         except:
-            print("delete_image(): could not commit transaction")
+            print "delete_image(): could not commit transaction"
             flash("delete_image(): could not commit transaction")
             return redirect(url_for('ticket_lot', item_id=item_id))
 
@@ -624,16 +623,16 @@ def user_xml(user_id):
 
 # generate a random secret key
 app.secret_key = ''.join(random.choice(
-    string.ascii_uppercase + string.digits) for x in range(32))
+    string.ascii_uppercase + string.digits) for x in xrange(32))
 
 app.debug = False
-print('tickets app loaded.', file=sys.stderr)
-print(app, file=sys.stderr)
+print >> sys.stderr, 'tickets app loaded.'
+print >> sys.stderr, app
 
 #---------------------------------------------------------------------------------------------
 # Start the server
 
 if __name__ == '__main__':
-    print(startup_info)
+    print startup_info
 
     app.run(host='0.0.0.0', port=5000)

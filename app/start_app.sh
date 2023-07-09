@@ -1,9 +1,10 @@
 #!/bin/bash
 
-HTTP_SERVER='python -m SimpleHTTPServer'
+HTTP_SERVER='python3 -m http.server'
 IP_ADDR='127.0.0.1'
 
-APP_DIR='/opt/github/tickets/app/'
+#APP_DIR='/opt/github/tickets/app/'
+APP_DIR='.'
 RUN_DIR=${APP_DIR}/run/
 
 UWSGI_PORT='8082'
@@ -54,10 +55,10 @@ function static_server {
     case ${1} in
 
         start)
-            pushd tickets_web/static/ >/dev/null
+            #pushd tickets_web/static/ >/dev/null
             ${HTTP_SERVER} ${STATIC_PORT} >${STATIC_LOG} 2>${STATIC_ERR}&
             echo $! > ${STATIC_PID}
-            popd >/dev/null
+            #popd >/dev/null
             ;;
 
         stop)

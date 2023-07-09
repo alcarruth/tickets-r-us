@@ -1,4 +1,4 @@
-#!/usr/bin/python -i
+#!/usr/bin/python3 -i
 # -*- coding: utf-8 -*-
 
 import sys, os
@@ -15,7 +15,7 @@ if __name__ == '__main__':
     import rlcompleter
     readline.parse_and_bind("tab: complete")
 
-    print startup_info
+    print(startup_info)
 
     session = DBSession()
     conferences = session.query(Conference).all()

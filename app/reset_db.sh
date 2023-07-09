@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/bash
 
 # reset_db.sh
 
@@ -11,12 +11,18 @@ db_name='tickets'
 db_owner='carruth'
 db_user='catalog'
 
+# this is a hack. why is it needed?
+pushd /var/lib/postgresql
+
 # these must be done as postgres super user.
 sudo -u postgres psql -c "DROP DATABASE IF EXISTS ${db_name};"
 sudo -u postgres psql -c "DROP ROLE IF EXISTS ${db_user};"
 sudo -u postgres psql -c "DROP ROLE IF EXISTS ${db_owner};"
 sudo -u postgres psql -c "CREATE USER ${db_owner} CREATEDB CREATEROLE;"
 sudo -u postgres psql -c "CREATE DATABASE ${db_owner};"
+
+# this is a hack. why is it needed?
+popd
 
 # now we can do the rest as db_owner.
 sudo -u ${db_owner} psql -c "CREATE USER ${db_user};"
@@ -32,7 +38,7 @@ sudo -u ${db_owner} psql -c "CREATE DATABASE ${db_name};"
 rm -v  "${db_name}.db" 2> /dev/null
 
 # initialize database
-python "init_${db_name}.py"
+python3 "init_${db_name}.py"
 
 # set db user permissions
 sudo -u ${db_owner} psql ${db_name} -c \
